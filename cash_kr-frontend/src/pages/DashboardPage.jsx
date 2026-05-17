@@ -7,7 +7,7 @@ import { formatCurrency } from '../utils/formatCurrency';
 import Badge from '../components/ui/Badge';
 import Loader from '../components/ui/Loader';
 
-// --- Icons (SVGs matching CashKr style) ---
+// --- Icons (SVGs matching CashAbhi style) ---
 const IconOrders = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
 );
@@ -160,10 +160,10 @@ export default function DashboardPage() {
             {/* User Profile Card */}
             <div 
               onClick={() => setActiveTab('Profile')}
-              className={`rounded-2xl border p-6 shadow-sm flex items-center gap-4 cursor-pointer transition-all ${activeTab === 'Profile' ? 'bg-[#F0FDF4] border-[#16A34A]' : 'bg-white border-gray-100 hover:border-[#16A34A]/50'}`}
+              className={`rounded-2xl border p-6 shadow-sm flex items-center gap-4 cursor-pointer transition-all ${activeTab === 'Profile' ? 'bg-[#E8F1FF] border-[#0565E6]' : 'bg-white border-gray-100 hover:border-[#0565E6]/50'}`}
             >
-              <div className="w-16 h-16 rounded-full bg-[#F0FDF4] flex items-center justify-center border-4 border-white shadow-sm overflow-hidden shrink-0">
-                <div className="w-10 h-10 rounded-full bg-[#16A34A] flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-[#E8F1FF] flex items-center justify-center border-4 border-white shadow-sm overflow-hidden shrink-0">
+                <div className="w-10 h-10 rounded-full bg-[#0565E6] flex items-center justify-center">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
                   </svg>
@@ -183,11 +183,11 @@ export default function DashboardPage() {
                   onClick={() => setActiveTab(item.name)}
                   className={`flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all duration-200 group
                     ${activeTab === item.name 
-                      ? 'bg-[#F0FDF4] text-[#16A34A]' 
+                      ? 'bg-[#E8F1FF] text-[#0565E6]' 
                       : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'}`}
                 >
                   <div className={`p-2 rounded-lg transition-colors
-                    ${activeTab === item.name ? 'bg-white shadow-sm text-[#16A34A]' : 'bg-gray-50 text-gray-400 group-hover:text-gray-600'}`}>
+                    ${activeTab === item.name ? 'bg-white shadow-sm text-[#0565E6]' : 'bg-gray-50 text-gray-400 group-hover:text-gray-600'}`}>
                     {item.icon}
                   </div>
                   <span className="font-bold text-[15px]">{item.name}</span>
@@ -299,7 +299,7 @@ function ProfileTab({ user, onUpdateProfile }) {
         {!isEditing && (
           <button 
             onClick={() => setIsEditing(true)}
-            className="flex items-center gap-2 border border-[#16A34A] text-[#16A34A] px-5 py-2.5 rounded-full font-bold text-sm hover:bg-[#F0FDF4] transition-all"
+            className="flex items-center gap-2 border border-[#0565E6] text-[#0565E6] px-5 py-2.5 rounded-full font-bold text-sm hover:bg-[#E8F1FF] transition-all"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 5 1 1-11 11-4 1 1-4Z"/><path d="m15 8 1 1"/></svg>
             Edit Profile
@@ -356,7 +356,7 @@ function ProfileTab({ user, onUpdateProfile }) {
           <div className="flex gap-4">
             <button 
               type="submit"
-              className="bg-[#16A34A] text-white font-bold py-3 px-8 rounded-xl hover:bg-[#15803d] transition-colors"
+              className="bg-[#0565E6] text-white font-bold py-3 px-8 rounded-xl hover:bg-[#044BA8] transition-colors"
             >
               Save Changes
             </button>
@@ -381,15 +381,15 @@ function ProfileTab({ user, onUpdateProfile }) {
       </form>
 
       <div className="border border-gray-100 rounded-2xl p-6 flex items-start gap-5">
-        <div className="w-10 h-10 rounded-full bg-[#F0FDF4] text-[#16A34A] flex items-center justify-center shrink-0">
+        <div className="w-10 h-10 rounded-full bg-[#E8F1FF] text-[#0565E6] flex items-center justify-center shrink-0">
            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         </div>
         <div className="flex-1">
           <div className="flex items-center justify-between">
             <h4 className="text-[15px] font-black text-[#111827]">WhatsApp Updates</h4>
             <div className="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
-              <input type="checkbox" defaultChecked className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-[#16A34A]" style={{ right: 0, borderColor: '#16A34A' }}/>
-              <label className="toggle-label block overflow-hidden h-6 rounded-full bg-[#16A34A] cursor-pointer"></label>
+              <input type="checkbox" defaultChecked className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-[#0565E6]" style={{ right: 0, borderColor: '#0565E6' }}/>
+              <label className="toggle-label block overflow-hidden h-6 rounded-full bg-[#0565E6] cursor-pointer"></label>
             </div>
           </div>
           <p className="text-sm text-gray-500 font-medium mt-1 leading-relaxed">
@@ -428,7 +428,7 @@ function OrdersTab({ orders, setSelectedReportOrder, onCancel }) {
             <button 
               key={cat}
               onClick={() => setCategoryFilter(cat)}
-              className={`px-5 py-2 rounded-lg text-xs font-black transition-all ${categoryFilter === cat ? 'bg-white text-[#16A34A] shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}
+              className={`px-5 py-2 rounded-lg text-xs font-black transition-all ${categoryFilter === cat ? 'bg-white text-[#0565E6] shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}
             >
               {cat}
             </button>
@@ -450,14 +450,14 @@ function OrdersTab({ orders, setSelectedReportOrder, onCancel }) {
                <div key={order.orderId} className="bg-white border border-gray-100 rounded-[40px] p-8 shadow-sm hover:shadow-md transition-all relative overflow-hidden group">
                   {/* Category Tag */}
                   <div className="absolute top-0 right-10">
-                    <div className={`px-4 py-1.5 rounded-b-xl text-[9px] font-black uppercase tracking-widest ${order.device?.category === 'laptop' ? 'bg-blue-50 text-blue-500' : 'bg-green-50 text-green-500'}`}>
+                    <div className={`px-4 py-1.5 rounded-b-xl text-[9px] font-black uppercase tracking-widest ${order.device?.category === 'laptop' ? 'bg-blue-50 text-blue-500' : 'bg-[#E8F1FF] text-[#0565E6]'}`}>
                       {order.device?.category || 'Mobile'}
                     </div>
                   </div>
                   {/* Top Status Bar */}
                   <div className="flex items-center justify-between mb-8 pb-8 border-b border-gray-50">
                     <div className="flex items-center gap-4">
-                       <div className="w-12 h-12 bg-[#F0FDF4] rounded-full flex items-center justify-center text-[#16A34A]">
+                       <div className="w-12 h-12 bg-[#E8F1FF] rounded-full flex items-center justify-center text-[#0565E6]">
                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
                        </div>
                        <div>
@@ -640,7 +640,7 @@ function AddressTab({ addresses, onAdd, onDelete }) {
             onChange={(e) => setFormData({...formData, state: e.target.value})}
             required
           />
-          <button type="submit" className="md:col-span-2 bg-[#16A34A] text-white font-bold py-3 rounded-xl hover:bg-[#15803d] transition-colors mt-2">
+          <button type="submit" className="md:col-span-2 bg-[#0565E6] text-white font-bold py-3 rounded-xl hover:bg-[#044BA8] transition-colors mt-2">
             Save Address
           </button>
         </form>
@@ -767,7 +767,7 @@ function PaymentTab({ paymentMethods, onAdd, onDelete }) {
                 </div>
               )}
               <div className="md:col-span-2 flex gap-3 mt-2">
-                <button type="submit" className="flex-1 bg-[#16A34A] text-white font-bold py-3 rounded-xl hover:bg-[#15803d] transition-colors">
+                <button type="submit" className="flex-1 bg-[#0565E6] text-white font-bold py-3 rounded-xl hover:bg-[#044BA8] transition-colors">
                   Save Payment Method
                 </button>
                 <button 
@@ -878,13 +878,13 @@ function EarningsTab() {
       </div>
 
       <p className="text-center text-gray-600 font-medium max-w-lg mx-auto mb-12">
-        We're building powerful tools to help you track and maximize your earnings on Cashkr.
+        We're building powerful tools to help you track and maximize your earnings on CashAbhi.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
           { title: 'Earnings Analytics', desc: 'Visualize your earnings trends and identify your best performing activities.', icon: <IconEarnings /> },
-          { title: 'Refer & Earn', desc: 'Invite friends to join Cashkr and earn bonuses for each successful referral.', icon: <IconReferral /> },
+          { title: 'Refer & Earn', desc: 'Invite friends to join CashAbhi and earn bonuses for each successful referral.', icon: <IconReferral /> },
           { title: 'Earnings History', desc: 'Track your complete earnings history with detailed transaction records.', icon: <IconOrders /> },
         ].map((card) => (
           <div key={card.title} className="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all">
@@ -934,7 +934,7 @@ function ReferralTab({ referral, copyCode, copied }) {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <button className="flex-1 bg-[#15803d] text-white font-bold py-4 rounded-2xl hover:bg-[#166534] transition-colors shadow-lg shadow-green-200">
+          <button className="flex-1 bg-[#044BA8] text-white font-bold py-4 rounded-2xl hover:bg-[#0452B8] transition-colors shadow-lg shadow-blue-200">
             Generate Link
           </button>
           <button 

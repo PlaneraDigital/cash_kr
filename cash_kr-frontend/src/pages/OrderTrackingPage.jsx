@@ -692,7 +692,7 @@ function UpdatePaymentModal({ order, user, onClose, onSuccess }) {
         <button 
           onClick={handleConfirm}
           disabled={submitting || (paymentType !== 'cash' && !selectedPaymentId)}
-          className="w-full mt-8 bg-[#16A34A] text-white font-black py-5 rounded-[24px] hover:bg-[#15803D] transition-all shadow-xl shadow-green-100 disabled:opacity-50"
+          className="w-full mt-8 bg-[#0565E6] text-white font-black py-5 rounded-[24px] hover:bg-[#044BA8] transition-all shadow-xl shadow-blue-100 disabled:opacity-50"
         >
           {submitting ? 'Updating...' : 'Update Payment Method'}
         </button>
@@ -810,7 +810,7 @@ function CreatePaymentModal({ type, onClose }) {
           <button 
             type="submit" 
             disabled={loading}
-            className="w-full mt-6 bg-[#16A34A] text-white font-black py-5 rounded-[24px] hover:bg-[#15803D] transition-all shadow-xl shadow-green-100 flex items-center justify-center gap-2"
+            className="w-full mt-6 bg-[#0565E6] text-white font-black py-5 rounded-[24px] hover:bg-[#044BA8] transition-all shadow-xl shadow-blue-100 flex items-center justify-center gap-2"
           >
             {loading ? 'Saving...' : 'Save Details'}
           </button>

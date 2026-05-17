@@ -205,7 +205,7 @@ export default function LaptopConditionQuizPage() {
   if (loading) return <Loader />;
   if (!device) return <div className="text-center py-20 font-black text-gray-400">Device not found</div>;
 
-  // --- RESULT VIEW (SAME AS MOBILE FLOW) ---
+  // --- RESULT VIEW ---
   if (showResult) {
     return (
       <div className="bg-[#F9FAFB] min-h-screen py-10 px-4 sm:px-8">
@@ -214,7 +214,7 @@ export default function LaptopConditionQuizPage() {
           {/* Header Progress */}
           <div className="flex justify-center gap-12 border-b border-gray-100 pb-8">
             <div className="flex items-center gap-3">
-              <span className="w-8 h-8 rounded-full bg-[#16A34A] text-white flex items-center justify-center font-black">1</span>
+              <span className="w-8 h-8 rounded-full bg-[#0565E6] text-white flex items-center justify-center font-black">1</span>
               <span className="text-[#111827] font-black">Offer Details</span>
             </div>
             <div className="flex items-center gap-3 opacity-30">
@@ -234,18 +234,18 @@ export default function LaptopConditionQuizPage() {
                     <img src={device.imageUrl} alt={device.modelName} className="max-h-full object-contain" />
                   </div>
                   <div className="flex-1 text-center sm:text-left">
-                    <span className="text-[#16A34A] text-xs font-black uppercase tracking-wider mb-2 block">Offer ready — instant payout</span>
+                    <span className="text-[#0565E6] text-xs font-black uppercase tracking-wider mb-2 block">Offer ready — instant payout</span>
                     <h1 className="text-xl sm:text-2xl font-black text-[#111827] mb-4">
                       {device.modelName} <span className="text-gray-400 font-medium text-sm">({specs.ram}/{specs.storage})</span>
                     </h1>
                     <div className="flex items-center justify-center sm:justify-start gap-5 mb-6">
                       <span className="text-4xl font-black text-[#111827] tracking-tighter">{formatCurrency(currentPrice)}</span>
-                      <div className="flex items-center gap-2 bg-[#F0FDF4] text-[#16A34A] px-3 py-1.5 rounded-xl border border-[#16A34A]/10">
+                      <div className="flex items-center gap-2 bg-[#0565E6]/5 text-[#0565E6] px-3 py-1.5 rounded-xl border border-[#0565E6]/10">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
                         <span className="text-xs font-black uppercase tracking-widest">Guaranteed</span>
                       </div>
                     </div>
-                    <button onClick={() => setShowResult(false)} className="text-[#16A34A] font-black text-sm underline underline-offset-8 hover:text-[#15803D] transition-all">Recalculate</button>
+                    <button onClick={() => setShowResult(false)} className="text-[#0565E6] font-black text-sm underline underline-offset-8 hover:text-[#0452B9] transition-all">Recalculate</button>
                   </div>
                 </div>
 
@@ -256,16 +256,16 @@ export default function LaptopConditionQuizPage() {
 
                 <button 
                   onClick={handleSchedulePickup}
-                  className="w-full mt-12 bg-[#16A34A] text-white font-black py-7 rounded-[32px] hover:bg-[#15803D] transition-all shadow-2xl shadow-[#16A34A]/20 text-xl flex items-center justify-center gap-3 group"
+                  className="w-full mt-12 bg-[#0565E6] text-white font-black py-7 rounded-[32px] hover:bg-[#0452B9] transition-all shadow-2xl shadow-[#0565E6]/20 text-xl flex items-center justify-center gap-3 group"
                 >
                   Get My {formatCurrency(currentPrice)} Now
                   <svg className="transition-transform group-hover:translate-x-2" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
 
                 <div className="mt-10 flex flex-wrap justify-center gap-x-12 gap-y-4 text-[13px] font-black text-gray-400">
-                  <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" /> Free doorstep pickup</span>
-                  <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" /> Instant payment at pickup</span>
-                  <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" /> Price locked for 24h</span>
+                  <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-[#0565E6]" /> Free doorstep pickup</span>
+                  <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-[#0565E6]" /> Instant payment at pickup</span>
+                  <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-[#0565E6]" /> Price locked for 24h</span>
                 </div>
               </div>
 
@@ -273,12 +273,12 @@ export default function LaptopConditionQuizPage() {
               <div className="bg-white rounded-[40px] border border-gray-100 p-12 shadow-sm">
                 <h3 className="text-2xl font-black text-[#111827] mb-12">Laptop Evaluation Detail</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10">
-                   <EvaluationDetailRow label="Device Specs" value={`${specs.processor} / ${specs.ram} / ${specs.storage}`} color="#16A34A" />
-                   <EvaluationDetailRow label="Device Age" value={age ? AGE_OPTIONS.find(o => o.key === age).label : '-'} color="#16A34A" />
-                   <EvaluationDetailRow label="Body Condition" value={selectedCondition.toUpperCase()} color={selectedCondition === 'likenew' ? '#16A34A' : '#EAB308'} />
-                   <EvaluationDetailRow label="Functional Issues" value={issuesList.length > 0 ? issuesList.join(', ') : 'No Issues'} color={issuesList.length > 0 ? '#EF4444' : '#16A34A'} />
-                   <EvaluationDetailRow label="Touch Screen" value={hasTouchscreen === 'yes' ? 'Available' : 'No'} color="#16A34A" />
-                   <EvaluationDetailRow label="Graphics Card" value={gpuModel || 'Integrated'} color="#16A34A" />
+                   <EvaluationDetailRow label="Device Specs" value={`${specs.processor} / ${specs.ram} / ${specs.storage}`} color="#0565E6" />
+                   <EvaluationDetailRow label="Device Age" value={age ? AGE_OPTIONS.find(o => o.key === age).label : '-'} color="#0565E6" />
+                   <EvaluationDetailRow label="Body Condition" value={selectedCondition.toUpperCase()} color={selectedCondition === 'likenew' ? '#0565E6' : '#EAB308'} />
+                   <EvaluationDetailRow label="Functional Issues" value={issuesList.length > 0 ? issuesList.join(', ') : 'No Issues'} color={issuesList.length > 0 ? '#EF4444' : '#0565E6'} />
+                   <EvaluationDetailRow label="Touch Screen" value={hasTouchscreen === 'yes' ? 'Available' : 'No'} color="#0565E6" />
+                   <EvaluationDetailRow label="Graphics Card" value={gpuModel || 'Integrated'} color="#0565E6" />
                 </div>
               </div>
             </div>
@@ -293,7 +293,7 @@ export default function LaptopConditionQuizPage() {
                     <SummaryPriceRow label="Processing" value={0} original={150} isFree />
                     <div className="pt-8 border-t border-gray-50 flex justify-between items-center">
                       <span className="text-lg font-black text-[#111827]">Final Payout</span>
-                      <span className="text-3xl font-black text-[#16A34A]">{formatCurrency(currentPrice)}</span>
+                      <span className="text-3xl font-black text-[#0565E6]">{formatCurrency(currentPrice)}</span>
                     </div>
                  </div>
               </div>
@@ -321,7 +321,7 @@ export default function LaptopConditionQuizPage() {
              <img src={device.imageUrl} alt={device.modelName} className="max-h-full object-contain" />
           </div>
           <div>
-            <p className="text-[#16A34A] text-[10px] font-black uppercase tracking-widest mb-1">Evaluating</p>
+            <p className="text-[#0565E6] text-[10px] font-black uppercase tracking-widest mb-1">Evaluating</p>
             <h1 className="text-xl font-black text-[#111827]">{device.modelName}</h1>
           </div>
         </div>
@@ -334,43 +334,43 @@ export default function LaptopConditionQuizPage() {
             <EvaluationStepCard title="2. How old is your laptop?" active={currentStep >= 1}>
                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                  {AGE_OPTIONS.map(opt => (
-                   <button key={opt.key} onClick={() => { setAge(opt.key); if(currentStep === 1) setCurrentStep(2); }} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${age === opt.key ? 'border-[#16A34A] bg-[#F0FDF4] text-[#16A34A]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{opt.label}</button>
+                   <button key={opt.key} onClick={() => { setAge(opt.key); if(currentStep === 1) setCurrentStep(2); }} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${age === opt.key ? 'border-[#0565E6] bg-[#0565E6]/5 text-[#0565E6]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{opt.label}</button>
                  ))}
                </div>
             </EvaluationStepCard>
             <EvaluationStepCard title="3. Any body damage?" active={currentStep >= 2}>
                <div className="grid grid-cols-2 gap-4">
                  {['Yes', 'No'].map(v => (
-                   <button key={v} onClick={() => handleBodyDamageSelect(v.toLowerCase())} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${((bodyDamage === 'yes' && v === 'Yes') || (bodyDamage === 'no' && v === 'No')) ? 'border-[#16A34A] bg-[#F0FDF4] text-[#16A34A]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{v}</button>
+                   <button key={v} onClick={() => handleBodyDamageSelect(v.toLowerCase())} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${((bodyDamage === 'yes' && v === 'Yes') || (bodyDamage === 'no' && v === 'No')) ? 'border-[#0565E6] bg-[#0565E6]/5 text-[#0565E6]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{v}</button>
                  ))}
                </div>
             </EvaluationStepCard>
             <EvaluationStepCard title="4. Any other problems?" active={currentStep >= 3}>
                <div className="grid grid-cols-2 gap-4">
                  {['Yes', 'No'].map(v => (
-                   <button key={v} onClick={() => handleFunctionalSelect(v.toLowerCase())} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${((functionalIssues === 'yes' && v === 'Yes') || (functionalIssues === 'no' && v === 'No')) ? 'border-[#16A34A] bg-[#F0FDF4] text-[#16A34A]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{v}</button>
+                   <button key={v} onClick={() => handleFunctionalSelect(v.toLowerCase())} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${((functionalIssues === 'yes' && v === 'Yes') || (functionalIssues === 'no' && v === 'No')) ? 'border-[#0565E6] bg-[#0565E6]/5 text-[#0565E6]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{v}</button>
                  ))}
                </div>
             </EvaluationStepCard>
             <EvaluationStepCard title="5. Does your laptop have a touchscreen?" active={currentStep >= 4}>
                <div className="grid grid-cols-2 gap-4">
                  {['Yes', 'No'].map(v => (
-                   <button key={v} onClick={() => { setHasTouchscreen(v.toLowerCase()); if(currentStep === 4) setCurrentStep(5); }} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${hasTouchscreen === v.toLowerCase() ? 'border-[#16A34A] bg-[#F0FDF4] text-[#16A34A]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{v}</button>
+                   <button key={v} onClick={() => { setHasTouchscreen(v.toLowerCase()); if(currentStep === 4) setCurrentStep(5); }} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${hasTouchscreen === v.toLowerCase() ? 'border-[#0565E6] bg-[#0565E6]/5 text-[#0565E6]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{v}</button>
                  ))}
                </div>
             </EvaluationStepCard>
             <EvaluationStepCard title="6. Have External graphics card/device ?" active={currentStep >= 5}>
                <div className="grid grid-cols-2 gap-4">
                  {['Yes', 'No'].map(v => (
-                   <button key={v} onClick={() => handleGpuSelect(v.toLowerCase())} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${((gpuModel && gpuModel !== 'Integrated' && v === 'Yes') || (gpuModel === 'Integrated' && v === 'No')) ? 'border-[#16A34A] bg-[#F0FDF4] text-[#16A34A]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{v}</button>
+                   <button key={v} onClick={() => handleGpuSelect(v.toLowerCase())} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${((gpuModel && gpuModel !== 'Integrated' && v === 'Yes') || (gpuModel === 'Integrated' && v === 'No')) ? 'border-[#0565E6] bg-[#0565E6]/5 text-[#0565E6]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{v}</button>
                  ))}
                </div>
             </EvaluationStepCard>
           </div>
           <div className="w-full lg:w-[450px]">
             <div className="sticky top-8 space-y-8">
-              <div className="bg-[#F0FDF4] rounded-[32px] p-8 border border-[#16A34A]/20 shadow-sm flex items-center justify-between">
-                <div><p className="text-[#16A34A] text-xs font-black uppercase tracking-widest mb-1">Estimated Value</p><p className="text-4xl font-black text-[#166534] tracking-tighter">{currentPrice > 0 ? formatCurrency(currentPrice) : '₹ XX,XXX'}</p></div>
+              <div className="bg-[#0565E6]/5 rounded-[32px] p-8 border border-[#0565E6]/20 shadow-sm flex items-center justify-between">
+                <div><p className="text-[#0565E6] text-xs font-black uppercase tracking-widest mb-1">Estimated Value</p><p className="text-4xl font-black text-[#0452B9] tracking-tighter">{currentPrice > 0 ? formatCurrency(currentPrice) : '₹ XX,XXX'}</p></div>
               </div>
               <div className="bg-white rounded-[32px] p-10 border border-gray-100 shadow-sm space-y-8">
                 <h4 className="text-sm font-black text-gray-400 uppercase tracking-widest mb-6">Summary</h4>
@@ -402,7 +402,7 @@ function CheckboxRow({ label, checked }) {
     <label className="flex items-start gap-5 cursor-pointer group">
       <div className="relative mt-1">
         <input type="checkbox" defaultChecked={checked} className="sr-only peer" />
-        <div className="w-7 h-7 border-2 border-gray-200 rounded-xl peer-checked:bg-[#16A34A] peer-checked:border-[#16A34A] transition-all shadow-sm" />
+        <div className="w-7 h-7 border-2 border-gray-200 rounded-xl peer-checked:bg-[#0565E6] peer-checked:border-[#0565E6] transition-all shadow-sm" />
         <svg className="absolute top-1.5 left-1.5 w-4 h-4 text-white opacity-0 peer-checked:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
       <span className="text-sm font-bold text-gray-500 leading-relaxed group-hover:text-[#111827] transition-colors">{label}</span>
@@ -428,7 +428,7 @@ function SummaryPriceRow({ label, value, original, isFree }) {
       <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">{label}</span>
       <div className="flex items-center gap-3">
         {original && <span className="text-sm text-gray-300 line-through">₹{original}</span>}
-        <span className={`font-black ${isFree ? 'text-[#16A34A]' : 'text-[#111827]'}`}>{isFree ? 'Free' : formatCurrency(value)}</span>
+        <span className={`font-black ${isFree ? 'text-[#0565E6]' : 'text-[#111827]'}`}>{isFree ? 'Free' : formatCurrency(value)}</span>
       </div>
     </div>
   );
@@ -470,7 +470,7 @@ function BodyConditionModal({ isOpen, onClose, onSelect, initialValue }) {
 
 function ConditionCard({ opt, onSelect, isSelected }) {
   return (
-    <button onClick={onSelect} className={`group text-left p-6 rounded-[24px] border-[1.5px] bg-white transition-all hover:shadow-lg flex justify-between items-center h-full relative overflow-hidden active:scale-[0.98] ${isSelected ? 'border-[#16A34A] bg-[#F0FDF4]' : 'border-gray-200 hover:border-gray-300'}`}>
+    <button onClick={onSelect} className={`group text-left p-6 rounded-[24px] border-[1.5px] bg-white transition-all hover:shadow-lg flex justify-between items-center h-full relative overflow-hidden active:scale-[0.98] ${isSelected ? 'border-[#0565E6] bg-[#0565E6]/5' : 'border-gray-200 hover:border-gray-300'}`}>
       <div className="relative z-10 pr-2">
         <h4 className="text-base font-black text-[#111827] mb-4">{opt.label}</h4>
         <ul className="space-y-2">{opt.bullets.map(b => (<li key={b} className="text-[11px] font-bold text-gray-500 flex items-start gap-3"><div className="w-1 h-1 rounded-full bg-gray-300 mt-[6px] shrink-0" />{b}</li>))}</ul>
@@ -493,8 +493,8 @@ function IssuesModal({ isOpen, onClose, onFinish, initialList }) {
   const toggle = (id) => selected.includes(id) ? setSelected(selected.filter(i => i !== id)) : setSelected([...selected, id]);
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Select Issues" size="5xl">
-       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">{issues.map(i => (<button key={i.id} onClick={() => toggle(i.id)} className={`p-6 rounded-3xl border-[1.5px] flex flex-col items-center gap-4 transition-all ${selected.includes(i.id) ? 'border-[#16A34A] bg-[#F0FDF4]' : 'border-gray-100 bg-white'}`}><div className="text-2xl">{i.icon}</div><span className="text-[11px] font-black text-center">{i.label}</span></button>))}</div>
-       <button onClick={() => onFinish(selected)} className="w-full mt-8 py-4 bg-[#16A34A] text-white rounded-2xl font-black">Proceed</button>
+       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">{issues.map(i => (<button key={i.id} onClick={() => toggle(i.id)} className={`p-6 rounded-3xl border-[1.5px] flex flex-col items-center gap-4 transition-all ${selected.includes(i.id) ? 'border-[#0565E6] bg-[#0565E6]/5' : 'border-gray-100 bg-white'}`}><div className="text-2xl">{i.icon}</div><span className="text-[11px] font-black text-center">{i.label}</span></button>))}</div>
+       <button onClick={() => onFinish(selected)} className="w-full mt-8 py-4 bg-[#0565E6] text-white rounded-2xl font-black">Proceed</button>
     </Modal>
   );
 }
@@ -506,18 +506,19 @@ function GpuModal({ isOpen, onClose, onFinish, initialValue }) {
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Select Graphics Card" size="2xl">
        <div className="space-y-6">
-         <input type="text" placeholder="Search graphic card..." value={search} onChange={e => setSearch(e.target.value)} className="w-full p-4 border rounded-xl outline-none focus:border-[#16A34A]" />
-         <div className="space-y-2 max-h-[300px] overflow-y-auto">{filtered.map(g => (<button key={g} onClick={() => onFinish(g)} className={`w-full text-left p-4 rounded-xl font-bold transition-all ${initialValue === g ? 'bg-[#F0FDF4] text-[#16A34A]' : 'hover:bg-gray-50 text-gray-700'}`}>{g}</button>))}</div>
+         <input type="text" placeholder="Search graphic card..." value={search} onChange={e => setSearch(e.target.value)} className="w-full p-4 border rounded-xl outline-none focus:border-[#0565E6]" />
+         <div className="space-y-2 max-h-[300px] overflow-y-auto">{filtered.map(g => (<button key={g} onClick={() => onFinish(g)} className={`w-full text-left p-4 rounded-xl font-bold transition-all ${initialValue === g ? 'bg-[#0565E6]/5 text-[#0565E6]' : 'hover:bg-gray-50 text-gray-700'}`}>{g}</button>))}</div>
        </div>
     </Modal>
   );
 }
 
+// Screen sizes and icons mapped cleanly
 function ScreenSizeModal({ isOpen, onClose, onFinish, initialValue }) {
   const options = [{ key: '10-12', label: 'Screen 10 To 12 Inch' }, { key: '13-14', label: 'Screen 13 To 14 Inch' }, { key: '15-16', label: 'Screen 15 To 16 Inch' }, { key: '16+', label: 'Above 16 Inch' }];
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Screen Size" size="4xl">
-       <div className="grid grid-cols-1 md:grid-cols-4 gap-3">{options.map(o => (<button key={o.key} onClick={() => onFinish(o.key)} className={`p-6 rounded-[24px] border-[1.5px] flex flex-col items-center gap-4 transition-all ${initialValue === o.key ? 'border-[#16A34A] bg-[#F0FDF4]' : 'border-gray-100 bg-white'}`}><span className="text-xs font-black text-center">{o.label}</span><div className="w-16 h-16 flex items-center justify-center"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><rect x="3" y="4" width="18" height="12" rx="2" /><path d="M7 8l10 4" /><path d="M17 8l-10 4" /></svg></div></button>))}</div>
+       <div className="grid grid-cols-1 md:grid-cols-4 gap-3">{options.map(o => (<button key={o.key} onClick={() => onFinish(o.key)} className={`p-6 rounded-[24px] border-[1.5px] flex flex-col items-center gap-4 transition-all ${initialValue === o.key ? 'border-[#0565E6] bg-[#0565E6]/5' : 'border-gray-100 bg-white'}`}><span className="text-xs font-black text-center">{o.label}</span><div className="w-16 h-16 flex items-center justify-center"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><rect x="3" y="4" width="18" height="12" rx="2" /><path d="M7 8l10 4" /><path d="M17 8l-10 4" /></svg></div></button>))}</div>
     </Modal>
   );
 }
@@ -528,8 +529,8 @@ function AccessoriesModal({ isOpen, onClose, onFinish, initialList }) {
   const toggle = (id) => selected.includes(id) ? setSelected(selected.filter(i => i !== id)) : setSelected([...selected, id]);
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Accessories" size="3xl">
-       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">{items.map(i => (<button key={i.id} onClick={() => toggle(i.id)} className={`p-8 rounded-[24px] border-[1.5px] flex flex-col items-center gap-4 transition-all ${selected.includes(i.id) ? 'border-[#16A34A] bg-[#F0FDF4]' : 'border-gray-100 bg-white'}`}><div className="text-3xl">{i.icon}</div><span className="text-xs font-black">{i.label}</span></button>))}</div>
-       <button onClick={() => onFinish(selected)} className="w-full py-5 bg-[#16A34A] text-white rounded-[20px] font-black text-lg shadow-xl shadow-[#16A34A]/30">GET BEST PRICE →</button>
+       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">{items.map(i => (<button key={i.id} onClick={() => toggle(i.id)} className={`p-8 rounded-[24px] border-[1.5px] flex flex-col items-center gap-4 transition-all ${selected.includes(i.id) ? 'border-[#0565E6] bg-[#0565E6]/5' : 'border-gray-100 bg-white'}`}><div className="text-3xl">{i.icon}</div><span className="text-xs font-black">{i.label}</span></button>))}</div>
+       <button onClick={() => onFinish(selected)} className="w-full py-5 bg-[#0565E6] text-white rounded-[20px] font-black text-lg shadow-xl shadow-[#0565E6]/30">GET BEST PRICE →</button>
     </Modal>
   );
 }
@@ -539,5 +540,5 @@ function SummaryItem({ label, value }) {
 }
 
 function EvaluationStepCard({ title, active, children }) {
-  return (<div className={`bg-white rounded-[24px] p-6 border border-gray-100 shadow-sm transition-all duration-500 ${active ? 'ring-2 ring-[#16A34A]/20 scale-[1.01]' : 'opacity-30 pointer-events-none'}`}><h3 className="text-base font-black text-[#111827] mb-4">{title}</h3>{children}</div>);
+  return (<div className={`bg-white rounded-[24px] p-6 border border-gray-100 shadow-sm transition-all duration-500 ${active ? 'ring-2 ring-[#0565E6]/20 scale-[1.01]' : 'opacity-30 pointer-events-none'}`}><h3 className="text-base font-black text-[#111827] mb-4">{title}</h3>{children}</div>);
 }

@@ -391,7 +391,7 @@ export default function SchedulePickupPage() {
               <button 
                 disabled={submitting || !selectedAddressId || !selectedDate || !selectedSlot}
                 onClick={handleCreateOrder}
-                className="w-full mt-8 bg-[#16A34A] text-white font-black py-5 rounded-2xl hover:bg-[#15803D] transition-all shadow-xl shadow-green-100 disabled:opacity-50 disabled:shadow-none"
+                className="w-full mt-8 bg-[#0565E6] text-white font-black py-5 rounded-2xl hover:bg-[#044BA8] transition-all shadow-xl shadow-blue-100 disabled:opacity-50 disabled:shadow-none"
               >
                 {submitting ? 'Scheduling...' : `Confirm Order — ${formatCurrency(quote.priceBreakdown?.finalPrice)}`}
               </button>

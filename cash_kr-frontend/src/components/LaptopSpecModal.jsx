@@ -100,7 +100,7 @@ export default function LaptopSpecModal({ isOpen, onClose, device, onComplete, i
             disabled={!isComplete}
             className={`w-full py-4 rounded-xl font-black transition-all flex items-center justify-center gap-2 text-base
               ${isComplete 
-                ? 'bg-[#16A34A] text-white hover:bg-[#15803D] shadow-[0_0_15px_rgba(22,163,74,0.3)] scale-[1.01]' 
+                ? 'bg-[#0565E6] text-white hover:bg-[#044BA8] shadow-[0_0_15px_rgba(5,101,230,0.3)] scale-[1.01]' 
                 : 'bg-[#93C5B5]/50 text-white cursor-not-allowed'}`}
           >
             Next →

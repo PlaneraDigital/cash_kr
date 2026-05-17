@@ -67,7 +67,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-1.5 no-underline shrink-0">
           <span className="text-primary text-2xl font-black tracking-[-4px] leading-none">«</span>
-          <span className="text-2xl font-bold text-text-primary tracking-tight">CashKr</span>
+          <span className="text-2xl font-bold text-text-primary tracking-tight">CashAbhi</span>
         </Link>
 
         {/* Search (Desktop) */}

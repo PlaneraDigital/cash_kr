@@ -137,7 +137,7 @@ export default function ConditionQuizPage() {
           {/* Header Progress */}
           <div className="flex items-center justify-end gap-12 mb-10 text-sm font-bold">
             <div className="flex items-center gap-3">
-              <span className="w-8 h-8 rounded-full bg-[#16A34A] text-white flex items-center justify-center">1</span>
+              <span className="w-8 h-8 rounded-full bg-[#0565E6] text-white flex items-center justify-center">1</span>
               <span className="text-[#111827]">Payment</span>
             </div>
             <div className="flex items-center gap-3 opacity-30">
@@ -160,20 +160,20 @@ export default function ConditionQuizPage() {
                     />
                   </div>
                   <div className="flex-1 text-center sm:text-left">
-                    <span className="text-[#16A34A] text-sm font-black uppercase tracking-wider mb-2 block">Offer ready — instant payout</span>
+                    <span className="text-[#0565E6] text-sm font-black uppercase tracking-wider mb-2 block">Offer ready — instant payout</span>
                     <h1 className="text-2xl sm:text-3xl font-black text-[#111827] mb-4">
                       {device.modelName} ({storage || device.variants[0].storage})
                     </h1>
                     <div className="flex items-center justify-center sm:justify-start gap-4 mb-6">
                       <span className="text-5xl font-black text-[#111827]">{formatCurrency(currentPrice)}</span>
-                      <div className="flex items-center gap-1.5 bg-[#F0FDF4] text-[#16A34A] px-3 py-1.5 rounded-xl border border-[#16A34A]/10">
+                      <div className="flex items-center gap-1.5 bg-[#E8F1FF] text-[#0565E6] px-3 py-1.5 rounded-xl border border-[#0565E6]/10">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
                         <span className="text-xs font-black uppercase tracking-wider">Guaranteed</span>
                       </div>
                     </div>
                     <button 
                       onClick={() => setShowResult(false)}
-                      className="text-[#16A34A] font-black text-sm underline underline-offset-8 hover:text-[#15803D] transition-all"
+                      className="text-[#0565E6] font-black text-sm underline underline-offset-8 hover:text-[#044BA8] transition-all"
                     >
                       Recalculate
                     </button>
@@ -198,14 +198,14 @@ export default function ConditionQuizPage() {
                       <svg className="absolute top-1 left-1 w-4 h-4 text-white opacity-0 peer-checked:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4"><polyline points="20 6 9 17 4 12"/></svg>
                     </div>
                     <span className="text-sm font-medium text-gray-500 leading-relaxed group-hover:text-[#111827] transition-colors">
-                      I agree to the <span className="text-[#16A34A] font-bold">terms and conditions</span> of the service and understand that the final value of {formatCurrency(currentPrice)} is subject to physical device inspection by our technician at the time of pickup.
+                      I agree to the <span className="text-[#0565E6] font-bold">terms and conditions</span> of the service and understand that the final value of {formatCurrency(currentPrice)} is subject to physical device inspection by our technician at the time of pickup.
                     </span>
                   </label>
                 </div>
 
                 <button 
                   onClick={handleSchedulePickup}
-                  className="w-full mt-10 bg-[#16A34A] text-white font-black py-6 rounded-3xl hover:bg-[#15803D] transition-all shadow-xl shadow-green-100 text-lg flex items-center justify-center gap-2 group"
+                  className="w-full mt-10 bg-[#0565E6] text-white font-black py-6 rounded-3xl hover:bg-[#044BA8] transition-all shadow-xl shadow-blue-100 text-lg flex items-center justify-center gap-2 group"
                 >
                   Get My {formatCurrency(currentPrice)} Now
                   <svg className="transition-transform group-hover:translate-x-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -213,13 +213,13 @@ export default function ConditionQuizPage() {
 
                 <div className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-4 text-[13px] font-bold text-gray-400">
                   <span className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" /> Free doorstep pickup
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#0565E6]" /> Free doorstep pickup
                   </span>
                   <span className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" /> Instant payment at pickup
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#0565E6]" /> Instant payment at pickup
                   </span>
                   <span className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" /> Price locked for 24h
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#0565E6]" /> Price locked for 24h
                   </span>
                 </div>
               </div>
@@ -228,11 +228,11 @@ export default function ConditionQuizPage() {
               <div className="bg-white rounded-[40px] border border-gray-100 p-10 shadow-sm">
                 <h3 className="text-2xl font-black text-[#111827] mb-10">Device Evaluation</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-                  <EvaluationRow label="Device Age" value={deviceAge} color="#16A34A" />
-                  <EvaluationRow label="Screen Condition" value={hasScreenIssue ? screenIssues.join(', ') : 'No Issues'} color={hasScreenIssue ? '#EF4444' : '#16A34A'} />
-                  <EvaluationRow label="Body Condition" value={bodyCondition} color={bodyCondition === 'Good' ? '#16A34A' : '#EF4444'} />
-                  <EvaluationRow label="Functional Issues" value={otherIssues.length > 0 ? otherIssues.join(', ') : 'No Issues'} color={otherIssues.length > 0 ? '#EF4444' : '#16A34A'} />
-                  <EvaluationRow label="Power Issue" value="Powers On" color="#16A34A" />
+                  <EvaluationRow label="Device Age" value={deviceAge} color="#0565E6" />
+                  <EvaluationRow label="Screen Condition" value={hasScreenIssue ? screenIssues.join(', ') : 'No Issues'} color={hasScreenIssue ? '#EF4444' : '#0565E6'} />
+                  <EvaluationRow label="Body Condition" value={bodyCondition} color={bodyCondition === 'Good' ? '#0565E6' : '#EF4444'} />
+                  <EvaluationRow label="Functional Issues" value={otherIssues.length > 0 ? otherIssues.join(', ') : 'No Issues'} color={otherIssues.length > 0 ? '#EF4444' : '#0565E6'} />
+                  <EvaluationRow label="Power Issue" value="Powers On" color="#0565E6" />
                 </div>
               </div>
             </div>
@@ -290,7 +290,7 @@ export default function ConditionQuizPage() {
               {/* Cancellation Policy */}
               <div className="bg-white rounded-[32px] border border-gray-100 p-8 shadow-sm">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-10 h-10 bg-green-50 rounded-xl flex items-center justify-center text-[#16A34A]">
+                  <div className="w-10 h-10 bg-[#E8F1FF] rounded-xl flex items-center justify-center text-[#0565E6]">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z"/></svg>
                   </div>
                   <h3 className="text-lg font-black text-[#111827]">Cancellation Policy</h3>
@@ -491,7 +491,7 @@ export default function ConditionQuizPage() {
             <button 
               onClick={() => setShowAccessoriesModal(true)}
               disabled={hasOtherIssues === null}
-              className="w-full mt-12 bg-[#16A34A] text-white font-black py-5 rounded-2xl shadow-xl shadow-green-100 hover:bg-[#15803D] transition-all disabled:opacity-50 disabled:shadow-none"
+              className="w-full mt-12 bg-[#0565E6] text-white font-black py-5 rounded-2xl shadow-xl shadow-blue-100 hover:bg-[#044BA8] transition-all disabled:opacity-50 disabled:shadow-none"
             >
               Continue Next →
             </button>
@@ -598,7 +598,7 @@ function AccessoriesModal({ onClose, selectedAccessories, onToggle, onConfirm })
 
         <button 
           onClick={onConfirm}
-          className="w-full bg-[#16A34A] text-white font-black py-5 rounded-2xl shadow-xl shadow-green-100 hover:bg-[#15803D] flex items-center justify-center gap-3 transition-all"
+          className="w-full bg-[#0565E6] text-white font-black py-5 rounded-2xl shadow-xl shadow-blue-100 hover:bg-[#044BA8] flex items-center justify-center gap-3 transition-all"
         >
           GET BEST PRICE <span className="text-xl">›</span>
         </button>

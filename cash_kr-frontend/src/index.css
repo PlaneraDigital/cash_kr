@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #16A34A;
-  --color-primary-dark: #15803D;
-  --color-primary-light: #F0FDF4;
-  --color-cash-green: #16A34A;
-  --color-cash-green-light: #F0FDF4;
+  --color-primary: #0565E6;
+  --color-primary-dark: #044BA8;
+  --color-primary-light: #E8F1FF;
+  --color-cash-green: #0565E6;
+  --color-cash-green-light: #E8F1FF;
   --color-border-light: #D4E1FF;
   --color-text-primary: #111;
   --color-text-muted: #6b7280;
@@ -33,7 +33,7 @@
 /* Animated price counter */
 @keyframes priceFlash {
   0% { transform: scale(1); }
-  50% { transform: scale(1.05); color: #16A34A; }
+  50% { transform: scale(1.05); color: #0565E6; }
   100% { transform: scale(1); }
 }
 .price-animate {

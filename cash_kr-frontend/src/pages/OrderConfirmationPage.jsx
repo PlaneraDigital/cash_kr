@@ -35,7 +35,7 @@ export default function OrderConfirmationPage() {
         {/* Success Banner */}
         <div className="bg-white rounded-[40px] border border-gray-100 p-8 sm:p-10 shadow-sm flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
           <div className="flex flex-col sm:flex-row items-center gap-8">
-            <div className="w-20 h-20 bg-[#16A34A] rounded-full flex items-center justify-center text-white shrink-0 shadow-xl shadow-green-100">
+            <div className="w-20 h-20 bg-[#0565E6] rounded-full flex items-center justify-center text-white shrink-0 shadow-xl shadow-blue-100">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <div className="text-center sm:text-left">
@@ -68,7 +68,7 @@ export default function OrderConfirmationPage() {
                 <h4 className="text-sm font-black text-[#111827]">Want to chat with your pickup partner?</h4>
               </div>
             </div>
-            <p className="text-[11px] font-bold text-gray-500 leading-relaxed mb-4">Download the CashKr app for real-time chat & live order tracking</p>
+            <p className="text-[11px] font-bold text-gray-500 leading-relaxed mb-4">Download the CashAbhi app for real-time chat & live order tracking</p>
             <button className="w-full bg-[#16A34A] text-white py-3.5 rounded-2xl font-black text-sm hover:bg-[#15803D] transition-all flex items-center justify-center gap-2">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               Download App to Chat
@@ -220,7 +220,7 @@ export default function OrderConfirmationPage() {
             <div className="bg-white rounded-[40px] border border-gray-100 p-8 shadow-sm">
               <h3 className="text-lg font-black text-[#111827] mb-2">Need a hand?</h3>
               <p className="text-xs font-bold text-gray-500 leading-relaxed mb-6">We are here if you want to reschedule, update details, or ask anything.</p>
-              <button className="w-full bg-[#16A34A] text-white py-4 rounded-2xl font-black text-sm hover:bg-[#15803D] transition-all shadow-lg shadow-green-50">
+              <button className="w-full bg-[#0565E6] text-white py-4 rounded-2xl font-black text-sm hover:bg-[#044BA8] transition-all shadow-lg shadow-blue-50">
                 Contact Support
               </button>
             </div>

@@ -36,7 +36,7 @@ function Field({ label, forgotLink, icon, type = "text", placeholder, value, onC
       <div className="flex justify-between items-center mb-1.5 ml-1">
         <label className="text-xs sm:text-sm font-bold text-gray-700">{label}</label>
         {forgotLink && (
-          <a href={forgotLink} className="text-[11px] sm:text-xs font-bold text-primary hover:underline no-underline">
+          <a href={forgotLink} className="text-[11px] sm:text-xs font-bold text-[#0565E6] hover:underline no-underline">
             Forgot password?
           </a>
         )}
@@ -54,13 +54,13 @@ function Field({ label, forgotLink, icon, type = "text", placeholder, value, onC
           value={value}
           onChange={onChange}
           autoComplete={autoComplete}
-          className="w-full pl-11 pr-11 py-3 border-1.5 border-gray-200 rounded-xl text-sm font-sans text-text-primary outline-none bg-gray-50 focus:border-primary focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all"
+          className="w-full pl-11 pr-11 py-3 border-[1.5px] border-gray-200 rounded-xl text-sm font-sans text-text-primary outline-none bg-gray-50 focus:border-[#0565E6] focus:ring-4 focus:ring-[#0565E6]/10 focus:bg-white transition-all"
         />
         {isPassword && (
           <button
             type="button"
             onClick={() => setShow(!show)}
-            className="absolute right-4 bg-transparent border-none cursor-pointer text-[10px] font-black text-primary hover:text-primary-dark tracking-wider outline-none"
+            className="absolute right-4 bg-transparent border-none cursor-pointer text-[10px] font-black text-[#0565E6] hover:text-[#0452B9] tracking-wider outline-none"
           >
             {show ? "HIDE" : "SHOW"}
           </button>
@@ -99,10 +99,10 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-[90vh] bg-gradient-to-br from-primary-light via-white to-primary-light flex items-center justify-center p-4 sm:p-8">
-      <div className="w-full max-w-[440px] bg-white rounded-[32px] shadow-2xl shadow-primary/10 border border-gray-100 p-8 sm:p-12 animate-in fade-in zoom-in-95 duration-300">
-        <div className="inline-flex items-center gap-2 bg-primary-light text-primary text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-6 border border-border-light">
-          <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+    <div className="min-h-[90vh] bg-gradient-to-br from-[#0565E6]/5 via-white to-[#0565E6]/5 flex items-center justify-center p-4 sm:p-8">
+      <div className="w-full max-w-[440px] bg-white rounded-[32px] shadow-2xl shadow-[#0565E6]/10 border border-gray-100 p-8 sm:p-12 animate-in fade-in zoom-in-95 duration-300">
+        <div className="inline-flex items-center gap-2 bg-[#0565E6]/5 text-[#0565E6] text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-6 border border-gray-100">
+          <div className="w-1.5 h-1.5 bg-[#0565E6] rounded-full" />
           Welcome Back
         </div>
         
@@ -140,7 +140,7 @@ export default function LoginPage() {
 
           <button 
             type="submit" 
-            className="w-full bg-primary hover:bg-primary-dark text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-3 shadow-lg shadow-primary/30 hover:shadow-xl transition-all hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed group"
+            className="w-full bg-[#0565E6] hover:bg-[#0452B9] text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-3 shadow-lg shadow-[#0565E6]/30 hover:shadow-xl transition-all hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed group"
             disabled={loading}
           >
             {loading ? "Logging in..." : "Login"} 
@@ -155,13 +155,13 @@ export default function LoginPage() {
         </div>
 
         <p className="text-center text-sm text-text-muted font-medium">
-          Don't have an account? <Link to="/signup" className="text-primary font-bold hover:underline">Sign up</Link>
+          Don't have an account? <Link to="/signup" className="text-[#0565E6] font-bold hover:underline">Sign up</Link>
         </p>
 
         <div className="flex justify-center gap-5 mt-10">
           {["SSL Secure", "No Spam", "Free Pickup"].map(t => (
             <div key={t} className="flex items-center gap-1.5 text-[10px] font-bold text-gray-400 uppercase tracking-tight">
-              <div className="w-1.5 h-1.5 bg-primary/40 rounded-full" />
+              <div className="w-1.5 h-1.5 bg-[#0565E6]/40 rounded-full" />
               {t}
             </div>
           ))}
