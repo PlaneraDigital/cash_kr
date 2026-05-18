@@ -137,7 +137,7 @@ function SpecSelect({ label, value, disabled, setOpen }) {
           {label} 
           <span className="w-3.5 h-3.5 rounded-full border border-gray-300 flex items-center justify-center text-[9px] text-gray-400 font-bold cursor-help">?</span>
         </label>
-        {value && <span className="text-[9px] font-black text-[#16A34A] uppercase tracking-wider">Selected</span>}
+        {value && <span className="text-[9px] font-black text-[#0565E6] uppercase tracking-wider">Selected</span>}
       </div>
 
       <button 
@@ -188,7 +188,7 @@ function OverlayList({ type, onSelect, onClose }) {
             <button 
               key={opt}
               onClick={() => onSelect(opt)}
-              className="w-full text-left px-8 py-5 text-base font-bold text-gray-700 hover:bg-gray-50 hover:text-[#16A34A] transition-all border-b border-gray-50 last:border-none"
+              className="w-full text-left px-8 py-5 text-base font-bold text-gray-700 hover:bg-gray-50 hover:text-[#0565E6] transition-all border-b border-gray-50 last:border-none"
             >
               {opt}
             </button>

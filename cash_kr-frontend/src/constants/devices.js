@@ -68,16 +68,16 @@ export const BRANDS = [
 ];
 
 export const LAPTOP_BRANDS = [
-  { name: 'Apple', color: '#555', models: 10 },
-  { name: 'Dell', color: '#007DB8', models: 8 },
-  { name: 'HP', color: '#0096D6', models: 7 },
-  { name: 'Lenovo', color: '#E2231A', models: 7 },
-  { name: 'Asus', color: '#00549E', models: 7 },
-  { name: 'Acer', color: '#83B81A', models: 5 },
-  { name: 'Microsoft', color: '#737373', models: 3 },
-  { name: 'MSI', color: '#FF0000', models: 4 },
-  { name: 'Razer', color: '#44D62C', models: 3 },
-  { name: 'Samsung', color: '#1428a0', models: 0 },
-  { name: 'LG', color: '#A50034', models: 0 },
-  { name: 'Huawei', color: '#CF0A2C', models: 0 },
+  { name: 'Apple', color: 'white', models: 10, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1280px-Apple_logo_black.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20250629104141" },
+  { name: 'Dell', color: 'white', models: 8, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Dell_logo_2016.svg/1280px-Dell_logo_2016.svg.png" },
+  { name: 'HP', color: 'white', models: 7, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/HP_logo_2025.svg/960px-HP_logo_2025.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail" },
+  { name: 'Lenovo', color: 'white', models: 7, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Lenovo_logo_2015.svg/1280px-Lenovo_logo_2015.svg.png" },
+  { name: 'Asus', color: 'white', models: 7, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/ASUS_Logo.svg/1280px-ASUS_Logo.svg.png" },
+  { name: 'Acer', color: 'white', models: 5, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Acer_Logo.svg/1280px-Acer_Logo.svg.png" },
+  { name: 'Microsoft', color: 'white', models: 3, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/1280px-Microsoft_logo_%282012%29.svg.png" },
+  { name: 'MSI', color: 'white', models: 4, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Micro-Star_International_logo.svg/1280px-Micro-Star_International_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20230818102106" },
+  { name: 'Razer', color: 'white', models: 3, logo: "https://upload.wikimedia.org/wikipedia/en/thumb/4/40/Razer_snake_logo.svg/1280px-Razer_snake_logo.svg.png" },
+  { name: 'Samsung', color: 'white', models: 0, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Samsung_wordmark.svg/1920px-Samsung_wordmark.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20211020072635" },
+  { name: 'LG', color: 'white', models: 0, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/LG_logo_%282015%29.svg/1024px-LG_logo_%282015%29.svg.png" },
+  { name: 'Huawei', color: 'white', models: 0, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Huawei_logo_2018.svg/1024px-Huawei_logo_2018.svg.png" },
 ];

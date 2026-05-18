@@ -67,29 +67,29 @@ export default function VariantSelectionPage() {
           {/* Right Side */}
           <div className="flex-1 w-full pt-4">
             <h1 className="text-3xl sm:text-4xl font-black text-[#111827] mb-3">{device.modelName}</h1>
-            <div className="flex items-center gap-2 text-sm font-bold text-[#059669] mb-6">
+            <div className="flex items-center gap-2 text-sm font-bold text-[#0565E6] mb-6">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
               <span className="text-gray-500">2,000+ Devices Sold Successfully</span>
             </div>
             
             <div className="flex items-center gap-3 mb-8">
               <span className="text-sm font-bold text-gray-500">Selected variant:</span>
-              <span className="bg-[#059669] text-white px-4 py-1.5 rounded-lg text-sm font-black tracking-wide shadow-sm">{selectedVariant.storage}</span>
+              <span className="bg-[#0565E6] text-white px-4 py-1.5 rounded-lg text-sm font-black tracking-wide shadow-sm">{selectedVariant.storage}</span>
             </div>
 
-            <div className="bg-[#D1FAE5] rounded-[24px] p-6 sm:p-8 mb-6 flex justify-between items-center border border-[#A7F3D0]">
+            <div className="bg-[#E8F1FF] rounded-[24px] p-6 sm:p-8 mb-6 flex justify-between items-center border border-[#BDDBFF]">
               <div>
-                <p className="text-sm font-black text-[#065F46] opacity-80 mb-1">Get Upto</p>
-                <p className="text-4xl sm:text-5xl font-black text-[#059669]">{formatCurrency(selectedVariant.basePrice)}</p>
+                <p className="text-sm font-black text-[#0565E6] opacity-80 mb-1">Get Upto</p>
+                <p className="text-4xl sm:text-5xl font-black text-[#0565E6]">{formatCurrency(selectedVariant.basePrice)}</p>
               </div>
-              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-full flex items-center justify-center text-[#059669] shadow-sm">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-full flex items-center justify-center text-[#0565E6] shadow-sm">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
               </div>
             </div>
 
             <button 
               onClick={() => navigate(`/sell-old-mobile-phones/${brand}/${slug}/quiz?storage=${selectedVariant.storage}`)}
-              className="w-full bg-[#10B981] text-white font-black py-4 sm:py-5 rounded-2xl shadow-xl shadow-emerald-200 hover:bg-[#059669] hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-lg group"
+              className="w-full bg-[#0565E6] text-white font-black py-4 sm:py-5 rounded-2xl shadow-xl shadow-blue-100 hover:bg-[#044ab8] hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-lg group"
             >
               Start Selling 
               <svg className="transition-transform group-hover:translate-x-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -125,13 +125,13 @@ export default function VariantSelectionPage() {
                 <button
                   key={variant.storage}
                   onClick={() => setSelectedVariant(variant)}
-                  className="group bg-white rounded-3xl border-2 border-gray-100 p-6 flex items-center justify-between hover:border-[#10B981] hover:bg-[#F0FDF4] transition-all text-left shadow-sm hover:shadow-md"
+                  className="group bg-white rounded-3xl border-2 border-gray-100 p-6 flex items-center justify-between hover:border-[#0565E6] hover:bg-[#E8F1FF] transition-all text-left shadow-sm hover:shadow-md"
                 >
                   <div>
-                    <p className="text-xl font-black text-[#111827] group-hover:text-[#10B981]">{variant.storage}</p>
+                    <p className="text-xl font-black text-[#111827] group-hover:text-[#0565E6]">{variant.storage}</p>
                     <p className="text-sm font-bold text-gray-400">Get upto {formatCurrency(variant.basePrice)}</p>
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-300 group-hover:bg-[#10B981] group-hover:text-white transition-all">
+                  <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-300 group-hover:bg-[#0565E6] group-hover:text-white transition-all">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M9 18l6-6-6-6"/></svg>
                   </div>
                 </button>

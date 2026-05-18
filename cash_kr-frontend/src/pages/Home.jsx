@@ -339,7 +339,7 @@ function PhoneMockup() {
         className="absolute bottom-10 left-2 bg-white rounded-2xl shadow-xl px-3 py-2.5 flex items-center gap-2 border border-gray-100 z-30"
         style={{ transform: "rotate(-3deg)" }}
       >
-        <div className="w-6 h-6 rounded-lg bg-green-50 flex items-center justify-center shrink-0">
+        <div className="w-6 h-6 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
           <Shield size={12} className="text-[#0565E6]" />
         </div>
         <div>
@@ -450,7 +450,7 @@ export default function HomePage() {
                     <div
                       key={i}
                       className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-black text-white shadow-sm"
-                      style={{ background: ["#0565E6","#7c3aed","#059669","#d97706"][i] }}
+                      style={{ background: ["#0565E6","#7c3aed","#0565E6","#d97706"][i] }}
                     >
                       {l}
                     </div>

@@ -103,6 +103,7 @@ export default function ConditionQuizPage() {
         brand: device.brand, 
         modelName: device.modelName, 
         slug: device.slug,
+        imageUrl: device.imageUrl || '',
         storage: storage || device.variants[0].storage,
         deviceAge: deviceAge,
         hasScreenIssue: hasScreenIssue,
@@ -184,7 +185,7 @@ export default function ConditionQuizPage() {
                   <label className="flex items-start gap-4 cursor-pointer group">
                     <div className="relative mt-1">
                       <input type="checkbox" defaultChecked className="sr-only peer" />
-                      <div className="w-6 h-6 border-2 border-gray-200 rounded-lg peer-checked:bg-[#16A34A] peer-checked:border-[#16A34A] transition-all" />
+                      <div className="w-6 h-6 border-2 border-gray-200 rounded-lg peer-checked:bg-[#0565E6] peer-checked:border-[#0565E6] transition-all" />
                       <svg className="absolute top-1 left-1 w-4 h-4 text-white opacity-0 peer-checked:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4"><polyline points="20 6 9 17 4 12"/></svg>
                     </div>
                     <span className="text-sm font-medium text-gray-500 leading-relaxed group-hover:text-[#111827] transition-colors">
@@ -194,7 +195,7 @@ export default function ConditionQuizPage() {
                   <label className="flex items-start gap-4 cursor-pointer group">
                     <div className="relative mt-1">
                       <input type="checkbox" defaultChecked className="sr-only peer" />
-                      <div className="w-6 h-6 border-2 border-gray-200 rounded-lg peer-checked:bg-[#16A34A] peer-checked:border-[#16A34A] transition-all" />
+                      <div className="w-6 h-6 border-2 border-gray-200 rounded-lg peer-checked:bg-[#0565E6] peer-checked:border-[#0565E6] transition-all" />
                       <svg className="absolute top-1 left-1 w-4 h-4 text-white opacity-0 peer-checked:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4"><polyline points="20 6 9 17 4 12"/></svg>
                     </div>
                     <span className="text-sm font-medium text-gray-500 leading-relaxed group-hover:text-[#111827] transition-colors">
@@ -242,7 +243,7 @@ export default function ConditionQuizPage() {
               {/* Payment Summary */}
               <div className="bg-white rounded-[32px] border border-gray-100 p-8 shadow-sm">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-10 h-10 bg-[#F0FDF4] rounded-xl flex items-center justify-center text-[#16A34A]">
+                  <div className="w-10 h-10 bg-[#E8F1FF] rounded-xl flex items-center justify-center text-[#0565E6]">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
                   </div>
                   <h3 className="text-xl font-black text-[#111827]">Payment Summary</h3>
@@ -262,7 +263,7 @@ export default function ConditionQuizPage() {
               {/* Apply Coupon */}
               <div className="bg-white rounded-[32px] border border-gray-100 p-8 shadow-sm">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-10 h-10 bg-[#F0FDF4] rounded-xl flex items-center justify-center text-[#16A34A]">
+                  <div className="w-10 h-10 bg-[#E8F1FF] rounded-xl flex items-center justify-center text-[#0565E6]">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M15 5V7M15 11V13M15 17V19M5 5C3.34315 5 2 6.34315 2 8V10C3.10457 10 4 10.8954 4 12C4 13.1046 3.10457 14 2 14V16C2 17.6569 3.34315 19 5 19H19C20.6569 19 22 17.6569 22 16V14C20.8954 14 20 13.1046 20 12C20 10.8954 20.8954 10 22 10V8C22 6.34315 20.6569 5 19 5H5Z"/></svg>
                   </div>
                   <div>
@@ -279,7 +280,7 @@ export default function ConditionQuizPage() {
                   <input 
                     type="text" 
                     placeholder="Type coupon code here" 
-                    className="flex-1 bg-white border border-gray-200 rounded-xl px-4 py-3.5 text-sm font-bold focus:outline-none focus:border-[#16A34A] transition-all"
+                    className="flex-1 bg-white border border-gray-200 rounded-xl px-4 py-3.5 text-sm font-bold focus:outline-none focus:border-[#0565E6] transition-all"
                   />
                   <button className="bg-gray-100 text-gray-400 px-6 py-3.5 rounded-xl font-black text-sm cursor-not-allowed">
                     Apply
@@ -321,7 +322,7 @@ export default function ConditionQuizPage() {
                 <img src={device.imageUrl || '/placeholder-phone.png'} alt={device.modelName} className="h-full object-contain" />
               </div>
               <div>
-                <p className="text-[#16A34A] text-xs font-bold uppercase tracking-wider mb-1">Evaluating</p>
+                <p className="text-[#0565E6] text-xs font-bold uppercase tracking-wider mb-1">Evaluating</p>
                 <h1 className="text-2xl font-black text-[#111827]">
                   {device.modelName} <span className="text-gray-400 font-medium">({storage || device.variants[0].storage})</span>
                 </h1>
@@ -343,7 +344,7 @@ export default function ConditionQuizPage() {
               {/* Progress Bar */}
               <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
                 <div 
-                  className="h-full bg-[#16A34A] transition-all duration-500" 
+                  className="h-full bg-[#0565E6] transition-all duration-500" 
                   style={{ width: `${((currentStepIndex + 1) / STEPS.length) * 100}%` }}
                 />
               </div>
@@ -365,7 +366,7 @@ export default function ConditionQuizPage() {
                       onClick={() => setDeviceAge(age)}
                       className={`py-4 rounded-xl border-2 font-bold text-sm transition-all
                         ${deviceAge === age 
-                          ? 'border-[#16A34A] bg-[#F0FDF4] text-[#16A34A]' 
+                          ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
                           : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
                     >
                       {age}
@@ -385,7 +386,7 @@ export default function ConditionQuizPage() {
                     onClick={() => { setHasScreenIssue(true); setShowScreenModal(true); }}
                     className={`py-4 rounded-xl border-2 font-bold text-sm flex items-center justify-center gap-2 transition-all
                       ${hasScreenIssue === true 
-                        ? 'border-[#16A34A] bg-[#F0FDF4] text-[#16A34A]' 
+                        ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
                         : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
                   >
                     {hasScreenIssue === true && <span className="text-lg">✓</span>} Yes
@@ -394,7 +395,7 @@ export default function ConditionQuizPage() {
                     onClick={() => { setHasScreenIssue(false); setScreenIssues([]); }}
                     className={`py-4 rounded-xl border-2 font-bold text-sm flex items-center justify-center gap-2 transition-all
                       ${hasScreenIssue === false 
-                        ? 'border-[#16A34A] bg-[#F0FDF4] text-[#16A34A]' 
+                        ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
                         : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
                   >
                     {hasScreenIssue === false && <span className="text-lg">×</span>} No
@@ -413,7 +414,7 @@ export default function ConditionQuizPage() {
                     onClick={() => { setHasBodyIssue(true); setShowBodyModal(true); }}
                     className={`py-4 rounded-xl border-2 font-bold text-sm flex items-center justify-center gap-2 transition-all
                       ${hasBodyIssue === true 
-                        ? 'border-[#16A34A] bg-[#F0FDF4] text-[#16A34A]' 
+                        ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
                         : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
                   >
                     {hasBodyIssue === true && <span className="text-lg">✓</span>} Yes
@@ -422,7 +423,7 @@ export default function ConditionQuizPage() {
                     onClick={() => { setHasBodyIssue(false); setBodyCondition('Good'); }}
                     className={`py-4 rounded-xl border-2 font-bold text-sm flex items-center justify-center gap-2 transition-all
                       ${hasBodyIssue === false 
-                        ? 'border-[#16A34A] bg-[#F0FDF4] text-[#16A34A]' 
+                        ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
                         : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
                   >
                     {hasBodyIssue === false && <span className="text-lg">×</span>} No
@@ -441,7 +442,7 @@ export default function ConditionQuizPage() {
                     onClick={() => { setHasOtherIssues(true); setShowOtherModal(true); }}
                     className={`py-4 rounded-xl border-2 font-bold text-sm flex items-center justify-center gap-2 transition-all
                       ${hasOtherIssues === true 
-                        ? 'border-[#16A34A] bg-[#F0FDF4] text-[#16A34A]' 
+                        ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
                         : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
                   >
                     {hasOtherIssues === true && <span className="text-lg">✓</span>} Yes
@@ -450,7 +451,7 @@ export default function ConditionQuizPage() {
                     onClick={() => { setHasOtherIssues(false); setOtherIssues([]); }}
                     className={`py-4 rounded-xl border-2 font-bold text-sm flex items-center justify-center gap-2 transition-all
                       ${hasOtherIssues === false 
-                        ? 'border-[#16A34A] bg-[#F0FDF4] text-[#16A34A]' 
+                        ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
                         : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
                   >
                     {hasOtherIssues === false && <span className="text-lg">×</span>} No
@@ -468,12 +469,12 @@ export default function ConditionQuizPage() {
             <h2 className="text-2xl font-black text-[#111827] mb-8">Device Evaluation</h2>
             
             {/* Price Box */}
-            <div className="bg-[#F0FDF4] rounded-3xl p-6 mb-8 flex items-center justify-between border border-[#16A34A]/10">
+            <div className="bg-[#E8F1FF] rounded-3xl p-6 mb-8 flex items-center justify-between border border-[#0565E6]/10">
               <div>
-                <p className="text-[#16A34A] text-xs font-bold uppercase tracking-widest mb-1">Estimated Value</p>
+                <p className="text-[#0565E6] text-xs font-bold uppercase tracking-widest mb-1">Estimated Value</p>
                 <p className="text-3xl font-black text-[#166534]">{formatCurrency(currentPrice)}</p>
               </div>
-              <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-[#16A34A] shadow-sm">
+              <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-[#0565E6] shadow-sm\">
                 <IconTrend />
               </div>
             </div>
@@ -578,7 +579,7 @@ function AccessoriesModal({ onClose, selectedAccessories, onToggle, onConfirm })
               onClick={() => onToggle(acc.id)}
               className={`p-10 rounded-[32px] border-2 flex flex-col items-center gap-6 transition-all group
                 ${selectedAccessories.includes(acc.id) 
-                  ? 'border-[#16A34A] bg-[#F0FDF4] text-[#16A34A]' 
+                  ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
                   : 'border-gray-50 bg-white text-gray-500 hover:border-gray-100'}`}
             >
               <div className={`w-24 h-24 rounded-3xl flex items-center justify-center text-4xl transition-transform group-hover:scale-110
@@ -588,7 +589,7 @@ function AccessoriesModal({ onClose, selectedAccessories, onToggle, onConfirm })
               <span className="text-lg font-black flex items-center gap-2">
                 {acc.label}
                 <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center
-                  ${selectedAccessories.includes(acc.id) ? 'border-[#16A34A] bg-[#16A34A]' : 'border-gray-200'}`}>
+                  ${selectedAccessories.includes(acc.id) ? 'border-[#0565E6] bg-[#0565E6]' : 'border-gray-200'}`}>
                   {selectedAccessories.includes(acc.id) && <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>}
                 </div>
               </span>
@@ -612,7 +613,7 @@ function SummaryItem({ label, value, active }) {
     <div className="space-y-1">
       <h4 className="text-sm font-bold text-[#111827]">{label}</h4>
       <div className="flex items-center gap-2">
-        <div className={`w-2 h-2 rounded-full ${active ? 'bg-[#16A34A]' : 'bg-gray-200'}`} />
+        <div className={`w-2 h-2 rounded-full ${active ? 'bg-[#0565E6]' : 'bg-gray-200'}`} />
         <p className={`text-[13px] font-medium ${active ? 'text-gray-600' : 'text-gray-400'}`}>{value}</p>
       </div>
     </div>
@@ -654,7 +655,7 @@ function ScreenIssueModal({ onClose, selectedIssues, onToggle, onSave }) {
         <div className="mt-10 flex justify-end">
           <button 
             onClick={onSave}
-            className="bg-[#16A34A] text-white font-black px-12 py-4 rounded-2xl hover:bg-[#15803D] transition-all shadow-lg shadow-green-100"
+            className="bg-[#0565E6] text-white font-black px-12 py-4 rounded-2xl hover:bg-[#044ab8] transition-all shadow-lg shadow-blue-100"
           >
             Confirm
           </button>
@@ -749,13 +750,13 @@ function OtherProblemsModal({ onClose, selectedIssues, onToggle, onSave }) {
                     onClick={() => onToggle(issue.id)}
                     className={`p-6 rounded-3xl border-2 flex flex-col items-center gap-4 transition-all
                       ${selectedIssues.includes(issue.id) 
-                        ? 'border-[#16A34A] bg-[#F0FDF4] text-[#16A34A]' 
+                        ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
                         : 'border-gray-50 bg-white text-gray-500 hover:border-gray-100'}`}
                   >
                     <span className="text-3xl">{issue.icon}</span>
                     <span className="text-sm font-bold text-center">{issue.label}</span>
                     <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center mt-auto
-                      ${selectedIssues.includes(issue.id) ? 'border-[#16A34A] bg-[#16A34A]' : 'border-gray-200'}`}>
+                      ${selectedIssues.includes(issue.id) ? 'border-[#0565E6] bg-[#0565E6]' : 'border-gray-200'}`}>
                       {selectedIssues.includes(issue.id) && <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>}
                     </div>
                   </button>
@@ -768,7 +769,7 @@ function OtherProblemsModal({ onClose, selectedIssues, onToggle, onSave }) {
         <div className="mt-10 pt-6 border-t border-gray-50 flex justify-end">
           <button 
             onClick={onSave}
-            className="bg-[#16A34A] text-white font-black px-12 py-4 rounded-2xl hover:bg-[#15803D] transition-all shadow-lg shadow-green-100"
+            className="bg-[#0565E6] text-white font-black px-12 py-4 rounded-2xl hover:bg-[#044ab8] transition-all shadow-lg shadow-blue-100"
           >
             Proceed
           </button>
@@ -784,8 +785,8 @@ function ScreenIssueCard({ title, desc, points, selected, onClick }) {
       onClick={onClick}
       className={`border-2 rounded-3xl p-6 flex justify-between group transition-all cursor-pointer
         ${selected 
-          ? 'border-[#16A34A] bg-[#F0FDF4]' 
-          : 'border-gray-100 bg-white hover:border-[#16A34A]/20 hover:bg-[#F9FAFB]/50'}`}
+          ? 'border-[#0565E6] bg-[#E8F1FF]' 
+          : 'border-gray-100 bg-white hover:border-[#0565E6]/20 hover:bg-[#F9FAFB]/50'}`}
     >
       <div className="space-y-3">
         <h4 className={`text-lg font-black transition-colors ${selected ? 'text-[#166534]' : 'text-[#111827]'}`}>{title}</h4>
@@ -794,7 +795,7 @@ function ScreenIssueCard({ title, desc, points, selected, onClick }) {
           <ul className="space-y-2">
             {points.map(p => (
               <li key={p} className={`flex items-center gap-2 text-sm font-medium transition-colors ${selected ? 'text-[#166534]/80' : 'text-gray-500'}`}>
-                <span className={`w-1 h-1 rounded-full ${selected ? 'bg-[#16A34A]' : 'bg-gray-300'}`} /> {p}
+                <span className={`w-1 h-1 rounded-full ${selected ? 'bg-[#0565E6]' : 'bg-gray-300'}`} /> {p}
               </li>
             ))}
           </ul>
@@ -803,13 +804,13 @@ function ScreenIssueCard({ title, desc, points, selected, onClick }) {
       <div className={`w-24 h-32 rounded-xl flex items-center justify-center p-2 transition-colors
         ${selected ? 'bg-white' : 'bg-gray-50 group-hover:bg-white'}`}>
         <div className={`w-12 h-20 border-2 rounded-lg relative overflow-hidden transition-colors
-          ${selected ? 'border-[#16A34A]' : 'border-gray-300'}`}>
-          <div className={`absolute top-1 left-1/2 -translate-x-1/2 w-4 h-1 rounded-full transition-colors ${selected ? 'bg-[#16A34A]/20' : 'bg-gray-200'}`} />
+          ${selected ? 'border-[#0565E6]' : 'border-gray-300'}`}>
+          <div className={`absolute top-1 left-1/2 -translate-x-1/2 w-4 h-1 rounded-full transition-colors ${selected ? 'bg-[#0565E6]/20' : 'bg-gray-200'}`} />
           {title.includes('Cracked') && <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cracked-glass.png')] opacity-30" />}
           {title.includes('Broken') && <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cracked-glass.png')] opacity-30" />}
           {title.includes('Scratches') && <div className="absolute top-1/2 left-4 w-6 h-px bg-gray-300 rotate-45" />}
           {selected && (
-             <div className="absolute bottom-2 right-2 w-4 h-4 bg-[#16A34A] rounded-full flex items-center justify-center">
+             <div className="absolute bottom-2 right-2 w-4 h-4 bg-[#0565E6] rounded-full flex items-center justify-center">
                <svg width="8" height="8" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" strokeWidth="3" strokeLinecap="round"/></svg>
              </div>
           )}
@@ -823,7 +824,7 @@ function ScreenIssueCard({ title, desc, points, selected, onClick }) {
       <span className="text-sm font-medium text-gray-400 uppercase tracking-widest">{label}</span>
       <div className="flex items-center gap-2">
         {originalValue && <span className="text-sm text-gray-300 line-through">₹{originalValue}</span>}
-        <span className={`font-black ${isFree || isBonus ? 'text-[#16A34A]' : 'text-[#111827]'}`}>
+        <span className={`font-black ${isFree || isBonus ? 'text-[#0565E6]' : 'text-[#111827]'}`}>
           {isFree ? 'Free' : (isBonus ? `+${formatCurrency(value)}` : formatCurrency(value))}
         </span>
       </div>

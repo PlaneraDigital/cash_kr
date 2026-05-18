@@ -316,7 +316,7 @@ function ProfileTab({ user, onUpdateProfile }) {
               value={formData.firstName}
               onChange={e => setFormData({...formData, firstName: e.target.value})}
               disabled={!isEditing}
-              className="w-full bg-[#F9FAFB] border border-transparent rounded-xl px-5 py-4 text-[#111827] font-bold focus:bg-white focus:border-[#16A34A] focus:outline-none transition-all disabled:opacity-80"
+              className="w-full bg-[#F9FAFB] border border-transparent rounded-xl px-5 py-4 text-[#111827] font-bold focus:bg-white focus:border-[#0565E6] focus:outline-none transition-all disabled:opacity-80"
               required
             />
           </div>
@@ -327,7 +327,7 @@ function ProfileTab({ user, onUpdateProfile }) {
               value={formData.lastName}
               onChange={e => setFormData({...formData, lastName: e.target.value})}
               disabled={!isEditing}
-              className="w-full bg-[#F9FAFB] border border-transparent rounded-xl px-5 py-4 text-[#111827] font-bold focus:bg-white focus:border-[#16A34A] focus:outline-none transition-all disabled:opacity-80"
+              className="w-full bg-[#F9FAFB] border border-transparent rounded-xl px-5 py-4 text-[#111827] font-bold focus:bg-white focus:border-[#0565E6] focus:outline-none transition-all disabled:opacity-80"
             />
           </div>
           <div>
@@ -337,7 +337,7 @@ function ProfileTab({ user, onUpdateProfile }) {
               value={formData.phone}
               onChange={e => setFormData({...formData, phone: e.target.value})}
               disabled={!isEditing}
-              className="w-full bg-[#F9FAFB] border border-transparent rounded-xl px-5 py-4 text-[#111827] font-bold focus:bg-white focus:border-[#16A34A] focus:outline-none transition-all disabled:opacity-80"
+              className="w-full bg-[#F9FAFB] border border-transparent rounded-xl px-5 py-4 text-[#111827] font-bold focus:bg-white focus:border-[#0565E6] focus:outline-none transition-all disabled:opacity-80"
               required
             />
           </div>
@@ -467,7 +467,7 @@ function OrdersTab({ orders, setSelectedReportOrder, onCancel }) {
                     </div>
                     <button 
                       onClick={() => navigate(`/orders/${order.orderId}`)}
-                      className="px-8 py-3 rounded-xl border-2 border-[#16A34A] text-[#16A34A] font-black text-sm hover:bg-[#16A34A] hover:text-white transition-all"
+                      className="px-8 py-3 rounded-xl border-2 border-[#0565E6] text-[#0565E6] font-black text-sm hover:bg-[#0565E6] hover:text-white transition-all"
                     >
                       View Details
                     </button>
@@ -477,7 +477,8 @@ function OrdersTab({ orders, setSelectedReportOrder, onCancel }) {
                   <div className="flex flex-col md:flex-row items-center gap-8">
                     <div className="w-24 h-24 bg-gray-50 rounded-3xl flex items-center justify-center p-4">
                       <img 
-                        src={order.device?.variants?.[0]?.image || "https://img.freepik.com/free-photo/mobile-phone-with-blank-screen_23-2148151433.jpg"} 
+                        src={order.device?.imageUrl || "https://img.freepik.com/free-photo/mobile-phone-with-blank-screen_23-2148151433.jpg"} 
+                        alt={order.device?.modelName}
                         className="max-h-full object-contain"
                       />
                     </div>
@@ -534,7 +535,7 @@ function OrdersTab({ orders, setSelectedReportOrder, onCancel }) {
               <IconChevronLeft />
             </button>
             <div className="flex items-center gap-2">
-               <span className="w-10 h-10 rounded-xl bg-[#F0FDF4] text-[#16A34A] flex items-center justify-center font-black">1</span>
+               <span className="w-10 h-10 rounded-xl bg-[#E8F1FF] text-[#0565E6] flex items-center justify-center font-black">1</span>
             </div>
             <button className="flex items-center justify-center w-12 h-12 rounded-2xl border border-gray-100 bg-white text-gray-400 hover:text-[#111827] hover:border-gray-200 transition-all">
               <IconChevronRight />
@@ -577,7 +578,7 @@ function AddressTab({ addresses, onAdd, onDelete }) {
           onClick={() => setShowForm(!showForm)}
           className="flex items-center gap-2 px-6 py-3 rounded-xl border border-gray-100 text-gray-700 font-bold text-sm hover:bg-gray-50 transition-all shadow-sm"
         >
-          <span className="text-[#16A34A] text-xl">{showForm ? '×' : '+'}</span> {showForm ? 'Cancel' : 'Add New Address'}
+          <span className="text-[#0565E6] text-xl">{showForm ? '×' : '+'}</span> {showForm ? 'Cancel' : 'Add New Address'}
         </button>
       </div>
 
@@ -585,28 +586,28 @@ function AddressTab({ addresses, onAdd, onDelete }) {
         <form onSubmit={handleSubmit} className="bg-gray-50 rounded-2xl p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
           <input 
             placeholder="Label (e.g. Home, Office)" 
-            className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#16A34A]/50"
+            className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
             value={formData.label}
             onChange={(e) => setFormData({...formData, label: e.target.value})}
             required
           />
           <input 
             placeholder="Full Name" 
-            className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#16A34A]/50"
+            className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
             value={formData.name}
             onChange={(e) => setFormData({...formData, name: e.target.value})}
             required
           />
           <input 
             placeholder="Phone Number" 
-            className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#16A34A]/50"
+            className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
             value={formData.phone}
             onChange={(e) => setFormData({...formData, phone: e.target.value})}
             required
           />
           <input 
             placeholder="Pincode" 
-            className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#16A34A]/50"
+            className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
             value={formData.pincode}
             onChange={(e) => setFormData({...formData, pincode: e.target.value})}
             required
@@ -614,7 +615,7 @@ function AddressTab({ addresses, onAdd, onDelete }) {
           <div className="md:col-span-2">
             <textarea 
               placeholder="Full Address" 
-              className="w-full p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#16A34A]/50"
+              className="w-full p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
               value={formData.address}
               onChange={(e) => setFormData({...formData, address: e.target.value})}
               required
@@ -622,20 +623,20 @@ function AddressTab({ addresses, onAdd, onDelete }) {
           </div>
           <input 
             placeholder="Landmark" 
-            className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#16A34A]/50"
+            className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
             value={formData.landmark}
             onChange={(e) => setFormData({...formData, landmark: e.target.value})}
           />
           <input 
             placeholder="City" 
-            className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#16A34A]/50"
+            className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
             value={formData.city}
             onChange={(e) => setFormData({...formData, city: e.target.value})}
             required
           />
           <input 
             placeholder="State" 
-            className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#16A34A]/50"
+            className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
             value={formData.state}
             onChange={(e) => setFormData({...formData, state: e.target.value})}
             required
@@ -653,9 +654,9 @@ function AddressTab({ addresses, onAdd, onDelete }) {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {addresses.map((addr) => (
-            <div key={addr._id} className="border border-gray-100 rounded-2xl p-5 relative group hover:border-[#16A34A]/30 transition-all">
+            <div key={addr._id} className="border border-gray-100 rounded-2xl p-5 relative group hover:border-[#0565E6]/30 transition-all">
               <div className="flex items-center justify-between mb-3">
-                <span className="px-3 py-1 bg-[#F0FDF4] text-[#16A34A] text-xs font-bold rounded-full uppercase">{addr.label}</span>
+                <span className="px-3 py-1 bg-[#E8F1FF] text-[#0565E6] text-xs font-bold rounded-full uppercase">{addr.label}</span>
                 <button 
                   onClick={() => onDelete(addr._id)}
                   className="text-gray-400 hover:text-red-500 transition-colors"
@@ -667,7 +668,7 @@ function AddressTab({ addresses, onAdd, onDelete }) {
               <p className="text-sm text-gray-500 mt-1">{addr.address}</p>
               <p className="text-sm text-gray-500">{addr.city}, {addr.state} - {addr.pincode}</p>
               <p className="text-sm text-gray-500 mt-2 font-medium">📞 {addr.phone}</p>
-              {addr.isDefault && <p className="text-[10px] text-[#16A34A] font-bold mt-3 uppercase tracking-wider">Default Address</p>}
+              {addr.isDefault && <p className="text-[10px] text-[#0565E6] font-bold mt-3 uppercase tracking-wider">Default Address</p>}
             </div>
           ))}
         </div>
@@ -707,17 +708,17 @@ function PaymentTab({ paymentMethods, onAdd, onDelete }) {
       <div className="space-y-4">
         {/* Forms for adding */}
         {showForm && (
-          <div className="bg-gray-50 rounded-3xl p-6 border border-[#16A34A]/20">
+          <div className="bg-gray-50 rounded-3xl p-6 border border-[#0565E6]/20">
             <div className="flex gap-4 mb-6">
               <button 
                 onClick={() => setType('bank')}
-                className={`flex-1 py-2 rounded-xl font-bold text-sm transition-all ${type === 'bank' ? 'bg-[#16A34A] text-white shadow-md' : 'bg-white text-gray-500 border border-gray-100'}`}
+                className={`flex-1 py-2 rounded-xl font-bold text-sm transition-all ${type === 'bank' ? 'bg-[#0565E6] text-white shadow-md' : 'bg-white text-gray-500 border border-gray-100'}`}
               >
                 Bank Account
               </button>
               <button 
                 onClick={() => setType('upi')}
-                className={`flex-1 py-2 rounded-xl font-bold text-sm transition-all ${type === 'upi' ? 'bg-[#16A34A] text-white shadow-md' : 'bg-white text-gray-500 border border-gray-100'}`}
+                className={`flex-1 py-2 rounded-xl font-bold text-sm transition-all ${type === 'upi' ? 'bg-[#0565E6] text-white shadow-md' : 'bg-white text-gray-500 border border-gray-100'}`}
               >
                 UPI ID
               </button>
@@ -728,28 +729,28 @@ function PaymentTab({ paymentMethods, onAdd, onDelete }) {
                 <>
                   <input 
                     placeholder="Account Holder Name" 
-                    className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#16A34A]/50"
+                    className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
                     value={formData.accountName}
                     onChange={(e) => setFormData({...formData, accountName: e.target.value})}
                     required
                   />
                   <input 
                     placeholder="Bank Name" 
-                    className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#16A34A]/50"
+                    className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
                     value={formData.bankName}
                     onChange={(e) => setFormData({...formData, bankName: e.target.value})}
                     required
                   />
                   <input 
                     placeholder="Account Number" 
-                    className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#16A34A]/50"
+                    className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
                     value={formData.accountNumber}
                     onChange={(e) => setFormData({...formData, accountNumber: e.target.value})}
                     required
                   />
                   <input 
                     placeholder="IFSC Code" 
-                    className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#16A34A]/50"
+                    className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
                     value={formData.ifscCode}
                     onChange={(e) => setFormData({...formData, ifscCode: e.target.value})}
                     required
@@ -759,7 +760,7 @@ function PaymentTab({ paymentMethods, onAdd, onDelete }) {
                 <div className="md:col-span-2">
                   <input 
                     placeholder="UPI ID (e.g. name@bank)" 
-                    className="w-full p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#16A34A]/50"
+                    className="w-full p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
                     value={formData.upiId}
                     onChange={(e) => setFormData({...formData, upiId: e.target.value})}
                     required
@@ -783,10 +784,10 @@ function PaymentTab({ paymentMethods, onAdd, onDelete }) {
         )}
 
         {/* Bank Account List */}
-        <div className="border border-gray-100 rounded-3xl p-6 relative overflow-hidden group hover:border-[#16A34A]/20 transition-colors">
+        <div className="border border-gray-100 rounded-3xl p-6 relative overflow-hidden group hover:border-[#0565E6]/20 transition-colors">
           <div className="flex items-start justify-between">
             <div className="flex gap-4">
-              <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center text-gray-400 group-hover:bg-[#F0FDF4] group-hover:text-[#16A34A] transition-colors">
+              <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center text-gray-400 group-hover:bg-[#E8F1FF] group-hover:text-[#0565E6] transition-colors">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
               </div>
               <div className="flex-1">
@@ -814,15 +815,15 @@ function PaymentTab({ paymentMethods, onAdd, onDelete }) {
                 <p className="text-xs text-gray-400 mt-2">Bank transfers are sent directly to your account.</p>
               </div>
             </div>
-            {!showForm && <button onClick={() => {setShowForm(true); setType('bank');}} className="text-[#16A34A] font-bold text-sm hover:underline">Add New Bank Account</button>}
+            {!showForm && <button onClick={() => {setShowForm(true); setType('bank');}} className="text-[#0565E6] font-bold text-sm hover:underline">Add New Bank Account</button>}
           </div>
         </div>
 
         {/* UPI List */}
-        <div className="border border-gray-100 rounded-3xl p-6 relative overflow-hidden group hover:border-[#16A34A]/20 transition-colors">
+        <div className="border border-gray-100 rounded-3xl p-6 relative overflow-hidden group hover:border-[#0565E6]/20 transition-colors">
           <div className="flex items-start justify-between">
             <div className="flex gap-4">
-              <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center text-gray-400 group-hover:bg-[#F0FDF4] group-hover:text-[#16A34A] transition-colors">
+              <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center text-gray-400 group-hover:bg-[#E8F1FF] group-hover:text-[#0565E6] transition-colors">
                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>
               </div>
               <div className="flex-1">
@@ -849,7 +850,7 @@ function PaymentTab({ paymentMethods, onAdd, onDelete }) {
                 <p className="text-xs text-gray-400 mt-2">Instant transfer to your UPI linked account.</p>
               </div>
             </div>
-            {!showForm && <button onClick={() => {setShowForm(true); setType('upi');}} className="text-[#16A34A] font-bold text-sm hover:underline">Add New UPI ID</button>}
+            {!showForm && <button onClick={() => {setShowForm(true); setType('upi');}} className="text-[#0565E6] font-bold text-sm hover:underline">Add New UPI ID</button>}
           </div>
         </div>
 
@@ -868,10 +869,10 @@ function PaymentTab({ paymentMethods, onAdd, onDelete }) {
 function EarningsTab() {
   return (
     <div className="h-full flex flex-col">
-      <div className="bg-[#15803d] rounded-3xl p-10 text-white text-center relative overflow-hidden mb-10">
+      <div className="bg-[#0565E6] rounded-3xl p-10 text-white text-center relative overflow-hidden mb-10">
         <div className="relative z-10">
           <h2 className="text-4xl font-black mb-4">Earnings Dashboard</h2>
-          <span className="inline-block bg-white text-[#15803d] px-6 py-2 rounded-full font-bold text-sm">Coming Soon</span>
+          <span className="inline-block bg-white text-[#0565E6] px-6 py-2 rounded-full font-bold text-sm">Coming Soon</span>
         </div>
         <div className="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
         <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
@@ -888,12 +889,12 @@ function EarningsTab() {
           { title: 'Earnings History', desc: 'Track your complete earnings history with detailed transaction records.', icon: <IconOrders /> },
         ].map((card) => (
           <div key={card.title} className="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all">
-            <div className="w-12 h-12 bg-[#F0FDF4] rounded-2xl flex items-center justify-center text-[#16A34A] mb-6">
+            <div className="w-12 h-12 bg-[#E8F1FF] rounded-2xl flex items-center justify-center text-[#0565E6] mb-6">
               {card.icon}
             </div>
             <h4 className="font-bold text-[#111827] mb-3">{card.title}</h4>
             <p className="text-sm text-gray-500 leading-relaxed mb-6">{card.desc}</p>
-            <button className="text-[#16A34A] font-bold text-sm flex items-center gap-1 group">
+            <button className="text-[#0565E6] font-bold text-sm flex items-center gap-1 group">
               Learn more <span className="transition-transform group-hover:translate-x-1">→</span>
             </button>
           </div>
@@ -907,7 +908,7 @@ function ReferralTab({ referral, copyCode, copied }) {
   return (
     <div className="space-y-8">
       <div>
-        <p className="text-[10px] font-bold text-[#16A34A] uppercase tracking-widest mb-1">Refer & Earn</p>
+        <p className="text-[10px] font-bold text-[#0565E6] uppercase tracking-widest mb-1">Refer & Earn</p>
         <h2 className="text-3xl font-bold text-[#111827] max-w-md leading-tight">
           Share your referral link, earn instant rewards
         </h2>
@@ -916,12 +917,12 @@ function ReferralTab({ referral, copyCode, copied }) {
         </p>
       </div>
 
-      <div className="border border-[#16A34A]/30 bg-white rounded-3xl p-8 relative">
-        <div className="absolute top-4 right-6 text-[#16A34A]/20">
+      <div className="border border-[#0565E6]/30 bg-white rounded-3xl p-8 relative">
+        <div className="absolute top-4 right-6 text-[#0565E6]/20">
            <IconReferral />
         </div>
         
-        <p className="text-[10px] font-bold text-[#16A34A] uppercase tracking-widest mb-4">Your Referral Link</p>
+        <p className="text-[10px] font-bold text-[#0565E6] uppercase tracking-widest mb-4">Your Referral Link</p>
         
         <div className="mb-8">
           <div className="bg-[#F9FAFB] border border-gray-100 rounded-2xl p-5 text-gray-500 font-medium">
@@ -1025,7 +1026,7 @@ function DeviceEvaluationReportModal({ order, onClose }) {
           {/* Device Evaluation Section */}
           <div className="space-y-6">
             <div>
-              <h3 className="text-lg font-black text-[#16A34A] mb-1">Device Evaluation</h3>
+              <h3 className="text-lg font-black text-[#0565E6] mb-1">Device Evaluation</h3>
               <p className="text-sm font-black text-[#111827]">Summary</p>
             </div>
 

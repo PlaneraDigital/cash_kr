@@ -74,8 +74,8 @@ function Field({ label, icon, type = "text", placeholder, value, onChange, name,
 function PasswordStrength({ password }) {
   const score = password.length === 0 ? -1 : password.length < 6 ? 0 : password.length < 10 ? 1 : 2;
   const labels = ["Weak", "Good", "Strong"];
-  const colors = ["bg-red-500", "bg-amber-500", "bg-emerald-500"];
-  const textColors = ["text-red-500", "text-amber-500", "text-emerald-500"];
+  const colors = ["bg-red-500", "bg-amber-500", "bg-blue-500"];
+  const textColors = ["text-red-500", "text-amber-500", "text-blue-500"];
 
   if (score === -1) return null;
 
