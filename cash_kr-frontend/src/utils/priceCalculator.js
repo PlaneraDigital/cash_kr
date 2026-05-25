@@ -1,40 +1,122 @@
-export function calculatePrice({ 
-  basePrice, 
-  condition, 
-  screenCondition, 
-  functionalIssues = [], 
-  batteryHealth = 'above80',
-  accessories, 
-  conditionMultipliers, 
-  screenMultipliers, 
-  batteryDeductions,
-  functionalDeductions, 
-  accessoriesBonus 
+// ─── ISSUE DEDUCTION PERCENTAGES ────────────────────────────────────────────
+export const ISSUE_DEDUCTIONS = {
+  // Physical Issues
+  glass_crack: 40,
+  back_panel: 17,
+  camera_glass_broken: 8,
+  // Technical Issues
+  battery_service: 13,
+  front_camera: 8,
+  back_camera: 15,
+  volume_button: 4,
+  wifi_issue: 39,
+  finger_touch: 26,
+  face_unlock: 26,
+  speaker_faulty: 4,
+  power_button: 2,
+  charging_port: 10,
+  audio_receiver: 7,
+  bluetooth: 39,
+  vibrator: 2,
+  microphone: 2,
+  proximity_sensor: 3,
+};
+
+// ─── MOBILE PRICE CALCULATOR (Percentage-based deduction model) ─────────────
+export function calculatePrice({
+  basePrice,
+  deviceAge,
+  ableToMakeCalls,
+  isTouchScreenWorking,
+  isScreenOriginal,
+  underWarranty,
+  hasGSTBill,
+  eSIMSupport,
+  physicalIssues = [],
+  technicalIssues = [],
+  hasCharger,
+  hasBox,
 }) {
-  const condMult = conditionMultipliers?.[condition] || 1;
-  const screenMult = screenMultipliers?.[screenCondition] || 1;
-  
-  let funcDeduction = 0;
-  for (const issue of functionalIssues) {
-    if (functionalDeductions?.[issue]) funcDeduction += functionalDeductions[issue];
+  let totalDeductionPct = 0;
+  const breakdown = {};
+
+  // 1. Age deduction
+  const ageDeductions = { '0 - 3 Months': 0, '3 - 6 Months': 7, '6 - 11 Months': 10, 'Above 11 Months': 21 };
+  const agePct = ageDeductions[deviceAge] ?? 7;
+  breakdown.age = agePct;
+  totalDeductionPct += agePct;
+
+  // 2. Dead device (cannot make calls) — 90%
+  if (ableToMakeCalls === false) {
+    breakdown.dead = 90;
+    totalDeductionPct += 90;
   }
 
-  const batteryDeduction = batteryDeductions?.[batteryHealth] || 0;
-  const accBonus = accessoriesBonus?.[accessories] || 0;
-  
-  const raw = (basePrice * condMult * screenMult) - funcDeduction - batteryDeduction + accBonus;
-  const finalPrice = Math.round(raw / 100) * 100;
-  
+  // 3. Touch screen faulty — 65%
+  if (isTouchScreenWorking === false) {
+    breakdown.screenFaulty = 65;
+    totalDeductionPct += 65;
+  }
+
+  // 4. Non-original screen — 50%
+  if (isScreenOriginal === false) {
+    breakdown.copyScreen = 50;
+    totalDeductionPct += 50;
+  }
+
+  // 5. Out of warranty — 20%
+  if (underWarranty === false) {
+    breakdown.outOfWarranty = 20;
+    totalDeductionPct += 20;
+  }
+
+  // 6. No GST bill — 21%
+  if (hasGSTBill === false) {
+    breakdown.noBill = 21;
+    totalDeductionPct += 21;
+  }
+
+  // 7. eSIM only global variant — 6%
+  if (eSIMSupport === 'esim_only_global') {
+    breakdown.eSIM = 6;
+    totalDeductionPct += 6;
+  }
+
+  // 8. No charger — 3%
+  if (hasCharger === false) {
+    breakdown.noCharger = 3;
+    totalDeductionPct += 3;
+  }
+
+  // 9. No box — 5%
+  if (hasBox === false) {
+    breakdown.noBox = 5;
+    totalDeductionPct += 5;
+  }
+
+  // 10. Physical + technical issues
+  let issueDeductionPct = 0;
+  for (const id of [...physicalIssues, ...technicalIssues]) {
+    issueDeductionPct += ISSUE_DEDUCTIONS[id] || 0;
+  }
+  if (issueDeductionPct > 0) {
+    breakdown.issues = issueDeductionPct;
+    totalDeductionPct += issueDeductionPct;
+  }
+
+  // Cap at 100%
+  totalDeductionPct = Math.min(totalDeductionPct, 100);
+
+  const finalPrice = Math.max(Math.round(basePrice * (1 - totalDeductionPct / 100)), 0);
+
   return {
     basePrice,
-    conditionAdjustment: Math.round(basePrice * condMult - basePrice),
-    screenAdjustment: Math.round(basePrice * condMult * screenMult - basePrice * condMult),
-    functionalDeduction: -funcDeduction,
-    batteryDeduction: -batteryDeduction,
-    accessoriesBonus: accBonus,
-    finalPrice: Math.max(finalPrice, 0),
+    totalDeductionPct,
+    breakdown,
+    finalPrice,
   };
 }
+
 
 export function calculateLaptopPrice(device, selections) {
   const { ram, storage, yearBracket, condition, screenCondition, 

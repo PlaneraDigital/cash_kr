@@ -968,46 +968,48 @@ function ReferralTab({ referral, copyCode, copied }) {
   );
 }
 
+const supportsESIM = (modelName) => {
+  if (!modelName) return false;
+  const name = modelName.toLowerCase();
+  const allowed = [
+    'iphone 13 pro', 'iphone 13 pro max',
+    'iphone 14 pro', 'iphone 14 pro max',
+    'iphone 15 pro', 'iphone 15 pro max',
+    'iphone 16 pro', 'iphone 16 pro max',
+    'iphone 17', 'iphone 17 air', 'iphone 17 pro', 'iphone 17 pro max'
+  ];
+  return allowed.some(pattern => name.includes(pattern));
+};
+
 function DeviceEvaluationReportModal({ order, onClose }) {
-  const functionalIssues = order.device?.functionalIssues || [];
-  const screenIssues = order.device?.screenIssues || [];
+  const isLaptop = order.device?.category === 'laptop';
   
   const issueLabels = {
-    'back_glass': 'Back Glass Broken',
-    'buttons': 'Physical Button Problem',
-    'display_changed': 'Display Changed',
-    'bend': 'Bend Device',
-    'face_id': 'Face ID Problem',
-    'restart': 'Restart Problem',
-    'sensors': 'Sensors Problem',
-    'front_camera': 'Front Camera Problem',
-    'back_camera': 'Back Camera Problem',
-    'mic': 'Microphone Problem',
-    'speaker': 'Speaker Problem',
-    'fingerprint': 'Fingerprint Problem',
-    'bluetooth': 'Bluetooth Problem',
-    'wifi': 'Wifi Problem',
-    'network': 'Network Problem',
-    'vibration': 'Vibration Problem',
-    'charging': 'Charging Problem',
-    'battery': 'Battery/Service Problem',
-    'motherboard': 'Motherboard Problem',
-    'screenChanged': 'Display Replaced',
-    'keyboard': 'Keyboard Defect',
-    'trackpad': 'Trackpad Defect',
-    'speakers': 'Speaker Defect',
-    'biometric': 'Biometric/Fingerprint Defect',
-    'ports': 'USB/Charging Port Defect',
-    'cdDrive': 'CD Drive Defect',
-    'webcam': 'Webcam Defect',
-    'chargerIssue': 'Charger Defect',
-    'hardDisk': 'Hard Disk Defect',
-    'displayIssue': 'Display Lines/Spots',
-    'hinge': 'Hinge/Body Crack'
+    // Physical issues
+    'glass_crack': 'Glass Crack',
+    'back_panel': 'Back Panel Damage/Scratches',
+    'camera_glass_broken': 'Camera Glass Broken',
+    
+    // Technical issues
+    'battery_service': 'Battery Warning / Service Required',
+    'front_camera': 'Front Camera faulty',
+    'back_camera': 'Back Camera faulty',
+    'volume_button': 'Volume button issue',
+    'wifi_issue': 'Wifi/Wireless issue',
+    'finger_touch': 'Finger touch/Touch ID issue',
+    'face_unlock': 'Face unlock/Face ID issue',
+    'speaker_faulty': 'Speaker faulty',
+    'power_button': 'Power button issue',
+    'charging_port': 'Charging port issue',
+    'audio_receiver': 'Audio receiver issue',
+    'bluetooth': 'Bluetooth issue',
+    'vibrator': 'Vibrator issue',
+    'microphone': 'Microphone issue',
+    'proximity_sensor': 'Proximity sensor issue',
   };
 
-  const techIssues = functionalIssues.filter(id => !['back_glass', 'display_changed', 'bend', 'buttons'].includes(id));
-  const physicalIssues = functionalIssues.filter(id => ['back_glass', 'display_changed', 'bend', 'buttons'].includes(id));
+  const physicalIssues = order.device?.physicalIssues || [];
+  const technicalIssues = order.device?.technicalIssues || [];
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
@@ -1031,8 +1033,9 @@ function DeviceEvaluationReportModal({ order, onClose }) {
             </div>
 
             <div className="space-y-4">
+              <ReportRow label="Device Category" value={isLaptop ? 'Laptop' : 'Mobile'} />
               <ReportRow label="Device Age" value={order.device?.deviceAge || '3 - 6 Months'} />
-              {order.device?.category === 'laptop' ? (
+              {isLaptop ? (
                 <>
                   <ReportRow label="Processor" value={order.device?.processor || 'N/A'} />
                   <ReportRow label="Generation" value={order.device?.generation || 'N/A'} />
@@ -1044,60 +1047,59 @@ function DeviceEvaluationReportModal({ order, onClose }) {
                   <ReportRow label="Accessories" value={Array.isArray(order.device?.accessories) ? order.device.accessories.join(', ') : order.device?.accessories || 'None'} />
                 </>
               ) : (
-                <ReportRow label="Screen Condition" value={order.device?.hasScreenIssue ? 'Faulty Screen' : 'Good Condition'} />
+                <>
+                  <ReportRow label="Under Warranty" value={order.device?.underWarranty ? 'Yes' : 'No'} isAlert={!order.device?.underWarranty} />
+                  {supportsESIM(order.device?.modelName) && order.device?.eSIMSupport && (
+                    <ReportRow label="eSIM Support" value={order.device.eSIMSupport === 'esim_only_global' ? 'Dual eSIM Only' : 'Physical + eSIM'} />
+                  )}
+                  <ReportRow label="Calls Functional" value={order.device?.ableToMakeCalls ? 'Yes' : 'No'} isAlert={!order.device?.ableToMakeCalls} />
+                  <ReportRow label="Touch screen working" value={order.device?.isTouchScreenWorking ? 'Yes' : 'No'} isAlert={!order.device?.isTouchScreenWorking} />
+                  <ReportRow label="Screen Original" value={order.device?.isScreenOriginal ? 'Yes' : 'No'} isAlert={!order.device?.isScreenOriginal} />
+                  <ReportRow label="Accessories" value={Array.isArray(order.device?.accessories) ? order.device.accessories.join(', ') : 'None'} />
+                </>
               )}
-              <ReportRow 
-                label="Body Condition" 
-                value={order.device?.bodyCondition || 'Average'} 
-                isAlert={!['Flawless', 'Good', 'good', 'likenew'].includes(order.device?.bodyCondition)} 
-              />
-              <ReportRow label="Functional Issues" value={order.device?.functionalIssues?.length > 0 ? 'Has Issues' : 'No Issues'} isAlert={order.device?.functionalIssues?.length > 0} />
-              <ReportRow label="Power Issue" value="Powers On" />
             </div>
           </div>
 
           {/* Physical Condition Section (Mobile Only) */}
-          {order.device?.category !== 'laptop' && (
+          {!isLaptop && (
             <div className="space-y-6">
               <h3 className="text-lg font-black text-[#111827]">Physical Condition</h3>
               <div className="space-y-3">
-                 {physicalIssues.length === 0 && screenIssues.length === 0 && (
+                 {physicalIssues.length === 0 ? (
                    <p className="text-sm font-bold text-gray-400 italic">No physical issues reported</p>
+                 ) : (
+                   physicalIssues.map(id => (
+                     <div key={id} className="flex items-center gap-3">
+                       <div className="w-1.5 h-1.5 rounded-full bg-[#EF4444]" />
+                       <p className="text-sm font-black text-[#EF4444]">{issueLabels[id] || id}</p>
+                     </div>
+                   ))
                  )}
-                 {screenIssues.map(issue => (
-                   <div key={issue} className="flex items-center gap-3">
-                     <div className="w-1.5 h-1.5 rounded-full bg-[#EF4444]" />
-                     <p className="text-sm font-black text-[#EF4444]">{issue}</p>
-                   </div>
-                 ))}
-                 {physicalIssues.map(id => (
-                   <div key={id} className="flex items-center gap-3">
-                     <div className="w-1.5 h-1.5 rounded-full bg-[#EF4444]" />
-                     <p className="text-sm font-black text-[#EF4444]">{issueLabels[id] || id}</p>
-                   </div>
-                 ))}
               </div>
             </div>
           )}
 
-          {/* Technical Condition Section */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-black text-[#111827]">Technical Condition</h3>
-            <div className="space-y-3">
-               {techIssues.length === 0 ? (
-                 <div className="p-10 bg-gray-50 rounded-2xl border border-dashed border-gray-200 text-center">
-                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">No technical issues reported</p>
-                 </div>
-               ) : (
-                 techIssues.map(id => (
-                   <div key={id} className="flex items-center gap-3">
-                     <div className="w-1.5 h-1.5 rounded-full bg-[#EF4444]" />
-                     <p className="text-sm font-black text-[#EF4444]">{issueLabels[id] || id}</p>
+          {/* Technical Condition Section (Mobile Only) */}
+          {!isLaptop && (
+            <div className="space-y-6">
+              <h3 className="text-lg font-black text-[#111827]">Technical Condition</h3>
+              <div className="space-y-3">
+                 {technicalIssues.length === 0 ? (
+                   <div className="p-10 bg-gray-50 rounded-2xl border border-dashed border-gray-200 text-center">
+                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">No technical issues reported</p>
                    </div>
-                 ))
-               )}
+                 ) : (
+                   technicalIssues.map(id => (
+                     <div key={id} className="flex items-center gap-3">
+                       <div className="w-1.5 h-1.5 rounded-full bg-[#EF4444]" />
+                       <p className="text-sm font-black text-[#EF4444]">{issueLabels[id] || id}</p>
+                     </div>
+                   ))
+                 )}
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         <div className="p-8 bg-gray-50/50 border-t border-gray-100 flex gap-4">

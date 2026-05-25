@@ -14,16 +14,29 @@ const IconTrend = () => (
 );
 
 const STEPS = [
-  { id: 'warranty', label: 'Warranty' },
-  { id: 'screen', label: 'Screen' },
-  { id: 'body', label: 'Body' },
-  { id: 'functional', label: 'Functional' },
+  { id: 'warranty', label: 'Age & Warranty' },
+  { id: 'screen', label: 'General & Screen' },
+  { id: 'physical', label: 'Physical Issues' },
+  { id: 'technical', label: 'Technical Issues' },
   { id: 'accessories', label: 'Accessories' }
 ];
 
 const AGE_OPTIONS = [
   '0 - 3 Months', '3 - 6 Months', '6 - 11 Months', 'Above 11 Months'
 ];
+
+const supportsESIM = (modelName) => {
+  if (!modelName) return false;
+  const name = modelName.toLowerCase();
+  const allowed = [
+    'iphone 13 pro', 'iphone 13 pro max',
+    'iphone 14 pro', 'iphone 14 pro max',
+    'iphone 15 pro', 'iphone 15 pro max',
+    'iphone 16 pro', 'iphone 16 pro max',
+    'iphone 17'
+  ];
+  return allowed.some(pattern => name.includes(pattern));
+};
 
 export default function ConditionQuizPage() {
   const { brand, slug } = useParams();
@@ -39,20 +52,16 @@ export default function ConditionQuizPage() {
   
   // Selections (matching new requirements)
   const [deviceAge, setDeviceAge] = useState('3 - 6 Months');
-  const [hasScreenIssue, setHasScreenIssue] = useState(null);
-  const [showScreenModal, setShowScreenModal] = useState(false);
-  const [screenIssues, setScreenIssues] = useState([]);
-  
-  const [hasBodyIssue, setHasBodyIssue] = useState(null);
-  const [showBodyModal, setShowBodyModal] = useState(false);
-  const [bodyCondition, setBodyCondition] = useState(null);
+  const [underWarranty, setUnderWarranty] = useState(null);
+  const [eSIMSupport, seteSIMSupport] = useState(null); // 'physical+esim' | 'esim_only_global'
 
-  const [hasOtherIssues, setHasOtherIssues] = useState(null);
-  const [showOtherModal, setShowOtherModal] = useState(false);
-  const [otherIssues, setOtherIssues] = useState([]);
+  const [ableToMakeCalls, setAbleToMakeCalls] = useState(null);
+  const [isTouchScreenWorking, setIsTouchScreenWorking] = useState(null);
+  const [isScreenOriginal, setIsScreenOriginal] = useState(null);
 
-  const [showAccessoriesModal, setShowAccessoriesModal] = useState(false);
-  const [selectedAccessories, setSelectedAccessories] = useState([]);
+  const [physicalIssues, setPhysicalIssues] = useState([]);
+  const [technicalIssues, setTechnicalIssues] = useState([]);
+  const [selectedAccessories, setSelectedAccessories] = useState(['Bill', 'Box', 'Charger']);
 
   const [showResult, setShowResult] = useState(false);
   const [priceAnimating, setPriceAnimating] = useState(false);
@@ -66,36 +75,50 @@ export default function ConditionQuizPage() {
       setLoading(false);
       const selectedVariant = dev.variants.find(v => v.storage === storage) || dev.variants[0];
       setCurrentPrice(selectedVariant.basePrice);
+      
+      // If the model does not support eSIM, default the state so it doesn't block validation
+      if (!supportsESIM(dev.modelName)) {
+        seteSIMSupport('physical+esim');
+      }
     }).catch(() => setLoading(false));
   }, [slug, storage]);
-
-  // Recalculate price on selection change
-  const [batteryHealth, setBatteryHealth] = useState('above80');
 
   useEffect(() => {
     if (!device) return;
     const variant = device.variants.find(v => v.storage === storage) || device.variants[0];
     
-    // Map UI selections to price calculator keys
+    // Calculate new price based on user inputs
     const result = calculatePrice({
       basePrice: variant.basePrice,
-      condition: bodyCondition === 'Good' ? 'good' : (bodyCondition === 'Average' ? 'fair' : 'poor'),
-      screenCondition: hasScreenIssue ? 'crackedWorks' : 'noScratch',
-      functionalIssues: otherIssues,
-      batteryHealth,
-      accessories: selectedAccessories.length === 3 ? 'fullKit' : (selectedAccessories.includes('Box') ? 'boxOnly' : 'none'),
-      conditionMultipliers: device.conditionMultipliers,
-      screenMultipliers: device.screenMultipliers,
-      batteryDeductions: device.batteryDeductions,
-      functionalDeductions: device.functionalDeductions,
-      accessoriesBonus: device.accessoriesBonus,
+      deviceAge,
+      ableToMakeCalls: ableToMakeCalls ?? true,
+      isTouchScreenWorking: isTouchScreenWorking ?? true,
+      isScreenOriginal: isScreenOriginal ?? true,
+      underWarranty: underWarranty ?? true,
+      hasGSTBill: selectedAccessories.includes('Bill'),
+      eSIMSupport,
+      physicalIssues,
+      technicalIssues,
+      hasCharger: selectedAccessories.includes('Charger'),
+      hasBox: selectedAccessories.includes('Box'),
     });
 
     setPriceAnimating(true);
     setTimeout(() => setPriceAnimating(false), 400);
     setCurrentPrice(result.finalPrice);
     setBreakdown(result);
-  }, [device, bodyCondition, hasScreenIssue, otherIssues, selectedAccessories]);
+  }, [
+    device, 
+    deviceAge, 
+    ableToMakeCalls, 
+    isTouchScreenWorking, 
+    isScreenOriginal, 
+    underWarranty, 
+    eSIMSupport, 
+    physicalIssues, 
+    technicalIssues, 
+    selectedAccessories
+  ]);
 
   const handleGetBestPrice = () => {
     updateQuote({
@@ -103,15 +126,18 @@ export default function ConditionQuizPage() {
         brand: device.brand, 
         modelName: device.modelName, 
         slug: device.slug,
+        category: 'mobile',
         imageUrl: device.imageUrl || '',
         storage: storage || device.variants[0].storage,
-        deviceAge: deviceAge,
-        hasScreenIssue: hasScreenIssue,
-        screenIssues: screenIssues,
-        hasBodyIssue: hasBodyIssue,
-        bodyCondition: bodyCondition,
-        hasOtherIssues: hasOtherIssues,
-        functionalIssues: otherIssues,
+        deviceAge,
+        ableToMakeCalls,
+        isTouchScreenWorking,
+        isScreenOriginal,
+        underWarranty,
+        hasGSTBill: selectedAccessories.includes('Bill'),
+        eSIMSupport,
+        physicalIssues,
+        technicalIssues,
         accessories: selectedAccessories,
       },
       priceBreakdown: breakdown,
@@ -230,10 +256,16 @@ export default function ConditionQuizPage() {
                 <h3 className="text-2xl font-black text-[#111827] mb-10">Device Evaluation</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
                   <EvaluationRow label="Device Age" value={deviceAge} color="#0565E6" />
-                  <EvaluationRow label="Screen Condition" value={hasScreenIssue ? screenIssues.join(', ') : 'No Issues'} color={hasScreenIssue ? '#EF4444' : '#0565E6'} />
-                  <EvaluationRow label="Body Condition" value={bodyCondition} color={bodyCondition === 'Good' ? '#0565E6' : '#EF4444'} />
-                  <EvaluationRow label="Functional Issues" value={otherIssues.length > 0 ? otherIssues.join(', ') : 'No Issues'} color={otherIssues.length > 0 ? '#EF4444' : '#0565E6'} />
-                  <EvaluationRow label="Power Issue" value="Powers On" color="#0565E6" />
+                  <EvaluationRow label="Under Warranty" value={underWarranty ? 'Yes' : 'No'} color={underWarranty ? '#0565E6' : '#EF4444'} />
+                  {supportsESIM(device?.modelName) && (
+                    <EvaluationRow label="eSIM Support" value={eSIMSupport === 'esim_only_global' ? 'eSIM Only' : 'Physical + eSIM'} color={eSIMSupport === 'esim_only_global' ? '#EF4444' : '#0565E6'} />
+                  )}
+                  <EvaluationRow label="Calls Functional" value={ableToMakeCalls ? 'Yes' : 'No (Dead)'} color={ableToMakeCalls ? '#0565E6' : '#EF4444'} />
+                  <EvaluationRow label="Touch Screen working" value={isTouchScreenWorking ? 'Yes' : 'No'} color={isTouchScreenWorking ? '#0565E6' : '#EF4444'} />
+                  <EvaluationRow label="Screen Original" value={isScreenOriginal ? 'Yes' : 'No (Copy Screen)'} color={isScreenOriginal ? '#0565E6' : '#EF4444'} />
+                  <EvaluationRow label="Physical Issues" value={physicalIssues.length > 0 ? physicalIssues.join(', ') : 'No Issues'} color={physicalIssues.length > 0 ? '#EF4444' : '#0565E6'} />
+                  <EvaluationRow label="Technical Issues" value={technicalIssues.length > 0 ? technicalIssues.join(', ') : 'No Issues'} color={technicalIssues.length > 0 ? '#EF4444' : '#0565E6'} />
+                  <EvaluationRow label="Accessories" value={selectedAccessories.join(', ') || 'None'} color="#0565E6" />
                 </div>
               </div>
             </div>
@@ -305,9 +337,7 @@ export default function ConditionQuizPage() {
         </div>
       </div>
     );
-  }
-
-  // --- QUIZ VIEW ---
+  }  // --- QUIZ VIEW ---
   return (
     <div className="bg-[#F9FAFB] min-h-screen py-10 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">
@@ -319,7 +349,7 @@ export default function ConditionQuizPage() {
             {/* Device Header */}
             <div className="p-8 flex items-center gap-6 border-b border-gray-50">
               <div className="w-20 h-24 bg-gray-50 rounded-2xl flex items-center justify-center p-2">
-                <img src={device.imageUrl || '/placeholder-phone.png'} alt={device.modelName} className="h-full object-contain" />
+                <img src={device.imageUrl || 'https://img.freepik.com/free-photo/mobile-phone-with-blank-screen_23-2148151433.jpg'} alt={device.modelName} className="h-full object-contain" />
               </div>
               <div>
                 <p className="text-[#0565E6] text-xs font-bold uppercase tracking-wider mb-1">Evaluating</p>
@@ -329,19 +359,18 @@ export default function ConditionQuizPage() {
               </div>
             </div>
 
-            {/* Sub-Stepper */}
-            <div className="px-8 py-4">
-              <div className="flex items-center gap-2 mb-4">
+            {/* Stepper progress */}
+            <div className="px-8 py-4 bg-gray-50/50 border-b border-gray-50">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4">
                 {STEPS.map((s, idx) => (
                   <div key={s.id} className="flex items-center gap-2">
-                    <span className={`text-xs font-bold ${idx === currentStepIndex ? 'text-[#111827]' : 'text-gray-400'}`}>
+                    <span className={`text-xs font-bold ${idx === currentStepIndex ? 'text-[#0565E6]' : 'text-gray-400'}`}>
                       {s.label}
                     </span>
                     {idx < STEPS.length - 1 && <span className="text-gray-300 text-xs font-bold">&gt;</span>}
                   </div>
                 ))}
               </div>
-              {/* Progress Bar */}
               <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
                 <div 
                   className="h-full bg-[#0565E6] transition-all duration-500" 
@@ -351,112 +380,329 @@ export default function ConditionQuizPage() {
             </div>
 
             {/* Questions Area */}
-            <div className="p-10 space-y-12 min-h-[400px]">
-              
-              {/* Question 1: Device Age */}
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-bold text-[#111827]">1. How old is your device?</h3>
-                  <p className="text-sm text-gray-500 mt-1 font-medium">Choose the closest option.</p>
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {AGE_OPTIONS.map(age => (
-                    <button
-                      key={age}
-                      onClick={() => setDeviceAge(age)}
-                      className={`py-4 rounded-xl border-2 font-bold text-sm transition-all
-                        ${deviceAge === age 
-                          ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
-                          : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
-                    >
-                      {age}
-                    </button>
-                  ))}
-                </div>
+            <div className="p-10 min-h-[420px] flex flex-col justify-between">
+              <div>
+                {/* STEP 0: Age & Warranty */}
+                {currentStepIndex === 0 && (
+                  <div className="space-y-10">
+                    {/* Q1: Age */}
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-bold text-[#111827]">1. How old is your device?</h3>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {AGE_OPTIONS.map(age => (
+                          <button
+                            key={age}
+                            onClick={() => setDeviceAge(age)}
+                            className={`py-4 rounded-xl border-2 font-bold text-sm transition-all
+                              ${deviceAge === age 
+                                ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                                : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                          >
+                            {age}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Q2: Warranty */}
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-bold text-[#111827]">2. Is your device under manufacturer warranty?</h3>
+                      <div className="grid grid-cols-2 gap-4">
+                        <button
+                          onClick={() => setUnderWarranty(true)}
+                          className={`py-4 rounded-xl border-2 font-bold text-sm transition-all
+                            ${underWarranty === true 
+                              ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                              : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                        >
+                          Yes
+                        </button>
+                        <button
+                          onClick={() => setUnderWarranty(false)}
+                          className={`py-4 rounded-xl border-2 font-bold text-sm transition-all
+                            ${underWarranty === false 
+                              ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                              : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                        >
+                          No
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Q3: eSIM Support (Conditional) */}
+                    {supportsESIM(device?.modelName) && (
+                      <div className="space-y-4">
+                        <h3 className="text-lg font-bold text-[#111827]">3. How many eSIMs does your device support?</h3>
+                        <div className="grid grid-cols-2 gap-4">
+                          <button
+                            onClick={() => seteSIMSupport('physical+esim')}
+                            className={`py-4 rounded-xl border-2 font-bold text-sm transition-all
+                              ${eSIMSupport === 'physical+esim' 
+                                ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                                : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                          >
+                            Physical SIM + eSIM
+                          </button>
+                          <button
+                            onClick={() => seteSIMSupport('esim_only_global')}
+                            className={`py-4 rounded-xl border-2 font-bold text-sm transition-all
+                              ${eSIMSupport === 'esim_only_global' 
+                                ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                                : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                          >
+                            Dual eSIM Only (Global/US variant)
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* STEP 1: Calls & Screen */}
+                {currentStepIndex === 1 && (
+                  <div className="space-y-10">
+                    {/* Q1: Calls */}
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-bold text-[#111827]">1. Are you able to make and receive calls?</h3>
+                      <div className="grid grid-cols-2 gap-4">
+                        <button
+                          onClick={() => setAbleToMakeCalls(true)}
+                          className={`py-4 rounded-xl border-2 font-bold text-sm transition-all
+                            ${ableToMakeCalls === true 
+                              ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                              : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                        >
+                          Yes
+                        </button>
+                        <button
+                          onClick={() => setAbleToMakeCalls(false)}
+                          className={`py-4 rounded-xl border-2 font-bold text-sm transition-all
+                            ${ableToMakeCalls === false 
+                              ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                              : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                        >
+                          No (Dead)
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Q2: Touch Screen */}
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-bold text-[#111827]">2. Is your device's touch screen working properly?</h3>
+                      <div className="grid grid-cols-2 gap-4">
+                        <button
+                          onClick={() => setIsTouchScreenWorking(true)}
+                          className={`py-4 rounded-xl border-2 font-bold text-sm transition-all
+                            ${isTouchScreenWorking === true 
+                              ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                              : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                        >
+                          Yes
+                        </button>
+                        <button
+                          onClick={() => setIsTouchScreenWorking(false)}
+                          className={`py-4 rounded-xl border-2 font-bold text-sm transition-all
+                            ${isTouchScreenWorking === false 
+                              ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                              : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                        >
+                          No
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Q3: Original Screen */}
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-bold text-[#111827]">3. Is your phone's screen original?</h3>
+                      <div className="grid grid-cols-2 gap-4">
+                        <button
+                          onClick={() => setIsScreenOriginal(true)}
+                          className={`py-4 rounded-xl border-2 font-bold text-sm transition-all
+                            ${isScreenOriginal === true 
+                              ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                              : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                        >
+                          Yes
+                        </button>
+                        <button
+                          onClick={() => setIsScreenOriginal(false)}
+                          className={`py-4 rounded-xl border-2 font-bold text-sm transition-all
+                            ${isScreenOriginal === false 
+                              ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                              : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                        >
+                          No (Copy Screen)
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* STEP 2: Physical Issues */}
+                {currentStepIndex === 2 && (
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-lg font-bold text-[#111827]">Select physical issues (if any)</h3>
+                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Leave unselected if none apply</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      {[
+                        { id: 'glass_crack', label: 'Glass Crack', desc: 'Screen glass contains cracks', icon: '📱' },
+                        { id: 'back_panel', label: 'Back Panel Damage', desc: 'Scratches, dents or broken back panel', icon: '🎨' },
+                        { id: 'camera_glass_broken', label: 'Camera Glass Broken', desc: 'Camera lens glass is cracked/broken', icon: '📷' }
+                      ].map(issue => {
+                        const selected = physicalIssues.includes(issue.id);
+                        return (
+                          <button
+                            key={issue.id}
+                            onClick={() => {
+                              setPhysicalIssues(prev => 
+                                prev.includes(issue.id) ? prev.filter(i => i !== issue.id) : [...prev, issue.id]
+                              );
+                            }}
+                            className={`p-6 rounded-2xl border-2 text-left transition-all flex flex-col justify-between h-40
+                              ${selected 
+                                ? 'border-[#0565E6] bg-[#E8F1FF]' 
+                                : 'border-gray-100 bg-white hover:border-gray-200'}`}
+                          >
+                            <span className="text-2xl">{issue.icon}</span>
+                            <div>
+                              <p className={`font-black text-sm ${selected ? 'text-[#0565E6]' : 'text-[#111827]'}`}>{issue.label}</p>
+                              <p className="text-xs text-gray-400 mt-1">{issue.desc}</p>
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* STEP 3: Technical Issues */}
+                {currentStepIndex === 3 && (
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-lg font-bold text-[#111827]">Select technical/hardware issues (if any)</h3>
+                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Leave unselected if none apply</p>
+                    </div>
+
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-h-[360px] overflow-y-auto pr-2 no-scrollbar">
+                      {[
+                        { id: 'battery_service', label: 'Battery Warning', icon: '🔋', pct: '13%' },
+                        { id: 'front_camera', label: 'Front Camera faulty', icon: '📸', pct: '8%' },
+                        { id: 'back_camera', label: 'Back Camera faulty', icon: '📷', pct: '15%' },
+                        { id: 'volume_button', label: 'Volume button issue', icon: '🔘', pct: '4%' },
+                        { id: 'wifi_issue', label: 'Wifi issue', icon: '📶', pct: '39%' },
+                        { id: 'finger_touch', label: 'Finger touch issue', icon: '☝️', pct: '26%' },
+                        { id: 'face_unlock', label: 'Face unlock issue', icon: '👤', pct: '26%' },
+                        { id: 'speaker_faulty', label: 'Speaker faulty', icon: '🔊', pct: '4%' },
+                        { id: 'power_button', label: 'Power button issue', icon: '🔌', pct: '2%' },
+                        { id: 'charging_port', label: 'Charging port issue', icon: '⚡', pct: '10%' },
+                        { id: 'audio_receiver', label: 'Audio receiver issue', icon: '📞', pct: '7%' },
+                        { id: 'bluetooth', label: 'Bluetooth issue', icon: '🦷', pct: '39%' },
+                        { id: 'vibrator', label: 'Vibrator issue', icon: '📳', pct: '2%' },
+                        { id: 'microphone', label: 'Microphone issue', icon: '🎤', pct: '2%' },
+                        { id: 'proximity_sensor', label: 'Proximity sensor', icon: '📡', pct: '3%' }
+                      ].map(issue => {
+                        const selected = technicalIssues.includes(issue.id);
+                        return (
+                          <button
+                            key={issue.id}
+                            onClick={() => {
+                              setTechnicalIssues(prev => 
+                                prev.includes(issue.id) ? prev.filter(i => i !== issue.id) : [...prev, issue.id]
+                              );
+                            }}
+                            className={`p-4 rounded-xl border-2 text-center transition-all flex flex-col items-center justify-center gap-2
+                              ${selected 
+                                ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                                : 'border-gray-50 bg-white text-gray-500 hover:border-gray-100'}`}
+                          >
+                            <span className="text-2xl">{issue.icon}</span>
+                            <span className="text-xs font-bold leading-tight">{issue.label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* STEP 4: Accessories */}
+                {currentStepIndex === 4 && (
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-lg font-bold text-[#111827]">Which original accessories do you have?</h3>
+                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Deductions apply if unchecked</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                      {[
+                        { id: 'Bill', label: 'GST Valid Bill', desc: 'Valid GST invoice', icon: '📄' },
+                        { id: 'Box', label: 'Original Box', desc: 'Original purchase box', icon: '📦' },
+                        { id: 'Charger', label: 'Original Charger', desc: 'Original charging adapter', icon: '🔌' }
+                      ].map(acc => {
+                        const selected = selectedAccessories.includes(acc.id);
+                        return (
+                          <button
+                            key={acc.id}
+                            onClick={() => {
+                              setSelectedAccessories(prev => 
+                                prev.includes(acc.id) ? prev.filter(a => a !== acc.id) : [...prev, acc.id]
+                              );
+                            }}
+                            className={`p-6 rounded-[24px] border-2 text-left transition-all flex flex-col justify-between h-40 group
+                              ${selected 
+                                ? 'border-[#0565E6] bg-[#E8F1FF]' 
+                                : 'border-gray-100 bg-white hover:border-gray-200'}`}
+                          >
+                            <div className="flex justify-between items-start w-full">
+                              <span className="text-2xl">{acc.icon}</span>
+                              <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center
+                                ${selected ? 'border-[#0565E6] bg-[#0565E6]' : 'border-gray-200'}`}>
+                                {selected && <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" strokeWidth="2.5" strokeLinecap="round"/></svg>}
+                              </div>
+                            </div>
+                            <div>
+                              <p className={`font-black text-sm ${selected ? 'text-[#0565E6]' : 'text-[#111827]'}`}>{acc.label}</p>
+                              <p className="text-xs text-gray-400 mt-1">{acc.desc}</p>
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
               </div>
 
-              {/* Question 2: Screen Issue Toggle */}
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-bold text-[#111827]">2. Is there any screen issue?</h3>
-                  <p className="text-sm text-gray-500 mt-1 font-medium">Cracks, scratches, touch problems, lines, spots, dead pixels.</p>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
+              {/* Stepper buttons row */}
+              <div className="flex justify-between items-center mt-10 pt-6 border-t border-gray-100">
+                <button
+                  onClick={() => setCurrentStepIndex(prev => Math.max(prev - 1, 0))}
+                  disabled={currentStepIndex === 0}
+                  className="px-8 py-4 rounded-xl border border-gray-200 font-bold text-gray-500 hover:bg-gray-50 transition-all disabled:opacity-50"
+                >
+                  ← Back
+                </button>
+                
+                {currentStepIndex < STEPS.length - 1 ? (
                   <button
-                    onClick={() => { setHasScreenIssue(true); setShowScreenModal(true); }}
-                    className={`py-4 rounded-xl border-2 font-bold text-sm flex items-center justify-center gap-2 transition-all
-                      ${hasScreenIssue === true 
-                        ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
-                        : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                    onClick={() => setCurrentStepIndex(prev => prev + 1)}
+                    disabled={
+                      (currentStepIndex === 0 && (underWarranty === null || eSIMSupport === null)) ||
+                      (currentStepIndex === 1 && (ableToMakeCalls === null || isTouchScreenWorking === null || isScreenOriginal === null))
+                    }
+                    className="bg-[#0565E6] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#044BA8] transition-all disabled:opacity-50"
                   >
-                    {hasScreenIssue === true && <span className="text-lg">✓</span>} Yes
+                    Next Step →
                   </button>
+                ) : (
                   <button
-                    onClick={() => { setHasScreenIssue(false); setScreenIssues([]); }}
-                    className={`py-4 rounded-xl border-2 font-bold text-sm flex items-center justify-center gap-2 transition-all
-                      ${hasScreenIssue === false 
-                        ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
-                        : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                    onClick={handleGetBestPrice}
+                    className="bg-[#16A34A] text-white font-black px-10 py-5 rounded-2xl shadow-xl shadow-green-100 hover:bg-[#15803D] transition-all flex items-center gap-2"
                   >
-                    {hasScreenIssue === false && <span className="text-lg">×</span>} No
+                    GET BEST PRICE <span className="text-lg">›</span>
                   </button>
-                </div>
-              </div>
-
-              {/* Question 3: Body Damage */}
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-bold text-[#111827]">3. Any body damage?</h3>
-                  <p className="text-sm text-gray-500 mt-1 font-medium">Dents, deep scratches, loose frame, heavy wear.</p>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <button
-                    onClick={() => { setHasBodyIssue(true); setShowBodyModal(true); }}
-                    className={`py-4 rounded-xl border-2 font-bold text-sm flex items-center justify-center gap-2 transition-all
-                      ${hasBodyIssue === true 
-                        ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
-                        : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
-                  >
-                    {hasBodyIssue === true && <span className="text-lg">✓</span>} Yes
-                  </button>
-                  <button
-                    onClick={() => { setHasBodyIssue(false); setBodyCondition('Good'); }}
-                    className={`py-4 rounded-xl border-2 font-bold text-sm flex items-center justify-center gap-2 transition-all
-                      ${hasBodyIssue === false 
-                        ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
-                        : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
-                  >
-                    {hasBodyIssue === false && <span className="text-lg">×</span>} No
-                  </button>
-                </div>
-              </div>
-
-              {/* Question 4: Other Problems */}
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-bold text-[#111827]">4. Any other problems?</h3>
-                  <p className="text-sm text-gray-500 mt-1 font-medium">Buttons, speaker, mic, camera, charging, Wi-Fi, battery, Face ID/Touch ID, broken back, etc.</p>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <button
-                    onClick={() => { setHasOtherIssues(true); setShowOtherModal(true); }}
-                    className={`py-4 rounded-xl border-2 font-bold text-sm flex items-center justify-center gap-2 transition-all
-                      ${hasOtherIssues === true 
-                        ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
-                        : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
-                  >
-                    {hasOtherIssues === true && <span className="text-lg">✓</span>} Yes
-                  </button>
-                  <button
-                    onClick={() => { setHasOtherIssues(false); setOtherIssues([]); }}
-                    className={`py-4 rounded-xl border-2 font-bold text-sm flex items-center justify-center gap-2 transition-all
-                      ${hasOtherIssues === false 
-                        ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
-                        : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
-                  >
-                    {hasOtherIssues === false && <span className="text-lg">×</span>} No
-                  </button>
-                </div>
+                )}
               </div>
 
             </div>
@@ -472,9 +718,11 @@ export default function ConditionQuizPage() {
             <div className="bg-[#E8F1FF] rounded-3xl p-6 mb-8 flex items-center justify-between border border-[#0565E6]/10">
               <div>
                 <p className="text-[#0565E6] text-xs font-bold uppercase tracking-widest mb-1">Estimated Value</p>
-                <p className="text-3xl font-black text-[#166534]">{formatCurrency(currentPrice)}</p>
+                <p className={`text-3xl font-black text-[#111827] transition-all ${priceAnimating ? 'scale-95 opacity-50' : 'scale-100 opacity-100'}`}>
+                  {formatCurrency(currentPrice)}
+                </p>
               </div>
-              <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-[#0565E6] shadow-sm\">
+              <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-[#0565E6] shadow-sm">
                 <IconTrend />
               </div>
             </div>
@@ -482,127 +730,18 @@ export default function ConditionQuizPage() {
             {/* Summary List */}
             <div className="space-y-6">
               <SummaryItem label="Device Age" value={deviceAge} active />
-              <SummaryItem label="Screen Condition" value={hasScreenIssue === null ? 'Not answered' : (hasScreenIssue ? 'Issues detected' : 'No Issues')} active={hasScreenIssue !== null} />
-              <SummaryItem label="Body Condition" value={hasBodyIssue === null ? 'Not answered' : (bodyCondition || 'No Issues')} active={hasBodyIssue !== null} />
-              <SummaryItem label="Functional Issues" value={hasOtherIssues === null ? 'Not answered' : (otherIssues.length > 0 ? `${otherIssues.length} issues` : 'No Issues')} active={hasOtherIssues !== null} />
-              <SummaryItem label="Accessories" value={selectedAccessories.length > 0 ? selectedAccessories.join(', ') : 'Not selected'} active={selectedAccessories.length > 0} />
-              <SummaryItem label="Power Issue" value="Powers On" active />
+              <SummaryItem label="Warranty" value={underWarranty === null ? 'Not answered' : (underWarranty ? 'Under Warranty' : 'Out of Warranty')} active={underWarranty !== null} />
+              {supportsESIM(device?.modelName) && (
+                <SummaryItem label="eSIM Support" value={eSIMSupport === null ? 'Not answered' : (eSIMSupport === 'esim_only_global' ? 'Dual eSIM Only' : 'Physical + eSIM')} active={eSIMSupport !== null} />
+              )}
+              <SummaryItem label="General & Screen" value={ableToMakeCalls === null ? 'Not answered' : `Calls: ${ableToMakeCalls ? 'Yes' : 'No'}, Touch: ${isTouchScreenWorking ? 'Yes' : 'No'}, Original: ${isScreenOriginal ? 'Yes' : 'No'}`} active={ableToMakeCalls !== null} />
+              <SummaryItem label="Physical Issues" value={physicalIssues.length > 0 ? `${physicalIssues.length} issues selected` : 'No Issues'} active={currentStepIndex >= 2} />
+              <SummaryItem label="Technical Issues" value={technicalIssues.length > 0 ? `${technicalIssues.length} issues selected` : 'No Issues'} active={currentStepIndex >= 3} />
+              <SummaryItem label="Accessories" value={selectedAccessories.length > 0 ? selectedAccessories.join(', ') : 'None selected'} active={currentStepIndex >= 4} />
             </div>
 
-            <button 
-              onClick={() => setShowAccessoriesModal(true)}
-              disabled={hasOtherIssues === null}
-              className="w-full mt-12 bg-[#0565E6] text-white font-black py-5 rounded-2xl shadow-xl shadow-blue-100 hover:bg-[#044BA8] transition-all disabled:opacity-50 disabled:shadow-none"
-            >
-              Continue Next →
-            </button>
           </div>
         </div>
-      </div>
-
-      {/* Screen Issues Modal */}
-      {showScreenModal && (
-        <ScreenIssueModal 
-          onClose={() => setShowScreenModal(false)} 
-          selectedIssues={screenIssues}
-          onToggle={(issue) => {
-            setScreenIssues(prev => 
-              prev.includes(issue) ? prev.filter(i => i !== issue) : [...prev, issue]
-            );
-          }}
-          onSave={() => setShowScreenModal(false)}
-        />
-      )}
-
-      {/* Body Issues Modal */}
-      {showBodyModal && (
-        <BodyConditionModal 
-          onClose={() => setShowBodyModal(false)} 
-          selectedCondition={bodyCondition}
-          onSelect={(condition) => { setBodyCondition(condition); setShowBodyModal(false); }}
-        />
-      )}
-
-      {/* Other Problems Modal */}
-      {showOtherModal && (
-        <OtherProblemsModal 
-          onClose={() => setShowOtherModal(false)} 
-          selectedIssues={otherIssues}
-          onToggle={(issue) => {
-            setOtherIssues(prev => 
-              prev.includes(issue) ? prev.filter(i => i !== issue) : [...prev, issue]
-            );
-          }}
-          onSave={() => setShowOtherModal(false)}
-        />
-      )}
-
-      {/* Accessories Modal */}
-      {showAccessoriesModal && (
-        <AccessoriesModal 
-          onClose={() => setShowAccessoriesModal(false)} 
-          selectedAccessories={selectedAccessories}
-          onToggle={(acc) => {
-            setSelectedAccessories(prev => 
-              prev.includes(acc) ? prev.filter(a => a !== acc) : [...prev, acc]
-            );
-          }}
-          onConfirm={handleGetBestPrice}
-        />
-      )}
-    </div>
-  );
-}
-
-function AccessoriesModal({ onClose, selectedAccessories, onToggle, onConfirm }) {
-  const accessories = [
-    { id: 'Bill', label: 'Bill', icon: '📄' },
-    { id: 'Box', label: 'Box', icon: '📦' },
-    { id: 'Charger', label: 'Charger', icon: '🔌' },
-  ];
-
-  return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative bg-white w-full max-w-4xl rounded-[40px] shadow-2xl p-10">
-        <button onClick={onClose} className="absolute top-8 right-8 text-gray-400 hover:text-gray-600">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-
-        <h2 className="text-3xl font-black text-[#111827] mb-2">Accessories</h2>
-        <p className="text-gray-500 font-medium mb-10">Select accessories you have</p>
-
-        <div className="grid grid-cols-3 gap-6 mb-12">
-          {accessories.map(acc => (
-            <button
-              key={acc.id}
-              onClick={() => onToggle(acc.id)}
-              className={`p-10 rounded-[32px] border-2 flex flex-col items-center gap-6 transition-all group
-                ${selectedAccessories.includes(acc.id) 
-                  ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
-                  : 'border-gray-50 bg-white text-gray-500 hover:border-gray-100'}`}
-            >
-              <div className={`w-24 h-24 rounded-3xl flex items-center justify-center text-4xl transition-transform group-hover:scale-110
-                ${selectedAccessories.includes(acc.id) ? 'bg-white' : 'bg-gray-50'}`}>
-                {acc.icon}
-              </div>
-              <span className="text-lg font-black flex items-center gap-2">
-                {acc.label}
-                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center
-                  ${selectedAccessories.includes(acc.id) ? 'border-[#0565E6] bg-[#0565E6]' : 'border-gray-200'}`}>
-                  {selectedAccessories.includes(acc.id) && <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>}
-                </div>
-              </span>
-            </button>
-          ))}
-        </div>
-
-        <button 
-          onClick={onConfirm}
-          className="w-full bg-[#0565E6] text-white font-black py-5 rounded-2xl shadow-xl shadow-blue-100 hover:bg-[#044BA8] flex items-center justify-center gap-3 transition-all"
-        >
-          GET BEST PRICE <span className="text-xl">›</span>
-        </button>
       </div>
     </div>
   );
@@ -620,205 +759,7 @@ function SummaryItem({ label, value, active }) {
   );
 }
 
-function ScreenIssueModal({ onClose, selectedIssues, onToggle, onSave }) {
-  const issues = [
-    { title: "Scratches On Screen", desc: "Visible Scratches on the screen" },
-    { title: "Cracked Screen", points: ['Only Screen Cracked', 'No Display Broken'] },
-    { title: "Faulty Screen", points: ['1 or 2 lines/small spots', 'small Patch of Light Screen'] },
-    { title: "Screen Not Usable", points: ['Blank/Broken Screen', 'Touch not working', 'Multiples lines, Spots, Patches'] },
-  ];
-
-  return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative bg-white w-full max-w-4xl rounded-[40px] shadow-2xl p-10 max-h-[90vh] overflow-y-auto">
-        <button onClick={onClose} className="absolute top-8 right-8 text-gray-400 hover:text-gray-600">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-
-        <h2 className="text-3xl font-black text-[#111827] mb-2">Screen Issues</h2>
-        <p className="text-gray-500 font-medium mb-10">Cracks, scratches, touch problems, lines, spots, dead pixels.</p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {issues.map(issue => (
-            <ScreenIssueCard 
-              key={issue.title}
-              title={issue.title} 
-              desc={issue.desc}
-              points={issue.points}
-              selected={selectedIssues.includes(issue.title)}
-              onClick={() => onToggle(issue.title)}
-            />
-          ))}
-        </div>
-
-        <div className="mt-10 flex justify-end">
-          <button 
-            onClick={onSave}
-            className="bg-[#0565E6] text-white font-black px-12 py-4 rounded-2xl hover:bg-[#044ab8] transition-all shadow-lg shadow-blue-100"
-          >
-            Confirm
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function BodyConditionModal({ onClose, selectedCondition, onSelect }) {
-  return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative bg-white w-full max-w-4xl rounded-[40px] shadow-2xl p-10 max-h-[90vh] overflow-y-auto">
-        <button onClick={onClose} className="absolute top-8 right-8 text-gray-400 hover:text-gray-600">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-
-        <h2 className="text-3xl font-black text-[#111827] mb-2">Body Condition</h2>
-        <p className="text-gray-500 font-medium mb-10">Dents, deep scratches, loose frame, heavy wear.</p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <ScreenIssueCard 
-            title="Good" 
-            points={['Minor scratches', 'Light wear and tear', 'No major dents or damage']} 
-            selected={selectedCondition === 'Good'}
-            onClick={() => onSelect('Good')}
-          />
-          <ScreenIssueCard 
-            title="Average" 
-            points={['Visible scratches on body', 'Minor dents possible', 'Signs of normal wear and tear']} 
-            selected={selectedCondition === 'Average'}
-            onClick={() => onSelect('Average')}
-          />
-          <ScreenIssueCard 
-            title="Below Average" 
-            points={['Deep scratches', 'Multiple dents or cracks', 'Heavy wear and tear']} 
-            selected={selectedCondition === 'Below Average'}
-            onClick={() => onSelect('Below Average')}
-          />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-const OTHER_ISSUES_DATA = {
-  'Physical Issues': [
-    { id: 'back_glass', label: 'Back Glass Broken', icon: '📱' },
-    { id: 'buttons', label: 'Physical Button', icon: '🔘' },
-    { id: 'display_changed', label: 'Display Changed', icon: '📲' },
-    { id: 'bend', label: 'Bend Device', icon: '〰️' },
-  ],
-  'Technical Issues': [
-    { id: 'biometricIssue', label: 'Face ID / Fingerprint Problem', icon: '👤' },
-    { id: 'restart', label: 'Restart Problem', icon: '🔄' },
-    { id: 'sensors', label: 'Sensors Problem', icon: '📡' },
-    { id: 'front_camera', label: 'Front Camera', icon: '📸' },
-    { id: 'back_camera', label: 'Back Camera', icon: '📷' },
-    { id: 'mic', label: 'Microphone Problem', icon: '🎤' },
-    { id: 'speaker', label: 'Speaker Problem', icon: '🔊' },
-    { id: 'fingerprint', label: 'Fingerprint Problem', icon: '☝️' },
-    { id: 'bluetooth', label: 'Bluetooth', icon: '🦷' },
-    { id: 'wifi', label: 'Wifi Problem', icon: '📶' },
-    { id: 'network', label: 'Network Problem', icon: '📡' },
-    { id: 'vibration', label: 'Vibration Problem', icon: '📳' },
-    { id: 'charging', label: 'Charging Problem', icon: '🔌' },
-    { id: 'batteryLow', label: 'Battery/Service Problem', icon: '🔋' },
-    { id: 'motherboard', label: 'Motherboard Problem', icon: '🗂️' },
-  ]
-};
-
-function OtherProblemsModal({ onClose, selectedIssues, onToggle, onSave }) {
-  return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative bg-white w-full max-w-5xl rounded-[40px] shadow-2xl p-10 max-h-[90vh] flex flex-col">
-        <button onClick={onClose} className="absolute top-8 right-8 text-gray-400 hover:text-gray-600">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-
-        <h2 className="text-3xl font-black text-[#111827] mb-8">Select Issues</h2>
-
-        <div className="flex-1 overflow-y-auto pr-4 space-y-10">
-          {Object.entries(OTHER_ISSUES_DATA).map(([category, issues]) => (
-            <div key={category} className="space-y-6">
-              <h3 className="text-xl font-bold text-[#111827]">{category}</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                {issues.map(issue => (
-                  <button
-                    key={issue.id}
-                    onClick={() => onToggle(issue.id)}
-                    className={`p-6 rounded-3xl border-2 flex flex-col items-center gap-4 transition-all
-                      ${selectedIssues.includes(issue.id) 
-                        ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
-                        : 'border-gray-50 bg-white text-gray-500 hover:border-gray-100'}`}
-                  >
-                    <span className="text-3xl">{issue.icon}</span>
-                    <span className="text-sm font-bold text-center">{issue.label}</span>
-                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center mt-auto
-                      ${selectedIssues.includes(issue.id) ? 'border-[#0565E6] bg-[#0565E6]' : 'border-gray-200'}`}>
-                      {selectedIssues.includes(issue.id) && <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>}
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-10 pt-6 border-t border-gray-50 flex justify-end">
-          <button 
-            onClick={onSave}
-            className="bg-[#0565E6] text-white font-black px-12 py-4 rounded-2xl hover:bg-[#044ab8] transition-all shadow-lg shadow-blue-100"
-          >
-            Proceed
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ScreenIssueCard({ title, desc, points, selected, onClick }) {
-  return (
-    <div 
-      onClick={onClick}
-      className={`border-2 rounded-3xl p-6 flex justify-between group transition-all cursor-pointer
-        ${selected 
-          ? 'border-[#0565E6] bg-[#E8F1FF]' 
-          : 'border-gray-100 bg-white hover:border-[#0565E6]/20 hover:bg-[#F9FAFB]/50'}`}
-    >
-      <div className="space-y-3">
-        <h4 className={`text-lg font-black transition-colors ${selected ? 'text-[#166534]' : 'text-[#111827]'}`}>{title}</h4>
-        {desc && <p className={`text-sm font-medium transition-colors ${selected ? 'text-[#166534]/80' : 'text-gray-500'}`}>{desc}</p>}
-        {points && (
-          <ul className="space-y-2">
-            {points.map(p => (
-              <li key={p} className={`flex items-center gap-2 text-sm font-medium transition-colors ${selected ? 'text-[#166534]/80' : 'text-gray-500'}`}>
-                <span className={`w-1 h-1 rounded-full ${selected ? 'bg-[#0565E6]' : 'bg-gray-300'}`} /> {p}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-      <div className={`w-24 h-32 rounded-xl flex items-center justify-center p-2 transition-colors
-        ${selected ? 'bg-white' : 'bg-gray-50 group-hover:bg-white'}`}>
-        <div className={`w-12 h-20 border-2 rounded-lg relative overflow-hidden transition-colors
-          ${selected ? 'border-[#0565E6]' : 'border-gray-300'}`}>
-          <div className={`absolute top-1 left-1/2 -translate-x-1/2 w-4 h-1 rounded-full transition-colors ${selected ? 'bg-[#0565E6]/20' : 'bg-gray-200'}`} />
-          {title.includes('Cracked') && <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cracked-glass.png')] opacity-30" />}
-          {title.includes('Broken') && <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cracked-glass.png')] opacity-30" />}
-          {title.includes('Scratches') && <div className="absolute top-1/2 left-4 w-6 h-px bg-gray-300 rotate-45" />}
-          {selected && (
-             <div className="absolute bottom-2 right-2 w-4 h-4 bg-[#0565E6] rounded-full flex items-center justify-center">
-               <svg width="8" height="8" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" strokeWidth="3" strokeLinecap="round"/></svg>
-             </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}function PriceRow({ label, value, originalValue, isFree, isBonus }) {
+function PriceRow({ label, value, originalValue, isFree, isBonus }) {
   return (
     <div className="flex justify-between items-center">
       <span className="text-sm font-medium text-gray-400 uppercase tracking-widest">{label}</span>

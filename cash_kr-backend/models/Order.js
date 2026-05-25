@@ -19,8 +19,17 @@ const orderSchema = new mongoose.Schema({
     modelName: String,
     slug: String,
     storage: String,
-    // Mobile fields
+    // Mobile v2 fields (percentage-based model)
     deviceAge: String,
+    ableToMakeCalls: Boolean,
+    isTouchScreenWorking: Boolean,
+    isScreenOriginal: Boolean,
+    underWarranty: Boolean,
+    hasGSTBill: Boolean,
+    eSIMSupport: String,          // 'physical+esim' | 'esim_only_global'
+    physicalIssues: [String],     // e.g. ['glass_crack', 'back_panel']
+    technicalIssues: [String],    // e.g. ['wifi_issue', 'battery_service']
+    // Legacy mobile fields (kept for backward compat)
     hasScreenIssue: Boolean,
     screenIssues: [String],
     hasBodyIssue: Boolean,
