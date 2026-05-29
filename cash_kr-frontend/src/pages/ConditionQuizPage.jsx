@@ -28,12 +28,14 @@ const AGE_OPTIONS = [
 const supportsESIM = (modelName) => {
   if (!modelName) return false;
   const name = modelName.toLowerCase();
+  // Only these 12 models support dual eSIM (no physical SIM tray)
   const allowed = [
     'iphone 13 pro', 'iphone 13 pro max',
     'iphone 14 pro', 'iphone 14 pro max',
     'iphone 15 pro', 'iphone 15 pro max',
     'iphone 16 pro', 'iphone 16 pro max',
-    'iphone 17'
+    'iphone 17', 'iphone 17 air',
+    'iphone 17 pro', 'iphone 17 pro max',
   ];
   return allowed.some(pattern => name.includes(pattern));
 };
@@ -82,6 +84,13 @@ export default function ConditionQuizPage() {
       }
     }).catch(() => setLoading(false));
   }, [slug, storage]);
+
+  // Auto-set warranty to "No" (with no deduction) for devices older than 11 months
+  useEffect(() => {
+    if (deviceAge === 'Above 11 Months') {
+      setUnderWarranty(false);
+    }
+  }, [deviceAge]);
 
   useEffect(() => {
     if (!device) return;
@@ -407,22 +416,29 @@ export default function ConditionQuizPage() {
                     {/* Q2: Warranty */}
                     <div className="space-y-4">
                       <h3 className="text-lg font-bold text-[#111827]">2. Is your device under manufacturer warranty?</h3>
+                      {deviceAge === 'Above 11 Months' && (
+                        <p className="text-xs text-amber-500 font-semibold -mt-2">Warranty is automatically set to No for devices older than 11 months.</p>
+                      )}
                       <div className="grid grid-cols-2 gap-4">
                         <button
-                          onClick={() => setUnderWarranty(true)}
+                          onClick={() => { if (deviceAge !== 'Above 11 Months') setUnderWarranty(true); }}
+                          disabled={deviceAge === 'Above 11 Months'}
                           className={`py-4 rounded-xl border-2 font-bold text-sm transition-all
                             ${underWarranty === true 
                               ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
-                              : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                              : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}
+                            ${deviceAge === 'Above 11 Months' ? 'opacity-40 cursor-not-allowed' : ''}`}
                         >
                           Yes
                         </button>
                         <button
                           onClick={() => setUnderWarranty(false)}
+                          disabled={deviceAge === 'Above 11 Months'}
                           className={`py-4 rounded-xl border-2 font-bold text-sm transition-all
                             ${underWarranty === false 
                               ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
-                              : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                              : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}
+                            ${deviceAge === 'Above 11 Months' ? 'cursor-not-allowed' : ''}`}
                         >
                           No
                         </button>

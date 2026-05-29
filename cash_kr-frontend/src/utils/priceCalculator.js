@@ -22,7 +22,9 @@ export const ISSUE_DEDUCTIONS = {
   proximity_sensor: 3,
 };
 
-// ─── MOBILE PRICE CALCULATOR (Percentage-based deduction model) ─────────────
+// ─── MOBILE PRICE CALCULATOR (Sequential / Cascading deduction model) ───────
+// Each deduction is applied to the already-reduced price, NOT the base price.
+// Order: Age → Dead → Touch → Screen Originality → Warranty → GST Bill → eSIM → Charger → Box → Issues
 export function calculatePrice({
   basePrice,
   deviceAge,
@@ -37,77 +39,75 @@ export function calculatePrice({
   hasCharger,
   hasBox,
 }) {
-  let totalDeductionPct = 0;
   const breakdown = {};
+  let currentPrice = basePrice;
 
-  // 1. Age deduction
+  // Helper: apply a percentage deduction to currentPrice and record it
+  const applyDeduction = (key, pct) => {
+    const deduction = Math.round(currentPrice * (pct / 100));
+    breakdown[key] = pct;
+    currentPrice = Math.max(currentPrice - deduction, 0);
+  };
+
+  // 1. Age deduction (applied first to base price)
   const ageDeductions = { '0 - 3 Months': 0, '3 - 6 Months': 7, '6 - 11 Months': 10, 'Above 11 Months': 21 };
   const agePct = ageDeductions[deviceAge] ?? 7;
-  breakdown.age = agePct;
-  totalDeductionPct += agePct;
+  if (agePct > 0) applyDeduction('age', agePct);
 
   // 2. Dead device (cannot make calls) — 90%
   if (ableToMakeCalls === false) {
-    breakdown.dead = 90;
-    totalDeductionPct += 90;
+    applyDeduction('dead', 90);
   }
 
   // 3. Touch screen faulty — 65%
   if (isTouchScreenWorking === false) {
-    breakdown.screenFaulty = 65;
-    totalDeductionPct += 65;
+    applyDeduction('screenFaulty', 65);
   }
 
   // 4. Non-original screen — 50%
   if (isScreenOriginal === false) {
-    breakdown.copyScreen = 50;
-    totalDeductionPct += 50;
+    applyDeduction('copyScreen', 50);
   }
 
   // 5. Out of warranty — 20%
-  if (underWarranty === false) {
-    breakdown.outOfWarranty = 20;
-    totalDeductionPct += 20;
+  // NOTE: If device is >11 months old, warranty is automatically "No" with NO deduction
+  if (underWarranty === false && deviceAge !== 'Above 11 Months') {
+    applyDeduction('outOfWarranty', 20);
   }
 
   // 6. No GST bill — 21%
   if (hasGSTBill === false) {
-    breakdown.noBill = 21;
-    totalDeductionPct += 21;
+    applyDeduction('noBill', 21);
   }
 
   // 7. eSIM only global variant — 6%
   if (eSIMSupport === 'esim_only_global') {
-    breakdown.eSIM = 6;
-    totalDeductionPct += 6;
+    applyDeduction('eSIM', 6);
   }
 
   // 8. No charger — 3%
   if (hasCharger === false) {
-    breakdown.noCharger = 3;
-    totalDeductionPct += 3;
+    applyDeduction('noCharger', 3);
   }
 
   // 9. No box — 5%
   if (hasBox === false) {
-    breakdown.noBox = 5;
-    totalDeductionPct += 5;
+    applyDeduction('noBox', 5);
   }
 
-  // 10. Physical + technical issues
-  let issueDeductionPct = 0;
+  // 10. Physical + technical issues (each issue applied sequentially)
   for (const id of [...physicalIssues, ...technicalIssues]) {
-    issueDeductionPct += ISSUE_DEDUCTIONS[id] || 0;
-  }
-  if (issueDeductionPct > 0) {
-    breakdown.issues = issueDeductionPct;
-    totalDeductionPct += issueDeductionPct;
+    const pct = ISSUE_DEDUCTIONS[id];
+    if (pct > 0) {
+      applyDeduction(`issue_${id}`, pct);
+    }
   }
 
-  // Cap at 100%
-  totalDeductionPct = Math.min(totalDeductionPct, 100);
+  const totalDeductionPct = basePrice > 0
+    ? Math.round(((basePrice - currentPrice) / basePrice) * 100)
+    : 0;
 
-  const finalPrice = Math.max(Math.round(basePrice * (1 - totalDeductionPct / 100)), 0);
+  const finalPrice = Math.max(currentPrice, 0);
 
   return {
     basePrice,
