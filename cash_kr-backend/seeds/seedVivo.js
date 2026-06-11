@@ -480,6 +480,253 @@ const devices = [
   {
     category: "mobile",
     brand: "Vivo",
+    modelName: "Y28s 5G",
+    slug: "vivo-y28s-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y28s-5g.jpg",
+    variants: [
+      { storage: "4 GB/128 GB", basePrice: 8870 },
+      { storage: "6 GB/128 GB", basePrice: 9410 },
+      { storage: "8 GB/128 GB", basePrice: 9800 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y18i",
+    slug: "vivo-y18i",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y18i.jpg",
+    variants: [
+      { storage: "4 GB/64 GB", basePrice: 4870 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y28e 5G",
+    slug: "vivo-y28e-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y28e-5g.jpg",
+    variants: [
+      { storage: "4 GB/64 GB", basePrice: 7270 },
+      { storage: "4 GB/128 GB", basePrice: 8110 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "V40",
+    slug: "vivo-v40",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-v40.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 19930 },
+      { storage: "8 GB/256 GB", basePrice: 21050 },
+      { storage: "12 GB/512 GB", basePrice: 21690 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "V40 Pro",
+    slug: "vivo-v40-pro",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-v40-pro.jpg",
+    variants: [
+      { storage: "8 GB/256 GB", basePrice: 25610 },
+      { storage: "12 GB/512 GB", basePrice: 27160 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y58 5G",
+    slug: "vivo-y58-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y58-5g.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 10780 },
+      { storage: "4GB / 128GB", basePrice: 8780 },
+      { storage: "8GB / 128GB", basePrice: 9940 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "T3 Pro 5G",
+    slug: "vivo-t3-pro-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-t3-pro-5g.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 14380 },
+      { storage: "8 GB/256 GB", basePrice: 16050 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "V40e",
+    slug: "vivo-v40e",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-v40e.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 17900 },
+      { storage: "8 GB/256 GB", basePrice: 18670 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "T3 Ultra",
+    slug: "vivo-t3-ultra",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-t3-ultra.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 16910 },
+      { storage: "8 GB/256 GB", basePrice: 18600 },
+      { storage: "12 GB/256 GB", basePrice: 19300 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y18T",
+    slug: "vivo-y18t",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y18t.jpg",
+    variants: [
+      { storage: "4 GB/128 GB", basePrice: 5180 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "X200",
+    slug: "vivo-x200",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-x200.jpg",
+    variants: [
+      { storage: "12 GB/256 GB", basePrice: 33000 },
+      { storage: "16 GB/512 GB", basePrice: 35500 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "X200 Pro",
+    slug: "vivo-x200-pro",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-x200-pro.jpg",
+    variants: [
+      { storage: "16 GB/512 GB", basePrice: 48500 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y300 5G",
+    slug: "vivo-y300-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y300-5g.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 14510 },
+      { storage: "8 GB/256 GB", basePrice: 14750 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y300 Plus 5G",
+    slug: "vivo-y300-plus-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y300-plus-5g.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 15650 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y29 5G",
+    slug: "vivo-y29-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y29-5g.jpg",
+    variants: [
+      { storage: "8 GB/256 GB", basePrice: 12100 },
+      { storage: "4 GB/128 GB", basePrice: 9950 },
+      { storage: "6 GB/128 GB", basePrice: 10660 },
+      { storage: "8 GB/128 GB", basePrice: 11550 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "V50",
+    slug: "vivo-v50",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-v50.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 20860 },
+      { storage: "8 GB/256 GB", basePrice: 22300 },
+      { storage: "12 GB/512 GB", basePrice: 22960 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "V70 FE",
+    slug: "vivo-v70-fe",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-v70-fe.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 24400 },
+      { storage: "8 GB/256 GB", basePrice: 26800 },
+      { storage: "12 GB/256 GB", basePrice: 28900 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "T5x 5G",
+    slug: "vivo-t5x-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-t5x-5g.jpg",
+    variants: [
+      { storage: "6 GB/128 GB", basePrice: 14500 },
+      { storage: "8 GB/128 GB", basePrice: 15350 },
+      { storage: "8 GB/256 GB", basePrice: 16500 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y11 5G",
+    slug: "vivo-y11-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y11-5g.jpg",
+    variants: [
+      { storage: "4 GB/64 GB", basePrice: 9650 },
+      { storage: "4 GB/128 GB", basePrice: 10670 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y21 5G",
+    slug: "vivo-y21-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y21-5g.jpg",
+    variants: [
+      { storage: "4 GB/128 GB", basePrice: 12760 },
+      { storage: "6 GB/128 GB", basePrice: 13750 },
+      { storage: "8 GB/128 GB", basePrice: 14900 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "X300 FE",
+    slug: "vivo-x300-fe",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-x300-fe.jpg",
+    variants: [
+      { storage: "12 GB/256 GB", basePrice: 50000 },
+      { storage: "12 GB/512 GB", basePrice: 54400 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "X300 Ultra",
+    slug: "vivo-x300-ultra",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-x300-ultra.jpg",
+    variants: [
+      { storage: "16 GB/512 GB", basePrice: 80000 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
     modelName: "Y81i",
     slug: "vivo-y81i",
     imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y81i.jpg",
@@ -656,17 +903,6 @@ const devices = [
   {
     category: "mobile",
     brand: "Vivo",
-    modelName: "Y58 5G",
-    slug: "vivo-y58-5g",
-    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y58-5g.jpg",
-    variants: [
-      { storage: "4GB / 128GB", basePrice: 8780 },
-      { storage: "8GB / 128GB", basePrice: 9940 }
-    ]
-  },
-  {
-    category: "mobile",
-    brand: "Vivo",
     modelName: "V27 Pro",
     slug: "vivo-v27-pro",
     imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-v27-pro.jpg",
@@ -835,6 +1071,144 @@ const devices = [
     variants: [
       { storage: "4GB / 64GB", basePrice: 5410 },
       { storage: "4GB / 128GB", basePrice: 6060 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "T4x 5G",
+    slug: "vivo-t4x-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-t4x-5g.jpg",
+    variants: [
+      { storage: "6 GB/128 GB", basePrice: 9710 },
+      { storage: "8 GB/128 GB", basePrice: 10200 },
+      { storage: "8 GB/256 GB", basePrice: 11400 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "V50e",
+    slug: "vivo-v50e",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-v50e.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 18570 },
+      { storage: "8 GB/256 GB", basePrice: 19040 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "T4 5G",
+    slug: "vivo-t4-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-t4-5g.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 15660 },
+      { storage: "8 GB/256 GB", basePrice: 16400 },
+      { storage: "12 GB/256 GB", basePrice: 17360 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "T4 Ultra 5G",
+    slug: "vivo-t4-ultra-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-t4-ultra-5g.jpg",
+    variants: [
+      { storage: "8 GB/256 GB", basePrice: 23650 },
+      { storage: "12 GB/256 GB", basePrice: 24870 },
+      { storage: "12 GB/512 GB", basePrice: 26190 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y19 5G",
+    slug: "vivo-y19-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y19-5g.jpg",
+    variants: [
+      { storage: "4 GB/64 GB", basePrice: 6760 },
+      { storage: "4 GB/128 GB", basePrice: 7620 },
+      { storage: "6 GB/128 GB", basePrice: 8000 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y19e",
+    slug: "vivo-y19e",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y19e.jpg",
+    variants: [
+      { storage: "4 GB/64 GB", basePrice: 5130 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y39 5G",
+    slug: "vivo-y39-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y39-5g.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 12180 },
+      { storage: "8 GB/256 GB", basePrice: 13460 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "T4 Lite 5G",
+    slug: "vivo-t4-lite-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-t4-lite-5g.jpg",
+    variants: [
+      { storage: "4 GB/64 GB", basePrice: 5890 },
+      { storage: "4 GB/128 GB", basePrice: 7040 },
+      { storage: "6 GB/128 GB", basePrice: 7800 },
+      { storage: "8 GB/256 GB", basePrice: 8930 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y400 Pro 5G",
+    slug: "vivo-y400-pro-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y400-pro-5g.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 17100 },
+      { storage: "8 GB/256 GB", basePrice: 17950 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "X200 FE",
+    slug: "vivo-x200-fe",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-x200-fe.jpg",
+    variants: [
+      { storage: "12 GB/256 GB", basePrice: 34000 },
+      { storage: "16 GB/512 GB", basePrice: 35600 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y400 5G",
+    slug: "vivo-y400-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y400-5g.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 16750 },
+      { storage: "8 GB/256 GB", basePrice: 18250 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "T4R 5G",
+    slug: "vivo-t4r-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-t4r-5g.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 13900 },
+      { storage: "8 GB/256 GB", basePrice: 14890 },
+      { storage: "12 GB/256 GB", basePrice: 16240 }
     ]
   },
   {
@@ -1188,6 +1562,185 @@ const devices = [
     imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y18e.jpg",
     variants: [
       { storage: "4GB / 64GB", basePrice: 4870 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y200 Pro 5G",
+    slug: "vivo-y200-pro-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y200-pro-5g.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 13720 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "X Fold 3 Pro",
+    slug: "vivo-x-fold-3-pro",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-x-fold-3-pro.jpg",
+    variants: [
+      { storage: "16 GB/512 GB", basePrice: 60070 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "T3 Lite 5G",
+    slug: "vivo-t3-lite-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-t3-lite-5g.jpg",
+    variants: [
+      { storage: "4 GB/128 GB", basePrice: 6160 },
+      { storage: "6 GB/128 GB", basePrice: 6820 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "V60",
+    slug: "vivo-v60",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-v60.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 23330 },
+      { storage: "8 GB/256 GB", basePrice: 23860 },
+      { storage: "12 GB/256 GB", basePrice: 25400 },
+      { storage: "16 GB/512 GB", basePrice: 28120 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "X Fold 5",
+    slug: "vivo-x-fold-5",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-x-fold-5.jpg",
+    variants: [
+      { storage: "16 GB/512 GB", basePrice: 79800 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "T4 Pro 5G",
+    slug: "vivo-t4-pro-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-t4-pro-5g.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 18000 },
+      { storage: "8 GB/256 GB", basePrice: 19500 },
+      { storage: "12 GB/256 GB", basePrice: 20300 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y31 5G",
+    slug: "vivo-y31-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y31-5g.jpg",
+    variants: [
+      { storage: "4 GB/128 GB", basePrice: 11210 },
+      { storage: "6 GB/128 GB", basePrice: 12500 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "V60e",
+    slug: "vivo-v60e",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-v60e.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 20160 },
+      { storage: "8 GB/256 GB", basePrice: 20760 },
+      { storage: "12 GB/256 GB", basePrice: 22710 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y31 Pro 5G",
+    slug: "vivo-y31-pro-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y31-pro-5g.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 13850 },
+      { storage: "8 GB/256 GB", basePrice: 14850 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y19s 5G",
+    slug: "vivo-y19s-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y19s-5g.jpg",
+    variants: [
+      { storage: "4 GB/64 GB", basePrice: 7410 },
+      { storage: "4 GB/128 GB", basePrice: 8320 },
+      { storage: "6 GB/128 GB", basePrice: 9150 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "X300",
+    slug: "vivo-x300",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-x300.jpg",
+    variants: [
+      { storage: "12 GB/256 GB", basePrice: 45000 },
+      { storage: "12 GB/512 GB", basePrice: 46500 },
+      { storage: "16 GB/512 GB", basePrice: 49000 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "X300 Pro",
+    slug: "vivo-x300-pro",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-x300-pro.jpg",
+    variants: [
+      { storage: "16 GB/512 GB", basePrice: 62500 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "V70",
+    slug: "vivo-v70",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-v70.jpg",
+    variants: [
+      { storage: "8 GB/256 GB", basePrice: 32650 },
+      { storage: "12 GB/256 GB", basePrice: 34000 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "V70 Elite",
+    slug: "vivo-v70-elite",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-v70-elite.jpg",
+    variants: [
+      { storage: "8 GB/256 GB", basePrice: 35020 },
+      { storage: "12 GB/256 GB", basePrice: 38500 },
+      { storage: "12 GB/512 GB", basePrice: 40500 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "X200T",
+    slug: "vivo-x200t",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-x200t.jpg",
+    variants: [
+      { storage: "12 GB/256 GB", basePrice: 38000 },
+      { storage: "12 GB/512 GB", basePrice: 41700 }
+    ]
+  },
+  {
+    category: "mobile",
+    brand: "Vivo",
+    modelName: "Y51 Pro 5G",
+    slug: "vivo-y51-pro-5g",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/vivo-y51-pro-5g.jpg",
+    variants: [
+      { storage: "8 GB/128 GB", basePrice: 17700 },
+      { storage: "8 GB/256 GB", basePrice: 19700 }
     ]
   },
   {

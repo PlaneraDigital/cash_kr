@@ -508,6 +508,163 @@ const devices = [
     {
         category: "mobile",
         brand: "Oppo",
+        modelName: "F31 Pro 5G",
+        slug: "oppo-f31-pro-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f31-pro-5g.jpg",
+        variants: [
+            { storage: "8 GB/128 GB", basePrice: 17480 },
+            { storage: "8 GB/256 GB", basePrice: 19400 },
+            { storage: "12 GB/256 GB", basePrice: 20720 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "K13 Turbo Pro 5G",
+        slug: "oppo-k13-turbo-pro-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-k13-turbo-pro-5g.jpg",
+        variants: [
+            { storage: "8 GB/256 GB", basePrice: 22000 },
+            { storage: "12 GB/256 GB", basePrice: 23000 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "K13 Turbo 5G",
+        slug: "oppo-k13-turbo-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-k13-turbo-5g.jpg",
+        variants: [
+            { storage: "8 GB/128 GB", basePrice: 17400 },
+            { storage: "8 GB/256 GB", basePrice: 18700 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "F31 5G",
+        slug: "oppo-f31-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f31-5g.jpg",
+        variants: [
+            { storage: "8 GB/128 GB", basePrice: 16320 },
+            { storage: "8 GB/256 GB", basePrice: 17200 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "F31 Pro Plus 5G",
+        slug: "oppo-f31-pro-plus-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f31-pro-plus-5g.jpg",
+        variants: [
+            { storage: "8 GB/256 GB", basePrice: 21300 },
+            { storage: "12 GB/256 GB", basePrice: 22300 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "Find X9 5G",
+        slug: "oppo-find-x9-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x9-5g.jpg",
+        variants: [
+            { storage: "12 GB/256 GB", basePrice: 43300 },
+            { storage: "16 GB/512 GB", basePrice: 47500 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "Find X9 Pro",
+        slug: "oppo-find-x9-pro",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x9-pro.jpg",
+        variants: [
+            { storage: "16 GB/512 GB", basePrice: 62500 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "A6x 5G",
+        slug: "oppo-a6x-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a6x-5g.jpg",
+        variants: [
+            { storage: "4 GB/64 GB", basePrice: 8810 },
+            { storage: "4 GB/128 GB", basePrice: 9300 },
+            { storage: "6 GB/128 GB", basePrice: 10050 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "Reno15 5G",
+        slug: "oppo-reno15-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno15-5g.jpg",
+        variants: [
+            { storage: "8 GB/256 GB", basePrice: 29430 },
+            { storage: "12 GB/256 GB", basePrice: 31690 },
+            { storage: "12 GB/512 GB", basePrice: 32600 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "Reno15 Pro Mini 5G",
+        slug: "oppo-reno15-pro-mini-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno15-pro-mini-5g.jpg",
+        variants: [
+            { storage: "12 GB/256 GB", basePrice: 36700 },
+            { storage: "12 GB/512 GB", basePrice: 39000 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "Reno15 Pro 5G",
+        slug: "oppo-reno15-pro-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno15-pro-5g.jpg",
+        variants: [
+            { storage: "12 GB/256 GB", basePrice: 41500 },
+            { storage: "12 GB/512 GB", basePrice: 44000 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "A6 Pro 5G",
+        slug: "oppo-a6-pro-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a6-pro-5g.jpg",
+        variants: [
+            { storage: "8 GB/128 GB", basePrice: 14260 },
+            { storage: "8 GB/256 GB", basePrice: 15100 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "Reno 15c 5G",
+        slug: "oppo-reno-15c-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno-15c-5g.jpg",
+        variants: [
+            { storage: "8 GB/256 GB", basePrice: 21810 },
+            { storage: "12 GB/256 GB", basePrice: 22700 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "K14x 5G",
+        slug: "oppo-k14x-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-k14x-5g.jpg",
+        variants: [
+            { storage: "4 GB/64 GB", basePrice: 8800 },
+            { storage: "4 GB/128 GB", basePrice: 9950 },
+            { storage: "6 GB/128 GB", basePrice: 11000 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
         modelName: "A5s",
         slug: "oppo-a5s",
         imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a5s.jpg",
@@ -840,6 +997,139 @@ const devices = [
     {
         category: "mobile",
         brand: "Oppo",
+        modelName: "A3X 5G",
+        slug: "oppo-a3x-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a3x-5g.jpg",
+        variants: [
+            { storage: "64GB", basePrice: 7980 },
+            { storage: "128GB", basePrice: 8450 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "K12x 5G",
+        slug: "oppo-k12x-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-k12x-5g.jpg",
+        variants: [
+            { storage: "6GB / 128GB", basePrice: 8750 },
+            { storage: "8GB / 256GB", basePrice: 9020 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "F27 5G",
+        slug: "oppo-f27-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f27-5g.jpg",
+        variants: [
+            { storage: "8 GB/128 GB", basePrice: 13160 },
+            { storage: "8 GB/256 GB", basePrice: 13720 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "A3 5G",
+        slug: "oppo-a3-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a3-5g.jpg",
+        variants: [
+            { storage: "6 GB/128 GB", basePrice: 9600 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "A3x",
+        slug: "oppo-a3x",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a3x.jpg",
+        variants: [
+            { storage: "4 GB/64 GB", basePrice: 4900 },
+            { storage: "4 GB/128 GB", basePrice: 5290 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "A6 5G",
+        slug: "oppo-a6-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a6-5g.jpg",
+        variants: [
+            { storage: "4 GB/128 GB", basePrice: 12500 },
+            { storage: "6 GB/128 GB", basePrice: 13260 },
+            { storage: "6 GB/256 GB", basePrice: 14750 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "K14 5G",
+        slug: "oppo-k14-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-k14-5g.jpg",
+        variants: [
+            { storage: "6 GB/128 GB", basePrice: 11700 },
+            { storage: "6 GB/256 GB", basePrice: 12800 },
+            { storage: "8 GB/256 GB", basePrice: 14300 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "A6s 5G",
+        slug: "oppo-a6s-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a6s-5g.jpg",
+        variants: [
+            { storage: "4 GB/128 GB", basePrice: 11950 },
+            { storage: "6 GB/128 GB", basePrice: 13400 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "F33 5G",
+        slug: "oppo-f33-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f33-5g.jpg",
+        variants: [
+            { storage: "6 GB/128 GB", basePrice: 20980 },
+            { storage: "8 GB/128 GB", basePrice: 22500 },
+            { storage: "8 GB/256 GB", basePrice: 24700 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "F33 Pro 5G",
+        slug: "oppo-f33-pro-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f33-pro-5g.jpg",
+        variants: [
+            { storage: "8 GB/128 GB", basePrice: 24000 },
+            { storage: "8 GB/256 GB", basePrice: 25800 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "Find X9s",
+        slug: "oppo-find-x9s",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x9s.jpg",
+        variants: [
+            { storage: "12 GB/256 GB", basePrice: 42000 },
+            { storage: "12 GB/512 GB", basePrice: 45000 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "Find X9 Ultra",
+        slug: "oppo-find-x9-ultra",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x9-ultra.jpg",
+        variants: [
+            { storage: "12 GB/512 GB", basePrice: 80000 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
         modelName: "A11k",
         slug: "oppo-a11k",
         imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a11k.jpg",
@@ -1056,6 +1346,164 @@ const devices = [
         imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a16.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 4490 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "Find X8 5G",
+        slug: "oppo-find-x8-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x8-5g.jpg",
+        variants: [
+            { storage: "12 GB/256 GB", basePrice: 32830 },
+            { storage: "16 GB/512 GB", basePrice: 36260 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "Find X8 Pro 5G",
+        slug: "oppo-find-x8-pro-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x8-pro-5g.jpg",
+        variants: [
+            { storage: "16 GB/512 GB", basePrice: 46060 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "Reno13 5G",
+        slug: "oppo-reno13-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno13-5g.jpg",
+        variants: [
+            { storage: "8 GB/128 GB", basePrice: 18290 },
+            { storage: "8 GB/256 GB", basePrice: 19230 },
+            { storage: "12 GB/512 GB", basePrice: 20200 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "Reno13 Pro 5G",
+        slug: "oppo-reno13-pro-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno13-pro-5g.jpg",
+        variants: [
+            { storage: "12 GB/256 GB", basePrice: 23750 },
+            { storage: "12 GB/512 GB", basePrice: 25400 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "F29 5G",
+        slug: "oppo-f29-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f29-5g.jpg",
+        variants: [
+            { storage: "8 GB/128 GB", basePrice: 15450 },
+            { storage: "8 GB/256 GB", basePrice: 16350 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "F29 Pro 5G",
+        slug: "oppo-f29-pro-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f29-pro-5g.jpg",
+        variants: [
+            { storage: "8 GB/128 GB", basePrice: 16210 },
+            { storage: "8 GB/256 GB", basePrice: 16650 },
+            { storage: "12 GB/256 GB", basePrice: 17950 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "A5 Pro 5G",
+        slug: "oppo-a5-pro-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a5-pro-5g.jpg",
+        variants: [
+            { storage: "8 GB/128 GB", basePrice: 12150 },
+            { storage: "8 GB/256 GB", basePrice: 13010 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "A5 5G",
+        slug: "oppo-a5-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a5-5g.jpg",
+        variants: [
+            { storage: "6 GB/128 GB", basePrice: 10300 },
+            { storage: "8 GB/128 GB", basePrice: 10850 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "A5x 5G",
+        slug: "oppo-a5x-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a5x-5g.jpg",
+        variants: [
+            { storage: "4 GB/64 GB", basePrice: 7400 },
+            { storage: "4 GB/128 GB", basePrice: 8330 },
+            { storage: "6 GB/128 GB", basePrice: 8970 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "K13 5G",
+        slug: "oppo-k13-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-k13-5g.jpg",
+        variants: [
+            { storage: "8 GB/128 GB", basePrice: 12000 },
+            { storage: "8 GB/256 GB", basePrice: 13070 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "K13x 5G",
+        slug: "oppo-k13x-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-k13x-5g.jpg",
+        variants: [
+            { storage: "4 GB/128 GB", basePrice: 7450 },
+            { storage: "6 GB/128 GB", basePrice: 8600 },
+            { storage: "8 GB/128 GB", basePrice: 9100 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "Reno14 5G",
+        slug: "oppo-reno14-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno14-5g.jpg",
+        variants: [
+            { storage: "8 GB/256 GB", basePrice: 24000 },
+            { storage: "12 GB/256 GB", basePrice: 25190 },
+            { storage: "12 GB/512 GB", basePrice: 27700 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "Reno14 Pro 5G",
+        slug: "oppo-reno14-pro-5g",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno14-pro-5g.jpg",
+        variants: [
+            { storage: "12 GB/256 GB", basePrice: 30550 },
+            { storage: "12 GB/512 GB", basePrice: 33800 }
+        ]
+    },
+    {
+        category: "mobile",
+        brand: "Oppo",
+        modelName: "A5X",
+        slug: "oppo-a5x",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a5x.jpg",
+        variants: [
+            { storage: "4 GB/64 GB", basePrice: 5900 },
+            { storage: "4 GB/128 GB", basePrice: 6350 }
         ]
     },
 ];
