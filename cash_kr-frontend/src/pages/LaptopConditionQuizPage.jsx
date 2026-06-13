@@ -11,12 +11,10 @@ import Modal from '../components/ui/Modal';
 
 const STEPS = [
   { id: 'specs', label: 'Specs' },
-  { id: 'warranty', label: 'Warranty' },
-  { id: 'body', label: 'Device Body' },
+  { id: 'age', label: 'Age' },
   { id: 'functional', label: 'Functional' },
-  { id: 'touch', label: 'Touch Screen' },
-  { id: 'gpu', label: 'Graphics card' },
-  { id: 'screensize', label: 'Screen Size' },
+  { id: 'screen', label: 'Screen' },
+  { id: 'body', label: 'Body' },
   { id: 'accessories', label: 'Accessories' },
 ];
 
@@ -42,21 +40,19 @@ export default function LaptopConditionQuizPage() {
   
   // Modals
   const [isSpecsModalOpen, setIsSpecsModalOpen] = useState(false);
-  const [isBodyModalOpen, setIsBodyModalOpen] = useState(false);
   const [isIssuesModalOpen, setIsIssuesModalOpen] = useState(false);
-  const [isGpuModalOpen, setIsGpuModalOpen] = useState(false);
-  const [isScreenSizeModalOpen, setIsScreenSizeModalOpen] = useState(false);
+  const [isScreenModalOpen, setIsScreenModalOpen] = useState(false);
+  const [isBodyModalOpen, setIsBodyModalOpen] = useState(false);
   const [isAccessoriesModalOpen, setIsAccessoriesModalOpen] = useState(false);
 
   // Selections
   const [age, setAge] = useState(null);
-  const [bodyDamage, setBodyDamage] = useState(null); 
-  const [selectedCondition, setSelectedCondition] = useState('likenew'); 
   const [functionalIssues, setFunctionalIssues] = useState(null); 
   const [issuesList, setIssuesList] = useState([]);
-  const [hasTouchscreen, setHasTouchscreen] = useState(null);
-  const [gpuModel, setGpuModel] = useState(null);
-  const [screenSize, setScreenSize] = useState(null);
+  const [screenIssues, setScreenIssues] = useState(null);
+  const [screenIssuesList, setScreenIssuesList] = useState([]);
+  const [bodyIssues, setBodyIssues] = useState(null);
+  const [bodyIssuesList, setBodyIssuesList] = useState([]);
   const [accessories, setAccessories] = useState([]);
 
   const [currentPrice, setCurrentPrice] = useState(0);
@@ -78,46 +74,20 @@ export default function LaptopConditionQuizPage() {
     const result = calculateLaptopPrice(device, {
       ...specs,
       yearBracket: age,
-      condition: selectedCondition,
-      screenCondition: 'noIssue',
       functionalIssues: issuesList,
-      gpuModel,
-      screenSize,
+      screenIssues: screenIssuesList,
+      bodyIssues: bodyIssuesList,
       accessories: accessories.length > 0 ? accessories : ['none']
     });
     if (result) {
       setCurrentPrice(result.finalPrice);
       setBreakdown(result);
     }
-  }, [device, specs, age, selectedCondition, issuesList, gpuModel, screenSize, accessories]);
+  }, [device, specs, age, issuesList, screenIssuesList, bodyIssuesList, accessories]);
 
   const handleSpecsUpdate = (newSpecs) => {
     setSpecs(newSpecs);
     setIsSpecsModalOpen(false);
-  };
-
-  const handleBodyDamageSelect = (val) => {
-    if (val === 'yes') setIsBodyModalOpen(true);
-    else {
-      setBodyDamage('no');
-      setSelectedCondition('good'); 
-      if (currentStep === 2) setCurrentStep(3);
-    }
-  };
-
-  const handleConditionFinish = (cond) => {
-    setBodyDamage('yes');
-    setSelectedCondition(cond);
-    setIsBodyModalOpen(false);
-    if (currentStep === 2) setCurrentStep(3);
-  };
-
-  const handleBodyModalClose = () => {
-    setIsBodyModalOpen(false);
-    if (!selectedCondition || selectedCondition === 'likenew') {
-      setBodyDamage('no');
-      setSelectedCondition('good');
-    }
   };
 
   const handleFunctionalSelect = (val) => {
@@ -125,7 +95,7 @@ export default function LaptopConditionQuizPage() {
     else {
       setFunctionalIssues('no');
       setIssuesList([]);
-      if (currentStep === 3) setCurrentStep(4);
+      if (currentStep === 2) setCurrentStep(3);
     }
   };
 
@@ -133,7 +103,7 @@ export default function LaptopConditionQuizPage() {
     setFunctionalIssues(list.length > 0 ? 'yes' : 'no');
     setIssuesList(list);
     setIsIssuesModalOpen(false);
-    if (currentStep === 3) setCurrentStep(4);
+    if (currentStep === 2) setCurrentStep(3);
   };
 
   const handleIssuesModalClose = () => {
@@ -141,27 +111,48 @@ export default function LaptopConditionQuizPage() {
     if (issuesList.length === 0) setFunctionalIssues('no');
   };
 
-  const handleGpuSelect = (val) => {
-    if (val === 'yes') setIsGpuModalOpen(true);
+  const handleScreenSelect = (val) => {
+    if (val === 'yes') setIsScreenModalOpen(true);
     else {
-      setGpuModel('Integrated');
-      setIsScreenSizeModalOpen(true);
-      if (currentStep === 5) setCurrentStep(6);
+      setScreenIssues('no');
+      setScreenIssuesList([]);
+      if (currentStep === 3) setCurrentStep(4);
     }
   };
 
-  const handleGpuFinish = (model) => {
-    setGpuModel(model);
-    setIsGpuModalOpen(false);
-    setIsScreenSizeModalOpen(true);
-    if (currentStep === 5) setCurrentStep(6);
+  const handleScreenFinish = (list) => {
+    setScreenIssues(list.length > 0 ? 'yes' : 'no');
+    setScreenIssuesList(list);
+    setIsScreenModalOpen(false);
+    if (currentStep === 3) setCurrentStep(4);
   };
 
-  const handleScreenSizeFinish = (size) => {
-    setScreenSize(size);
-    setIsScreenSizeModalOpen(false);
+  const handleScreenModalClose = () => {
+    setIsScreenModalOpen(false);
+    if (screenIssuesList.length === 0) setScreenIssues('no');
+  };
+
+  const handleBodySelect = (val) => {
+    if (val === 'yes') setIsBodyModalOpen(true);
+    else {
+      setBodyIssues('no');
+      setBodyIssuesList([]);
+      setIsAccessoriesModalOpen(true);
+      if (currentStep === 4) setCurrentStep(5);
+    }
+  };
+
+  const handleBodyFinish = (list) => {
+    setBodyIssues(list.length > 0 ? 'yes' : 'no');
+    setBodyIssuesList(list);
+    setIsBodyModalOpen(false);
     setIsAccessoriesModalOpen(true);
-    if (currentStep === 6) setCurrentStep(7);
+    if (currentStep === 4) setCurrentStep(5);
+  };
+
+  const handleBodyModalClose = () => {
+    setIsBodyModalOpen(false);
+    if (bodyIssuesList.length === 0) setBodyIssues('no');
   };
 
   const handleAccessoriesFinish = (list) => {
@@ -180,14 +171,9 @@ export default function LaptopConditionQuizPage() {
         ...specs,
         deviceAge: ageLabel,
         yearBracket: age,
-        bodyCondition: selectedCondition === 'likenew' ? 'Flawless' : selectedCondition === 'good' ? 'Good' : selectedCondition === 'average' ? 'Average' : 'Below Average',
-        condition: selectedCondition,
-        screenCondition: 'noIssue',
         functionalIssues: issuesList,
-        graphicsCard: gpuModel,
-        hasDedicatedGpu: gpuModel !== 'Integrated',
-        hasTouchscreen: hasTouchscreen === 'yes',
-        screenSize,
+        screenIssues: screenIssuesList,
+        bodyIssues: bodyIssuesList,
         accessories: list
       },
       priceBreakdown: breakdown,
@@ -236,7 +222,7 @@ export default function LaptopConditionQuizPage() {
                   <div className="flex-1 text-center sm:text-left">
                     <span className="text-[#0565E6] text-xs font-black uppercase tracking-wider mb-2 block">Offer ready — instant payout</span>
                     <h1 className="text-xl sm:text-2xl font-black text-[#111827] mb-4">
-                      {device.modelName} <span className="text-gray-400 font-medium text-sm">({specs.ram}/{specs.storage})</span>
+                      {device.modelName} {specs.ram && specs.storage && <span className="text-gray-400 font-medium text-sm">({specs.ram}/{specs.storage})</span>}
                     </h1>
                     <div className="flex items-center justify-center sm:justify-start gap-5 mb-6">
                       <span className="text-4xl font-black text-[#111827] tracking-tighter">{formatCurrency(currentPrice)}</span>
@@ -273,12 +259,12 @@ export default function LaptopConditionQuizPage() {
               <div className="bg-white rounded-[40px] border border-gray-100 p-12 shadow-sm">
                 <h3 className="text-2xl font-black text-[#111827] mb-12">Laptop Evaluation Detail</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10">
-                   <EvaluationDetailRow label="Device Specs" value={`${specs.processor} / ${specs.ram} / ${specs.storage}`} color="#0565E6" />
+                   <EvaluationDetailRow label="Device" value={device.modelName} color="#0565E6" />
                    <EvaluationDetailRow label="Device Age" value={age ? AGE_OPTIONS.find(o => o.key === age).label : '-'} color="#0565E6" />
-                   <EvaluationDetailRow label="Body Condition" value={selectedCondition.toUpperCase()} color={selectedCondition === 'likenew' ? '#0565E6' : '#EAB308'} />
-                   <EvaluationDetailRow label="Functional Issues" value={issuesList.length > 0 ? issuesList.join(', ') : 'No Issues'} color={issuesList.length > 0 ? '#EF4444' : '#0565E6'} />
-                   <EvaluationDetailRow label="Touch Screen" value={hasTouchscreen === 'yes' ? 'Available' : 'No'} color="#0565E6" />
-                   <EvaluationDetailRow label="Graphics Card" value={gpuModel || 'Integrated'} color="#0565E6" />
+                   <EvaluationDetailRow label="Functional Issues" value={issuesList.length > 0 ? issuesList.length + ' issue(s)' : 'No Issues'} color={issuesList.length > 0 ? '#EF4444' : '#0565E6'} />
+                   <EvaluationDetailRow label="Screen Condition" value={screenIssuesList.length > 0 ? screenIssuesList.length + ' issue(s)' : 'No Issues'} color={screenIssuesList.length > 0 ? '#EF4444' : '#0565E6'} />
+                   <EvaluationDetailRow label="Body Condition" value={bodyIssuesList.length > 0 ? bodyIssuesList.length + ' issue(s)' : 'No Issues'} color={bodyIssuesList.length > 0 ? '#EF4444' : '#0565E6'} />
+                   <EvaluationDetailRow label="Accessories" value={accessories.length > 0 ? accessories.join(', ') : 'None'} color="#0565E6" />
                 </div>
               </div>
             </div>
@@ -338,31 +324,24 @@ export default function LaptopConditionQuizPage() {
                  ))}
                </div>
             </EvaluationStepCard>
-            <EvaluationStepCard title="3. Any body damage?" active={currentStep >= 2}>
-               <div className="grid grid-cols-2 gap-4">
-                 {['Yes', 'No'].map(v => (
-                   <button key={v} onClick={() => handleBodyDamageSelect(v.toLowerCase())} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${((bodyDamage === 'yes' && v === 'Yes') || (bodyDamage === 'no' && v === 'No')) ? 'border-[#0565E6] bg-[#0565E6]/5 text-[#0565E6]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{v}</button>
-                 ))}
-               </div>
-            </EvaluationStepCard>
-            <EvaluationStepCard title="4. Any other problems?" active={currentStep >= 3}>
+            <EvaluationStepCard title="3. Any functional problems?" active={currentStep >= 2}>
                <div className="grid grid-cols-2 gap-4">
                  {['Yes', 'No'].map(v => (
                    <button key={v} onClick={() => handleFunctionalSelect(v.toLowerCase())} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${((functionalIssues === 'yes' && v === 'Yes') || (functionalIssues === 'no' && v === 'No')) ? 'border-[#0565E6] bg-[#0565E6]/5 text-[#0565E6]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{v}</button>
                  ))}
                </div>
             </EvaluationStepCard>
-            <EvaluationStepCard title="5. Does your laptop have a touchscreen?" active={currentStep >= 4}>
+            <EvaluationStepCard title="4. Any screen issues?" active={currentStep >= 3}>
                <div className="grid grid-cols-2 gap-4">
                  {['Yes', 'No'].map(v => (
-                   <button key={v} onClick={() => { setHasTouchscreen(v.toLowerCase()); if(currentStep === 4) setCurrentStep(5); }} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${hasTouchscreen === v.toLowerCase() ? 'border-[#0565E6] bg-[#0565E6]/5 text-[#0565E6]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{v}</button>
+                   <button key={v} onClick={() => handleScreenSelect(v.toLowerCase())} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${((screenIssues === 'yes' && v === 'Yes') || (screenIssues === 'no' && v === 'No')) ? 'border-[#0565E6] bg-[#0565E6]/5 text-[#0565E6]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{v}</button>
                  ))}
                </div>
             </EvaluationStepCard>
-            <EvaluationStepCard title="6. Have External graphics card/device ?" active={currentStep >= 5}>
+            <EvaluationStepCard title="5. Any body damage?" active={currentStep >= 4}>
                <div className="grid grid-cols-2 gap-4">
                  {['Yes', 'No'].map(v => (
-                   <button key={v} onClick={() => handleGpuSelect(v.toLowerCase())} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${((gpuModel && gpuModel !== 'Integrated' && v === 'Yes') || (gpuModel === 'Integrated' && v === 'No')) ? 'border-[#0565E6] bg-[#0565E6]/5 text-[#0565E6]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{v}</button>
+                   <button key={v} onClick={() => handleBodySelect(v.toLowerCase())} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${((bodyIssues === 'yes' && v === 'Yes') || (bodyIssues === 'no' && v === 'No')) ? 'border-[#0565E6] bg-[#0565E6]/5 text-[#0565E6]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{v}</button>
                  ))}
                </div>
             </EvaluationStepCard>
@@ -376,9 +355,9 @@ export default function LaptopConditionQuizPage() {
                 <h4 className="text-sm font-black text-gray-400 uppercase tracking-widest mb-6">Summary</h4>
                 <div className="space-y-5">
                    <SummaryItem label="Age" value={age ? AGE_OPTIONS.find(o => o.key === age).label : '-'} />
-                   <SummaryItem label="Condition" value={selectedCondition !== 'likenew' ? selectedCondition : '-'} />
-                   <SummaryItem label="Touch" value={hasTouchscreen || '-'} />
-                   <SummaryItem label="GPU" value={gpuModel || '-'} />
+                   <SummaryItem label="Functional" value={issuesList.length > 0 ? `${issuesList.length} issue(s)` : functionalIssues === 'no' ? 'No Issues' : '-'} />
+                   <SummaryItem label="Screen" value={screenIssuesList.length > 0 ? `${screenIssuesList.length} issue(s)` : screenIssues === 'no' ? 'No Issues' : '-'} />
+                   <SummaryItem label="Body" value={bodyIssuesList.length > 0 ? `${bodyIssuesList.length} issue(s)` : bodyIssues === 'no' ? 'No Issues' : '-'} />
                 </div>
               </div>
             </div>
@@ -387,10 +366,9 @@ export default function LaptopConditionQuizPage() {
       </div>
 
       <LaptopSpecModal isOpen={isSpecsModalOpen} onClose={() => setIsSpecsModalOpen(false)} device={device} onComplete={handleSpecsUpdate} initialValues={specs} />
-      <BodyConditionModal isOpen={isBodyModalOpen} onClose={handleBodyModalClose} onSelect={handleConditionFinish} initialValue={selectedCondition} />
       <IssuesModal isOpen={isIssuesModalOpen} onClose={handleIssuesModalClose} onFinish={handleIssuesFinish} initialList={issuesList} />
-      <GpuModal isOpen={isGpuModalOpen} onClose={() => setIsGpuModalOpen(false)} onFinish={handleGpuFinish} initialValue={gpuModel} />
-      <ScreenSizeModal isOpen={isScreenSizeModalOpen} onClose={() => setIsScreenSizeModalOpen(false)} onFinish={handleScreenSizeFinish} initialValue={screenSize} />
+      <ScreenIssuesModal isOpen={isScreenModalOpen} onClose={handleScreenModalClose} onFinish={handleScreenFinish} initialList={screenIssuesList} />
+      <BodyIssuesModal isOpen={isBodyModalOpen} onClose={handleBodyModalClose} onFinish={handleBodyFinish} initialList={bodyIssuesList} />
       <AccessoriesModal isOpen={isAccessoriesModalOpen} onClose={() => setIsAccessoriesModalOpen(false)} onFinish={handleAccessoriesFinish} initialList={accessories} />
     </div>
   );
@@ -434,91 +412,82 @@ function SummaryPriceRow({ label, value, original, isFree }) {
   );
 }
 
-function BodyConditionModal({ isOpen, onClose, onSelect, initialValue }) {
-  const options = [
-    { 
-      key: 'good', 
-      label: 'Good', 
-      variant: 'good', 
-      bullets: ['Minor scratches', 'Light wear and tear', 'No major dents or damage'] 
-    }, 
-    { 
-      key: 'average', 
-      label: 'Average', 
-      variant: 'average', 
-      bullets: ['Visible scratches on body', 'Minor dents possible', 'Signs of normal wear and tear'] 
-    }, 
-    { 
-      key: 'belowAverage', 
-      label: 'Below Average', 
-      variant: 'belowAverage', 
-      bullets: ['Deep scratches', 'Multiple dents or cracks', 'Heavy wear and tear'] 
-    }
-  ];
-  return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Body Condition" size="3xl">
-       <div className="py-2">
-         <p className="text-[13px] text-gray-500 font-bold mb-10">Dents, deep scratches, loose frame, heavy wear.</p>
-         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-            {options.slice(0, 2).map(o => (<ConditionCard key={o.key} opt={o} onSelect={() => onSelect(o.key)} isSelected={initialValue === o.key} />))}
-            <div className="md:col-span-1"><ConditionCard opt={options[2]} onSelect={() => onSelect(options[2].key)} isSelected={initialValue === options[2].key} /></div>
-         </div>
-       </div>
-    </Modal>
-  );
-}
-
-function ConditionCard({ opt, onSelect, isSelected }) {
-  return (
-    <button onClick={onSelect} className={`group text-left p-6 rounded-[24px] border-[1.5px] bg-white transition-all hover:shadow-lg flex justify-between items-center h-full relative overflow-hidden active:scale-[0.98] ${isSelected ? 'border-[#0565E6] bg-[#0565E6]/5' : 'border-gray-200 hover:border-gray-300'}`}>
-      <div className="relative z-10 pr-2">
-        <h4 className="text-base font-black text-[#111827] mb-4">{opt.label}</h4>
-        <ul className="space-y-2">{opt.bullets.map(b => (<li key={b} className="text-[11px] font-bold text-gray-500 flex items-start gap-3"><div className="w-1 h-1 rounded-full bg-gray-300 mt-[6px] shrink-0" />{b}</li>))}</ul>
-      </div>
-      <div className="relative shrink-0 ml-1">
-        <div className="relative w-[65px] h-[90px] bg-gray-100 rounded-[15px] border-2 border-gray-200 flex flex-col items-center p-1.5">
-           <div className="w-6 h-0.5 bg-gray-300 rounded-full mb-auto" />
-           {opt.variant === 'good' && <div className="absolute -top-1.5 -right-1.5 text-xl">✨</div>}
-           {opt.variant === 'average' && <div className="absolute -top-1 right-1"><div className="w-1.5 h-0.5 bg-gray-400 rotate-[30deg]" /></div>}
-           {opt.variant === 'belowAverage' && <><div className="absolute -top-1 right-1 w-1.5 h-0.5 bg-gray-400 rotate-[30deg]" /><div className="absolute -bottom-1 left-1 w-1.5 h-0.5 bg-gray-400 -rotate-[30deg]" /><div className="absolute top-1/2 -right-0.5 w-1.5 h-0.5 bg-gray-400 rotate-[90deg]" /></>}
-        </div>
-      </div>
-    </button>
-  );
-}
-
 function IssuesModal({ isOpen, onClose, onFinish, initialList }) {
   const [selected, setSelected] = useState(initialList || []);
-  const issues = [{ id: 'screenChanged', label: 'Display Changed', icon: '💻' }, { id: 'keyboard', label: 'Keyboard Issues', icon: '⌨️' }, { id: 'trackpad', label: 'Trackpad Problem', icon: '🖱️' }, { id: 'speakers', label: 'Speaker Problem', icon: '🔊' }, { id: 'wifi', label: 'Wifi/Bluetooth Problem', icon: '🌐' }, { id: 'biometric', label: 'Fingerprint Problem', icon: '👆' }, { id: 'charging', label: 'Charging Problem', icon: '🔌' }, { id: 'battery', label: 'Battery Problem', icon: '🔋' }, { id: 'ports', label: 'USB Port Problem', icon: '🔌' }, { id: 'cdDrive', label: 'CD Drive Problem', icon: '💿' }, { id: 'webcam', label: 'WebCam Issue', icon: '📷' }, { id: 'chargerIssue', label: 'Charger Issue', icon: '🔌' }, { id: 'hardDisk', label: 'Hard Disk Issue', icon: '💾' }, { id: 'displayIssue', label: 'Display Issue', icon: '🖥️' }, { id: 'hinge', label: 'Hinge Issue', icon: '📐' }, { id: 'motherboard', label: 'Motherboard Problem', icon: '🧩' }];
+  const issues = [
+    { id: 'keyboard', label: 'Keyboard not working / key(s) missing', icon: '⌨️', pct: '7%' },
+    { id: 'cdDrive', label: 'CD/DVD Drive not working', icon: '💿', pct: '7%' },
+    { id: 'trackpad', label: 'Touchpad not working / click faulty', icon: '🖱️', pct: '18%' },
+    { id: 'battery', label: 'Battery dead / backup < 60 mins', icon: '🔋', pct: '6%' },
+    { id: 'speakers', label: 'Speakers faulty / cracked sound', icon: '🔊', pct: '3%' },
+    { id: 'wifi', label: 'Wi-Fi not working', icon: '🌐', pct: '5%' },
+    { id: 'ports', label: 'USB Port not working', icon: '🔌', pct: '8%' },
+    { id: 'webcam', label: 'Web Cam not working', icon: '📷', pct: '6%' },
+    { id: 'charging', label: 'Charging Port not working', icon: '🔌', pct: '8%' },
+    { id: 'hardDisk', label: 'Hard Drive Missing / Defective', icon: '💾', pct: '10%' },
+    { id: 'motherboard', label: 'Motherboard issue (restart/hang/heat)', icon: '🧩', pct: '35%' },
+    { id: 'bluetooth', label: 'Bluetooth not working', icon: '📡', pct: '6%' },
+  ];
   const toggle = (id) => selected.includes(id) ? setSelected(selected.filter(i => i !== id)) : setSelected([...selected, id]);
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Select Issues" size="5xl">
-       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">{issues.map(i => (<button key={i.id} onClick={() => toggle(i.id)} className={`p-6 rounded-3xl border-[1.5px] flex flex-col items-center gap-4 transition-all ${selected.includes(i.id) ? 'border-[#0565E6] bg-[#0565E6]/5' : 'border-gray-100 bg-white'}`}><div className="text-2xl">{i.icon}</div><span className="text-[11px] font-black text-center">{i.label}</span></button>))}</div>
+    <Modal isOpen={isOpen} onClose={onClose} title="Select Functional Issues" size="5xl">
+       <p className="text-[13px] text-gray-500 font-bold mb-6">Select all issues that apply. Each issue reduces the price by the shown percentage.</p>
+       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">{issues.map(i => (
+         <button key={i.id} onClick={() => toggle(i.id)} className={`p-5 rounded-3xl border-[1.5px] flex flex-col items-center gap-3 transition-all relative ${selected.includes(i.id) ? 'border-[#0565E6] bg-[#0565E6]/5' : 'border-gray-100 bg-white'}`}>
+           <div className="text-2xl">{i.icon}</div>
+           <span className="text-[11px] font-black text-center leading-tight">{i.label}</span>
+           <span className="text-[9px] font-black text-red-400">{i.pct}</span>
+         </button>
+       ))}</div>
        <button onClick={() => onFinish(selected)} className="w-full mt-8 py-4 bg-[#0565E6] text-white rounded-2xl font-black">Proceed</button>
     </Modal>
   );
 }
 
-function GpuModal({ isOpen, onClose, onFinish, initialValue }) {
-  const [search, setSearch] = useState('');
-  const gpus = ['GTX 1650', 'RTX 2050', 'RTX 3050', 'RTX 4050', 'RTX 4060', 'RTX 4070', 'RTX 4080', 'RTX 4090'];
-  const filtered = gpus.filter(g => g.toLowerCase().includes(search.toLowerCase()));
+function ScreenIssuesModal({ isOpen, onClose, onFinish, initialList }) {
+  const [selected, setSelected] = useState(initialList || []);
+  const issues = [
+    { id: 'screenCracked', label: 'Screen cracked or broken', icon: '💔', pct: '18%' },
+    { id: 'lineDiscolour', label: 'Line, discolouration or spot', icon: '🖥️', pct: '18%' },
+  ];
+  const toggle = (id) => selected.includes(id) ? setSelected(selected.filter(i => i !== id)) : setSelected([...selected, id]);
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Select Graphics Card" size="2xl">
-       <div className="space-y-6">
-         <input type="text" placeholder="Search graphic card..." value={search} onChange={e => setSearch(e.target.value)} className="w-full p-4 border rounded-xl outline-none focus:border-[#0565E6]" />
-         <div className="space-y-2 max-h-[300px] overflow-y-auto">{filtered.map(g => (<button key={g} onClick={() => onFinish(g)} className={`w-full text-left p-4 rounded-xl font-bold transition-all ${initialValue === g ? 'bg-[#0565E6]/5 text-[#0565E6]' : 'hover:bg-gray-50 text-gray-700'}`}>{g}</button>))}</div>
-       </div>
+    <Modal isOpen={isOpen} onClose={onClose} title="Screen Condition" size="3xl">
+       <p className="text-[13px] text-gray-500 font-bold mb-6">Select any screen issues that apply.</p>
+       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">{issues.map(i => (
+         <button key={i.id} onClick={() => toggle(i.id)} className={`p-8 rounded-3xl border-[1.5px] flex flex-col items-center gap-4 transition-all ${selected.includes(i.id) ? 'border-[#0565E6] bg-[#0565E6]/5' : 'border-gray-100 bg-white'}`}>
+           <div className="text-3xl">{i.icon}</div>
+           <span className="text-sm font-black text-center">{i.label}</span>
+           <span className="text-[10px] font-black text-red-400">{i.pct}</span>
+         </button>
+       ))}</div>
+       <button onClick={() => onFinish(selected)} className="w-full mt-8 py-4 bg-[#0565E6] text-white rounded-2xl font-black">Proceed</button>
     </Modal>
   );
 }
 
-// Screen sizes and icons mapped cleanly
-function ScreenSizeModal({ isOpen, onClose, onFinish, initialValue }) {
-  const options = [{ key: '10-12', label: 'Screen 10 To 12 Inch' }, { key: '13-14', label: 'Screen 13 To 14 Inch' }, { key: '15-16', label: 'Screen 15 To 16 Inch' }, { key: '16+', label: 'Above 16 Inch' }];
+function BodyIssuesModal({ isOpen, onClose, onFinish, initialList }) {
+  const [selected, setSelected] = useState(initialList || []);
+  const issues = [
+    { id: 'minorDentTop', label: 'Minor dent on top panel', icon: '📱', pct: '8%' },
+    { id: 'minorDentBase', label: 'Minor dent on base panel', icon: '📱', pct: '8%' },
+    { id: 'majorDentTop', label: 'Major dent on top panel', icon: '💥', pct: '35%' },
+    { id: 'majorDentBase', label: 'Major dent on base panel', icon: '💥', pct: '40%' },
+    { id: 'minorScratch', label: 'Minor scratch on body', icon: '✨', pct: '5%' },
+    { id: 'majorScratch', label: 'Major scratch on body', icon: '🔪', pct: '8%' },
+  ];
+  const toggle = (id) => selected.includes(id) ? setSelected(selected.filter(i => i !== id)) : setSelected([...selected, id]);
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Screen Size" size="4xl">
-       <div className="grid grid-cols-1 md:grid-cols-4 gap-3">{options.map(o => (<button key={o.key} onClick={() => onFinish(o.key)} className={`p-6 rounded-[24px] border-[1.5px] flex flex-col items-center gap-4 transition-all ${initialValue === o.key ? 'border-[#0565E6] bg-[#0565E6]/5' : 'border-gray-100 bg-white'}`}><span className="text-xs font-black text-center">{o.label}</span><div className="w-16 h-16 flex items-center justify-center"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><rect x="3" y="4" width="18" height="12" rx="2" /><path d="M7 8l10 4" /><path d="M17 8l-10 4" /></svg></div></button>))}</div>
+    <Modal isOpen={isOpen} onClose={onClose} title="Body Condition" size="4xl">
+       <p className="text-[13px] text-gray-500 font-bold mb-6">Select all body damage issues that apply.</p>
+       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">{issues.map(i => (
+         <button key={i.id} onClick={() => toggle(i.id)} className={`p-6 rounded-3xl border-[1.5px] flex flex-col items-center gap-3 transition-all ${selected.includes(i.id) ? 'border-[#0565E6] bg-[#0565E6]/5' : 'border-gray-100 bg-white'}`}>
+           <div className="text-2xl">{i.icon}</div>
+           <span className="text-[11px] font-black text-center leading-tight">{i.label}</span>
+           <span className="text-[10px] font-black text-red-400">{i.pct}</span>
+         </button>
+       ))}</div>
+       <button onClick={() => onFinish(selected)} className="w-full mt-8 py-4 bg-[#0565E6] text-white rounded-2xl font-black">Proceed</button>
     </Modal>
   );
 }

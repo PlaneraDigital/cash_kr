@@ -6,7 +6,16 @@
     "dev": "node --watch server.js",
     "start": "node server.js",
     "seed": "node seeds/seedDevices.js",
-    "seed:laptops": "node seeds/seedLaptops.js"
+    "seed:laptops": "node seeds/seedLaptops.js",
+    "seed:laptop:apple": "node seeds/seedLaptopApple.js",
+    "seed:laptop:dell": "node seeds/seedLaptopDell.js",
+    "seed:laptop:hp": "node seeds/seedLaptopHP.js",
+    "seed:laptop:lenovo": "node seeds/seedLaptopLenovo.js",
+    "seed:laptop:asus": "node seeds/seedLaptopAsus.js",
+    "seed:laptop:acer": "node seeds/seedLaptopAcer.js",
+    "seed:laptop:microsoft": "node seeds/seedLaptopMicrosoft.js",
+    "seed:laptop:msi": "node seeds/seedLaptopMSI.js",
+    "seed:laptop:razer": "node seeds/seedLaptopRazer.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

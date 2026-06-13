@@ -113,6 +113,22 @@ const deviceSchema = new mongoose.Schema({
     motherboard: { type: Number, default: 6000 },
   },
 
+  // Percentage-based screen deductions (laptop)
+  screenDeductions: {
+    screenCracked: { type: Number, default: 18 },
+    lineDiscolour: { type: Number, default: 18 },
+  },
+
+  // Percentage-based body deductions (laptop)
+  bodyDeductions: {
+    minorDentTop: { type: Number, default: 8 },
+    minorDentBase: { type: Number, default: 8 },
+    majorDentTop: { type: Number, default: 35 },
+    majorDentBase: { type: Number, default: 40 },
+    minorScratch: { type: Number, default: 5 },
+    majorScratch: { type: Number, default: 8 },
+  },
+
   screenSizeMultipliers: {
     '10-12': { type: Number, default: 0.95 },
     '13-14': { type: Number, default: 1.0 },

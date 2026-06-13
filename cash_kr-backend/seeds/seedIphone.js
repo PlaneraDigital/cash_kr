@@ -551,10 +551,10 @@ async function seed() {
   try {
     await mongoose.connect(process.env.MONGO_URI);
     console.log("Connected to MongoDB");
-    await Device.deleteMany({ category: "mobile" });
-    console.log("Cleared existing mobile devices");
+    await Device.deleteMany({ category: "mobile", brand: "Apple" });
+    console.log("Cleared existing Apple mobile devices");
     await Device.insertMany(devices);
-    console.log(`✅ Seeded ${devices.length} mobile devices successfully`);
+    console.log(`✅ Seeded ${devices.length} Apple mobile devices successfully`);
     process.exit(0);
   } catch (err) {
     console.error("❌ Seed failed:", err.message);

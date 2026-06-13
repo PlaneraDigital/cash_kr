@@ -14,6 +14,9 @@ export default function LaptopSpecModal({ isOpen, onClose, device, onComplete, i
   const [selectedStorage, setSelectedStorage] = useState(null);
   const [openDropdown, setOpenDropdown] = useState(null);
 
+  // Detect if device is Apple/Mac — no Generation question for Mac
+  const isMac = device?.brand === 'Apple' || device?.processorFamily?.startsWith('Apple');
+
   // Load initial values when modal opens
   useEffect(() => {
     if (isOpen && initialValues) {
@@ -29,7 +32,12 @@ export default function LaptopSpecModal({ isOpen, onClose, device, onComplete, i
   const handleSelect = (type, val) => {
     if (type === 'processor') {
       setSelectedProcessor(val);
-      setSelectedGen(null);
+      if (isMac) {
+        // Skip generation for Mac — go straight to RAM
+        setSelectedGen('M-Series');
+      } else {
+        setSelectedGen(null);
+      }
       setSelectedRam(null);
       setSelectedStorage(null);
     } else if (type === 'generation') {
@@ -45,7 +53,7 @@ export default function LaptopSpecModal({ isOpen, onClose, device, onComplete, i
     setOpenDropdown(null);
   };
 
-  const isComplete = selectedProcessor && selectedGen && selectedRam && selectedStorage;
+  const isComplete = selectedProcessor && (isMac || selectedGen) && selectedRam && selectedStorage;
 
   const handleFinish = () => {
     if (isComplete) {
@@ -69,18 +77,20 @@ export default function LaptopSpecModal({ isOpen, onClose, device, onComplete, i
             setOpen={() => setOpenDropdown('processor')}
           />
 
-          <SpecSelect 
-            label="Generation" 
-            value={selectedGen} 
-            disabled={!selectedProcessor}
-            isOpen={openDropdown === 'generation'}
-            setOpen={() => setOpenDropdown('generation')}
-          />
+          {!isMac && (
+            <SpecSelect 
+              label="Generation" 
+              value={selectedGen} 
+              disabled={!selectedProcessor}
+              isOpen={openDropdown === 'generation'}
+              setOpen={() => setOpenDropdown('generation')}
+            />
+          )}
 
           <SpecSelect 
             label="RAM" 
             value={selectedRam} 
-            disabled={!selectedGen}
+            disabled={isMac ? !selectedProcessor : !selectedGen}
             isOpen={openDropdown === 'ram'}
             setOpen={() => setOpenDropdown('ram')}
           />

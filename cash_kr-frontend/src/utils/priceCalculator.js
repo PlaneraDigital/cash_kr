@@ -119,9 +119,11 @@ export function calculatePrice({
 
 
 export function calculateLaptopPrice(device, selections) {
-  const { ram, storage, yearBracket, condition, screenCondition, 
-          functionalIssues = [], accessories } = selections;
+  const { ram, storage, yearBracket,
+          functionalIssues = [], screenIssues = [], bodyIssues = [],
+          accessories } = selections;
   
+  // ── 1. Find base price from variant ──
   let variant = device.variants.find(v => 
     v.ram === ram && 
     v.storage === storage &&
@@ -133,20 +135,20 @@ export function calculateLaptopPrice(device, selections) {
 
   if (variant) {
     basePrice = variant.basePrice;
+  } else if (device.variants.length === 1 && !device.variants[0].ram) {
+    // Single-variant device (flat price, e.g., Apple models)
+    basePrice = device.variants[0].basePrice;
   } else {
     // Fallback: Use the first variant as baseline and adjust
     const baseline = device.variants[0];
     basePrice = baseline.basePrice;
     
-    // Simple RAM Adjustment
     const ramVal = (r) => parseInt(r) || 8;
-    basePrice += (ramVal(ram) - ramVal(baseline.ram)) * 200; // ~200 per GB diff
+    basePrice += (ramVal(ram) - ramVal(baseline.ram)) * 200;
 
-    // Robust Storage Adjustment
     const parseStorage = (s) => {
       if (!s) return 0;
       let totalGB = 0;
-      // Handle dual drives like "1 TB HDD + 128 GB SSD"
       const parts = s.split('+');
       parts.forEach(p => {
         const val = parseInt(p.trim()) || 0;
@@ -158,46 +160,66 @@ export function calculateLaptopPrice(device, selections) {
 
     const baselineGB = parseStorage(baseline.storage);
     const selectedGB = parseStorage(storage);
-    
-    // Add value for more storage, subtract for less
-    basePrice += (selectedGB - baselineGB) * 5; // ~5 per GB diff (approximate)
+    basePrice += (selectedGB - baselineGB) * 5;
 
-    // Extra penalty if the main drive is HDD instead of SSD
-    if (storage.includes('HDD') && !baseline.storage.includes('HDD')) {
+    if (storage?.includes('HDD') && !baseline.storage?.includes('HDD')) {
       basePrice -= 1500;
     }
   }
-  
+
+  // ── 2. Age multiplier (applied first) ──
   const ageMult = device.ageMultipliers?.[yearBracket] || 1;
-  const condMult = device.conditionMultipliers?.[condition] || 1;
-  const screenMult = device.screenMultipliers?.[screenCondition] || 1;
-  const sizeMult = device.screenSizeMultipliers?.[selections.screenSize] || 1;
-  
-  const ageAdj   = Math.round(basePrice * ageMult) - basePrice;
-  const condBase = Math.round(basePrice * ageMult);
-  const condAdj  = Math.round(condBase * condMult) - condBase;
-  const screenBase = condBase + condAdj;
-  const screenAdj  = Math.round(screenBase * screenMult) - screenBase;
-  
-  const deductionTotal = (functionalIssues || [])
-    .filter(i => i !== 'noIssues')
-    .reduce((sum, issue) => sum + (device.functionalDeductions?.[issue] || 0), 0);
-  
-  // New Bonuses
-  const gpuBonus = device.dedicatedGpuBonus?.[selections.gpuModel] || 0;
-  
+  let currentPrice = Math.round(basePrice * ageMult);
+  const ageAdjustment = currentPrice - basePrice;
+
+  // ── 3. Functional issues — percentage-based sequential deductions ──
+  let functionalDeduction = 0;
+  const funcIssues = (functionalIssues || []).filter(i => i !== 'noIssues');
+  for (const issue of funcIssues) {
+    const pct = device.functionalDeductions?.[issue] || 0;
+    if (pct > 0) {
+      const deduction = Math.round(currentPrice * (pct / 100));
+      functionalDeduction += deduction;
+      currentPrice -= deduction;
+    }
+  }
+
+  // ── 4. Screen issues — percentage-based sequential deductions ──
+  let screenDeduction = 0;
+  const scrIssues = (screenIssues || []).filter(i => i !== 'noIssue');
+  for (const issue of scrIssues) {
+    const pct = device.screenDeductions?.[issue] || 0;
+    if (pct > 0) {
+      const deduction = Math.round(currentPrice * (pct / 100));
+      screenDeduction += deduction;
+      currentPrice -= deduction;
+    }
+  }
+
+  // ── 5. Body issues — percentage-based sequential deductions ──
+  let bodyDeduction = 0;
+  for (const issue of (bodyIssues || [])) {
+    const pct = device.bodyDeductions?.[issue] || 0;
+    if (pct > 0) {
+      const deduction = Math.round(currentPrice * (pct / 100));
+      bodyDeduction += deduction;
+      currentPrice -= deduction;
+    }
+  }
+
+  // ── 6. Accessories bonus ──
   const accList = Array.isArray(accessories) ? accessories : [];
   const accBonus = accList.reduce((sum, item) => sum + (device.accessoriesBonus?.[item] || 0), 0);
-  
-  const rawFinal = (screenBase + screenAdj) * sizeMult - deductionTotal + gpuBonus + accBonus;
-  const finalPrice = Math.max(Math.round(rawFinal / 100) * 100, 0);
+  currentPrice += accBonus;
+
+  const finalPrice = Math.max(Math.round(currentPrice / 100) * 100, 0);
   
   return {
     basePrice,
-    ageAdjustment: ageAdj,
-    conditionAdjustment: condAdj,
-    screenAdjustment: screenAdj,
-    functionalDeduction: -deductionTotal,
+    ageAdjustment,
+    functionalDeduction: -functionalDeduction,
+    screenDeduction: -screenDeduction,
+    bodyDeduction: -bodyDeduction,
     accessoriesBonus: accBonus,
     finalPrice,
   };
