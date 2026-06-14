@@ -6,12 +6,9 @@ const NAV_ITEMS = [
   { label: "Mobile", hasDropdown: false, to: "/sell-old-mobile-phones/brand" },
   { label: "Tablet", hasDropdown: false, to: "/sell-old-mobile-phones/brand" },
   { label: "Laptop", hasDropdown: false, to: "/sell-old-laptops/brand" },
-  { label: "Mac", hasDropdown: false, to: "/sell-old-laptops/brand" },
+  { label: "IMac", hasDropdown: false, to: "/sell-old-laptops/brand" },
   { label: "Corporate", hasDropdown: false },
-  { label: "Calculator", hasDropdown: false },
-  { label: "Articles", hasDropdown: false },
-  { label: "Referral", hasDropdown: false },
-  { label: "Partner", hasDropdown: false },
+  { label: "Become a Partner", hasDropdown: false },
 ];
 
 const ChevronDown = () => (

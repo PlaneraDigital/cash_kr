@@ -19,9 +19,9 @@ const STEPS = [
 ];
 
 const AGE_OPTIONS = [
-  { key: 'lessThan3', label: '0 - 3 Months' },
-  { key: 'threeToEleven', label: '3 - 11 Months' },
-  { key: 'aboveEleven', label: 'Above 11 Months' },
+  { key: 'lessThan1', label: 'Less than 1 year (in warranty)' },
+  { key: 'oneToTwo', label: 'Between 1 and 3 years' },
+  { key: 'twoToThree', label: 'More than 3 years' },
 ];
 
 export default function LaptopConditionQuizPage() {
@@ -317,10 +317,27 @@ export default function LaptopConditionQuizPage() {
             <EvaluationStepCard title="1. Select Device Specs ?" active={true}>
                <button onClick={() => setIsSpecsModalOpen(true)} className="px-6 py-2 rounded-full border-[1.5px] border-gray-100 text-sm font-black text-gray-500 hover:bg-gray-50 transition-colors">Modify</button>
             </EvaluationStepCard>
-            <EvaluationStepCard title="2. How old is your laptop?" active={currentStep >= 1}>
-               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <EvaluationStepCard title="Age of your device" active={currentStep >= 1}>
+               <p className="text-sm text-gray-500 mb-6 font-medium">
+                 Let us know how old is your device. Valid bill is needed for devices less than 3 years.
+               </p>
+               <div className="flex flex-col gap-4">
                  {AGE_OPTIONS.map(opt => (
-                   <button key={opt.key} onClick={() => { setAge(opt.key); if(currentStep === 1) setCurrentStep(2); }} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${age === opt.key ? 'border-[#0565E6] bg-[#0565E6]/5 text-[#0565E6]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{opt.label}</button>
+                   <button 
+                     key={opt.key} 
+                     onClick={() => { setAge(opt.key); if(currentStep === 1) setCurrentStep(2); }} 
+                     className={`flex items-center gap-4 px-6 py-5 rounded-2xl border-[1.5px] font-semibold text-left transition-all w-full
+                       ${age === opt.key ? 'border-[#0565E6] bg-[#0565E6]/5 text-[#0565E6]' : 'border-gray-100 text-gray-700 bg-white hover:border-gray-200'}`}
+                   >
+                     <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 transition-all
+                       ${age === opt.key ? 'border-[#0565E6]' : 'border-gray-300'}`}
+                     >
+                       {age === opt.key && (
+                         <div className="w-3 h-3 rounded-full bg-[#0565E6]" />
+                       )}
+                     </div>
+                     <span className="text-base font-bold">{opt.label}</span>
+                   </button>
                  ))}
                </div>
             </EvaluationStepCard>

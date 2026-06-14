@@ -11,6 +11,27 @@ const LaptopIcon = () => (
   </svg>
 );
 
+const LAPTOP_BRAND_ORDER = ["Apple", "Dell", "HP", "Lenovo", "Asus", "Acer", "Microsoft"];
+
+const sortLaptopBrands = (brandsList) => {
+  return [...brandsList].sort((a, b) => {
+    const aIndex = LAPTOP_BRAND_ORDER.findIndex(
+      name => name.toLowerCase() === a.brand.toLowerCase()
+    );
+    const bIndex = LAPTOP_BRAND_ORDER.findIndex(
+      name => name.toLowerCase() === b.brand.toLowerCase()
+    );
+
+    if (aIndex !== -1 && bIndex !== -1) {
+      return aIndex - bIndex;
+    }
+    if (aIndex !== -1) return -1;
+    if (bIndex !== -1) return 1;
+
+    return a.brand.localeCompare(b.brand);
+  });
+};
+
 export default function LaptopBrandSelectionPage() {
   const [brands, setBrands] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,10 +39,11 @@ export default function LaptopBrandSelectionPage() {
 
   useEffect(() => {
     deviceService.getBrands('laptop').then(res => {
-      setBrands(res.data);
+      setBrands(sortLaptopBrands(res.data));
       setLoading(false);
     }).catch(() => {
-      setBrands(LAPTOP_BRANDS.map(b => ({ brand: b.name, modelCount: b.models })));
+      const fallback = LAPTOP_BRANDS.map(b => ({ brand: b.name, modelCount: b.models }));
+      setBrands(sortLaptopBrands(fallback));
       setLoading(false);
     });
   }, []);

@@ -33,6 +33,15 @@ const DEVICE_CATEGORIES = [
     iconBg: "bg-blue-50",
   },
   {
+    icon: <Tablet size={26} strokeWidth={1.8} />,
+    label: "Tablet",
+    sub: "iPad, Android Tablet",
+    desc: "Sell old tablet for instant cash",
+    to: "/sell-old-mobile-phones/brand",
+    color: "from-purple-50 to-pink-50",
+    iconBg: "bg-purple-50",
+  },
+  {
     icon: <Laptop size={26} strokeWidth={1.8} />,
     label: "Laptop",
     sub: "Instant Quote",
@@ -40,6 +49,15 @@ const DEVICE_CATEGORIES = [
     to: "/sell-old-laptops/brand",
     color: "from-sky-50 to-blue-50",
     iconBg: "bg-sky-50",
+  },
+  {
+    icon: <Monitor size={26} strokeWidth={1.8} />,
+    label: "Mac",
+    sub: "iMac, Mac Mini",
+    desc: "Sell old mac for instant cash",
+    to: "/sell-old-laptops/brand",
+    color: "from-teal-50 to-emerald-50",
+    iconBg: "bg-teal-50",
   },
 ];
 
@@ -358,17 +376,7 @@ export default function HomePage() {
   return (
     <div className="w-full">
 
-      {/* ── Referral Banner ── */}
-      <div className="bg-[#EEF4FF] border-b border-[#0565E6]/15 py-2.5 px-4 text-center text-[11px] sm:text-sm font-medium text-[#0565E6]">
-        🎉 Refer a friend and get up to{" "}
-        <strong className="font-black">₹500</strong> directly into your bank account.
-        <Link
-          to="/referral"
-          className="text-[#0565E6] font-black ml-2 hover:underline underline-offset-2 inline-flex items-center gap-0.5"
-        >
-          Refer Now <ArrowRight size={12} strokeWidth={3} />
-        </Link>
-      </div>
+
 
       {/* ══════════════════════════════════════════════════════
           ── HERO SECTION ──
@@ -624,31 +632,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── App Download CTA ── */}
-      <section className="py-16 sm:py-24 bg-[#0565E6] px-4 relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 opacity-10" style={{backgroundImage:"radial-gradient(circle at 10% 50%, white 0%, transparent 50%), radial-gradient(circle at 90% 20%, white 0%, transparent 40%)"}}>
-        </div>
-        <div className="max-w-[800px] mx-auto text-center text-white relative z-10">
-          <h2 className="text-2xl sm:text-4xl font-black mb-5">Download the CashAbhi App Now</h2>
-          <p className="text-sm sm:text-base opacity-80 mb-10 leading-relaxed max-w-lg mx-auto">
-            Experience seamless device selling in minutes. Get instant quotes, schedule pickups, and track orders from your phone.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="#"
-              className="flex items-center gap-3 bg-white text-[#0565E6] px-7 py-4 rounded-2xl font-black shadow-2xl hover:scale-105 active:scale-95 transition-all no-underline border border-transparent"
-            >
-              <PlayStoreIcon /> Google Play
-            </a>
-            <a
-              href="#"
-              className="flex items-center gap-3 bg-gray-900 text-white px-7 py-4 rounded-2xl font-black shadow-2xl hover:scale-105 active:scale-95 transition-all no-underline border border-gray-800"
-            >
-              <AppStoreIcon /> App Store
-            </a>
-          </div>
-        </div>
-      </section>
+
 
       {/* ── FAQ Section ── */}
       <section className="py-16 sm:py-24 bg-white">

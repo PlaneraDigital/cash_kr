@@ -79,35 +79,200 @@ function mkDevice({ brand, modelName, slug, processorFamily, generation, tier, v
 }
 
 const devices = [
+  // ══════════════════════════════════════════════════════
+  //  MICROSOFT — All Series
+  // ══════════════════════════════════════════════════════
   mkDevice({
-    brand: 'Microsoft', modelName: 'Surface Pro 11 (M2)', slug: 'microsoft-surface-pro-11',
-    processorFamily: 'Snapdragon X Elite', generation: '2024 Gen', tier: 'Premium',
+    brand: 'Microsoft', modelName: 'Surface Pro Series', slug: 'microsoft-surface-pro-series',
+    processorFamily: 'Intel Core i5', generation: '11th Gen', tier: 'Budget',
     variants: [
-      { ram: '16GB', storage: '256GB SSD', basePrice: 92000 },
-      { ram: '16GB', storage: '512GB SSD', basePrice: 108000 },
-      { ram: '32GB', storage: '512GB SSD', basePrice: 125000 },
-      { ram: '64GB', storage: '1TB SSD', basePrice: 158000 },
+      { ram: '4GB', storage: '256GB SSD', basePrice: 7520 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 8648 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 9776 }
     ],
   }),
   mkDevice({
-    brand: 'Microsoft', modelName: 'Surface Laptop 6 (13.5-inch)', slug: 'microsoft-surface-laptop-6-13',
-    processorFamily: 'Intel Core Ultra 5', generation: 'Ultra Gen', tier: 'Premium',
+    brand: 'Microsoft', modelName: 'Surface Pro 4 Series', slug: 'microsoft-surface-pro-4-series',
+    processorFamily: 'Intel Core i5', generation: '6th Gen', tier: 'Budget',
     variants: [
-      { ram: '16GB', storage: '256GB SSD', basePrice: 88000 },
-      { ram: '16GB', storage: '512GB SSD', basePrice: 102000 },
-      { ram: '32GB', storage: '1TB SSD', basePrice: 128000 },
+      { ram: '4GB', storage: '256GB SSD', basePrice: 12810 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 14731 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 16653 }
     ],
   }),
   mkDevice({
-    brand: 'Microsoft', modelName: 'Surface Laptop Go 3', slug: 'microsoft-surface-laptop-go-3',
-    processorFamily: 'Intel Core i5', generation: '12th Gen', tier: 'Mid-range',
+    brand: 'Microsoft', modelName: 'Surface Series', slug: 'microsoft-surface-series',
+    processorFamily: 'Intel Core i5', generation: '11th Gen', tier: 'Budget',
     variants: [
-      { ram: '8GB', storage: '256GB SSD', basePrice: 52000 },
-      { ram: '16GB', storage: '256GB SSD', basePrice: 60000 },
-      { ram: '16GB', storage: '512GB SSD', basePrice: 70000 },
+      { ram: '4GB', storage: '256GB SSD', basePrice: 4800 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 5520 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 6240 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Microsoft', modelName: 'Surface Book Series', slug: 'microsoft-surface-book-series',
+    processorFamily: 'Intel Core i5', generation: '6th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 12350 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 14202 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 16055 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Microsoft', modelName: 'Surface Pro 3 Series', slug: 'microsoft-surface-pro-3-series',
+    processorFamily: 'Intel Core i5', generation: '4th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 10270 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 11810 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 13351 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Microsoft', modelName: 'Surface Book 2 Series', slug: 'microsoft-surface-book-2-series',
+    processorFamily: 'Intel Core i7', generation: '8th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 14260 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 16399 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 18538 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Microsoft', modelName: 'Surface Go Series', slug: 'microsoft-surface-go-series',
+    processorFamily: 'Intel Pentium Gold', generation: '4415Y', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 3560 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 4093 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 4628 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Microsoft', modelName: 'Surface Pro 5 Series', slug: 'microsoft-surface-pro-5-series',
+    processorFamily: 'Intel Core i5', generation: '7th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 14130 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 16249 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 18369 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Microsoft', modelName: 'Surface Laptop 2 Series', slug: 'microsoft-surface-laptop-2-series',
+    processorFamily: 'Intel Core i5', generation: '8th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 14260 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 16399 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 18538 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Microsoft', modelName: 'Surface Pro 2 Series', slug: 'microsoft-surface-pro-2-series',
+    processorFamily: 'Intel Core i5', generation: '4th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 8400 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 9660 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 10920 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Microsoft', modelName: 'Surface Laptop 3 Series', slug: 'microsoft-surface-laptop-3-series',
+    processorFamily: 'AMD Ryzen 5', generation: '3000 Series', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 17420 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 20033 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 22646 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Microsoft', modelName: 'Surface 2 Series', slug: 'microsoft-surface-2-series',
+    processorFamily: 'NVIDIA Tegra 4', generation: 'ARM', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 4890 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 5623 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 6357 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Microsoft', modelName: 'Surface 3 Series', slug: 'microsoft-surface-3-series',
+    processorFamily: 'Intel Atom x7', generation: 'Atom', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 5490 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 6313 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 7137 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Microsoft', modelName: 'Surface Pro 6 Series', slug: 'microsoft-surface-pro-6-series',
+    processorFamily: 'Intel Core i5', generation: '8th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 16330 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 18779 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 21229 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Microsoft', modelName: 'Surface Laptop 4 Series', slug: 'microsoft-surface-laptop-4-series',
+    processorFamily: 'AMD Ryzen 5', generation: '4000 Series', tier: 'Mid-range',
+    variants: [
+      { ram: '8GB', storage: '256GB SSD', basePrice: 19340 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 21660 },
+      { ram: '16GB', storage: '512GB SSD', basePrice: 24175 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Microsoft', modelName: 'Surface Pro 7 Series', slug: 'microsoft-surface-pro-7-series',
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Mid-range',
+    variants: [
+      { ram: '8GB', storage: '256GB SSD', basePrice: 19970 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 22366 },
+      { ram: '16GB', storage: '512GB SSD', basePrice: 24962 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Microsoft', modelName: 'Surface Laptop Series', slug: 'microsoft-surface-laptop-series',
+    processorFamily: 'Intel Core i5', generation: '7th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 12350 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 14202 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 16055 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Microsoft', modelName: 'Surface Book 3 Series', slug: 'microsoft-surface-book-3-series',
+    processorFamily: 'Intel Core i7', generation: '10th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 17420 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 20033 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 22646 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Microsoft', modelName: 'Surface Pro X Series', slug: 'microsoft-surface-pro-x-series',
+    processorFamily: 'Microsoft SQ2', generation: 'ARM', tier: 'Mid-range',
+    variants: [
+      { ram: '8GB', storage: '256GB SSD', basePrice: 23170 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 25950 },
+      { ram: '16GB', storage: '512GB SSD', basePrice: 28962 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Microsoft', modelName: 'Surface Go 2 Series', slug: 'microsoft-surface-go-2-series',
+    processorFamily: 'Intel Core m3', generation: '10th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 8880 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 10212 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 11544 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Microsoft', modelName: 'Other Microsoft Series', slug: 'microsoft-other-microsoft-series',
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 10720 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 12327 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 13936 }
     ],
   }),
 ];
+
 
 async function seed() {
   try {

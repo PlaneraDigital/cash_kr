@@ -11,6 +11,27 @@ const MobileIcon = () => (
   </svg>
 );
 
+const MOBILE_BRAND_ORDER = ["Apple", "Samsung", "OnePlus", "Vivo", "Oppo", "Xiaomi"];
+
+const sortMobileBrands = (brandsList) => {
+  return [...brandsList].sort((a, b) => {
+    const aIndex = MOBILE_BRAND_ORDER.findIndex(
+      name => name.toLowerCase() === a.brand.toLowerCase()
+    );
+    const bIndex = MOBILE_BRAND_ORDER.findIndex(
+      name => name.toLowerCase() === b.brand.toLowerCase()
+    );
+
+    if (aIndex !== -1 && bIndex !== -1) {
+      return aIndex - bIndex;
+    }
+    if (aIndex !== -1) return -1;
+    if (bIndex !== -1) return 1;
+
+    return a.brand.localeCompare(b.brand);
+  });
+};
+
 export default function BrandSelectionPage() {
   const [brands, setBrands] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,16 +39,17 @@ export default function BrandSelectionPage() {
 
   useEffect(() => {
     deviceService.getBrands('mobile').then(res => {
-      setBrands(res.data);
+      setBrands(sortMobileBrands(res.data));
       setLoading(false);
     }).catch(() => {
       // Fallback to constants
-      setBrands(BRANDS.map(b => ({ 
+      const fallback = BRANDS.map(b => ({ 
         brand: b.name, 
         modelCount: b.models,
         logo: b.logo,
         color: b.color
-      })));
+      }));
+      setBrands(sortMobileBrands(fallback));
       setLoading(false);
     });
   }, []);

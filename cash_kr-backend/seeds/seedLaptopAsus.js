@@ -79,67 +79,344 @@ function mkDevice({ brand, modelName, slug, processorFamily, generation, tier, v
 }
 
 const devices = [
+  // ══════════════════════════════════════════════════════
+  //  ASUS — All Series
+  // ══════════════════════════════════════════════════════
   mkDevice({
-    brand: 'Asus', modelName: 'Asus ZenBook Pro 16X (2024)', slug: 'asus-zenbook-pro-16x-2024',
-    processorFamily: 'Intel Core i9', generation: '14th Gen', tier: 'Premium',
-    gpuType: 'NVIDIA RTX 4070',
+    brand: 'Asus', modelName: 'Asus X Series', slug: 'asus-asus-x-series',
+    processorFamily: 'Intel Core i3', generation: '6th Gen', tier: 'Budget',
     variants: [
-      { ram: '32GB', storage: '1TB SSD', basePrice: 155000 },
-      { ram: '64GB', storage: '2TB SSD', basePrice: 185000 },
+      { ram: '4GB', storage: '256GB SSD', basePrice: 5690 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 6543 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 7397 }
     ],
   }),
   mkDevice({
-    brand: 'Asus', modelName: 'Asus ZenBook 14 OLED (2024)', slug: 'asus-zenbook-14-oled-2024',
-    processorFamily: 'Intel Core Ultra 7', generation: 'Ultra Gen', tier: 'Mid-range',
+    brand: 'Asus', modelName: 'VivoBook Series', slug: 'asus-vivobook-series',
+    processorFamily: 'AMD Ryzen 5', generation: '5000 Series', tier: 'Budget',
     variants: [
-      { ram: '16GB', storage: '512GB SSD', basePrice: 58000 },
-      { ram: '32GB', storage: '1TB SSD', basePrice: 72000 },
+      { ram: '4GB', storage: '256GB SSD', basePrice: 9250 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 10637 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 12025 }
     ],
   }),
   mkDevice({
-    brand: 'Asus', modelName: 'Asus VivoBook 16 (2024)', slug: 'asus-vivobook-16-2024',
-    processorFamily: 'AMD Ryzen 5', generation: '7000 Series', tier: 'Mid-range',
+    brand: 'Asus', modelName: 'Asus K Series', slug: 'asus-asus-k-series',
+    processorFamily: 'Intel Core i5', generation: '8th Gen', tier: 'Budget',
     variants: [
-      { ram: '8GB', storage: '512GB SSD', basePrice: 28000 },
-      { ram: '16GB', storage: '512GB SSD', basePrice: 34000 },
+      { ram: '4GB', storage: '256GB SSD', basePrice: 10140 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 11661 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 13182 }
     ],
   }),
   mkDevice({
-    brand: 'Asus', modelName: 'Asus VivoBook 15 (2024)', slug: 'asus-vivobook-15-2024',
-    processorFamily: 'Intel Core i3', generation: '12th Gen', tier: 'Budget',
+    brand: 'Asus', modelName: 'Asus R Series', slug: 'asus-asus-r-series',
+    processorFamily: 'AMD A-Series', generation: 'AMD', tier: 'Budget',
     variants: [
-      { ram: '8GB', storage: '256GB SSD', basePrice: 18000 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 22000 },
+      { ram: '4GB', storage: '256GB SSD', basePrice: 5540 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 6370 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 7202 }
     ],
   }),
   mkDevice({
-    brand: 'Asus', modelName: 'Asus ROG Zephyrus G16 (2024)', slug: 'asus-rog-zephyrus-g16-2024',
-    processorFamily: 'Intel Core Ultra 9', generation: 'Ultra Gen', tier: 'Gaming',
-    gpuType: 'NVIDIA RTX 4090', isGaming: true,
+    brand: 'Asus', modelName: 'Asus E Series', slug: 'asus-asus-e-series',
+    processorFamily: 'Intel Celeron', generation: 'N Series', tier: 'Budget',
     variants: [
-      { ram: '32GB', storage: '1TB SSD', basePrice: 225000 },
-      { ram: '64GB', storage: '2TB SSD', basePrice: 265000 },
+      { ram: '4GB', storage: '256GB SSD', basePrice: 4290 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 4933 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 5577 }
     ],
   }),
   mkDevice({
-    brand: 'Asus', modelName: 'Asus ROG Strix G16 (2024)', slug: 'asus-rog-strix-g16-2024',
-    processorFamily: 'Intel Core i9', generation: '14th Gen', tier: 'Gaming',
-    gpuType: 'NVIDIA RTX 4080', isGaming: true,
+    brand: 'Asus', modelName: 'ROG Series', slug: 'asus-rog-series',
+    processorFamily: 'Intel Core i7', generation: '10th Gen', tier: 'Gaming',
+    gpuType: 'NVIDIA RTX 2060', isGaming: true,
     variants: [
-      { ram: '16GB', storage: '512GB SSD', basePrice: 145000 },
-      { ram: '32GB', storage: '1TB SSD', basePrice: 168000 },
+      { processor: 'Intel Core i5', generation: '10th Gen', ram: '8GB', storage: '512GB SSD', basePrice: 18560 },
+      { processor: 'Intel Core i5', generation: '10th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 21344 },
+      { processor: 'Intel Core i7', generation: '10th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 24128 },
+      { processor: 'Intel Core i7', generation: '10th Gen', ram: '16GB', storage: '1TB SSD', basePrice: 27840 },
+      { processor: 'Intel Core i7', generation: '10th Gen', ram: '32GB', storage: '1TB SSD', basePrice: 32480 }
     ],
   }),
   mkDevice({
-    brand: 'Asus', modelName: 'Asus TUF Gaming A15 (2024)', slug: 'asus-tuf-gaming-a15-2024',
-    processorFamily: 'AMD Ryzen 7', generation: '7000 Series', tier: 'Gaming',
-    gpuType: 'NVIDIA RTX 4060', isGaming: true,
+    brand: 'Asus', modelName: 'EeeBook Series', slug: 'asus-eeebook-series',
+    processorFamily: 'Intel Celeron', generation: 'N Series', tier: 'Budget',
     variants: [
-      { ram: '16GB', storage: '512GB SSD', basePrice: 62000 },
-      { ram: '16GB', storage: '1TB SSD', basePrice: 70000 },
+      { ram: '4GB', storage: '256GB SSD', basePrice: 3090 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 3553 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 4017 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'Asus A Series', slug: 'asus-asus-a-series',
+    processorFamily: 'Intel Core i3', generation: '7th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 7770 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 8935 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 10101 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'VivoBook S Series', slug: 'asus-vivobook-s-series',
+    processorFamily: 'AMD Ryzen 5', generation: '5000 Series', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 7040 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 8095 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 9152 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'Asus F Series', slug: 'asus-asus-f-series',
+    processorFamily: 'Intel Core i5', generation: '8th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 10240 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 11776 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 13312 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'TUF Gaming Series', slug: 'asus-tuf-gaming-series',
+    processorFamily: 'AMD Ryzen 5', generation: '5000 Series', tier: 'Gaming',
+    gpuType: 'NVIDIA RTX 3050', isGaming: true,
+    variants: [
+      { processor: 'AMD Ryzen 5', generation: '5000 Series', ram: '8GB', storage: '512GB SSD', basePrice: 25000 },
+      { processor: 'AMD Ryzen 5', generation: '5000 Series', ram: '16GB', storage: '512GB SSD', basePrice: 28749 },
+      { processor: 'AMD Ryzen 5', generation: '5000 Series', ram: '16GB', storage: '512GB SSD', basePrice: 32500 },
+      { processor: 'AMD Ryzen 5', generation: '5000 Series', ram: '16GB', storage: '1TB SSD', basePrice: 37500 },
+      { processor: 'AMD Ryzen 5', generation: '5000 Series', ram: '32GB', storage: '1TB SSD', basePrice: 43750 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'ZenBook Series', slug: 'asus-zenbook-series',
+    processorFamily: 'Intel Core i7', generation: '12th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 9080 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 10442 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 11804 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'Gaming Series', slug: 'asus-gaming-series',
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Gaming',
+    gpuType: 'NVIDIA GTX 1650', isGaming: true,
+    variants: [
+      { processor: 'Intel Core i5', generation: '10th Gen', ram: '8GB', storage: '512GB SSD', basePrice: 7830 },
+      { processor: 'Intel Core i5', generation: '10th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 9004 },
+      { processor: 'Intel Core i5', generation: '10th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 10179 },
+      { processor: 'Intel Core i5', generation: '10th Gen', ram: '16GB', storage: '1TB SSD', basePrice: 11745 },
+      { processor: 'Intel Core i5', generation: '10th Gen', ram: '32GB', storage: '1TB SSD', basePrice: 13702 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'Asus Q Series', slug: 'asus-asus-q-series',
+    processorFamily: 'Intel Core i5', generation: '6th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 5540 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 6370 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 7202 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'Asus N Series', slug: 'asus-asus-n-series',
+    processorFamily: 'Intel Core i5', generation: '8th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 6210 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 7141 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 8073 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'VivoBook Pro Series', slug: 'asus-vivobook-pro-series',
+    processorFamily: 'Intel Core i5', generation: '11th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 9080 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 10442 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 11804 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'Asus FX Series', slug: 'asus-asus-fx-series',
+    processorFamily: 'Intel Core i5', generation: '9th Gen', tier: 'Budget',
+    gpuType: 'NVIDIA GTX 1650', isGaming: true,
+    variants: [
+      { processor: 'Intel Core i5', generation: '9th Gen', ram: '8GB', storage: '512GB SSD', basePrice: 5590 },
+      { processor: 'Intel Core i5', generation: '9th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 6428 },
+      { processor: 'Intel Core i5', generation: '9th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 7267 },
+      { processor: 'Intel Core i5', generation: '9th Gen', ram: '16GB', storage: '1TB SSD', basePrice: 8385 },
+      { processor: 'Intel Core i5', generation: '9th Gen', ram: '32GB', storage: '1TB SSD', basePrice: 9782 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'ROG Strix Series', slug: 'asus-rog-strix-series',
+    processorFamily: 'Intel Core i7', generation: '12th Gen', tier: 'Gaming',
+    gpuType: 'NVIDIA RTX 3070', isGaming: true,
+    variants: [
+      { processor: 'Intel Core i5', generation: '12th Gen', ram: '8GB', storage: '512GB SSD', basePrice: 28400 },
+      { processor: 'Intel Core i5', generation: '12th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 32659 },
+      { processor: 'Intel Core i7', generation: '12th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 36920 },
+      { processor: 'Intel Core i7', generation: '12th Gen', ram: '16GB', storage: '1TB SSD', basePrice: 42600 },
+      { processor: 'Intel Core i7', generation: '12th Gen', ram: '32GB', storage: '1TB SSD', basePrice: 49700 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'AsusPro P Series', slug: 'asus-asuspro-p-series',
+    processorFamily: 'Intel Core i5', generation: '8th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 12920 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 14857 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 16796 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'ZenBook U Series', slug: 'asus-zenbook-u-series',
+    processorFamily: 'Intel Core i5', generation: '6th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 4290 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 4933 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 5577 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'ZenBook Flip Series', slug: 'asus-zenbook-flip-series',
+    processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 15800 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 18170 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 20540 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'Asus Chromebook Series', slug: 'asus-asus-chromebook-series',
+    processorFamily: 'Intel Celeron', generation: 'N Series', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 2140 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 2461 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 2782 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'VivoBook Flip Series', slug: 'asus-vivobook-flip-series',
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 10920 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 12557 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 14196 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'Asus Chromebook Flip Series', slug: 'asus-asus-chromebook-flip-series',
+    processorFamily: 'Intel Core i3', generation: '10th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 17370 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 19975 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 22581 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'Asus B Series', slug: 'asus-asus-b-series',
+    processorFamily: 'Intel Core i3', generation: '7th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 7550 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 8682 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 9815 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'Asus NX Series', slug: 'asus-asus-nx-series',
+    processorFamily: 'Intel Core i5', generation: '8th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 8220 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 9453 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 10686 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'Asus P series', slug: 'asus-asus-p-series',
+    processorFamily: 'Intel Core i5', generation: '7th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 5540 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 6370 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 7202 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'ZenBook S Series', slug: 'asus-zenbook-s-series',
+    processorFamily: 'Intel Core i7', generation: '12th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 5540 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 6370 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 7202 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'AsusPro B Series', slug: 'asus-asuspro-b-series',
+    processorFamily: 'Intel Core i5', generation: '8th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 12920 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 14857 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 16796 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'Asus FZ Series', slug: 'asus-asus-fz-series',
+    processorFamily: 'Intel Core i5', generation: '8th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 8220 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 9453 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 10686 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'ZenBook Pro Series', slug: 'asus-zenbook-pro-series',
+    processorFamily: 'Intel Core i9', generation: '12th Gen', tier: 'Mid-range',
+    variants: [
+      { ram: '8GB', storage: '256GB SSD', basePrice: 26050 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 29176 },
+      { ram: '16GB', storage: '512GB SSD', basePrice: 32562 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'ROG Zephyrus Series', slug: 'asus-rog-zephyrus-series',
+    processorFamily: 'AMD Ryzen 9', generation: '6000 Series', tier: 'Gaming',
+    gpuType: 'NVIDIA RTX 3080', isGaming: true,
+    variants: [
+      { processor: 'AMD Ryzen 5', generation: '6000 Series', ram: '8GB', storage: '512GB SSD', basePrice: 32920 },
+      { processor: 'AMD Ryzen 5', generation: '6000 Series', ram: '16GB', storage: '512GB SSD', basePrice: 37858 },
+      { processor: 'AMD Ryzen 9', generation: '6000 Series', ram: '16GB', storage: '512GB SSD', basePrice: 42796 },
+      { processor: 'AMD Ryzen 9', generation: '6000 Series', ram: '16GB', storage: '1TB SSD', basePrice: 49380 },
+      { processor: 'AMD Ryzen 9', generation: '6000 Series', ram: '32GB', storage: '1TB SSD', basePrice: 57610 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'Asus V Series', slug: 'asus-asus-v-series',
+    processorFamily: 'AMD A-Series', generation: 'AMD', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 4290 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 4933 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 5577 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'ProArt StudioBook Series', slug: 'asus-proart-studiobook-series',
+    processorFamily: 'Intel Core i9', generation: '12th Gen', tier: 'Mid-range',
+    variants: [
+      { ram: '8GB', storage: '256GB SSD', basePrice: 26830 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 30049 },
+      { ram: '16GB', storage: '512GB SSD', basePrice: 33537 }
+    ],
+  }),
+  mkDevice({
+    brand: 'Asus', modelName: 'Other Asus Series', slug: 'asus-other-asus-series',
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [
+      { ram: '4GB', storage: '256GB SSD', basePrice: 4290 },
+      { ram: '8GB', storage: '256GB SSD', basePrice: 4933 },
+      { ram: '8GB', storage: '512GB SSD', basePrice: 5577 }
     ],
   }),
 ];
+
 
 async function seed() {
   try {
