@@ -24,6 +24,12 @@ import LaptopModelSelectionPage from './pages/LaptopModelSelectionPage.jsx';
 import LaptopModelDetailsPage from './pages/LaptopModelDetailsPage.jsx';
 import LaptopConditionQuizPage from './pages/LaptopConditionQuizPage.jsx';
 
+// Mac Pages
+import MacBrandSelectionPage from './pages/MacBrandSelectionPage.jsx';
+import MacModelSelectionPage from './pages/MacModelSelectionPage.jsx';
+import MacModelDetailsPage from './pages/MacModelDetailsPage.jsx';
+import MacConditionQuizPage from './pages/MacConditionQuizPage.jsx';
+
 function App() {
   return (
     <>
@@ -43,7 +49,13 @@ function App() {
           <Route path="/sell-old-laptops/:brand" element={<LaptopModelSelectionPage />} />
           <Route path="/sell-old-laptops/:brand/:slug" element={<LaptopModelDetailsPage />} />
           <Route path="/sell-old-laptops/:brand/:slug/quiz" element={<LaptopConditionQuizPage />} />
+          {/* Mac flow */}
+          <Route path="/sell-imac/brand" element={<MacBrandSelectionPage />} />
+          <Route path="/sell-imac/:brand" element={<MacModelSelectionPage />} />
+          <Route path="/sell-imac/:brand/:slug" element={<MacModelDetailsPage />} />
+          <Route path="/sell-imac/:brand/:slug/quiz" element={<MacConditionQuizPage />} />
           {/* Shared */}
+
           <Route path="/schedule-pickup" element={<ProtectedRoute><SchedulePickupPage /></ProtectedRoute>} />
           <Route path="/order-confirmation/:orderId" element={<ProtectedRoute><OrderConfirmationPage /></ProtectedRoute>} />
           <Route path="/orders/:orderId" element={<ProtectedRoute><OrderTrackingPage /></ProtectedRoute>} />

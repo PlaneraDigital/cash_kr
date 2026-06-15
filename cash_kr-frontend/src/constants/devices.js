@@ -81,3 +81,8 @@ export const LAPTOP_BRANDS = [
   { name: 'LG', color: 'white', models: 0, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/LG_logo_%282015%29.svg/1024px-LG_logo_%282015%29.svg.png" },
   { name: 'Huawei', color: 'white', models: 0, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Huawei_logo_2018.svg/1024px-Huawei_logo_2018.svg.png" },
 ];
+
+export const IMAC_BRANDS = [
+  { name: 'Apple', color: 'white', models: 3, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1280px-Apple_logo_black.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20250629104141" }
+];
+

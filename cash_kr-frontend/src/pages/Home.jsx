@@ -55,7 +55,7 @@ const DEVICE_CATEGORIES = [
     label: "Mac",
     sub: "iMac, Mac Mini",
     desc: "Sell old mac for instant cash",
-    to: "/sell-old-laptops/brand",
+    to: "/sell-imac/brand",
     color: "from-teal-50 to-emerald-50",
     iconBg: "bg-teal-50",
   },
