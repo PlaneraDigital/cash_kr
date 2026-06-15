@@ -30,6 +30,12 @@ import MacModelSelectionPage from './pages/MacModelSelectionPage.jsx';
 import MacModelDetailsPage from './pages/MacModelDetailsPage.jsx';
 import MacConditionQuizPage from './pages/MacConditionQuizPage.jsx';
 
+// Tablet Pages
+import TabletBrandSelectionPage from './pages/TabletBrandSelectionPage.jsx';
+import TabletModelSelectionPage from './pages/TabletModelSelectionPage.jsx';
+import TabletVariantSelectionPage from './pages/TabletVariantSelectionPage.jsx';
+import TabletConditionQuizPage from './pages/TabletConditionQuizPage.jsx';
+
 function App() {
   return (
     <>
@@ -54,6 +60,11 @@ function App() {
           <Route path="/sell-imac/:brand" element={<MacModelSelectionPage />} />
           <Route path="/sell-imac/:brand/:slug" element={<MacModelDetailsPage />} />
           <Route path="/sell-imac/:brand/:slug/quiz" element={<MacConditionQuizPage />} />
+          {/* Tablet flow */}
+          <Route path="/sell-tablet/brand" element={<TabletBrandSelectionPage />} />
+          <Route path="/sell-tablet/:brand" element={<TabletModelSelectionPage />} />
+          <Route path="/sell-tablet/:brand/:slug" element={<TabletVariantSelectionPage />} />
+          <Route path="/sell-tablet/:brand/:slug/quiz" element={<TabletConditionQuizPage />} />
           {/* Shared */}
 
           <Route path="/schedule-pickup" element={<ProtectedRoute><SchedulePickupPage /></ProtectedRoute>} />

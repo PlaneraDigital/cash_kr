@@ -37,7 +37,7 @@ const DEVICE_CATEGORIES = [
     label: "Tablet",
     sub: "iPad, Android Tablet",
     desc: "Sell old tablet for instant cash",
-    to: "/sell-old-mobile-phones/brand",
+    to: "/sell-tablet/brand",
     color: "from-purple-50 to-pink-50",
     iconBg: "bg-purple-50",
   },

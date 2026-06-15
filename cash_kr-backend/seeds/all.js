@@ -21,6 +21,10 @@ const seeds = [
 
     // ── Mac / iMac ────────────────────────────────────
     'seedIMac.js',
+
+    // ── Tablets ───────────────────────────────────────
+    'seedTabletSamsung.js',
+    'seedTabletApple.js',
 ];
 
 console.log(`\n🚀 Starting full seed run — ${seeds.length} files\n`);

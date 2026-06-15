@@ -4,7 +4,7 @@ import { useAuth } from "../hooks/useAuth";
 
 const NAV_ITEMS = [
   { label: "Mobile", hasDropdown: false, to: "/sell-old-mobile-phones/brand" },
-  { label: "Tablet", hasDropdown: false, to: "/sell-old-mobile-phones/brand" },
+  { label: "Tablet", hasDropdown: false, to: "/sell-tablet/brand" },
   { label: "Laptop", hasDropdown: false, to: "/sell-old-laptops/brand" },
   { label: "IMac", hasDropdown: false, to: "/sell-imac/brand" },
   { label: "Corporate", hasDropdown: false },

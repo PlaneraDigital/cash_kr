@@ -86,3 +86,9 @@ export const IMAC_BRANDS = [
   { name: 'Apple', color: 'white', models: 3, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1280px-Apple_logo_black.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20250629104141" }
 ];
 
+export const TABLET_BRANDS = [
+  { name: 'Apple', color: 'white', models: 3, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1280px-Apple_logo_black.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20250629104141" },
+  { name: 'Samsung', color: 'white', models: 6, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Samsung_wordmark.svg/1920px-Samsung_wordmark.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20211020072635" }
+];
+
+
