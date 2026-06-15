@@ -63,7 +63,7 @@ function mkDevice({ brand, modelName, slug, processorFamily, generation, tier, v
       processor: v.processor || processorFamily || '',
       generation: v.generation || generation || '',
       ram: v.ram || '',
-      storage: v.storage || '',
+      storage: v.storage || 'Standard',
       storageType: v.storage?.includes('HDD') ? 'HDD' : 'SSD',
       basePrice: v.basePrice,
     })),
@@ -84,387 +84,212 @@ const devices = [
   // ══════════════════════════════════════════════════════
   mkDevice({
     brand: 'Dell', modelName: 'G15 Gaming Series', slug: 'dell-g15-gaming-series',
-    processorFamily: 'AMD Ryzen 7', generation: '6000 Series', tier: 'Gaming',
-    gpuType: 'NVIDIA RTX 3060', isGaming: true,
-    variants: [
-      { processor: 'AMD Ryzen 5', generation: '6000 Series', ram: '8GB', storage: '512GB SSD', basePrice: 22000 },
-      { processor: 'AMD Ryzen 5', generation: '6000 Series', ram: '16GB', storage: '512GB SSD', basePrice: 25299 },
-      { processor: 'AMD Ryzen 7', generation: '6000 Series', ram: '16GB', storage: '512GB SSD', basePrice: 28600 },
-      { processor: 'AMD Ryzen 7', generation: '6000 Series', ram: '16GB', storage: '1TB SSD', basePrice: 33000 },
-      { processor: 'AMD Ryzen 7', generation: '6000 Series', ram: '32GB', storage: '1TB SSD', basePrice: 38500 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Gaming',
+    gpuType: 'NVIDIA GTX 1650', isGaming: true,
+    variants: [{ basePrice: 22000 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'G16 Gaming Series', slug: 'dell-g16-gaming-series',
-    processorFamily: 'AMD Ryzen 7', generation: '6000 Series', tier: 'Gaming',
-    gpuType: 'NVIDIA RTX 3060', isGaming: true,
-    variants: [
-      { processor: 'AMD Ryzen 5', generation: '6000 Series', ram: '8GB', storage: '512GB SSD', basePrice: 20000 },
-      { processor: 'AMD Ryzen 5', generation: '6000 Series', ram: '16GB', storage: '512GB SSD', basePrice: 23000 },
-      { processor: 'AMD Ryzen 7', generation: '6000 Series', ram: '16GB', storage: '512GB SSD', basePrice: 26000 },
-      { processor: 'AMD Ryzen 7', generation: '6000 Series', ram: '16GB', storage: '1TB SSD', basePrice: 30000 },
-      { processor: 'AMD Ryzen 7', generation: '6000 Series', ram: '32GB', storage: '1TB SSD', basePrice: 35000 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Gaming',
+    gpuType: 'NVIDIA GTX 1650', isGaming: true,
+    variants: [{ basePrice: 20000 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Vostro 3000 Series', slug: 'dell-vostro-3000-series',
-    processorFamily: 'Intel Core i3', generation: '11th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 12500 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 14374 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 16250 }
-    ],
+    processorFamily: 'Intel Core i3', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 12500 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Vostro 5000 Series', slug: 'dell-vostro-5000-series',
-    processorFamily: 'Intel Core i5', generation: '11th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 13500 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 15524 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 17550 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 13500 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Vostro 7000 Series', slug: 'dell-vostro-7000-series',
-    processorFamily: 'Intel Core i7', generation: '12th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 14000 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 16099 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 18200 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 14000 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Latitude 3000 2-in-1 Series', slug: 'dell-latitude-3000-2-in-1-series',
     processorFamily: 'Intel Core i3', generation: '10th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 9000 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 10350 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 11700 }
-    ],
+    variants: [{ basePrice: 9000 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Latitude 5000 2-in-1 Series', slug: 'dell-latitude-5000-2-in-1-series',
     processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 10500 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 12074 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 13650 }
-    ],
+    variants: [{ basePrice: 10500 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Latitude 7000 2-in-1 Series', slug: 'dell-latitude-7000-2-in-1-series',
-    processorFamily: 'Intel Core i7', generation: '10th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 11500 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 13224 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 14950 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 11500 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Latitude 9000 2-in-1 Series', slug: 'dell-latitude-9000-2-in-1-series',
-    processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
-    variants: [
-      { ram: '8GB', storage: '256GB SSD', basePrice: 18500 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 20720 },
-      { ram: '16GB', storage: '512GB SSD', basePrice: 23125 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 18500 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Dell 15 Series', slug: 'dell-dell-15-series',
     processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 17000 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 19550 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 22100 }
-    ],
+    variants: [{ basePrice: 17000 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Inspiron Series', slug: 'dell-inspiron-series',
-    processorFamily: 'Intel Core i5', generation: '11th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 12690 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 14593 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 16497 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 12690 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Inspiron 3000 Series', slug: 'dell-inspiron-3000-series',
     processorFamily: 'Intel Core i3', generation: '10th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 10400 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 11959 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 13520 }
-    ],
+    variants: [{ basePrice: 10400 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Inspiron 3000 2-in-1 Series', slug: 'dell-inspiron-3000-2-in-1-series',
     processorFamily: 'Intel Core i3', generation: '10th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 8500 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 9775 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 11050 }
-    ],
+    variants: [{ basePrice: 8500 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Inspiron 5000 Series', slug: 'dell-inspiron-5000-series',
     processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 10600 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 12189 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 13780 }
-    ],
+    variants: [{ basePrice: 10600 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Inspiron 5000 2-in-1 Series', slug: 'dell-inspiron-5000-2-in-1-series',
     processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 10800 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 12419 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 14040 }
-    ],
+    variants: [{ basePrice: 10800 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Inspiron 7000 Series', slug: 'dell-inspiron-7000-series',
-    processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 13200 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 15179 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 17160 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 13200 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Inspiron 7000 2-in-1 Series', slug: 'dell-inspiron-7000-2-in-1-series',
-    processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 14000 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 16099 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 18200 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 14000 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Inspiron N5000 Series', slug: 'dell-inspiron-n5000-series',
-    processorFamily: 'Intel Core i5', generation: '5th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 6500 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 7474 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 8450 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 6500 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Inspiron Gaming Series', slug: 'dell-inspiron-gaming-series',
-    processorFamily: 'Intel Core i5', generation: '7th Gen', tier: 'Gaming',
-    gpuType: 'NVIDIA GTX 1050', isGaming: true,
-    variants: [
-      { processor: 'Intel Core i5', generation: '7th Gen', ram: '8GB', storage: '512GB SSD', basePrice: 9800 },
-      { processor: 'Intel Core i5', generation: '7th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 11270 },
-      { processor: 'Intel Core i5', generation: '7th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 12740 },
-      { processor: 'Intel Core i5', generation: '7th Gen', ram: '16GB', storage: '1TB SSD', basePrice: 14700 },
-      { processor: 'Intel Core i5', generation: '7th Gen', ram: '32GB', storage: '1TB SSD', basePrice: 17150 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Gaming',
+    gpuType: 'NVIDIA GTX 1650', isGaming: true,
+    variants: [{ basePrice: 9800 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Vostro Series', slug: 'dell-vostro-series',
     processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 11590 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 13328 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 15067 }
-    ],
+    variants: [{ basePrice: 11590 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Latitude Series', slug: 'dell-latitude-series',
     processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 9790 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 11258 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 12727 }
-    ],
+    variants: [{ basePrice: 9790 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Latitude E3000 Series', slug: 'dell-latitude-e3000-series',
-    processorFamily: 'Intel Core i3', generation: '10th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 9000 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 10350 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 11700 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 9000 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Latitude E4000 Series', slug: 'dell-latitude-e4000-series',
-    processorFamily: 'Intel Core i5', generation: '2nd Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 7000 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 8049 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 9100 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 7000 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Latitude E5000 Series', slug: 'dell-latitude-e5000-series',
     processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 12000 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 13799 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 15600 }
-    ],
+    variants: [{ basePrice: 12000 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Latitude E6000 Series', slug: 'dell-latitude-e6000-series',
-    processorFamily: 'Intel Core i5', generation: '3rd Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 11000 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 12649 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 14300 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 11000 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Latitude E7000 Series', slug: 'dell-latitude-e7000-series',
-    processorFamily: 'Intel Core i7', generation: '10th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 12500 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 14374 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 16250 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 12500 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Latitude 3000 Series', slug: 'dell-latitude-3000-series',
     processorFamily: 'Intel Core i3', generation: '10th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 9500 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 10925 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 12350 }
-    ],
+    variants: [{ basePrice: 9500 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Latitude 5000 Series', slug: 'dell-latitude-5000-series',
     processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 11100 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 12764 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 14430 }
-    ],
+    variants: [{ basePrice: 11100 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Latitude 6000 Series', slug: 'dell-latitude-6000-series',
-    processorFamily: 'Intel Core i5', generation: '3rd Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 8000 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 9200 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 10400 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 8000 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Latitude 7000 Series', slug: 'dell-latitude-7000-series',
-    processorFamily: 'Intel Core i7', generation: '10th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 13000 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 14949 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 16900 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 13000 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Latitude 9000 Series', slug: 'dell-latitude-9000-series',
-    processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
-    variants: [
-      { ram: '8GB', storage: '256GB SSD', basePrice: 19000 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 21280 },
-      { ram: '16GB', storage: '512GB SSD', basePrice: 23750 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 19000 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Precision Series', slug: 'dell-precision-series',
-    processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
-    variants: [
-      { ram: '8GB', storage: '256GB SSD', basePrice: 22620 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 25334 },
-      { ram: '16GB', storage: '512GB SSD', basePrice: 28275 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 22620 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Studio Series', slug: 'dell-studio-series',
-    processorFamily: 'Intel Core i5', generation: '7th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 5760 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 6623 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 7488 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 5760 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Alienware Series', slug: 'dell-alienware-series',
-    processorFamily: 'Intel Core i7', generation: '10th Gen', tier: 'Gaming',
-    gpuType: 'NVIDIA RTX 2070', isGaming: true,
-    variants: [
-      { processor: 'Intel Core i5', generation: '10th Gen', ram: '8GB', storage: '512GB SSD', basePrice: 17700 },
-      { processor: 'Intel Core i5', generation: '10th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 20355 },
-      { processor: 'Intel Core i7', generation: '10th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 23010 },
-      { processor: 'Intel Core i7', generation: '10th Gen', ram: '16GB', storage: '1TB SSD', basePrice: 26550 },
-      { processor: 'Intel Core i7', generation: '10th Gen', ram: '32GB', storage: '1TB SSD', basePrice: 30975 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Gaming',
+    gpuType: 'NVIDIA GTX 1650', isGaming: true,
+    variants: [{ basePrice: 17700 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Dell Chromebook Series', slug: 'dell-dell-chromebook-series',
-    processorFamily: 'Intel Celeron', generation: 'N Series', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 3070 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 3530 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 3991 }
-    ],
+    processorFamily: 'Intel Core i3', generation: '10th Gen', tier: 'Budget',
+    variants: [{ basePrice: 3070 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'G7 Gaming Series', slug: 'dell-g7-gaming-series',
-    processorFamily: 'Intel Core i7', generation: '10th Gen', tier: 'Gaming',
-    gpuType: 'NVIDIA RTX 2060', isGaming: true,
-    variants: [
-      { processor: 'Intel Core i5', generation: '10th Gen', ram: '8GB', storage: '512GB SSD', basePrice: 25220 },
-      { processor: 'Intel Core i5', generation: '10th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 29002 },
-      { processor: 'Intel Core i7', generation: '10th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 32786 },
-      { processor: 'Intel Core i7', generation: '10th Gen', ram: '16GB', storage: '1TB SSD', basePrice: 37830 },
-      { processor: 'Intel Core i7', generation: '10th Gen', ram: '32GB', storage: '1TB SSD', basePrice: 44135 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Gaming',
+    gpuType: 'NVIDIA GTX 1650', isGaming: true,
+    variants: [{ basePrice: 25220 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'G5 Gaming Series', slug: 'dell-g5-gaming-series',
-    processorFamily: 'Intel Core i7', generation: '9th Gen', tier: 'Gaming',
-    gpuType: 'NVIDIA GTX 1660 Ti', isGaming: true,
-    variants: [
-      { processor: 'Intel Core i5', generation: '9th Gen', ram: '8GB', storage: '512GB SSD', basePrice: 16920 },
-      { processor: 'Intel Core i5', generation: '9th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 19458 },
-      { processor: 'Intel Core i7', generation: '9th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 21996 },
-      { processor: 'Intel Core i7', generation: '9th Gen', ram: '16GB', storage: '1TB SSD', basePrice: 25380 },
-      { processor: 'Intel Core i7', generation: '9th Gen', ram: '32GB', storage: '1TB SSD', basePrice: 29610 }
-    ],
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Gaming',
+    gpuType: 'NVIDIA GTX 1650', isGaming: true,
+    variants: [{ basePrice: 16920 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'G3 Gaming Series', slug: 'dell-g3-gaming-series',
-    processorFamily: 'Intel Core i5', generation: '9th Gen', tier: 'Gaming',
+    processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Gaming',
     gpuType: 'NVIDIA GTX 1650', isGaming: true,
-    variants: [
-      { processor: 'Intel Core i5', generation: '9th Gen', ram: '8GB', storage: '512GB SSD', basePrice: 16780 },
-      { processor: 'Intel Core i5', generation: '9th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 19297 },
-      { processor: 'Intel Core i5', generation: '9th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 21814 },
-      { processor: 'Intel Core i5', generation: '9th Gen', ram: '16GB', storage: '1TB SSD', basePrice: 25170 },
-      { processor: 'Intel Core i5', generation: '9th Gen', ram: '32GB', storage: '1TB SSD', basePrice: 29365 }
-    ],
+    variants: [{ basePrice: 16780 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'XPS Series', slug: 'dell-xps-series',
-    processorFamily: 'Intel Core i7', generation: '12th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 11840 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 13615 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 15392 }
-    ],
+    processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Budget',
+    variants: [{ basePrice: 11840 }],
   }),
   mkDevice({
     brand: 'Dell', modelName: 'Other Dell Series', slug: 'dell-other-dell-series',
     processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
-    variants: [
-      { ram: '4GB', storage: '256GB SSD', basePrice: 1270 },
-      { ram: '8GB', storage: '256GB SSD', basePrice: 1460 },
-      { ram: '8GB', storage: '512GB SSD', basePrice: 1651 }
-    ],
+    variants: [{ basePrice: 1270 }],
   }),
 ];
-
 
 async function seed() {
   try {

@@ -63,7 +63,7 @@ function mkDevice({ brand, modelName, slug, processorFamily, generation, tier, v
             processor: v.processor || processorFamily || '',
             generation: v.generation || generation || '',
             ram: v.ram || '',
-            storage: v.storage || '',
+            storage: v.storage || 'Standard',
             storageType: v.storage?.includes('HDD') ? 'HDD' : 'SSD',
             basePrice: v.basePrice,
         })),
@@ -84,189 +84,106 @@ const devices = [
     // ══════════════════════════════════════════════════════
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book Go Series', slug: 'samsung-galaxy-book-go-series',
-        processorFamily: 'Snapdragon 7c', generation: 'Snapdragon', tier: 'Budget',
-        variants: [
-            { ram: '4GB', storage: '256GB SSD', basePrice: 10860 },
-            { ram: '8GB', storage: '256GB SSD', basePrice: 12488 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 14118 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Budget',
+        variants: [{ basePrice: 10860 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book2 Series', slug: 'samsung-galaxy-book2-series',
-        processorFamily: 'Intel Core i5', generation: '12th Gen', tier: 'Mid-range',
-        variants: [
-            { ram: '8GB', storage: '256GB SSD', basePrice: 21990 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 24628 },
-            { ram: '16GB', storage: '512GB SSD', basePrice: 27487 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Budget',
+        variants: [{ basePrice: 21990 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book2 360 Series', slug: 'samsung-galaxy-book2-360-series',
-        processorFamily: 'Intel Core i5', generation: '12th Gen', tier: 'Mid-range',
-        variants: [
-            { ram: '8GB', storage: '256GB SSD', basePrice: 27340 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 30620 },
-            { ram: '16GB', storage: '512GB SSD', basePrice: 34175 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
+        variants: [{ basePrice: 27340 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book2 Pro Series', slug: 'samsung-galaxy-book2-pro-series',
-        processorFamily: 'Intel Core i5', generation: '12th Gen', tier: 'Mid-range',
-        variants: [
-            { ram: '8GB', storage: '256GB SSD', basePrice: 29060 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 32547 },
-            { ram: '16GB', storage: '512GB SSD', basePrice: 36325 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
+        variants: [{ basePrice: 29060 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book2 Pro 360 Series', slug: 'samsung-galaxy-book2-pro-360-series',
-        processorFamily: 'Intel Core i7', generation: '12th Gen', tier: 'Mid-range',
-        variants: [
-            { ram: '8GB', storage: '256GB SSD', basePrice: 29490 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 33028 },
-            { ram: '16GB', storage: '512GB SSD', basePrice: 36862 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
+        variants: [{ basePrice: 29490 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book3 Series', slug: 'samsung-galaxy-book3-series',
-        processorFamily: 'Intel Core i5', generation: '13th Gen', tier: 'Mid-range',
-        variants: [
-            { ram: '8GB', storage: '256GB SSD', basePrice: 30000 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 33600 },
-            { ram: '16GB', storage: '512GB SSD', basePrice: 37500 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
+        variants: [{ basePrice: 30000 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book3 360 Series', slug: 'samsung-galaxy-book3-360-series',
-        processorFamily: 'Intel Core i5', generation: '13th Gen', tier: 'Mid-range',
-        variants: [
-            { ram: '8GB', storage: '256GB SSD', basePrice: 33000 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 36960 },
-            { ram: '16GB', storage: '512GB SSD', basePrice: 41250 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
+        variants: [{ basePrice: 33000 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book3 Ultra Series', slug: 'samsung-galaxy-book3-ultra-series',
-        processorFamily: 'Intel Core i9', generation: '13th Gen', tier: 'Premium',
-        variants: [
-            { ram: '16GB', storage: '512GB SSD', basePrice: 55000 },
-            { ram: '16GB', storage: '1TB SSD', basePrice: 63249 },
-            { ram: '32GB', storage: '1TB SSD', basePrice: 71500 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
+        variants: [{ basePrice: 55000 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book3 Pro 360 Series', slug: 'samsung-galaxy-book3-pro-360-series',
-        processorFamily: 'Intel Core i7', generation: '13th Gen', tier: 'Premium',
-        variants: [
-            { ram: '16GB', storage: '512GB SSD', basePrice: 40000 },
-            { ram: '16GB', storage: '1TB SSD', basePrice: 46000 },
-            { ram: '32GB', storage: '1TB SSD', basePrice: 52000 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
+        variants: [{ basePrice: 40000 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book4 Series', slug: 'samsung-galaxy-book4-series',
-        processorFamily: 'Intel Core Ultra 5', generation: 'Ultra Gen', tier: 'Mid-range',
-        variants: [
-            { ram: '8GB', storage: '256GB SSD', basePrice: 29830 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 33409 },
-            { ram: '16GB', storage: '512GB SSD', basePrice: 37287 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
+        variants: [{ basePrice: 29830 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book4 360 Series', slug: 'samsung-galaxy-book4-360-series',
-        processorFamily: 'Intel Core Ultra 5', generation: 'Ultra Gen', tier: 'Mid-range',
-        variants: [
-            { ram: '8GB', storage: '256GB SSD', basePrice: 31470 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 35246 },
-            { ram: '16GB', storage: '512GB SSD', basePrice: 39337 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
+        variants: [{ basePrice: 31470 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book4 Pro Series', slug: 'samsung-galaxy-book4-pro-series',
-        processorFamily: 'Intel Core Ultra 7', generation: 'Ultra Gen', tier: 'Mid-range',
-        variants: [
-            { ram: '8GB', storage: '256GB SSD', basePrice: 30870 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 34574 },
-            { ram: '16GB', storage: '512GB SSD', basePrice: 38587 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
+        variants: [{ basePrice: 30870 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book4 Pro 360 Series', slug: 'samsung-galaxy-book4-pro-360-series',
-        processorFamily: 'Intel Core Ultra 7', generation: 'Ultra Gen', tier: 'Premium',
-        variants: [
-            { ram: '16GB', storage: '512GB SSD', basePrice: 45000 },
-            { ram: '16GB', storage: '1TB SSD', basePrice: 51749 },
-            { ram: '32GB', storage: '1TB SSD', basePrice: 58500 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
+        variants: [{ basePrice: 45000 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book4 Ultra Series', slug: 'samsung-galaxy-book4-ultra-series',
-        processorFamily: 'Intel Core Ultra 9', generation: 'Ultra Gen', tier: 'Premium',
-        variants: [
-            { ram: '16GB', storage: '512GB SSD', basePrice: 50000 },
-            { ram: '16GB', storage: '1TB SSD', basePrice: 57499 },
-            { ram: '32GB', storage: '1TB SSD', basePrice: 65000 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
+        variants: [{ basePrice: 50000 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book4 Edge Series', slug: 'samsung-galaxy-book4-edge-series',
-        processorFamily: 'Intel Core i9', generation: '11th Gen', tier: 'Mid-range',
-        gpuType: 'NVIDIA RTX 3080', isGaming: true,
-        variants: [
-            { processor: 'Intel Core i5', generation: '11th Gen', ram: '8GB', storage: '512GB SSD', basePrice: 30000 },
-            { processor: 'Intel Core i5', generation: '11th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 34500 },
-            { processor: 'Intel Core i9', generation: '11th Gen', ram: '16GB', storage: '512GB SSD', basePrice: 39000 },
-            { processor: 'Intel Core i9', generation: '11th Gen', ram: '16GB', storage: '1TB SSD', basePrice: 45000 },
-            { processor: 'Intel Core i9', generation: '11th Gen', ram: '32GB', storage: '1TB SSD', basePrice: 52500 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Gaming',
+        gpuType: 'NVIDIA GTX 1650', isGaming: true,
+        variants: [{ basePrice: 30000 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book5 360 Series', slug: 'samsung-galaxy-book5-360-series',
-        processorFamily: 'Intel Core Ultra 5', generation: 'Ultra Gen', tier: 'Premium',
-        variants: [
-            { ram: '16GB', storage: '512GB SSD', basePrice: 43460 },
-            { ram: '16GB', storage: '1TB SSD', basePrice: 49978 },
-            { ram: '32GB', storage: '1TB SSD', basePrice: 56498 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
+        variants: [{ basePrice: 43460 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book5 Pro Series', slug: 'samsung-galaxy-book5-pro-series',
-        processorFamily: 'Intel Core Ultra 7', generation: 'Ultra Gen', tier: 'Premium',
-        variants: [
-            { ram: '16GB', storage: '512GB SSD', basePrice: 46680 },
-            { ram: '16GB', storage: '1TB SSD', basePrice: 53681 },
-            { ram: '32GB', storage: '1TB SSD', basePrice: 60684 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
+        variants: [{ basePrice: 46680 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book5 Pro 360 Series', slug: 'samsung-galaxy-book5-pro-360-series',
-        processorFamily: 'Intel Core Ultra 7', generation: 'Ultra Gen', tier: 'Premium',
-        variants: [
-            { ram: '16GB', storage: '512GB SSD', basePrice: 49900 },
-            { ram: '16GB', storage: '1TB SSD', basePrice: 57384 },
-            { ram: '32GB', storage: '1TB SSD', basePrice: 64870 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
+        variants: [{ basePrice: 49900 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Galaxy Book5 Series', slug: 'samsung-galaxy-book5-series',
-        processorFamily: 'Intel Core Ultra 5', generation: 'Ultra Gen', tier: 'Premium',
-        variants: [
-            { ram: '16GB', storage: '512GB SSD', basePrice: 42100 },
-            { ram: '16GB', storage: '1TB SSD', basePrice: 48414 },
-            { ram: '32GB', storage: '1TB SSD', basePrice: 54730 }
-        ],
+        processorFamily: 'Intel Core i7', generation: '11th Gen', tier: 'Mid-range',
+        variants: [{ basePrice: 42100 }],
     }),
     mkDevice({
         brand: 'Samsung', modelName: 'Others Samsung Series', slug: 'samsung-others-samsung-series',
         processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
-        variants: [
-            { ram: '4GB', storage: '256GB SSD', basePrice: 4030 },
-            { ram: '8GB', storage: '256GB SSD', basePrice: 4634 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 5239 }
-        ],
+        variants: [{ basePrice: 4030 }],
     }),
 ];
-
 
 async function seed() {
     try {

@@ -63,7 +63,7 @@ function mkDevice({ brand, modelName, slug, processorFamily, generation, tier, v
             processor: v.processor || processorFamily || '',
             generation: v.generation || generation || '',
             ram: v.ram || '',
-            storage: v.storage || '',
+            storage: v.storage || 'Standard',
             storageType: v.storage?.includes('HDD') ? 'HDD' : 'SSD',
             basePrice: v.basePrice,
         })),
@@ -84,60 +84,35 @@ const devices = [
     // ══════════════════════════════════════════════════════
     mkDevice({
         brand: 'Avita', modelName: 'Essential Series', slug: 'avita-essential-series',
-        processorFamily: 'AMD Ryzen 3', generation: '3000 Series', tier: 'Budget',
-        variants: [
-            { ram: '4GB', storage: '256GB SSD', basePrice: 3520 },
-            { ram: '8GB', storage: '256GB SSD', basePrice: 4047 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 4576 }
-        ],
+        processorFamily: 'AMD A-Series', generation: 'AMD', tier: 'Budget',
+        variants: [{ basePrice: 3520 }],
     }),
     mkDevice({
         brand: 'Avita', modelName: 'Liber Series', slug: 'avita-liber-series',
-        processorFamily: 'AMD Ryzen 3', generation: '3000 Series', tier: 'Budget',
-        variants: [
-            { ram: '4GB', storage: '256GB SSD', basePrice: 8130 },
-            { ram: '8GB', storage: '256GB SSD', basePrice: 9349 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 10569 }
-        ],
+        processorFamily: 'AMD A-Series', generation: 'AMD', tier: 'Budget',
+        variants: [{ basePrice: 8130 }],
     }),
     mkDevice({
         brand: 'Avita', modelName: 'Pura Series', slug: 'avita-pura-series',
-        processorFamily: 'AMD Ryzen 3', generation: '3000 Series', tier: 'Budget',
-        variants: [
-            { ram: '4GB', storage: '256GB SSD', basePrice: 7360 },
-            { ram: '8GB', storage: '256GB SSD', basePrice: 8464 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 9568 }
-        ],
+        processorFamily: 'AMD A-Series', generation: 'AMD', tier: 'Budget',
+        variants: [{ basePrice: 7360 }],
     }),
     mkDevice({
         brand: 'Avita', modelName: 'Cosmos Series', slug: 'avita-cosmos-series',
-        processorFamily: 'AMD Ryzen 3', generation: '3000 Series', tier: 'Budget',
-        variants: [
-            { ram: '4GB', storage: '256GB SSD', basePrice: 8390 },
-            { ram: '8GB', storage: '256GB SSD', basePrice: 9648 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 10907 }
-        ],
+        processorFamily: 'AMD A-Series', generation: 'AMD', tier: 'Budget',
+        variants: [{ basePrice: 8390 }],
     }),
     mkDevice({
         brand: 'Avita', modelName: 'Magus Lite', slug: 'avita-magus-lite',
-        processorFamily: 'AMD Ryzen 3', generation: '3000 Series', tier: 'Budget',
-        variants: [
-            { ram: '4GB', storage: '256GB SSD', basePrice: 1870 },
-            { ram: '8GB', storage: '256GB SSD', basePrice: 2150 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 2431 }
-        ],
+        processorFamily: 'AMD A-Series', generation: 'AMD', tier: 'Budget',
+        variants: [{ basePrice: 1870 }],
     }),
     mkDevice({
         brand: 'Avita', modelName: 'Admiror Series', slug: 'avita-admiror-series',
-        processorFamily: 'AMD Ryzen 3', generation: '3000 Series', tier: 'Budget',
-        variants: [
-            { ram: '4GB', storage: '256GB SSD', basePrice: 10810 },
-            { ram: '8GB', storage: '256GB SSD', basePrice: 12431 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 14053 }
-        ],
+        processorFamily: 'AMD A-Series', generation: 'AMD', tier: 'Budget',
+        variants: [{ basePrice: 10810 }],
     }),
 ];
-
 
 async function seed() {
     try {

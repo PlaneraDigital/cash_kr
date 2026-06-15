@@ -63,7 +63,7 @@ function mkDevice({ brand, modelName, slug, processorFamily, generation, tier, v
             processor: v.processor || processorFamily || '',
             generation: v.generation || generation || '',
             ram: v.ram || '',
-            storage: v.storage || '',
+            storage: v.storage || 'Standard',
             storageType: v.storage?.includes('HDD') ? 'HDD' : 'SSD',
             basePrice: v.basePrice,
         })),
@@ -85,41 +85,24 @@ const devices = [
     mkDevice({
         brand: 'MI', modelName: 'Mi Notebook', slug: 'mi-mi-notebook',
         processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
-        variants: [
-            { ram: '4GB', storage: '256GB SSD', basePrice: 16030 },
-            { ram: '8GB', storage: '256GB SSD', basePrice: 18434 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 20839 }
-        ],
+        variants: [{ basePrice: 16030 }],
     }),
     mkDevice({
         brand: 'MI', modelName: 'Mi Air Series', slug: 'mi-mi-air-series',
         processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
-        variants: [
-            { ram: '4GB', storage: '256GB SSD', basePrice: 9100 },
-            { ram: '8GB', storage: '256GB SSD', basePrice: 10465 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 11830 }
-        ],
+        variants: [{ basePrice: 9100 }],
     }),
     mkDevice({
         brand: 'MI', modelName: 'Mi Pro Series', slug: 'mi-mi-pro-series',
         processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
-        variants: [
-            { ram: '4GB', storage: '256GB SSD', basePrice: 12470 },
-            { ram: '8GB', storage: '256GB SSD', basePrice: 14340 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 16211 }
-        ],
+        variants: [{ basePrice: 12470 }],
     }),
     mkDevice({
         brand: 'MI', modelName: 'RedmiBook Series', slug: 'mi-redmibook-series',
         processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
-        variants: [
-            { ram: '4GB', storage: '256GB SSD', basePrice: 13850 },
-            { ram: '8GB', storage: '256GB SSD', basePrice: 15927 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 18005 }
-        ],
+        variants: [{ basePrice: 13850 }],
     }),
 ];
-
 
 async function seed() {
     try {

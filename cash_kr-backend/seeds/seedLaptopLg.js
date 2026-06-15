@@ -63,7 +63,7 @@ function mkDevice({ brand, modelName, slug, processorFamily, generation, tier, v
             processor: v.processor || processorFamily || '',
             generation: v.generation || generation || '',
             ram: v.ram || '',
-            storage: v.storage || '',
+            storage: v.storage || 'Standard',
             storageType: v.storage?.includes('HDD') ? 'HDD' : 'SSD',
             basePrice: v.basePrice,
         })),
@@ -84,24 +84,15 @@ const devices = [
     // ══════════════════════════════════════════════════════
     mkDevice({
         brand: 'LG', modelName: 'Other LG Series', slug: 'lg-other-lg-series',
-        processorFamily: 'Intel Core i5', generation: '8th Gen', tier: 'Budget',
-        variants: [
-            { ram: '4GB', storage: '256GB SSD', basePrice: 6110 },
-            { ram: '8GB', storage: '256GB SSD', basePrice: 7026 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 7943 }
-        ],
+        processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+        variants: [{ basePrice: 6110 }],
     }),
     mkDevice({
         brand: 'LG', modelName: 'LG Gram Series', slug: 'lg-lg-gram-series',
-        processorFamily: 'Intel Core i5', generation: '11th Gen', tier: 'Budget',
-        variants: [
-            { ram: '4GB', storage: '256GB SSD', basePrice: 8500 },
-            { ram: '8GB', storage: '256GB SSD', basePrice: 9775 },
-            { ram: '8GB', storage: '512GB SSD', basePrice: 11050 }
-        ],
+        processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+        variants: [{ basePrice: 8500 }],
     }),
 ];
-
 
 async function seed() {
     try {
