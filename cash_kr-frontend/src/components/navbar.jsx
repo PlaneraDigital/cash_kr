@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { label: "Laptop", hasDropdown: false, to: "/sell-old-laptops/brand" },
   { label: "IMac", hasDropdown: false, to: "/sell-imac/brand" },
   { label: "Corporate", hasDropdown: false },
+  { label: "About Us", hasDropdown: false, to: "/about-us" },
   { label: "Become a Partner", hasDropdown: false },
 ];
 

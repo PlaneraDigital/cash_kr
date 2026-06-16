@@ -17,6 +17,7 @@ import OrderConfirmationPage from './pages/OrderConfirmationPage.jsx';
 import OrderTrackingPage from './pages/OrderTrackingPage.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
+import AboutUs from './pages/AboutUs.jsx';
 
 // Laptop Pages
 import LaptopBrandSelectionPage from './pages/LaptopBrandSelectionPage.jsx';
@@ -71,6 +72,7 @@ function App() {
           <Route path="/order-confirmation/:orderId" element={<ProtectedRoute><OrderConfirmationPage /></ProtectedRoute>} />
           <Route path="/orders/:orderId" element={<ProtectedRoute><OrderTrackingPage /></ProtectedRoute>} />
           <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

@@ -5,6 +5,7 @@ import {
   Shield, Tag, Zap, Truck, ArrowRight,
   ChevronDown, Star, BadgeCheck
 } from "lucide-react";
+import phoneMockupImage from "../assets/image.png";
 
 // ─── Icons (Play/App Store) ───────────────────────────────────────────────────
 
@@ -413,12 +414,12 @@ export default function HomePage() {
             </p>
 
             {/* ── Category Cards Grid ── */}
-            <div className="grid grid-cols-2 gap-3 mb-9">
+            <div className="grid grid-cols-2 gap-2 mb-9 max-w-sm">
               {DEVICE_CATEGORIES.map((cat) => (
                 <Link
                   to={cat.to}
                   key={cat.label}
-                  className="group relative flex items-center gap-3 sm:gap-4 bg-white/80 backdrop-blur-sm border border-gray-200/80 rounded-2xl p-4 sm:p-5 hover:border-[#0565E6]/50 hover:shadow-lg hover:shadow-[#0565E6]/10 hover:-translate-y-0.5 transition-all duration-200 no-underline overflow-hidden"
+                  className="group relative flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-gray-200/80 rounded-2xl p-3 hover:border-[#0565E6]/50 hover:shadow-lg hover:shadow-[#0565E6]/10 hover:-translate-y-0.5 transition-all duration-200 no-underline overflow-hidden"
                 >
                   {/* Hover shine layer */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[#0565E6]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
@@ -509,9 +510,13 @@ export default function HomePage() {
 
           </div>
 
-          {/* ── Right Column: Phone Mockup (Desktop Only) ── */}
-          <div className="hidden lg:block relative h-[400px]">
-            <PhoneMockup />
+          {/* ── Right Column: Phone Image (Desktop Only) ── */}
+          <div className="hidden lg:flex relative h-[850px] w-full items-center justify-center">
+            <img
+              src={phoneMockupImage}
+              alt="CashAbhi App"
+              className="h-full w-full object-contain drop-shadow-2xl"
+            />
           </div>
 
         </div>
