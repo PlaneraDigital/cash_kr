@@ -1,7 +1,7 @@
 const FooterLogo = () => (
   <div className="flex items-center gap-1">
     <span className="text-primary text-3xl font-black tracking-[-4px] leading-none">«</span>
-    <span className="text-2xl font-bold text-white tracking-tight">CashAbhi</span>
+    <span className="text-2xl font-bold text-white tracking-tight">DeviceKart</span>
   </div>
 );
 
@@ -115,7 +115,7 @@ export default function Footer() {
         
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-xs text-gray-500 text-center md:text-left">
-            © {new Date().getFullYear()} CashAbhi. All rights reserved. &nbsp;
+            © {new Date().getFullYear()} DeviceKart. All rights reserved. &nbsp;
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a> &nbsp;·&nbsp;
             <a href="#" className="hover:text-white transition-colors">Terms of Use</a>
           </p>

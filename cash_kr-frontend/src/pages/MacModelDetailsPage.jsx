@@ -33,7 +33,7 @@ export default function MacModelDetailsPage() {
       <div className="mb-10">
         <h1 className="text-xl sm:text-2xl font-black text-[#111827] mb-2 tracking-tight">Sell Your {device.modelName}</h1>
         <p className="text-[13px] text-gray-500 font-bold max-w-2xl leading-relaxed opacity-80">
-          CashAbhi helps you sell your used {device.modelName} online with instant price checks, free doorstep pickup, and secure payment after verification.
+          DeviceKart helps you sell your used {device.modelName} online with instant price checks, free doorstep pickup, and secure payment after verification.
         </p>
       </div>
 
@@ -99,7 +99,7 @@ export default function MacModelDetailsPage() {
           </div>
           <div className="hidden lg:block w-px h-10 bg-gray-100 mx-2" />
           <p className="text-base font-black text-[#111827] leading-snug flex-1 max-w-sm">
-            Convert your old {device.modelName} into <span className="text-[#0565E6]">instant cash</span> — only with CashAbhi.
+            Convert your old {device.modelName} into <span className="text-[#0565E6]">instant cash</span> — only with DeviceKart.
           </p>
         </div>
       </div>

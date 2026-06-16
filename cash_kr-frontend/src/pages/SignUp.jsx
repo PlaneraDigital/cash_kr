@@ -123,7 +123,7 @@ export default function SignUpPage() {
       <div className="w-full max-w-[460px] bg-white rounded-[32px] shadow-2xl shadow-primary/10 border border-gray-100 p-8 sm:p-12 animate-in fade-in zoom-in-95 duration-300">
         <div className="inline-flex items-center gap-2 bg-primary-light text-primary text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-6 border border-border-light">
           <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-          Join CashAbhi
+          Join DeviceKart
         </div>
         
         <h1 className="text-3xl font-black text-text-primary tracking-tight mb-2">Create Account</h1>

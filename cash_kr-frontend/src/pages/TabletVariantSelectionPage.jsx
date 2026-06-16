@@ -60,7 +60,7 @@ export default function TabletVariantSelectionPage() {
               </span>
             </div>
             <h3 className="text-xl sm:text-2xl font-black text-[#111827] max-w-sm leading-snug">
-              Convert your old {device.modelName} into instant cash — only with CashAbhi.
+              Convert your old {device.modelName} into instant cash — only with DeviceKart.
             </h3>
           </div>
 

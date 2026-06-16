@@ -7,7 +7,7 @@ import { formatCurrency } from '../utils/formatCurrency';
 import Badge from '../components/ui/Badge';
 import Loader from '../components/ui/Loader';
 
-// --- Icons (SVGs matching CashAbhi style) ---
+// --- Icons (SVGs matching DeviceKart style) ---
 const IconOrders = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
 );
@@ -879,13 +879,13 @@ function EarningsTab() {
       </div>
 
       <p className="text-center text-gray-600 font-medium max-w-lg mx-auto mb-12">
-        We're building powerful tools to help you track and maximize your earnings on CashAbhi.
+        We're building powerful tools to help you track and maximize your earnings on DeviceKart.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
           { title: 'Earnings Analytics', desc: 'Visualize your earnings trends and identify your best performing activities.', icon: <IconEarnings /> },
-          { title: 'Refer & Earn', desc: 'Invite friends to join CashAbhi and earn bonuses for each successful referral.', icon: <IconReferral /> },
+          { title: 'Refer & Earn', desc: 'Invite friends to join DeviceKart and earn bonuses for each successful referral.', icon: <IconReferral /> },
           { title: 'Earnings History', desc: 'Track your complete earnings history with detailed transaction records.', icon: <IconOrders /> },
         ].map((card) => (
           <div key={card.title} className="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all">

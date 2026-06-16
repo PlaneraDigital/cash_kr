@@ -68,7 +68,7 @@ export default function OrderConfirmationPage() {
                 <h4 className="text-sm font-black text-[#111827]">Want to chat with your pickup partner?</h4>
               </div>
             </div>
-            <p className="text-[11px] font-bold text-gray-500 leading-relaxed mb-4">Download the CashAbhi app for real-time chat & live order tracking</p>
+            <p className="text-[11px] font-bold text-gray-500 leading-relaxed mb-4">Download the DeviceKart app for real-time chat & live order tracking</p>
             <button className="w-full bg-[#0565E6] text-white py-3.5 rounded-2xl font-black text-sm hover:bg-[#044ab8] transition-all flex items-center justify-center gap-2">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               Download App to Chat

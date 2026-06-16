@@ -100,10 +100,10 @@ const REVIEWS = [
 ];
 
 const FAQS = [
-  { q: "Is CashAbhi legit?", a: "Yes, CashAbhi is a legitimate and trusted platform for selling old electronics online in India with secure pickup and instant payment." },
-  { q: "Where can I sell my old device online?", a: "You can sell your old device online through CashAbhi, which offers free doorstep pickup and instant cash payment across 2,000+ cities in India." },
-  { q: "What is the best place to sell old devices easily?", a: "CashAbhi is one of the easiest and safest places to sell old devices online without visiting any shop." },
-  { q: "How do I get the highest price for my old gadget?", a: "Select the correct device condition, check the instant online quote, and book a free doorstep pickup on CashAbhi for the best value." },
+  { q: "Is DeviceKart legit?", a: "Yes, DeviceKart is a legitimate and trusted platform for selling old electronics online in India with secure pickup and instant payment." },
+  { q: "Where can I sell my old device online?", a: "You can sell your old device online through DeviceKart, which offers free doorstep pickup and instant cash payment across 2,000+ cities in India." },
+  { q: "What is the best place to sell old devices easily?", a: "DeviceKart is one of the easiest and safest places to sell old devices online without visiting any shop." },
+  { q: "How do I get the highest price for my old gadget?", a: "Select the correct device condition, check the instant online quote, and book a free doorstep pickup on DeviceKart for the best value." },
 ];
 
 const GUARANTEES = [
@@ -410,7 +410,7 @@ export default function HomePage() {
 
             {/* Subtext */}
             <p className="text-sm sm:text-base lg:text-[1.05rem] text-gray-500 leading-relaxed mb-8 max-w-[500px]">
-              CashAbhi is India's premier online device buyback platform helping you sell old electronics with fair pricing, free doorstep pickup and instant payment.
+              DeviceKart is India's premier online device buyback platform helping you sell old electronics with fair pricing, free doorstep pickup and instant payment.
             </p>
 
             {/* ── Category Cards Grid ── */}
@@ -514,7 +514,7 @@ export default function HomePage() {
           <div className="hidden lg:flex relative h-[850px] w-full items-center justify-center">
             <img
               src={phoneMockupImage}
-              alt="CashAbhi App"
+              alt="DeviceKart App"
               className="h-full w-full object-contain drop-shadow-2xl"
             />
           </div>
@@ -529,7 +529,7 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto px-4">
           <SectionTitle
             tag="Simple Process"
-            title="How CashAbhi Buyback Process Works"
+            title="How DeviceKart Buyback Process Works"
             subtitle="No hassle, no bargaining — selling your old device online is simple. Instant pricing, secure pickups, and fast payments."
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
@@ -559,7 +559,7 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto px-4">
           <SectionTitle
             tag="Why Choose Us"
-            title="Why People Trust CashAbhi"
+            title="Why People Trust DeviceKart"
             subtitle="Built to make selling electronics simple, transparent, and secure — every single time."
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -587,7 +587,7 @@ export default function HomePage() {
           <SectionTitle
             tag="Customer Reviews"
             title="Real Feedback From Our Customers"
-            subtitle="Thousands of users across India trust CashAbhi to convert their old phones into instant cash with free pickup."
+            subtitle="Thousands of users across India trust DeviceKart to convert their old phones into instant cash with free pickup."
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <ReviewColumn reviews={REVIEWS.slice(0, 3)} />
@@ -623,7 +623,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="bg-white rounded-[28px] p-8 sm:p-10 border border-gray-100 shadow-xl">
-              <h3 className="text-xl font-black text-gray-900 mb-7">CashAbhi Guarantees</h3>
+              <h3 className="text-xl font-black text-gray-900 mb-7">DeviceKart Guarantees</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {GUARANTEES.map((g) => (
                   <div key={g} className="flex items-center gap-3 text-xs sm:text-sm font-semibold text-gray-700 bg-[#F8FAFF] rounded-xl p-4 border border-[#0565E6]/10">
