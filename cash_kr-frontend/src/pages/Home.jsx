@@ -376,9 +376,6 @@ function PhoneMockup() {
 export default function HomePage() {
   return (
     <div className="w-full">
-
-
-
       {/* ══════════════════════════════════════════════════════
           ── HERO SECTION ──
       ══════════════════════════════════════════════════════ */}
@@ -522,8 +519,6 @@ export default function HomePage() {
         </div>
       </section>
       {/* ══════════════════════════════ END HERO ══════════════════════════════ */}
-
-
       {/* ── How It Works ── */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-[1200px] mx-auto px-4">
@@ -636,9 +631,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-
-
       {/* ── FAQ Section ── */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-[760px] mx-auto px-4">

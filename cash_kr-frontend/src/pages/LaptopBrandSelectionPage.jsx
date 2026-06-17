@@ -112,7 +112,6 @@ export default function LaptopBrandSelectionPage() {
           </Link>
         ))}
       </div>
-
       {/* Popular Brands */}
       <div className="text-center mt-12 sm:mt-16 mb-6">
         <h2 className="text-lg font-extrabold text-text-primary">Popular Laptop Brands</h2>
