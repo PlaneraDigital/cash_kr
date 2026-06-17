@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import { deviceService } from "../services/device.service";
 
 const NAV_ITEMS = [
   { label: "Mobile", hasDropdown: false, to: "/sell-old-mobile-phones/brand" },
@@ -49,6 +50,10 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState(null);
   const [activeItem, setActiveItem] = useState("Corporate");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [showSearchResults, setShowSearchResults] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
   const auth = useAuth();
   const isLoggedIn = auth?.isAuthenticated;
   const userName = auth?.user?.name;
@@ -56,6 +61,58 @@ export default function Navbar() {
 
   const handleMobileExpand = (label) => {
     setMobileExpanded((prev) => (prev === label ? null : label));
+  };
+
+  const handleSearch = async (query) => {
+    if (query.trim().length === 0) {
+      setSearchResults([]);
+      setShowSearchResults(false);
+      return;
+    }
+
+    setIsSearching(true);
+    try {
+      const response = await deviceService.searchDevices(query);
+      setSearchResults(response.data);
+      setShowSearchResults(true);
+    } catch (error) {
+      console.error("Search error:", error);
+      setSearchResults([]);
+    } finally {
+      setIsSearching(false);
+    }
+  };
+
+  const handleSearchInputChange = (e) => {
+    const value = e.target.value;
+    setSearchQuery(value);
+    
+    // Debounce the search
+    if (value.trim().length > 0) {
+      const timer = setTimeout(() => {
+        handleSearch(value);
+      }, 300);
+      return () => clearTimeout(timer);
+    } else {
+      setSearchResults([]);
+      setShowSearchResults(false);
+    }
+  };
+
+  const handleDeviceClick = (device) => {
+    const categoryMap = {
+      'mobile': 'old-mobile-phones',
+      'tablet': 'tablet',
+      'laptop': 'old-laptops',
+      'imac': 'imac'
+    };
+    
+    const categoryPath = categoryMap[device.category] || device.category;
+    const route = `/sell-${categoryPath}/${device.brand}/${device.slug}`;
+    navigate(route);
+    setSearchQuery("");
+    setSearchResults([]);
+    setShowSearchResults(false);
   };
 
   return (
@@ -71,13 +128,58 @@ export default function Navbar() {
         {/* Search (Desktop) */}
         <div className="hidden md:block flex-1 max-w-md relative">
           <input 
-            type="text" 
+            type="text"
+            value={searchQuery}
+            onChange={handleSearchInputChange}
             placeholder="What are you selling today?" 
-            className="w-full pl-4 pr-10 py-2.5 border-1.5 border-gray-200 rounded-xl text-sm font-sans text-gray-800 outline-none bg-gray-50 focus:border-primary focus:bg-white transition-all"
+            className="w-full pl-4 pr-10 py-2.5 border-1.5 border-gray-300 rounded-xl text-sm font-sans text-gray-800 outline-none bg-gray-200 focus:border-primary focus:bg-white transition-all"
           />
-          <button className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition-colors">
+          <button 
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition-colors"
+            onClick={() => searchQuery.trim() && handleSearch(searchQuery)}
+          >
             <SearchIcon />
           </button>
+
+          {/* Search Results Dropdown */}
+          {showSearchResults && searchResults.length > 0 && (
+            <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-[2000] max-h-96 overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-150">
+              {searchResults.map((device) => (
+                <button
+                  key={device.id}
+                  onClick={() => handleDeviceClick(device)}
+                  className="w-full px-4 py-3 text-left hover:bg-gray-50 border-b border-gray-100 last:border-b-0 transition-colors flex items-center gap-3"
+                >
+                  {device.imageUrl && (
+                    <img 
+                      src={device.imageUrl} 
+                      alt={device.modelName}
+                      className="w-10 h-10 object-cover rounded"
+                    />
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <p className="font-medium text-gray-900 truncate">{device.modelName}</p>
+                    <p className="text-xs text-gray-500">{device.brand} • {device.category}</p>
+                  </div>
+                  <p className="text-sm font-semibold text-primary whitespace-nowrap">₹{device.minPrice?.toLocaleString?.()}</p>
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* No Results */}
+          {showSearchResults && searchResults.length === 0 && !isSearching && (
+            <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-[2000] p-4 text-center text-gray-500 text-sm">
+              No devices found
+            </div>
+          )}
+
+          {/* Loading */}
+          {isSearching && (
+            <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-[2000] p-4 text-center text-gray-500 text-sm">
+              Searching...
+            </div>
+          )}
         </div>
 
         {/* Actions */}
@@ -153,12 +255,43 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-0 top-18 bg-white z-[999] overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-200 p-4">
-          <div className="mb-6">
+          <div className="mb-6 relative">
             <input 
-              type="text" 
+              type="text"
+              value={searchQuery}
+              onChange={handleSearchInputChange}
               placeholder="What are you selling today?" 
-              className="w-full px-4 py-3 border-1.5 border-gray-200 rounded-xl text-sm font-sans bg-gray-50 outline-none focus:border-primary focus:bg-white"
+              className="w-full px-4 py-3 border-1.5 border-gray-300 rounded-xl text-sm font-sans bg-gray-200 outline-none focus:border-primary focus:bg-white"
             />
+
+            {/* Mobile Search Results */}
+            {showSearchResults && searchResults.length > 0 && (
+              <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-[2000] max-h-80 overflow-y-auto">
+                {searchResults.map((device) => (
+                  <button
+                    key={device.id}
+                    onClick={() => {
+                      handleDeviceClick(device);
+                      setMobileMenuOpen(false);
+                    }}
+                    className="w-full px-4 py-3 text-left hover:bg-gray-50 border-b border-gray-100 last:border-b-0 transition-colors flex items-center gap-3"
+                  >
+                    {device.imageUrl && (
+                      <img 
+                        src={device.imageUrl} 
+                        alt={device.modelName}
+                        className="w-10 h-10 object-cover rounded"
+                      />
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <p className="font-medium text-gray-900 truncate">{device.modelName}</p>
+                      <p className="text-xs text-gray-500">{device.brand} • {device.category}</p>
+                    </div>
+                    <p className="text-sm font-semibold text-primary whitespace-nowrap">₹{device.minPrice?.toLocaleString?.()}</p>
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="space-y-1">
