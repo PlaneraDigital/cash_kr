@@ -3,9 +3,14 @@ import { Link } from "react-router-dom";
 import {
   Smartphone, Tablet, Laptop, Monitor,
   Shield, Tag, Zap, Truck, ArrowRight,
-  ChevronDown, Star, BadgeCheck
+  ChevronDown, Star, BadgeCheck, Users
 } from "lucide-react";
+// Note: Smartphone, Tablet, Laptop, Monitor still used in mini pills & trust features
 import phoneMockupImage from "../assets/image.png";
+import mobileDeviceImg from "../assets/devices/mobile.png";
+import tabletDeviceImg from "../assets/devices/tablet.png";
+import laptopDeviceImg from "../assets/devices/laptop.png";
+import macDeviceImg from "../assets/devices/mac.png";
 
 // ─── Icons (Play/App Store) ───────────────────────────────────────────────────
 
@@ -25,40 +30,24 @@ const AppStoreIcon = () => (
 
 const DEVICE_CATEGORIES = [
   {
-    icon: <Smartphone size={26} strokeWidth={1.8} />,
     label: "Mobile",
-    sub: "iPhone, Android",
-    desc: "Sell old mobile phone for instant cash",
     to: "/sell-old-mobile-phones/brand",
-    color: "from-blue-50 to-indigo-50",
-    iconBg: "bg-blue-50",
+    img: mobileDeviceImg,
   },
   {
-    icon: <Tablet size={26} strokeWidth={1.8} />,
     label: "Tablet",
-    sub: "iPad, Android Tablet",
-    desc: "Sell old tablet for instant cash",
     to: "/sell-tablet/brand",
-    color: "from-purple-50 to-pink-50",
-    iconBg: "bg-purple-50",
+    img: tabletDeviceImg,
   },
   {
-    icon: <Laptop size={26} strokeWidth={1.8} />,
     label: "Laptop",
-    sub: "Instant Quote",
-    desc: "Sell old laptop for instant cash",
     to: "/sell-old-laptops/brand",
-    color: "from-sky-50 to-blue-50",
-    iconBg: "bg-sky-50",
+    img: laptopDeviceImg,
   },
   {
-    icon: <Monitor size={26} strokeWidth={1.8} />,
     label: "Mac",
-    sub: "iMac, Mac Mini",
-    desc: "Sell old mac for instant cash",
     to: "/sell-imac/brand",
-    color: "from-teal-50 to-emerald-50",
-    iconBg: "bg-teal-50",
+    img: macDeviceImg,
   },
 ];
 
@@ -116,6 +105,36 @@ const GUARANTEES = [
 ];
 
 const CITIES = ["Mumbai", "Delhi", "Bangalore", "Hyderabad", "Chennai", "Pune", "Kolkata", "Ahmedabad", "Noida", "Thane", "Navi Mumbai", "Goa", "Coimbatore", "Ghaziabad", "Howrah"];
+
+// ─── Hero Stats ───────────────────────────────────────────────────────────────
+
+const HERO_STATS = [
+  {
+    icon: (
+      <Star size={28} strokeWidth={1.8} className="text-[#0565E6]" fill="#0565E6" />
+    ),
+    value: "4.8",
+    label: "Verified Rating",
+  },
+  {
+    icon: (
+      // Rupee / coin icon
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0565E6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M8 9h8M8 12h5a2.5 2.5 0 0 0 0-5H8v10l5-5" />
+      </svg>
+    ),
+    value: "100Cr+",
+    label: "Cash Paid",
+  },
+  {
+    icon: (
+      <Users size={28} strokeWidth={1.8} className="text-[#0565E6]" />
+    ),
+    value: "50k+",
+    label: "Happy Customers",
+  },
+];
 
 // ─── Review Column ────────────────────────────────────────────────────────────
 
@@ -230,147 +249,6 @@ function FAQItem({ q, a }) {
   );
 }
 
-// ─── Phone Mockup Visual ─────────────────────────────────────────────────────
-
-function PhoneMockup() {
-  return (
-    <div className="relative w-full h-full flex items-center justify-center select-none">
-
-      {/* Glow blob */}
-      <div className="absolute w-72 h-72 rounded-full bg-[#0565E6]/10 blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-
-      {/* ── Phone 1 (front, green screen) ── */}
-      <div
-        className="relative z-10 w-[180px] rounded-[36px] overflow-hidden shadow-2xl shadow-[#0565E6]/20 border-[5px] border-gray-900 bg-gray-900"
-        style={{ transform: "rotate(-6deg) translateX(-18px)" }}
-      >
-        {/* Notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-5 bg-gray-900 rounded-b-2xl z-20" />
-
-        {/* Screen */}
-        <div className="bg-[#0565E6] pt-7 pb-6 px-4 min-h-[270px]">
-          {/* Status bar */}
-          <div className="flex justify-between items-center mb-4">
-            <span className="text-[9px] font-bold text-white/80">9:41</span>
-            <div className="flex gap-1">
-              <div className="w-3 h-1.5 rounded-sm bg-white/60" />
-              <div className="w-1 h-1.5 rounded-sm bg-white/60" />
-            </div>
-          </div>
-
-          {/* Device label */}
-          <div className="text-[10px] font-bold text-white/70 mb-1 uppercase tracking-widest">iPhone 13 Pro</div>
-
-          {/* Price */}
-          <div className="text-[32px] font-black text-white leading-none mb-1">₹38,400</div>
-          <div className="flex items-center gap-1.5 mb-5">
-            <BadgeCheck size={12} className="text-white" />
-            <span className="text-[10px] font-semibold text-white/90">Best price guaranteed</span>
-          </div>
-
-          {/* Condition slots */}
-          <div className="grid grid-cols-2 gap-1.5 mb-4">
-            {["Excellent", "Good", "Fair", "Poor"].map(c => (
-              <div key={c} className={`rounded-lg px-2 py-1.5 text-center text-[9px] font-bold ${c === "Good" ? "bg-white text-[#0565E6]" : "bg-white/20 text-white/80"}`}>
-                {c}
-              </div>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div className="bg-white rounded-xl py-2.5 text-center">
-            <span className="text-[11px] font-black text-[#0565E6]">Schedule Pickup →</span>
-          </div>
-        </div>
-
-        {/* Home bar */}
-        <div className="bg-gray-900 py-2 flex justify-center">
-          <div className="w-16 h-1 rounded-full bg-white/30" />
-        </div>
-      </div>
-
-      {/* ── Phone 2 (back, dark screen) ── */}
-      <div
-        className="relative z-20 w-[175px] rounded-[34px] overflow-hidden shadow-2xl shadow-gray-900/40 border-[5px] border-gray-800 bg-gray-900"
-        style={{ transform: "rotate(5deg) translateX(22px) translateY(12px)" }}
-      >
-        {/* Notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-5 bg-gray-900 rounded-b-2xl z-20" />
-
-        {/* Dark Screen */}
-        <div className="bg-gray-900 pt-7 pb-6 px-4 min-h-[270px]">
-          {/* Status bar */}
-          <div className="flex justify-between items-center mb-4">
-            <span className="text-[9px] font-bold text-gray-400">9:41</span>
-            <div className="flex gap-1">
-              <div className="w-3 h-1.5 rounded-sm bg-gray-600" />
-              <div className="w-1 h-1.5 rounded-sm bg-gray-600" />
-            </div>
-          </div>
-
-          {/* Device label */}
-          <div className="text-[10px] font-bold text-gray-400 mb-1 uppercase tracking-widest">MacBook Air M2</div>
-
-          {/* Price */}
-          <div className="text-[28px] font-black text-white leading-none mb-1">₹64,200</div>
-          <div className="flex items-center gap-1.5 mb-5">
-            <Zap size={11} className="text-[#0565E6]" fill="#0565E6" />
-            <span className="text-[10px] font-semibold text-gray-400">Pickup in 30 mins</span>
-          </div>
-
-          {/* Slots */}
-          <div className="grid grid-cols-2 gap-1.5 mb-4">
-            {["512GB", "8GB RAM", "M2 Chip", "2022"].map(c => (
-              <div key={c} className="rounded-lg px-2 py-1.5 text-center text-[9px] font-bold bg-gray-800 text-gray-300">
-                {c}
-              </div>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div className="bg-[#0565E6] rounded-xl py-2.5 text-center">
-            <span className="text-[11px] font-black text-white">Confirm Sell →</span>
-          </div>
-        </div>
-
-        {/* Home bar */}
-        <div className="bg-gray-900 py-2 flex justify-center">
-          <div className="w-14 h-1 rounded-full bg-gray-700" />
-        </div>
-      </div>
-
-      {/* ── Floating badge: Payment confirmed ── */}
-      <div
-        className="absolute top-6 right-0 bg-white rounded-2xl shadow-xl px-3 py-2.5 flex items-center gap-2.5 border border-gray-100 z-30"
-        style={{ transform: "rotate(2deg)" }}
-      >
-        <div className="w-7 h-7 rounded-xl bg-[#EEF4FF] flex items-center justify-center shrink-0">
-          <BadgeCheck size={14} className="text-[#0565E6]" />
-        </div>
-        <div>
-          <div className="text-[11px] font-black text-gray-900 leading-none">₹42,500 Paid</div>
-          <div className="text-[9px] text-gray-400 mt-0.5">2 mins ago</div>
-        </div>
-      </div>
-
-      {/* ── Floating badge: RBI Verified ── */}
-      <div
-        className="absolute bottom-10 left-2 bg-white rounded-2xl shadow-xl px-3 py-2.5 flex items-center gap-2 border border-gray-100 z-30"
-        style={{ transform: "rotate(-3deg)" }}
-      >
-        <div className="w-6 h-6 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
-          <Shield size={12} className="text-[#0565E6]" />
-        </div>
-        <div>
-          <div className="text-[11px] font-black text-gray-900 leading-none">RBI Verified</div>
-          <div className="text-[9px] text-gray-400 mt-0.5">Safe payments</div>
-        </div>
-      </div>
-
-    </div>
-  );
-}
-
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export default function HomePage() {
@@ -379,19 +257,19 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════
           ── HERO SECTION ──
       ══════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#EEF4FF] via-white to-white pt-10 sm:pt-16 pb-16 sm:pb-24 px-4">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#EEF4FF] via-white to-white pt-0 pb-12 sm:pb-16 px-4">
 
         {/* Background decoration blobs */}
         <div className="pointer-events-none absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-[#0565E6]/5 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-[#0565E6]/5 blur-3xl" />
 
-        <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-12 lg:gap-16 items-center">
+        <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-14 items-center">
 
           {/* ── Left Column ── */}
-          <div className="relative z-10">
+          <div className="relative z-10 pt-8 sm:pt-2">
 
             {/* Top badge */}
-            <div className="inline-flex items-center gap-2 bg-white border border-[#0565E6]/20 rounded-full pl-2 pr-4 py-1.5 text-[11px] sm:text-xs font-bold text-[#0565E6] mb-6 shadow-sm shadow-[#0565E6]/10">
+            <div className="inline-flex items-center gap-2 bg-white border border-[#0565E6]/20 rounded-full pl-2 pr-4 py-1.5 text-[11px] sm:text-xs font-bold text-[#0565E6] mb-5 shadow-sm shadow-[#0565E6]/10">
               <div className="w-5 h-5 rounded-full bg-[#0565E6] flex items-center justify-center">
                 <BadgeCheck size={11} className="text-white" />
               </div>
@@ -399,92 +277,60 @@ export default function HomePage() {
             </div>
 
             {/* Main heading */}
-            <h1 className="text-[2rem] sm:text-[2.75rem] lg:text-[3.2rem] font-black text-gray-900 leading-[1.08] tracking-tight mb-5">
+            <h1 className="text-[1.75rem] sm:text-[2.4rem] lg:text-[2.85rem] font-black text-gray-900 leading-[1.08] tracking-tight mb-2">
               India's Trusted Buyback<br />
               Platform to{" "}
               <span className="text-[#0565E6]">Sell Old Devices</span>
             </h1>
 
             {/* Subtext */}
-            <p className="text-sm sm:text-base lg:text-[1.05rem] text-gray-500 leading-relaxed mb-8 max-w-[500px]">
+            <p className="text-sm sm:text-base lg:text-[1rem] text-gray-500 leading-relaxed mb-2 max-w-[500px]">
               DeviceKart is India's premier online device buyback platform helping you sell old electronics with fair pricing, free doorstep pickup and instant payment.
             </p>
 
             {/* ── Category Cards Grid ── */}
-            <div className="grid grid-cols-2 gap-2 mb-9 max-w-sm">
-              {DEVICE_CATEGORIES.map((cat) => (
-                <Link
-                  to={cat.to}
-                  key={cat.label}
-                  className="group relative flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-gray-200/80 rounded-2xl p-3 hover:border-[#0565E6]/50 hover:shadow-lg hover:shadow-[#0565E6]/10 hover:-translate-y-0.5 transition-all duration-200 no-underline overflow-hidden"
-                >
-                  {/* Hover shine layer */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#0565E6]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
-
-                  {/* Icon */}
-                  <div className={`relative w-11 h-11 sm:w-12 sm:h-12 ${cat.iconBg} rounded-xl flex items-center justify-center text-[#0565E6] group-hover:bg-[#0565E6] group-hover:text-white transition-all duration-200 shrink-0 shadow-sm`}>
-                    {cat.icon}
-                  </div>
-
-                  {/* Text */}
-                  <div className="min-w-0">
-                    <div className="text-base sm:text-lg font-black text-gray-900 leading-none mb-0.5 group-hover:text-[#0565E6] transition-colors duration-200">
-                      {cat.label}
+            <div className="border border-gray-200 rounded-3xl p-3 mb-8 bg-white/60">
+              <div className="grid grid-cols-2 gap-3">
+                {DEVICE_CATEGORIES.map((cat) => (
+                  <Link
+                    to={cat.to}
+                    key={cat.label}
+                    className="group flex flex-col bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:border-[#0565E6]/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 no-underline"
+                  >
+                    {/* Image area */}
+                    <div className="flex items-center justify-center bg-gray-50 h-[130px] px-5 pt-5 pb-2">
+                      <img
+                        src={cat.img}
+                        alt={cat.label}
+                        className="h-full w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
-                    <div className="text-[11px] sm:text-xs font-semibold text-gray-400 truncate">
-                      {cat.sub}
+                    {/* Label */}
+                    <div className="px-4 py-3 text-center">
+                      <span className="text-base font-bold text-gray-700 group-hover:text-[#0565E6] transition-colors duration-200">
+                        {cat.label}
+                      </span>
                     </div>
-                  </div>
-
-                  {/* Arrow */}
-                  <ArrowRight
-                    size={15}
-                    strokeWidth={2.5}
-                    className="ml-auto text-gray-300 group-hover:text-[#0565E6] group-hover:translate-x-0.5 transition-all duration-200 shrink-0"
-                  />
-                </Link>
-              ))}
-            </div>
-
-            {/* ── Avatar row + Stats ── */}
-            <div className="flex flex-wrap items-center gap-6 sm:gap-10">
-
-              {/* Avatar cluster */}
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  {["A","P","N","V"].map((l, i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-black text-white shadow-sm"
-                      style={{ background: ["#0565E6","#7c3aed","#0565E6","#d97706"][i] }}
-                    >
-                      {l}
-                    </div>
-                  ))}
-                </div>
-                <div>
-                  <div className="flex items-center gap-1">
-                    {[1,2,3,4,5].map(s => (
-                      <Star key={s} size={11} fill="#f59e0b" stroke="#f59e0b" strokeWidth={1.5} />
-                    ))}
-                  </div>
-                  <div className="text-[10px] text-gray-400 font-semibold mt-0.5">4.9/5 · 12,400+ verified reviews</div>
-                </div>
-              </div>
-
-              {/* Stats */}
-              <div className="flex gap-6 sm:gap-8">
-                {[
-                  { val: "4.8 ★", label: "Verified Rating" },
-                  { val: "100Cr+", label: "Cash Paid" },
-                  { val: "50K+", label: "Customers" },
-                ].map((s) => (
-                  <div key={s.label}>
-                    <div className="text-lg sm:text-xl font-black text-[#0565E6]">{s.val}</div>
-                    <div className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{s.label}</div>
-                  </div>
+                  </Link>
                 ))}
               </div>
+            </div>
+
+            {/* ── Icon Stats Row ── */}
+            <div className="flex items-center gap-8 sm:gap-10 flex-wrap">
+              {HERO_STATS.map((stat, i) => (
+                <div key={stat.label} className="flex items-center gap-3">
+                  {/* Divider */}
+                  {i > 0 && (
+                    <div className="w-px h-10 bg-gray-200 mr-2 hidden sm:block" />
+                  )}
+                  <div className="shrink-0">{stat.icon}</div>
+                  <div>
+                    <div className="text-xl sm:text-2xl font-black text-gray-900 leading-none">{stat.value}</div>
+                    <div className="text-xs sm:text-sm font-semibold text-gray-400 mt-0.5">{stat.label}</div>
+                  </div>
+                </div>
+              ))}
             </div>
 
             {/* ── Mini stat pills row ── */}
@@ -508,7 +354,7 @@ export default function HomePage() {
           </div>
 
           {/* ── Right Column: Phone Image (Desktop Only) ── */}
-          <div className="hidden lg:flex relative h-[850px] w-full items-center justify-center">
+          <div className="hidden lg:flex relative h-[580px] w-full items-center justify-center">
             <img
               src={phoneMockupImage}
               alt="DeviceKart App"
@@ -519,6 +365,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* ══════════════════════════════ END HERO ══════════════════════════════ */}
+
       {/* ── How It Works ── */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-[1200px] mx-auto px-4">
@@ -631,6 +478,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
       {/* ── FAQ Section ── */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-[760px] mx-auto px-4">

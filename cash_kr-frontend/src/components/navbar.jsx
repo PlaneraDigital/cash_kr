@@ -7,9 +7,9 @@ const NAV_ITEMS = [
   { label: "Tablet", hasDropdown: false, to: "/sell-tablet/brand" },
   { label: "Laptop", hasDropdown: false, to: "/sell-old-laptops/brand" },
   { label: "IMac", hasDropdown: false, to: "/sell-imac/brand" },
-  { label: "Corporate", hasDropdown: false },
+  { label: "Corporate", hasDropdown: false, to: "/corporate" },
   { label: "About Us", hasDropdown: false, to: "/about-us" },
-  { label: "Become a Partner", hasDropdown: false },
+  { label: "Become a Partner", hasDropdown: false, to: "/partner" },
 ];
 
 const ChevronDown = () => (

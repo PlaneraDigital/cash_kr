@@ -65,14 +65,14 @@ export default function LaptopBrandSelectionPage() {
   if (loading) return <Loader />;
 
   return (
-    <div className="max-w-[1200px] mx-auto px-4 sm:px-8 py-10 sm:py-16">
+    <div className="max-w-[1200px] mx-auto px-4 sm:px-8 pt-5 sm:pt-8 pb-10 sm:pb-16">
       <Breadcrumb items={[
         { label: 'Home', href: '/' },
         { label: 'Laptops' },
       ]} />
 
       {/* Section Title */}
-      <div className="text-center mb-10 sm:mb-14">
+      <div className="text-center mb-4 sm:mb-4">
         <span className="inline-block bg-primary-light text-primary text-xs font-bold tracking-wider uppercase px-3.5 py-1 rounded-full mb-3">
           Sell Your Laptop
         </span>

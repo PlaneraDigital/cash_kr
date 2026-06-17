@@ -19,6 +19,8 @@ import OrderTrackingPage from './pages/OrderTrackingPage.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import AboutUs from './pages/AboutUs.jsx';
+import Partner from './pages/Partner.jsx';
+import Corporate from './pages/Corporate.jsx';
 
 // Laptop Pages
 import LaptopBrandSelectionPage from './pages/LaptopBrandSelectionPage.jsx';
@@ -80,6 +82,8 @@ function App() {
           <Route path="/orders/:orderId" element={<ProtectedRoute><OrderTrackingPage /></ProtectedRoute>} />
           <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/partner" element={<Partner />} />
+          <Route path="/corporate" element={<Corporate />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

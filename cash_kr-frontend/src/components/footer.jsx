@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const FooterLogo = () => (
   <div className="flex items-center gap-1">
     <span className="text-primary text-3xl font-black tracking-[-4px] leading-none">«</span>
@@ -7,8 +9,24 @@ const FooterLogo = () => (
 
 const FOOTER_LINKS = {
   "Sell Device": ["Sell Mobile", "Sell Tablet", "Sell Laptop", "Sell Mac", "Corporate Sell"],
-  "Quick Links": ["Calculator", "Articles", "Referral Program", "Become a Partner", "Blog"],
-  "Support": ["Help Center", "Contact Us", "Track Order", "Terms & Conditions", "Privacy Policy"],
+  "Quick Links": ["Become a Partner",],
+  "Support": ["Help Center", "About Us", "Terms & Conditions", "Privacy Policy"],
+};
+
+const getLinkRoute = (linkName) => {
+  const routes = {
+    "About Us": "/about-us",
+    "Help Center": "#",
+    "Terms & Conditions": "#",
+    "Privacy Policy": "#",
+    "Become a Partner": "#",
+    "Sell Mobile": "/sell-old-mobile-phones/brand",
+    "Sell Tablet": "/sell-tablet/brand",
+    "Sell Laptop": "/sell-old-laptops/brand",
+    "Sell Mac": "/sell-imac/brand",
+    "Corporate Sell": "#",
+  };
+  return routes[linkName] || "#";
 };
 
 const SOCIAL_LINKS = [
@@ -75,22 +93,6 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-3">
-            <a href="#" className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors no-underline group">
-              <PlayStoreIcon />
-              <div className="text-left">
-                <div className="text-[10px] text-gray-400 group-hover:text-gray-300">GET IT ON</div>
-                <div className="text-sm font-bold">Google Play</div>
-              </div>
-            </a>
-            <a href="#" className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors no-underline group">
-              <AppStoreIcon />
-              <div className="text-left">
-                <div className="text-[10px] text-gray-400 group-hover:text-gray-300">DOWNLOAD ON</div>
-                <div className="text-sm font-bold">App Store</div>
-              </div>
-            </a>
-          </div>
         </div>
 
         {/* Link Columns */}
@@ -100,9 +102,9 @@ export default function Footer() {
             <ul className="space-y-3.5 list-none p-0 m-0">
               {links.map((link) => (
                 <li key={link}>
-                  <a href="#" className="text-sm hover:text-primary transition-colors no-underline">
+                  <Link to={getLinkRoute(link)} className="text-sm hover:text-primary transition-colors no-underline">
                     {link}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -116,8 +118,8 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-xs text-gray-500 text-center md:text-left">
             © {new Date().getFullYear()} DeviceKart. All rights reserved. &nbsp;
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a> &nbsp;·&nbsp;
-            <a href="#" className="hover:text-white transition-colors">Terms of Use</a>
+            <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link> &nbsp;·&nbsp;
+            <Link to="#" className="hover:text-white transition-colors">Terms of Use</Link>
           </p>
 
           <div className="flex items-center gap-4 text-[10px] font-bold tracking-widest text-gray-600 uppercase">
