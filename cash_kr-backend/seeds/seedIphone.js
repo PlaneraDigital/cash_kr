@@ -195,7 +195,7 @@ const devices = [
     brand: "Apple",
     modelName: "iPhone 11 Pro Max",
     slug: "apple-iphone-11-pro-max",
-    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-11-pro-max.jpg",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-11-pro.jpg",
     variants: [
       { storage: "64GB", basePrice: 17440 },
       { storage: "256GB", basePrice: 19710 },
@@ -500,7 +500,7 @@ const devices = [
     brand: "Apple",
     modelName: "iPhone 17 Air",
     slug: "apple-iphone-17-air",
-    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17-air.jpg",
+    imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-air.jpg",
     variants: [
       { storage: "256GB", basePrice: 68000 },
       { storage: "512GB", basePrice: 77000 },

@@ -177,3 +177,41 @@ export const calculatePrice = async (req, res, next) => {
     next(error);
   }
 };
+
+export const searchDevices = async (req, res, next) => {
+  try {
+    const { q } = req.query;
+
+    if (!q || q.trim().length < 2) {
+      return res.json([]);
+    }
+
+    const devices = await Device.find(
+      {
+        isActive: true,
+        $or: [
+          { modelName: { $regex: q, $options: 'i' } },
+          { brand: { $regex: q, $options: 'i' } },
+        ],
+      },
+      { category: 1, brand: 1, modelName: 1, slug: 1, imageUrl: 1, variants: 1 }
+    )
+      .limit(10)
+      .sort({ modelName: 1 });
+
+    const results = devices.map((d) => ({
+      category: d.category,
+      brand: d.brand,
+      modelName: d.modelName,
+      slug: d.slug,
+      imageUrl: d.imageUrl,
+      maxPrice: d.variants?.length
+        ? Math.max(...d.variants.map((v) => v.basePrice))
+        : 0,
+    }));
+
+    res.json(results);
+  } catch (error) {
+    next(error);
+  }
+};
