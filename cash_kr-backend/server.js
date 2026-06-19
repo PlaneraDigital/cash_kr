@@ -11,6 +11,9 @@ import authRoutes from './routes/auth.routes.js';
 import deviceRoutes from './routes/device.routes.js';
 import orderRoutes from './routes/order.routes.js';
 import userRoutes from './routes/user.routes.js';
+import adminRoutes from './routes/admin.routes.js';
+import partnerRoutes from './routes/partner.routes.js';
+import pincodeRoutes from './routes/pincode.routes.js';
 
 const app = express();
 
@@ -42,6 +45,9 @@ app.use('/api/auth', authRoutes);
 app.use('/api/devices', deviceRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/partners', partnerRoutes);
+app.use('/api/pincodes', pincodeRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {

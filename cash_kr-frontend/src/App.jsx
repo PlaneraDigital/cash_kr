@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Navbar from './components/navbar.jsx';
 import Footer from './components/footer.jsx';
 import ProtectedRoute from './components/layout/ProtectedRoute';
+import AdminProtectedRoute from './components/layout/AdminProtectedRoute';
 import './index.css';
 
 // Pages
@@ -40,6 +41,16 @@ import TabletModelSelectionPage from './pages/TabletModelSelectionPage.jsx';
 import TabletVariantSelectionPage from './pages/TabletVariantSelectionPage.jsx';
 import TabletConditionQuizPage from './pages/TabletConditionQuizPage.jsx';
 
+// Admin Pages
+import AdminLogin from './pages/admin/AdminLogin.jsx';
+import AdminLayout from './pages/admin/AdminLayout.jsx';
+import AdminDashboard from './pages/admin/AdminDashboard.jsx';
+import AdminUsers from './pages/admin/AdminUsers.jsx';
+import AdminDevices from './pages/admin/AdminDevices.jsx';
+import AdminPartners from './pages/admin/AdminPartners.jsx';
+import AdminOrders from './pages/admin/AdminOrders.jsx';
+import AdminPincodes from './pages/admin/AdminPincodes.jsx';
+
 function App() {
   const location = useLocation();
 
@@ -47,9 +58,11 @@ function App() {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
   return (
     <>
-      <Navbar />
+      {!isAdminRoute && <Navbar />}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -84,10 +97,22 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/partner" element={<Partner />} />
           <Route path="/corporate" element={<Corporate />} />
+
+          {/* Admin Flow */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminProtectedRoute><AdminLayout /></AdminProtectedRoute>}>
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="users" element={<AdminUsers />} />
+            <Route path="devices" element={<AdminDevices />} />
+            <Route path="partners" element={<AdminPartners />} />
+            <Route path="orders" element={<AdminOrders />} />
+            <Route path="pincodes" element={<AdminPincodes />} />
+          </Route>
+
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
-      <Footer />
+      {!isAdminRoute && <Footer />}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useQuote } from '../hooks/useQuote';
 import { useAuth } from '../hooks/useAuth';
@@ -8,10 +8,7 @@ import { formatCurrency } from '../utils/formatCurrency';
 import { getNextDays, formatDate, formatDateISO, TIME_SLOTS } from '../utils/dateUtils';
 import Input from '../components/ui/Input';
 
-const PINCODE_MAP = {
-  '400067': { city: 'Mumbai', state: 'Maharashtra', landmark: 'Near Orlem Church', address: '1223, Orlem, orlem' },
-  '400001': { city: 'Mumbai', state: 'Maharashtra', landmark: 'Fort Area', address: '10, Marine Drive' },
-};
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5002/api';
 
 export default function SchedulePickupPage() {
   const navigate = useNavigate();
@@ -418,6 +415,10 @@ function CreateAddressModal({ onClose }) {
   const { user, refreshUser } = useAuth();
   const [loading, setLoading] = useState(false);
   const [searchText, setSearchText] = useState('');
+  const [pincodeError, setPincodeError] = useState('');
+  const [pincodeChecking, setPincodeChecking] = useState(false);
+  const pincodeDebounce = useRef(null);
+
   const [form, setForm] = useState({
     label: 'Home',
     address: '',
@@ -429,22 +430,54 @@ function CreateAddressModal({ onClose }) {
     phone: user?.phone || '',
   });
 
+  const checkPincode = async (code) => {
+    if (code.length !== 6) {
+      setPincodeError('');
+      return;
+    }
+    setPincodeChecking(true);
+    setPincodeError('');
+    try {
+      const res = await fetch(`${API_BASE}/pincodes/check/${code}`);
+      const data = await res.json();
+      if (res.ok && data.isServiceable) {
+        setPincodeError('');
+        setForm(f => ({
+          ...f,
+          city: data.city || f.city,
+          state: data.state || f.state,
+        }));
+      } else {
+        setPincodeError('Pincode not available — we do not service this area yet.');
+      }
+    } catch {
+      setPincodeError('Could not verify pincode. Please try again.');
+    } finally {
+      setPincodeChecking(false);
+    }
+  };
+
+  const handlePincodeChange = (val) => {
+    setForm(f => ({ ...f, pincode: val }));
+    setPincodeError('');
+    if (pincodeDebounce.current) clearTimeout(pincodeDebounce.current);
+    pincodeDebounce.current = setTimeout(() => checkPincode(val), 500);
+  };
+
   const handleAutofill = () => {
-    // Mock realistic autofill
-    setForm({
-      ...form,
-      address: '1223, Orlem, orlem',
+    // Demo autofill — checks a real pincode
+    handlePincodeChange('400067');
+    setForm(f => ({
+      ...f,
+      address: '1223, Orlem, Malad West',
       landmark: 'Near Orlem Church',
       pincode: '400067',
-      city: 'Mumbai',
-      state: 'Maharashtra',
-    });
+    }));
   };
 
   const handleSearch = (text) => {
     setSearchText(text);
     if (text.length > 3) {
-       // Mock search result selection
        handleAutofill();
     }
   };
@@ -453,6 +486,10 @@ function CreateAddressModal({ onClose }) {
     e.preventDefault();
     if (!form.address || !form.pincode || !form.city) {
       alert('Please fill all required fields');
+      return;
+    }
+    if (pincodeError) {
+      alert('Please enter a serviceable pincode');
       return;
     }
     setLoading(true);
@@ -549,20 +586,36 @@ function CreateAddressModal({ onClose }) {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M2 12h20M12 2v20"/><circle cx="12" cy="12" r="10"/></svg>
                 Pincode
               </label>
-              <input 
-                type="text" 
-                placeholder="Enter Pincode" 
-                value={form.pincode}
-                onChange={(e) => {
-                  const val = e.target.value;
-                  setForm({ ...form, pincode: val });
-                  if (val.length === 6 && PINCODE_MAP[val]) {
-                    setForm(f => ({ ...f, city: PINCODE_MAP[val].city, state: PINCODE_MAP[val].state, address: PINCODE_MAP[val].address, landmark: PINCODE_MAP[val].landmark }));
-                  }
-                }}
-                className="w-full bg-white border-2 border-gray-100 rounded-2xl px-6 py-4 text-sm font-bold focus:outline-none focus:border-[#0565E6] transition-all"
-                required
-              />
+              <div className="relative">
+                <input 
+                  type="text" 
+                  placeholder="Enter Pincode" 
+                  value={form.pincode}
+                  onChange={(e) => handlePincodeChange(e.target.value)}
+                  maxLength={6}
+                  className={`w-full bg-white border-2 rounded-2xl px-6 py-4 text-sm font-bold focus:outline-none transition-all ${
+                    pincodeError ? 'border-red-400 focus:border-red-400' : 'border-gray-100 focus:border-[#0565E6]'
+                  }`}
+                  required
+                />
+                {pincodeChecking && (
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2">
+                    <div className="w-4 h-4 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
+                  </div>
+                )}
+              </div>
+              {pincodeError && (
+                <p className="mt-2 text-xs font-bold text-red-500 flex items-center gap-1">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                  {pincodeError}
+                </p>
+              )}
+              {!pincodeError && form.pincode.length === 6 && !pincodeChecking && (
+                <p className="mt-2 text-xs font-bold text-green-500 flex items-center gap-1">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  Pincode is serviceable!
+                </p>
+              )}
             </div>
 
             <div>
@@ -606,10 +659,10 @@ function CreateAddressModal({ onClose }) {
 
           <button 
             type="submit" 
-            disabled={loading}
-            className="w-full mt-6 bg-[#0565E6] text-white font-black py-5 rounded-[24px] hover:bg-[#044ab8] transition-all shadow-xl shadow-blue-100 flex items-center justify-center gap-2"
+            disabled={loading || !!pincodeError || pincodeChecking}
+            className="w-full mt-6 bg-[#0565E6] text-white font-black py-5 rounded-[24px] hover:bg-[#044ab8] transition-all shadow-xl shadow-blue-100 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none"
           >
-            {loading ? 'Saving...' : 'Save Address'}
+            {loading ? 'Saving...' : pincodeChecking ? 'Checking pincode...' : 'Save Address'}
           </button>
         </form>
       </div>

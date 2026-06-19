@@ -1,4 +1,5 @@
 import { useState } from "react";
+import api from "../services/api";
 import { 
   Handshake, Smartphone, TrendingUp, Wallet, ShieldCheck, 
   Download, ArrowRight, CheckCircle2, UserPlus, FileText, 
@@ -24,7 +25,7 @@ const BENEFIT_BULLETS = [
 const LIVE_LEADS = [
   { title: "iPhone 13 Pro - New Lead", time: "Posted 20s ago", value: "₹42,000", tag: "New Lead", color: "border-blue-500 bg-blue-50/40" },
   { title: "MacBook Air M1 - Pickup", time: "Posted 4 mins ago", value: "₹55,000", tag: "In Progress", color: "border-amber-500 bg-amber-50/40" },
-  { title: "iPad Pro 11” - Completed", time: "Posted 10 mins ago", value: "₹28,000", tag: "Completed", color: "border-emerald-500 bg-emerald-50/40" }
+  { title: "iPad Pro 11\" - Completed", time: "Posted 10 mins ago", value: "₹28,000", tag: "Completed", color: "border-emerald-500 bg-emerald-50/40" }
 ];
 
 const HIGHLIGHT_METRICS = [
@@ -87,11 +88,22 @@ export default function PartnerPage() {
   const [formData, setFormData] = useState({
     businessName: "", contactPerson: "", email: "", mobile: "", city: "", shopType: ""
   });
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Partner Application Registered: ", formData);
-    // Hook up onboarding verification endpoint here
+    setSubmitting(true);
+    setSubmitStatus(null);
+    try {
+      await api.post('/partners', formData);
+      setSubmitStatus('success');
+      setFormData({ businessName: "", contactPerson: "", email: "", mobile: "", city: "", shopType: "" });
+    } catch (err) {
+      setSubmitStatus('error');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -152,17 +164,17 @@ export default function PartnerPage() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-[11px] font-bold text-gray-500 uppercase mb-1">Business Name / Firm</label>
-                <input type="text" required className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:border-[#0565E6]" placeholder="e.g. Om Electronics" onChange={(e) => setFormData({...formData, businessName: e.target.value})} />
+                <input type="text" required value={formData.businessName} className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:border-[#0565E6]" placeholder="e.g. Om Electronics" onChange={(e) => setFormData({...formData, businessName: e.target.value})} />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-[11px] font-bold text-gray-500 uppercase mb-1">Contact Person</label>
-                  <input type="text" required className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:border-[#0565E6]" placeholder="Full name" onChange={(e) => setFormData({...formData, contactPerson: e.target.value})} />
+                  <input type="text" required value={formData.contactPerson} className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:border-[#0565E6]" placeholder="Full name" onChange={(e) => setFormData({...formData, contactPerson: e.target.value})} />
                 </div>
                 <div>
                   <label className="block text-[11px] font-bold text-gray-500 uppercase mb-1">Business Type</label>
-                  <select required className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-500 focus:outline-none focus:border-[#0565E6]" onChange={(e) => setFormData({...formData, shopType: e.target.value})}>
+                  <select required value={formData.shopType} className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-500 focus:outline-none focus:border-[#0565E6]" onChange={(e) => setFormData({...formData, shopType: e.target.value})}>
                     <option value="">Select Category</option>
                     <option value="repair">Mobile Repair Shop</option>
                     <option value="retailer">Laptop Retailer</option>
@@ -174,7 +186,7 @@ export default function PartnerPage() {
 
               <div>
                 <label className="block text-[11px] font-bold text-gray-500 uppercase mb-1">Email Address</label>
-                <input type="email" required className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:border-[#0565E6]" placeholder="contact@yourfirm.com" onChange={(e) => setFormData({...formData, email: e.target.value})} />
+                <input type="email" required value={formData.email} className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:border-[#0565E6]" placeholder="contact@yourfirm.com" onChange={(e) => setFormData({...formData, email: e.target.value})} />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -182,18 +194,29 @@ export default function PartnerPage() {
                   <label className="block text-[11px] font-bold text-gray-500 uppercase mb-1">Mobile Number</label>
                   <div className="relative">
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 text-sm text-gray-400 font-bold border-r border-gray-200 pr-2">+91</span>
-                    <input type="tel" required pattern="[0-9]{10}" className="w-full bg-gray-50 border border-gray-200 rounded-xl pl-16 pr-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:border-[#0565E6]" placeholder="WhatsApp Active" onChange={(e) => setFormData({...formData, mobile: e.target.value})} />
+                    <input type="tel" required pattern="[0-9]{10}" value={formData.mobile} className="w-full bg-gray-50 border border-gray-200 rounded-xl pl-16 pr-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:border-[#0565E6]" placeholder="WhatsApp Active" onChange={(e) => setFormData({...formData, mobile: e.target.value})} />
                   </div>
                 </div>
                 <div>
                   <label className="block text-[11px] font-bold text-gray-500 uppercase mb-1">City / Hub Location</label>
-                  <input type="text" required className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:border-[#0565E6]" placeholder="e.g. Mumbai" onChange={(e) => setFormData({...formData, city: e.target.value})} />
+                  <input type="text" required value={formData.city} className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:border-[#0565E6]" placeholder="e.g. Mumbai" onChange={(e) => setFormData({...formData, city: e.target.value})} />
                 </div>
               </div>
 
-              <button type="submit" className="w-full bg-[#0565E6] text-white rounded-xl py-3 font-black text-sm shadow-lg shadow-[#0565E6]/20 hover:bg-blue-700 transition duration-200 mt-2">
-                Register Storefront Profile
+              <button type="submit" disabled={submitting} className={`w-full rounded-xl py-3 font-black text-sm shadow-lg transition duration-200 mt-2 ${submitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#0565E6] hover:bg-blue-700 shadow-[#0565E6]/20'} text-white`}>
+                {submitting ? 'Submitting...' : 'Register Storefront Profile'}
               </button>
+
+              {submitStatus === 'success' && (
+                <div className="bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold px-4 py-3 rounded-xl text-center mt-3">
+                  ✅ Application submitted successfully! We'll get back to you soon.
+                </div>
+              )}
+              {submitStatus === 'error' && (
+                <div className="bg-red-50 border border-red-200 text-red-700 text-xs font-bold px-4 py-3 rounded-xl text-center mt-3">
+                  ❌ Something went wrong. Please try again.
+                </div>
+              )}
 
               <p className="text-[10px] text-gray-400 text-center mt-3 leading-relaxed">
                 By registering, you verify that your entity possesses legitimate business operation clearance tags across your respective handling state.
