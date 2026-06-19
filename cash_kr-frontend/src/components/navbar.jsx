@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { useState, useEffect, useRef, useCallback } from "react";
-=======
-import { useState, useEffect } from "react";
->>>>>>> cc78380c34e54be990bee668e880ef0036fb2728
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { deviceService } from "../services/device.service";
@@ -53,13 +49,16 @@ const UserIcon = () => (
 
 const MenuIcon = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-    <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
+    <line x1="3" y1="6" x2="21" y2="6" />
+    <line x1="3" y1="12" x2="21" y2="12" />
+    <line x1="3" y1="18" x2="21" y2="18" />
   </svg>
 );
 
 const CloseIcon = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-    <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
   </svg>
 );
 
@@ -70,28 +69,22 @@ export default function Navbar() {
   const [activeItem, setActiveItem] = useState("Corporate");
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [showSearchResults, setShowSearchResults] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
+  const [showResults, setShowResults] = useState(false);
+
+  const searchRef = useRef(null);
+  const mobileSearchRef = useRef(null);
+  const debounceTimer = useRef(null);
+
   const auth = useAuth();
   const isLoggedIn = auth?.isAuthenticated;
   const userName = auth?.user?.name;
   const navigate = useNavigate();
 
-  // Search state
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-  const [isSearching, setIsSearching] = useState(false);
-  const [showResults, setShowResults] = useState(false);
-  const searchRef = useRef(null);
-  const mobileSearchRef = useRef(null);
-  const debounceTimer = useRef(null);
-
   const handleMobileExpand = (label) => {
     setMobileExpanded((prev) => (prev === label ? null : label));
   };
 
-<<<<<<< HEAD
-  // Debounced search
   const performSearch = useCallback(async (query) => {
     if (!query || query.trim().length < 2) {
       setSearchResults([]);
@@ -105,27 +98,10 @@ export default function Navbar() {
       setSearchResults(data);
       setShowResults(true);
     } catch {
-=======
-  const handleSearch = async (query) => {
-    if (query.trim().length === 0) {
-      setSearchResults([]);
-      setShowSearchResults(false);
-      return;
-    }
-
-    setIsSearching(true);
-    try {
-      const response = await deviceService.searchDevices(query);
-      setSearchResults(response.data);
-      setShowSearchResults(true);
-    } catch (error) {
-      console.error("Search error:", error);
->>>>>>> cc78380c34e54be990bee668e880ef0036fb2728
       setSearchResults([]);
     } finally {
       setIsSearching(false);
     }
-<<<<<<< HEAD
   }, []);
 
   const handleSearchChange = (e) => {
@@ -157,16 +133,9 @@ export default function Navbar() {
   // Close results on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (
-        searchRef.current && !searchRef.current.contains(e.target) &&
-        mobileSearchRef.current && !mobileSearchRef.current.contains(e.target)
-      ) {
-        setShowResults(false);
-      }
-      if (
-        searchRef.current && !searchRef.current.contains(e.target) &&
-        !mobileSearchRef.current
-      ) {
+      const clickedOutsideDesktop = searchRef.current && !searchRef.current.contains(e.target);
+      const clickedOutsideMobile = !mobileSearchRef.current || !mobileSearchRef.current.contains(e.target);
+      if (clickedOutsideDesktop && clickedOutsideMobile) {
         setShowResults(false);
       }
     };
@@ -185,82 +154,43 @@ export default function Navbar() {
     if (!showResults) return null;
 
     return (
-      <div className="search-results-dropdown">
+      <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-[2000] max-h-96 overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-150">
         {isSearching ? (
-          <div className="search-result-item search-loading">
-            <div className="search-spinner" />
-            <span>Searching...</span>
-          </div>
+          <div className="px-4 py-3 text-center text-gray-500 text-sm">Searching...</div>
         ) : searchResults.length === 0 ? (
-          <div className="search-result-item search-empty">
-            <span>No devices found for "<strong>{searchQuery}</strong>"</span>
+          <div className="px-4 py-3 text-center text-gray-500 text-sm">
+            No devices found for "<strong>{searchQuery}</strong>"
           </div>
         ) : (
           searchResults.map((result) => (
             <button
               key={result.slug}
-              className="search-result-item"
               onClick={() => handleResultClick(result)}
+              className="w-full px-4 py-3 text-left hover:bg-gray-50 border-b border-gray-100 last:border-b-0 transition-colors flex items-center gap-3"
             >
-              <div className="search-result-image">
-                {result.imageUrl ? (
-                  <img src={result.imageUrl} alt={result.modelName} />
-                ) : (
-                  <div className="search-result-placeholder">
-                    <SearchIcon />
-                  </div>
-                )}
-              </div>
-              <div className="search-result-info">
-                <span className="search-result-name">{result.modelName}</span>
-                <span className="search-result-meta">
+              {result.imageUrl ? (
+                <img src={result.imageUrl} alt={result.modelName} className="w-10 h-10 object-cover rounded" />
+              ) : (
+                <div className="w-10 h-10 rounded bg-gray-100 flex items-center justify-center text-gray-400">
+                  <SearchIcon />
+                </div>
+              )}
+              <div className="flex-1 min-w-0">
+                <p className="font-medium text-gray-900 truncate">{result.modelName}</p>
+                <p className="text-xs text-gray-500">
                   {result.brand} · {CATEGORY_LABELS[result.category] || result.category}
-                </span>
+                </p>
               </div>
               {result.maxPrice > 0 && (
-                <span className="search-result-price">
+                <p className="text-sm font-semibold text-primary whitespace-nowrap">
                   ₹{result.maxPrice.toLocaleString("en-IN")}
-                </span>
+                </p>
               )}
             </button>
           ))
         )}
       </div>
     );
-=======
-  };
-
-  const handleSearchInputChange = (e) => {
-    const value = e.target.value;
-    setSearchQuery(value);
-    
-    // Debounce the search
-    if (value.trim().length > 0) {
-      const timer = setTimeout(() => {
-        handleSearch(value);
-      }, 300);
-      return () => clearTimeout(timer);
-    } else {
-      setSearchResults([]);
-      setShowSearchResults(false);
-    }
-  };
-
-  const handleDeviceClick = (device) => {
-    const categoryMap = {
-      'mobile': 'old-mobile-phones',
-      'tablet': 'tablet',
-      'laptop': 'old-laptops',
-      'imac': 'imac'
-    };
-    
-    const categoryPath = categoryMap[device.category] || device.category;
-    const route = `/sell-${categoryPath}/${device.brand}/${device.slug}`;
-    navigate(route);
-    setSearchQuery("");
-    setSearchResults([]);
-    setShowSearchResults(false);
->>>>>>> cc78380c34e54be990bee668e880ef0036fb2728
   };
 
   return (
@@ -275,73 +205,20 @@ export default function Navbar() {
 
         {/* Search (Desktop) */}
         <div className="hidden md:block flex-1 max-w-md relative" ref={searchRef}>
-          <input 
-<<<<<<< HEAD
-            type="text" 
-            placeholder="Search devices by name or brand..." 
-            className="w-full pl-4 pr-10 py-2.5 border-1.5 border-gray-300 rounded-xl text-sm font-sans text-gray-800 outline-none bg-gray-100 focus:border-primary focus:bg-white transition-all"
+          <input
+            type="text"
+            placeholder="Search devices by name or brand..."
+            className="w-full pl-4 pr-10 py-2.5 border-1.5 border-gray-300 rounded-xl text-sm font-sans text-gray-800 outline-none bg-gray-200 focus:border-primary focus:bg-white transition-all"
             value={searchQuery}
             onChange={handleSearchChange}
-            onFocus={() => { if (searchResults.length > 0 || searchQuery.length >= 2) setShowResults(true); }}
+            onFocus={() => {
+              if (searchResults.length > 0 || searchQuery.length >= 2) setShowResults(true);
+            }}
           />
           <button className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition-colors">
-            {isSearching ? <div className="search-spinner-sm" /> : <SearchIcon />}
-          </button>
-          {renderSearchResults()}
-=======
-            type="text"
-            value={searchQuery}
-            onChange={handleSearchInputChange}
-            placeholder="What are you selling today?" 
-            className="w-full pl-4 pr-10 py-2.5 border-1.5 border-gray-300 rounded-xl text-sm font-sans text-gray-800 outline-none bg-gray-200 focus:border-primary focus:bg-white transition-all"
-          />
-          <button 
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition-colors"
-            onClick={() => searchQuery.trim() && handleSearch(searchQuery)}
-          >
             <SearchIcon />
           </button>
-
-          {/* Search Results Dropdown */}
-          {showSearchResults && searchResults.length > 0 && (
-            <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-[2000] max-h-96 overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-150">
-              {searchResults.map((device) => (
-                <button
-                  key={device.id}
-                  onClick={() => handleDeviceClick(device)}
-                  className="w-full px-4 py-3 text-left hover:bg-gray-50 border-b border-gray-100 last:border-b-0 transition-colors flex items-center gap-3"
-                >
-                  {device.imageUrl && (
-                    <img 
-                      src={device.imageUrl} 
-                      alt={device.modelName}
-                      className="w-10 h-10 object-cover rounded"
-                    />
-                  )}
-                  <div className="flex-1 min-w-0">
-                    <p className="font-medium text-gray-900 truncate">{device.modelName}</p>
-                    <p className="text-xs text-gray-500">{device.brand} • {device.category}</p>
-                  </div>
-                  <p className="text-sm font-semibold text-primary whitespace-nowrap">₹{device.minPrice?.toLocaleString?.()}</p>
-                </button>
-              ))}
-            </div>
-          )}
-
-          {/* No Results */}
-          {showSearchResults && searchResults.length === 0 && !isSearching && (
-            <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-[2000] p-4 text-center text-gray-500 text-sm">
-              No devices found
-            </div>
-          )}
-
-          {/* Loading */}
-          {isSearching && (
-            <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-[2000] p-4 text-center text-gray-500 text-sm">
-              Searching...
-            </div>
-          )}
->>>>>>> cc78380c34e54be990bee668e880ef0036fb2728
+          {renderSearchResults()}
         </div>
 
         {/* Actions */}
@@ -349,7 +226,7 @@ export default function Navbar() {
           {isLoggedIn ? (
             <Link to="/dashboard" className="hidden sm:flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-50 text-gray-700 font-medium text-sm no-underline transition-colors">
               <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold">
-                {userName?.[0]?.toUpperCase() || 'U'}
+                {userName?.[0]?.toUpperCase() || "U"}
               </div>
               Dashboard
             </Link>
@@ -359,13 +236,16 @@ export default function Navbar() {
               Login
             </Link>
           )}
-          
-          <Link to="/sell-old-mobile-phones/brand" className="bg-primary hover:bg-primary-dark text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-lg transition-all no-underline shadow-sm hover:-translate-y-px active:translate-y-0 uppercase tracking-wide">
+
+          <Link
+            to="/sell-old-mobile-phones/brand"
+            className="bg-primary hover:bg-primary-dark text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-lg transition-all no-underline shadow-sm hover:-translate-y-px active:translate-y-0 uppercase tracking-wide"
+          >
             Sell Now
           </Link>
 
           {/* Hamburger */}
-          <button 
+          <button
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 text-gray-700 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
@@ -377,25 +257,23 @@ export default function Navbar() {
       {/* Bottom Nav (Desktop) */}
       <div className="hidden md:flex items-center justify-around px-8 h-12 gap-1 overflow-x-auto no-scrollbar">
         {NAV_ITEMS.map((item) => (
-          <div 
+          <div
             key={item.label}
             className="relative"
             onMouseEnter={() => item.hasDropdown && setOpenDropdown(item.label)}
             onMouseLeave={() => setOpenDropdown(null)}
           >
-            <button 
+            <button
               className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap
-                ${activeItem === item.label ? 'text-text-primary font-bold bg-gray-50' : 'text-gray-500 hover:text-primary hover:bg-primary-light'}`}
+                ${activeItem === item.label ? "text-text-primary font-bold bg-gray-50" : "text-gray-500 hover:text-primary hover:bg-primary-light"}`}
               onClick={() => {
                 setActiveItem(item.label);
-                if (item.to) {
-                  navigate(item.to);
-                }
+                if (item.to) navigate(item.to);
               }}
             >
               {item.label}
               {item.hasDropdown && (
-                <span className={`transition-transform duration-200 ${openDropdown === item.label ? 'rotate-180' : ''}`}>
+                <span className={`transition-transform duration-200 ${openDropdown === item.label ? "rotate-180" : ""}`}>
                   <ChevronDown />
                 </span>
               )}
@@ -417,71 +295,31 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-0 top-18 bg-white z-[999] overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-200 p-4">
-<<<<<<< HEAD
           <div className="mb-6 relative" ref={mobileSearchRef}>
-            <input 
-              type="text" 
-              placeholder="Search devices by name or brand..." 
-              className="w-full px-4 py-3 border-1.5 border-gray-300 rounded-xl text-sm font-sans bg-gray-100 outline-none focus:border-primary focus:bg-white"
+            <input
+              type="text"
+              placeholder="Search devices by name or brand..."
+              className="w-full px-4 py-3 border-1.5 border-gray-300 rounded-xl text-sm font-sans bg-gray-200 outline-none focus:border-primary focus:bg-white"
               value={searchQuery}
               onChange={handleSearchChange}
-              onFocus={() => { if (searchResults.length > 0 || searchQuery.length >= 2) setShowResults(true); }}
+              onFocus={() => {
+                if (searchResults.length > 0 || searchQuery.length >= 2) setShowResults(true);
+              }}
             />
             {renderSearchResults()}
-=======
-          <div className="mb-6 relative">
-            <input 
-              type="text"
-              value={searchQuery}
-              onChange={handleSearchInputChange}
-              placeholder="What are you selling today?" 
-              className="w-full px-4 py-3 border-1.5 border-gray-300 rounded-xl text-sm font-sans bg-gray-200 outline-none focus:border-primary focus:bg-white"
-            />
-
-            {/* Mobile Search Results */}
-            {showSearchResults && searchResults.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-[2000] max-h-80 overflow-y-auto">
-                {searchResults.map((device) => (
-                  <button
-                    key={device.id}
-                    onClick={() => {
-                      handleDeviceClick(device);
-                      setMobileMenuOpen(false);
-                    }}
-                    className="w-full px-4 py-3 text-left hover:bg-gray-50 border-b border-gray-100 last:border-b-0 transition-colors flex items-center gap-3"
-                  >
-                    {device.imageUrl && (
-                      <img 
-                        src={device.imageUrl} 
-                        alt={device.modelName}
-                        className="w-10 h-10 object-cover rounded"
-                      />
-                    )}
-                    <div className="flex-1 min-w-0">
-                      <p className="font-medium text-gray-900 truncate">{device.modelName}</p>
-                      <p className="text-xs text-gray-500">{device.brand} • {device.category}</p>
-                    </div>
-                    <p className="text-sm font-semibold text-primary whitespace-nowrap">₹{device.minPrice?.toLocaleString?.()}</p>
-                  </button>
-                ))}
-              </div>
-            )}
->>>>>>> cc78380c34e54be990bee668e880ef0036fb2728
           </div>
 
           <div className="space-y-1">
             {NAV_ITEMS.map((item) => (
               <div key={item.label}>
-                <button 
+                <button
                   className={`flex items-center justify-between w-full px-5 py-4 text-left font-medium border-b border-gray-50 transition-colors
-                    ${activeItem === item.label ? 'text-primary font-bold' : 'text-gray-700 hover:bg-gray-50'}`}
+                    ${activeItem === item.label ? "text-primary font-bold" : "text-gray-700 hover:bg-gray-50"}`}
                   onClick={() => {
                     if (!item.hasDropdown) {
                       setActiveItem(item.label);
                       setMobileMenuOpen(false);
-                      if (item.to) {
-                        navigate(item.to);
-                      }
+                      if (item.to) navigate(item.to);
                     } else {
                       handleMobileExpand(item.label);
                     }
@@ -489,7 +327,7 @@ export default function Navbar() {
                 >
                   {item.label}
                   {item.hasDropdown && (
-                    <span className={`transition-transform duration-200 ${mobileExpanded === item.label ? 'rotate-180' : ''}`}>
+                    <span className={`transition-transform duration-200 ${mobileExpanded === item.label ? "rotate-180" : ""}`}>
                       <ChevronDown />
                     </span>
                   )}
