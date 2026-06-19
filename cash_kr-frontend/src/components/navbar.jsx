@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { deviceService } from "../services/device.service";
+import logo from "../assets/logo.png";
 
 const NAV_ITEMS = [
   { label: "Mobile", hasDropdown: false, to: "/sell-old-mobile-phones/brand" },
@@ -130,7 +131,6 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   };
 
-  // Close results on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
       const clickedOutsideDesktop = searchRef.current && !searchRef.current.contains(e.target);
@@ -143,7 +143,6 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Cleanup debounce timer
   useEffect(() => {
     return () => {
       if (debounceTimer.current) clearTimeout(debounceTimer.current);
@@ -152,7 +151,6 @@ export default function Navbar() {
 
   const renderSearchResults = () => {
     if (!showResults) return null;
-
     return (
       <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-[2000] max-h-96 overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-150">
         {isSearching ? (
@@ -197,10 +195,14 @@ export default function Navbar() {
     <nav className="sticky top-0 z-[1000] bg-white border-b border-gray-100 mx-4 sm:mx-8 mt-2 rounded-xl shadow-sm">
       {/* Top Bar */}
       <div className="flex items-center justify-between px-4 sm:px-8 h-16 gap-4">
+
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-1.5 no-underline shrink-0">
-          <span className="text-primary text-2xl font-black tracking-[-4px] leading-none">«</span>
-          <span className="text-2xl font-bold text-text-primary tracking-tight">DeviceKart</span>
+        <Link to="/" className="flex items-center no-underline shrink-0">
+          <img
+            src={logo}
+            alt="DeviceKart"
+            className="h-10 w-auto object-contain"
+          />
         </Link>
 
         {/* Search (Desktop) */}
