@@ -266,7 +266,7 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-14 items-center">
 
           {/* ── Left Column ── */}
-          <div className="relative z-10 pt-8 sm:pt-2">
+          <div className="relative z-10 pt-8 sm:pt-10">
 
             {/* Top badge */}
             <div className="inline-flex items-center gap-2 bg-white border border-[#0565E6]/20 rounded-full pl-2 pr-4 py-1.5 text-[11px] sm:text-xs font-bold text-[#0565E6] mb-5 shadow-sm shadow-[#0565E6]/10">
@@ -277,14 +277,14 @@ export default function HomePage() {
             </div>
 
             {/* Main heading */}
-            <h1 className="text-[1.75rem] sm:text-[2.4rem] lg:text-[2.85rem] font-black text-gray-900 leading-[1.08] tracking-tight mb-2">
+            <h1 className="text-[1.75rem] sm:text-[2.4rem] lg:text-[2.85rem] font-black text-gray-900 leading-[1.08] tracking-tight mb-4">
               India's Trusted Buyback<br />
               Platform to{" "}
               <span className="text-[#0565E6]">Sell Old Devices</span>
             </h1>
 
             {/* Subtext */}
-            <p className="text-sm sm:text-base lg:text-[1rem] text-gray-500 leading-relaxed mb-2 max-w-[500px]">
+            <p className="text-sm sm:text-base lg:text-[1rem] text-gray-500 leading-relaxed mb-7 max-w-[500px]">
               DeviceKart is India's premier online device buyback platform helping you sell old electronics with fair pricing, free doorstep pickup and instant payment.
             </p>
 
@@ -354,13 +354,11 @@ export default function HomePage() {
           </div>
 
           {/* ── Right Column: Phone Image (Desktop Only) ── */}
-          <div className="hidden lg:flex relative h-[580px] w-full items-center justify-center">
-            <img
-              src={phoneMockupImage}
-              alt="DeviceKart App"
-              className="h-full w-full object-contain drop-shadow-2xl"
-            />
-          </div>
+          <img
+            src={phoneMockupImage}
+            alt="DeviceKart App"
+            className="hidden lg:block w-full h-auto max-w-none scale-110"
+          />
 
         </div>
       </section>

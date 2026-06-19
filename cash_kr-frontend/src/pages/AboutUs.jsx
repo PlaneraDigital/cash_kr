@@ -170,31 +170,80 @@ export default function AboutUs() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
             
-            {/* Leader 1: Aditya Sekhar */}
+            {/* Leader 2: Aditya Sekhar — Chairman & Co-Founder */}
             <div className="bg-white rounded-[28px] p-8 sm:p-10 border border-gray-100 shadow-md flex flex-col justify-between hover:shadow-xl transition-all duration-300">
               <div>
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-md shadow-[#0565E6]/20">
+                  <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-md shadow-purple-200">
                     AS
                   </div>
                   <div>
                     <h3 className="text-xl sm:text-2xl font-black text-gray-900 leading-none">Aditya Sekhar</h3>
-                    <p className="text-xs sm:text-sm font-bold text-[#0565E6] mt-1.5 uppercase tracking-wider">Chairman & Co-Founder</p>
+                    <p className="text-xs sm:text-sm font-bold text-indigo-600 mt-1.5 uppercase tracking-wider">Chairman & Co-Founder</p>
                   </div>
                 </div>
-                
-                <p className="text-sm sm:text-base text-gray-600 mb-6 font-medium">
-                  Aditya Sekhar brings dynamic leadership and global strategic vision to the company.
+
+                <p className="text-sm sm:text-base text-gray-600 mb-6 font-medium leading-relaxed">
+                  Aditya Sekhar is a business leader, entrepreneur, and one of the youngest research scholars in Smart Cities. As the Chairman of Micro Cloud Computing Pvt. Ltd., he brings strong leadership and strategic vision to DeviceKart.
                 </p>
 
                 {/* Bullets/List */}
                 <div className="space-y-4">
                   {[
-                    "One of the youngest Research Scholars in Smart Cities and serves as the Chairman of Micro Cloud Computing Pvt Ltd.",
-                    "Known for his crystal-clear thinking, business acumen, and leadership skills, driving global strategies and expansion.",
-                    "Holds a Master's degree in Business (International Business) and a Bachelor's Degree in Business Management from a leading B-School.",
-                    "Globally recognized figure: addressed the BRICS Connect conference in New York regarding global security threats and business opportunities.",
-                    "Recipient of prestigious accolades, including an award from Forbes in Hong Kong, the Deloitte Technology Fast 50 India Award, and the Star Youth Achiever Award."
+                    "One of the youngest Research Scholars in Smart Cities, and serves as the Chairman of Micro Cloud Computing Pvt. Ltd.",
+                    "Represented India at the BRICS Connect Conference in New York, contributing perspectives on global business and strategy.",
+                    "Recognized with prestigious awards from Forbes and StarPlus for his contributions and leadership.",
+                    "Holds a Master's degree in International Business, and is passionate about innovation, global expansion, and building customer-focused businesses with long-term impact."
+                  ].map((bullet, i) => (
+                    <div key={i} className="flex items-start gap-3 text-xs sm:text-sm text-gray-600">
+                      <div className="w-5 h-5 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                        <CheckCircle2 size={13} strokeWidth={2.5} />
+                      </div>
+                      <span className="leading-relaxed">{bullet}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="mt-8 pt-6 border-t border-gray-50 flex items-center gap-3 text-xs sm:text-sm font-semibold text-gray-400">
+                <Briefcase size={16} /> Chairman & Co-Founder, DeviceKart
+              </div>
+            </div>
+
+            {/* Leader 1: Pankaj Vinda — Founder */}
+            <div className="bg-white rounded-[28px] p-8 sm:p-10 border border-gray-100 shadow-md flex flex-col justify-between hover:shadow-xl transition-all duration-300">
+              <div>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-md shadow-[#0565E6]/20">
+                    PV
+                  </div>
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-black text-gray-900 leading-none">Pankaj Vinda</h3>
+                    <p className="text-xs sm:text-sm font-bold text-[#0565E6] mt-1.5 uppercase tracking-wider">Founder</p>
+                  </div>
+                </div>
+
+                <div className="bg-blue-50/50 rounded-2xl p-5 border border-blue-100/50 mb-6">
+                  <span className="text-xs font-bold text-[#0565E6] uppercase tracking-widest block mb-1">Expertise Accent</span>
+                  <div className="text-base sm:text-lg font-extrabold text-gray-900">
+                    25+ Years in Consumer Electronics
+                  </div>
+                  <div className="text-xs sm:text-sm text-[#0565E6] mt-1">
+                    Including 5+ years of hands-on e-commerce leadership.
+                  </div>
+                </div>
+                
+                <p className="text-sm sm:text-base text-gray-600 mb-4 font-medium leading-relaxed">
+                  With over 25 years of experience in the consumer electronics industry, Pankaj Vinda has built a career rooted in expertise and trust.
+                </p>
+
+                {/* Bullets/List */}
+                <div className="space-y-4">
+                  {[
+                    "Began his journey in 2006 as a Team Leader at a Nokia Service Centre, gaining hands-on experience in mobile devices and customer service.",
+                    "Over the years, expanded his expertise across mobile phones, laptops, TVs, and IT products.",
+                    "Brings 5+ years of experience in e-commerce, founding DeviceKart to make buying and selling electronics simple, transparent, and reliable.",
+                    "His vision is to deliver quality products, fair pricing, and a customer-first experience that people can trust."
                   ].map((bullet, i) => (
                     <div key={i} className="flex items-start gap-3 text-xs sm:text-sm text-gray-600">
                       <div className="w-5 h-5 bg-blue-50 text-[#0565E6] rounded-full flex items-center justify-center shrink-0 mt-0.5 font-bold">
@@ -205,46 +254,13 @@ export default function AboutUs() {
                   ))}
                 </div>
               </div>
-            </div>
 
-            {/* Leader 2: Co-founder */}
-            <div className="bg-white rounded-[28px] p-8 sm:p-10 border border-gray-100 shadow-md flex flex-col justify-between hover:shadow-xl transition-all duration-300">
-              <div>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-md shadow-purple-200">
-                    MV
-                  </div>
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-black text-gray-900 leading-none">Co-Founder</h3>
-                    <p className="text-xs sm:text-sm font-bold text-indigo-600 mt-1.5 uppercase tracking-wider">Mobile Industry Veteran</p>
-                  </div>
-                </div>
-
-                <div className="bg-indigo-50/50 rounded-2xl p-5 border border-indigo-100/50 mb-6">
-                  <span className="text-xs font-bold text-indigo-700 uppercase tracking-widest block mb-1">Expertise Accent</span>
-                  <div className="text-base sm:text-lg font-extrabold text-indigo-950">
-                    25+ Years of Dedicated Experience
-                  </div>
-                  <div className="text-xs sm:text-sm text-indigo-700 mt-1">
-                    In the second-hand mobile and electronics market.
-                  </div>
-                </div>
-
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed space-y-4">
-                  Complementing our global strategy is our second founding partner, who serves as the backbone of our operational expertise. 
-                </p>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mt-4">
-                  Possessing an unmatched understanding of device valuation, quality control, and market trends, this decades-long expertise ensures that every product passing through Swastika Innovation meets the highest standards of quality and reliability.
-                </p>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mt-4">
-                  We guarantee complete satisfaction for our buyers and fair, market-tested value for our sellers by establishing meticulous, bulletproof checking standards.
-                </p>
-              </div>
-              
               <div className="mt-8 pt-6 border-t border-gray-50 flex items-center gap-3 text-xs sm:text-sm font-semibold text-gray-400">
-                <Briefcase size={16} /> Operations & Valuation Backbone
+                <Briefcase size={16} /> Founder, DeviceKart
               </div>
             </div>
+
+            
 
           </div>
         </div>

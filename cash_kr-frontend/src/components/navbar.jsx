@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import { deviceService } from "../services/device.service";
 
 const NAV_ITEMS = [
   { label: "Mobile", hasDropdown: false, to: "/sell-old-mobile-phones/brand" },
@@ -11,6 +12,20 @@ const NAV_ITEMS = [
   { label: "About Us", hasDropdown: false, to: "/about-us" },
   { label: "Become a Partner", hasDropdown: false, to: "/partner" },
 ];
+
+const CATEGORY_ROUTE_MAP = {
+  mobile: "/sell-old-mobile-phones",
+  tablet: "/sell-tablet",
+  laptop: "/sell-old-laptops",
+  mac: "/sell-imac",
+};
+
+const CATEGORY_LABELS = {
+  mobile: "Mobile",
+  tablet: "Tablet",
+  laptop: "Laptop",
+  mac: "iMac",
+};
 
 const ChevronDown = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -54,8 +69,138 @@ export default function Navbar() {
   const userName = auth?.user?.name;
   const navigate = useNavigate();
 
+  // Search state
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
+  const [showResults, setShowResults] = useState(false);
+  const searchRef = useRef(null);
+  const mobileSearchRef = useRef(null);
+  const debounceTimer = useRef(null);
+
   const handleMobileExpand = (label) => {
     setMobileExpanded((prev) => (prev === label ? null : label));
+  };
+
+  // Debounced search
+  const performSearch = useCallback(async (query) => {
+    if (!query || query.trim().length < 2) {
+      setSearchResults([]);
+      setShowResults(false);
+      setIsSearching(false);
+      return;
+    }
+    setIsSearching(true);
+    try {
+      const { data } = await deviceService.searchDevices(query.trim());
+      setSearchResults(data);
+      setShowResults(true);
+    } catch {
+      setSearchResults([]);
+    } finally {
+      setIsSearching(false);
+    }
+  }, []);
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchQuery(value);
+    if (debounceTimer.current) clearTimeout(debounceTimer.current);
+    if (value.trim().length < 2) {
+      setSearchResults([]);
+      setShowResults(false);
+      setIsSearching(false);
+      return;
+    }
+    setIsSearching(true);
+    setShowResults(true);
+    debounceTimer.current = setTimeout(() => {
+      performSearch(value);
+    }, 300);
+  };
+
+  const handleResultClick = (result) => {
+    const basePath = CATEGORY_ROUTE_MAP[result.category] || "/sell-old-mobile-phones";
+    navigate(`${basePath}/${encodeURIComponent(result.brand)}/${result.slug}`);
+    setSearchQuery("");
+    setSearchResults([]);
+    setShowResults(false);
+    setMobileMenuOpen(false);
+  };
+
+  // Close results on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        searchRef.current && !searchRef.current.contains(e.target) &&
+        mobileSearchRef.current && !mobileSearchRef.current.contains(e.target)
+      ) {
+        setShowResults(false);
+      }
+      if (
+        searchRef.current && !searchRef.current.contains(e.target) &&
+        !mobileSearchRef.current
+      ) {
+        setShowResults(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Cleanup debounce timer
+  useEffect(() => {
+    return () => {
+      if (debounceTimer.current) clearTimeout(debounceTimer.current);
+    };
+  }, []);
+
+  const renderSearchResults = () => {
+    if (!showResults) return null;
+
+    return (
+      <div className="search-results-dropdown">
+        {isSearching ? (
+          <div className="search-result-item search-loading">
+            <div className="search-spinner" />
+            <span>Searching...</span>
+          </div>
+        ) : searchResults.length === 0 ? (
+          <div className="search-result-item search-empty">
+            <span>No devices found for "<strong>{searchQuery}</strong>"</span>
+          </div>
+        ) : (
+          searchResults.map((result) => (
+            <button
+              key={result.slug}
+              className="search-result-item"
+              onClick={() => handleResultClick(result)}
+            >
+              <div className="search-result-image">
+                {result.imageUrl ? (
+                  <img src={result.imageUrl} alt={result.modelName} />
+                ) : (
+                  <div className="search-result-placeholder">
+                    <SearchIcon />
+                  </div>
+                )}
+              </div>
+              <div className="search-result-info">
+                <span className="search-result-name">{result.modelName}</span>
+                <span className="search-result-meta">
+                  {result.brand} · {CATEGORY_LABELS[result.category] || result.category}
+                </span>
+              </div>
+              {result.maxPrice > 0 && (
+                <span className="search-result-price">
+                  ₹{result.maxPrice.toLocaleString("en-IN")}
+                </span>
+              )}
+            </button>
+          ))
+        )}
+      </div>
+    );
   };
 
   return (
@@ -69,15 +214,19 @@ export default function Navbar() {
         </Link>
 
         {/* Search (Desktop) */}
-        <div className="hidden md:block flex-1 max-w-md relative">
+        <div className="hidden md:block flex-1 max-w-md relative" ref={searchRef}>
           <input 
             type="text" 
-            placeholder="What are you selling today?" 
-            className="w-full pl-4 pr-10 py-2.5 border-1.5 border-gray-200 rounded-xl text-sm font-sans text-gray-800 outline-none bg-gray-50 focus:border-primary focus:bg-white transition-all"
+            placeholder="Search devices by name or brand..." 
+            className="w-full pl-4 pr-10 py-2.5 border-1.5 border-gray-300 rounded-xl text-sm font-sans text-gray-800 outline-none bg-gray-100 focus:border-primary focus:bg-white transition-all"
+            value={searchQuery}
+            onChange={handleSearchChange}
+            onFocus={() => { if (searchResults.length > 0 || searchQuery.length >= 2) setShowResults(true); }}
           />
           <button className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition-colors">
-            <SearchIcon />
+            {isSearching ? <div className="search-spinner-sm" /> : <SearchIcon />}
           </button>
+          {renderSearchResults()}
         </div>
 
         {/* Actions */}
@@ -153,12 +302,16 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-0 top-18 bg-white z-[999] overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-200 p-4">
-          <div className="mb-6">
+          <div className="mb-6 relative" ref={mobileSearchRef}>
             <input 
               type="text" 
-              placeholder="What are you selling today?" 
-              className="w-full px-4 py-3 border-1.5 border-gray-200 rounded-xl text-sm font-sans bg-gray-50 outline-none focus:border-primary focus:bg-white"
+              placeholder="Search devices by name or brand..." 
+              className="w-full px-4 py-3 border-1.5 border-gray-300 rounded-xl text-sm font-sans bg-gray-100 outline-none focus:border-primary focus:bg-white"
+              value={searchQuery}
+              onChange={handleSearchChange}
+              onFocus={() => { if (searchResults.length > 0 || searchQuery.length >= 2) setShowResults(true); }}
             />
+            {renderSearchResults()}
           </div>
 
           <div className="space-y-1">
