@@ -23,7 +23,8 @@ connectDB();
 // Middleware
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://cash-kr.vercel.app"
+  "https://cash-kr.vercel.app",
+  "https://www.devicekart.in"
 ];
 
 app.use(cors({
