@@ -38,6 +38,20 @@ export function AuthProvider({ children }) {
     return data;
   }, []);
 
+  const sendOtp = useCallback(async (phone) => {
+    const { data } = await authService.sendOtp(phone);
+    return data;
+  }, []);
+
+  const verifyOtp = useCallback(async (phone, otp, sessionId) => {
+    const { data } = await authService.verifyOtp(phone, otp, sessionId);
+    localStorage.setItem('accessToken', data.accessToken);
+    localStorage.setItem('refreshToken', data.refreshToken);
+    localStorage.setItem('user', JSON.stringify(data.user));
+    setUser(data.user);
+    return data;
+  }, []);
+
   const logout = useCallback(async () => {
     try { await authService.logout(); } catch {}
     localStorage.removeItem('accessToken');
@@ -58,7 +72,7 @@ export function AuthProvider({ children }) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, login, signup, logout, refreshUser, loading, isAuthenticated: !!user }}>
+    <AuthContext.Provider value={{ user, login, signup, sendOtp, verifyOtp, logout, refreshUser, loading, isAuthenticated: !!user }}>
       {children}
     </AuthContext.Provider>
   );

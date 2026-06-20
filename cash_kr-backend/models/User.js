@@ -4,14 +4,14 @@ import crypto from 'crypto';
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, 'Name is required'],
     trim: true,
     maxlength: 100,
+    default: 'User',
   },
   email: {
     type: String,
-    required: [true, 'Email is required'],
     unique: true,
+    sparse: true,
     lowercase: true,
     trim: true,
   },
@@ -22,7 +22,6 @@ const userSchema = new mongoose.Schema({
   },
   passwordHash: {
     type: String,
-    required: true,
   },
   refreshToken: {
     type: String,

@@ -67,7 +67,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signup" element={<Login />} />
           {/* Mobile flow */}
           <Route path="/sell-old-mobile-phones/brand" element={<BrandSelectionPage />} />
           <Route path="/sell-old-mobile-phones/:brand" element={<ModelSelectionPage />} />
