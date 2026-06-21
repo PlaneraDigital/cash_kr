@@ -47,13 +47,13 @@ const conditionMultipliers = { likenew: 1.0, good: 0.88, fair: 0.72, poor: 0.50 
 
 const accessoriesBonus = { bill: 300, box: 500, charger: 800, withBoxAndCharger: 800, originalCharger: 500, thirdPartyCharger: 200, none: 0 };
 
-function mkDevice({ brand, modelName, slug, processorFamily, generation, tier, variants, gpuType, isGaming }) {
+function mkDevice({ brand, modelName, slug, processorFamily, generation, tier, variants, gpuType, isGaming, imageUrl }) {
     return {
         category: 'laptop',
         brand,
         modelName,
         slug,
-        imageUrl: '',
+        imageUrl: imageUrl || '',
         processorFamily: processorFamily || '',
         generation: generation || '',
         gpuType: gpuType || '',
@@ -85,31 +85,37 @@ const devices = [
     mkDevice({
         brand: 'Avita', modelName: 'Essential Series', slug: 'avita-essential-series',
         processorFamily: 'AMD A-Series', generation: 'AMD', tier: 'Budget',
+        imageUrl:"https://m.media-amazon.com/images/I/41lL2WtvvAL._SY300_SX300_QL70_FMwebp_.jpg",
         variants: [{ basePrice: 3520 }],
     }),
     mkDevice({
         brand: 'Avita', modelName: 'Liber Series', slug: 'avita-liber-series',
         processorFamily: 'AMD A-Series', generation: 'AMD', tier: 'Budget',
+        imageUrl:"https://m.media-amazon.com/images/I/41wvdNDWBlL._SY300_SX300_QL70_FMwebp_.jpg",
         variants: [{ basePrice: 8130 }],
     }),
     mkDevice({
         brand: 'Avita', modelName: 'Pura Series', slug: 'avita-pura-series',
         processorFamily: 'AMD A-Series', generation: 'AMD', tier: 'Budget',
+        imageUrl:"https://m.media-amazon.com/images/I/310gqpSSwfL._SX300_SY300_QL70_FMwebp_.jpg",
         variants: [{ basePrice: 7360 }],
     }),
     mkDevice({
         brand: 'Avita', modelName: 'Cosmos Series', slug: 'avita-cosmos-series',
         processorFamily: 'AMD A-Series', generation: 'AMD', tier: 'Budget',
+        imageUrl:"https://m.media-amazon.com/images/I/4163FcZNBDL._AC_UL480_FMwebp_QL65_.jpg",
         variants: [{ basePrice: 8390 }],
     }),
     mkDevice({
         brand: 'Avita', modelName: 'Magus Lite', slug: 'avita-magus-lite',
         processorFamily: 'AMD A-Series', generation: 'AMD', tier: 'Budget',
+        imageUrl:"https://m.media-amazon.com/images/I/41c8zvP7u4L._SY300_SX300_QL70_FMwebp_.jpg",
         variants: [{ basePrice: 1870 }],
     }),
     mkDevice({
         brand: 'Avita', modelName: 'Admiror Series', slug: 'avita-admiror-series',
         processorFamily: 'AMD A-Series', generation: 'AMD', tier: 'Budget',
+        imageUrl:"https://m.media-amazon.com/images/I/41SJ5Uniz+L._SY300_SX300_QL70_FMwebp_.jpg",
         variants: [{ basePrice: 10810 }],
     }),
 ];

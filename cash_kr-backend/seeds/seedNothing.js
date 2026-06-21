@@ -24,7 +24,7 @@ const devices = [
         brand: "Nothing",
         modelName: "Phone 2",
         slug: "nothing-phone-2",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/nothing-phone-2.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/nothing-phone2.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 18990 },
             { storage: "12 GB/256 GB", basePrice: 19660 },
@@ -36,7 +36,7 @@ const devices = [
         brand: "Nothing",
         modelName: "Phone 2a 5G",
         slug: "nothing-phone-2a-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/nothing-phone-2a-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/nothing-phone-2a.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 15210 },
             { storage: "8 GB/256 GB", basePrice: 15670 },
@@ -48,7 +48,7 @@ const devices = [
         brand: "Nothing",
         modelName: "CMF by Nothing Phone 1",
         slug: "nothing-cmf-by-nothing-phone-1",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/nothing-cmf-by-nothing-phone-1.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/nothing-phone-1.jpg",
         variants: [
             { storage: "6 GB/128 GB", basePrice: 9890 },
             { storage: "8 GB/128 GB", basePrice: 10940 }
@@ -93,7 +93,7 @@ const devices = [
         brand: "Nothing",
         modelName: "Phone 2 Pro 5G",
         slug: "nothing-phone-2-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/nothing-phone-2-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/nothing-cmf-phone-2-pro.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 12700 },
             { storage: "8 GB/256 GB", basePrice: 14100 }
@@ -115,7 +115,7 @@ const devices = [
         brand: "Nothing",
         modelName: "Phone 3a Lite",
         slug: "nothing-phone-3a-lite",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/nothing-phone-3a-lite.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/nothing-phone-3a.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 14000 },
             { storage: "8 GB/256 GB", basePrice: 15000 }

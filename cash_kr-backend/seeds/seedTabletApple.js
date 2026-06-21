@@ -38,7 +38,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Air 2nd Gen (Wi-Fi Only)",
         slug: "apple-ipad-air-2nd-gen-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-air2.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad2-new.jpg",
         variants: [
             { storage: "16 GB", basePrice: 3050 },
             { storage: "32GB", basePrice: 3290 },
@@ -51,7 +51,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Air 2nd Gen (Wi-Fi + Cellular)",
         slug: "apple-ipad-air-2nd-gen-wi-fi-cellular",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-air2.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad2-new.jpg",
         variants: [
             { storage: "16 GB", basePrice: 3740 },
             { storage: "32GB", basePrice: 4620 },
@@ -64,7 +64,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Air 3rd Gen (Wi-Fi Only)",
         slug: "apple-ipad-air-3rd-gen-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-air-2019.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-3-new.jpg",
         variants: [
             { storage: "64GB", basePrice: 13200 },
             { storage: "256GB", basePrice: 16100 }
@@ -75,7 +75,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Air 3rd Gen (Wi-Fi + Cellular)",
         slug: "apple-ipad-air-3rd-gen-wi-fi-cellular",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-air-2019.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-3-new.jpg",
         variants: [
             { storage: "64GB", basePrice: 14400 },
             { storage: "256GB", basePrice: 17200 }
@@ -86,7 +86,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Air 4th Gen (Wi-Fi Only)",
         slug: "apple-ipad-air-4th-gen-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-air-2020.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-3-new.jpg",
         variants: [
             { storage: "64GB", basePrice: 19700 },
             { storage: "256GB", basePrice: 20700 }
@@ -97,7 +97,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Air 4th Gen (Wi-Fi + Cellular)",
         slug: "apple-ipad-air-4th-gen-wi-fi-cellular",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-air-2020.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-3-new.jpg",
         variants: [
             { storage: "64GB", basePrice: 20800 },
             { storage: "256GB", basePrice: 21600 }
@@ -108,7 +108,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Mini 1st Gen (Wi-Fi Only)",
         slug: "apple-ipad-mini-1st-gen-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-mini.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-mini-final.jpg",
         variants: [
             { storage: "16GB", basePrice: 1330 },
             { storage: "32GB", basePrice: 1540 },
@@ -120,7 +120,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Mini 1st Gen (Wi-Fi + Cellular)",
         slug: "apple-ipad-mini-1st-gen-wi-fi-cellular",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-mini.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-mini-final.jpg",
         variants: [
             { storage: "16GB", basePrice: 1490 },
             { storage: "32GB", basePrice: 1960 },
@@ -132,7 +132,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Mini 2nd Gen (Wi-Fi Only)",
         slug: "apple-ipad-mini-2nd-gen-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-mini-2.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-mini2.jpg",
         variants: [
             { storage: "16GB", basePrice: 2210 },
             { storage: "32GB", basePrice: 2160 },
@@ -145,7 +145,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Mini 2nd Gen (Wi-Fi + Cellular)",
         slug: "apple-ipad-mini-2nd-gen-wi-fi-cellular",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-mini-2.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-mini2.jpg",
         variants: [
             { storage: "16GB", basePrice: 2430 },
             { storage: "32GB", basePrice: 2660 },
@@ -158,7 +158,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Mini 3rd Gen (Wi-Fi Only)",
         slug: "apple-ipad-mini-3rd-gen-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-mini-3.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-mini-3-new.jpg",
         variants: [
             { storage: "16GB", basePrice: 2210 },
             { storage: "64GB", basePrice: 2850 },
@@ -170,7 +170,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Mini 3rd Gen (Wi-Fi + Cellular)",
         slug: "apple-ipad-mini-3rd-gen-wi-fi-cellular",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-mini-3.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-mini-3-new.jpg",
         variants: [
             { storage: "16GB", basePrice: 2950 },
             { storage: "64GB", basePrice: 3440 },
@@ -252,7 +252,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Pro 12.9″ 1st Gen (Wi-Fi Only)",
         slug: "apple-ipad-pro-12-9-1st-gen-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-129.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-.jpg",
         variants: [
             { storage: "32GB", basePrice: 10050 },
             { storage: "128GB", basePrice: 10740 },
@@ -264,7 +264,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Pro 12.9″ 1st Gen (Wi-Fi+Cellular)",
         slug: "apple-ipad-pro-12-9-1st-gen-wi-fi-cellular",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-129.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-.jpg",
         variants: [
             { storage: "32GB", basePrice: 11630 },
             { storage: "128GB", basePrice: 12320 },
@@ -326,7 +326,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Pro 12.9″ 4th Gen (Wi-Fi Only)",
         slug: "apple-ipad-pro-12-9-4th-gen-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-129-2020.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-12-2020.jpg",
         variants: [
             { storage: "128GB", basePrice: 24630 },
             { storage: "256GB", basePrice: 25220 },
@@ -339,7 +339,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Pro 12.9″ 4th Gen (Wi-Fi+Cellular)",
         slug: "apple-ipad-pro-12-9-4th-gen-wi-fi-cellular",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-129-2020.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-12-2020.jpg",
         variants: [
             { storage: "128GB", basePrice: 26650 },
             { storage: "256GB", basePrice: 28510 },
@@ -404,7 +404,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad 9.7″ 5th Gen (Wi-Fi Only)",
         slug: "apple-ipad-9-7-5th-gen-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-2017.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-97-2017.jpg",
         variants: [
             { storage: "32GB", basePrice: 8900 },
             { storage: "128GB", basePrice: 9000 },
@@ -416,7 +416,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad 9.7″ 6th Gen (Wi-Fi Only)",
         slug: "apple-ipad-9-7-6th-gen-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-2018.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-97-2018.jpg",
         variants: [
             { storage: "32 GB", basePrice: 10000 },
             { storage: "128 GB", basePrice: 11300 }
@@ -427,7 +427,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad 9.7″ 6th Gen (Wi-Fi+Cellular)",
         slug: "apple-ipad-9-7-6th-gen-wi-fi-cellular",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-2018.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-97-2018.jpg",
         variants: [
             { storage: "32 GB", basePrice: 10250 },
             { storage: "128 GB", basePrice: 12100 }
@@ -438,7 +438,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Pro 10.5″ 2nd Gen (Wi-Fi Only)",
         slug: "apple-ipad-pro-10-5-2nd-gen-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-105.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-105-2017.jpg",
         variants: [
             { storage: "64GB", basePrice: 13100 },
             { storage: "256GB", basePrice: 14880 },
@@ -450,7 +450,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Pro 10.5″ 2nd Gen (Wi-Fi+Cellular)",
         slug: "apple-ipad-pro-10-5-2nd-gen-wi-fi-cellular",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-105.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-105-2017.jpg",
         variants: [
             { storage: "64GB", basePrice: 13790 },
             { storage: "256GB", basePrice: 15470 },
@@ -462,7 +462,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad 10.2″ 7th Gen (Wi-Fi Only)",
         slug: "apple-ipad-10-2-7th-gen-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-2019.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad7-102-inches.jpg",
         variants: [
             { storage: "32 GB", basePrice: 11600 },
             { storage: "128 GB", basePrice: 12200 }
@@ -473,7 +473,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad 10.2″ 7th Gen (Wi-Fi+Cellular)",
         slug: "apple-ipad-10-2-7th-gen-wi-fi-cellular",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-2019.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad7-102-inches.jpg",
         variants: [
             { storage: "32 GB", basePrice: 12300 },
             { storage: "128 GB", basePrice: 13600 }
@@ -588,7 +588,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad 10.2″ 8th Gen (Wi-Fi Only)",
         slug: "apple-ipad-10-2-8th-gen-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-2020.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad8-102-inches-2020.jpg",
         variants: [
             { storage: "32 GB", basePrice: 12500 },
             { storage: "128 GB", basePrice: 14000 }
@@ -599,7 +599,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad 10.2″ 8th Gen (Wi-Fi+Cellular)",
         slug: "apple-ipad-10-2-8th-gen-wi-fi-cellular",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-2020.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad8-102-inches-2020.jpg",
         variants: [
             { storage: "32 GB", basePrice: 13900 },
             { storage: "128 GB", basePrice: 15800 }
@@ -610,7 +610,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad 10.2″ 9th Gen (Wi-Fi Only)",
         slug: "apple-ipad-10-2-9th-gen-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-2021.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-102-2021-.jpg",
         variants: [
             { storage: "64GB", basePrice: 15400 },
             { storage: "256GB", basePrice: 16800 }
@@ -621,7 +621,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad 10.2″ 9th Gen (Wi-Fi+Cellular)",
         slug: "apple-ipad-10-2-9th-gen-wi-fi-cellular",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-2021.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-102-2021-.jpg",
         variants: [
             { storage: "64GB", basePrice: 17200 },
             { storage: "256GB", basePrice: 19100 }
@@ -632,7 +632,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Pro 11″ 1st Gen (Wi-Fi Only)",
         slug: "apple-ipad-pro-11-1st-gen-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-11.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-11-2018.jpg",
         variants: [
             { storage: "64GB", basePrice: 15950 },
             { storage: "256GB", basePrice: 17350 },
@@ -645,7 +645,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Pro 11″ 1st Gen (Wi-Fi+Cellular)",
         slug: "apple-ipad-pro-11-1st-gen-wi-fi-cellular",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-11.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-11-2018.jpg",
         variants: [
             { storage: "64GB", basePrice: 18350 },
             { storage: "256GB", basePrice: 20350 },
@@ -734,7 +734,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad 10.9″ 10th Gen (WiFi Only)",
         slug: "apple-ipad-10-9-10th-gen-wifi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-10gen.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-10-2022.jpg",
         variants: [
             { storage: "64 GB", basePrice: 16400 },
             { storage: "256 GB", basePrice: 20500 }
@@ -745,7 +745,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad 10.9″ 10th Gen (WiFi+Cellular)",
         slug: "apple-ipad-10-9-10th-gen-wifi-cellular",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-10gen.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-10-2022.jpg",
         variants: [
             { storage: "64 GB", basePrice: 20800 },
             { storage: "256 GB", basePrice: 23100 }
@@ -836,7 +836,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad 11th Gen Wi-Fi Only",
         slug: "apple-ipad-11th-gen-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-11-2025.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-11-inch-2025.jpg",
         variants: [
             { storage: "128GB", basePrice: 22550 },
             { storage: "256GB", basePrice: 25150 },
@@ -848,7 +848,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad 11th Gen Wi-Fi + Cellular",
         slug: "apple-ipad-11th-gen-wi-fi-cellular",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-11-2025.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-11-inch-2025.jpg",
         variants: [
             { storage: "128GB", basePrice: 26750 },
             { storage: "256GB", basePrice: 31750 },
@@ -912,7 +912,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Pro 11-inch M5 Wi-Fi Only",
         slug: "apple-ipad-pro-11-inch-m5-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-11-2025.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-11-2024.jpg",
         variants: [
             { storage: "256GB", basePrice: 63700 },
             { storage: "512GB", basePrice: 72700 },
@@ -925,7 +925,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Pro 11-inch M5 Wi-Fi + Cellular",
         slug: "apple-ipad-pro-11-inch-m5-wi-fi-cellular",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-11-2025.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-11-2024.jpg",
         variants: [
             { storage: "256GB", basePrice: 76700 },
             { storage: "512GB", basePrice: 86700 },
@@ -938,7 +938,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Pro 13-inch M5 Wi-Fi Only",
         slug: "apple-ipad-pro-13-inch-m5-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-13-2025.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-13-2024.jpg",
         variants: [
             { storage: "256GB", basePrice: 83700 },
             { storage: "512GB", basePrice: 93700 },
@@ -951,7 +951,7 @@ const devices = [
         brand: "Apple",
         modelName: "iPad Pro 13-inch M5 Wi-Fi + Cellular",
         slug: "apple-ipad-pro-13-inch-m5-wi-fi-cellular",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-13-2025.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/apple-ipad-pro-13-2024.jpg",
         variants: [
             { storage: "256GB", basePrice: 96700 },
             { storage: "512GB", basePrice: 106700 },

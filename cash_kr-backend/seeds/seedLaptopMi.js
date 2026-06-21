@@ -47,13 +47,13 @@ const conditionMultipliers = { likenew: 1.0, good: 0.88, fair: 0.72, poor: 0.50 
 
 const accessoriesBonus = { bill: 300, box: 500, charger: 800, withBoxAndCharger: 800, originalCharger: 500, thirdPartyCharger: 200, none: 0 };
 
-function mkDevice({ brand, modelName, slug, processorFamily, generation, tier, variants, gpuType, isGaming }) {
+function mkDevice({ brand, modelName, slug, processorFamily, generation, tier, variants, gpuType, isGaming, imageUrl }) {
     return {
         category: 'laptop',
         brand,
         modelName,
         slug,
-        imageUrl: '',
+        imageUrl: imageUrl || '',
         processorFamily: processorFamily || '',
         generation: generation || '',
         gpuType: gpuType || '',
@@ -85,21 +85,25 @@ const devices = [
     mkDevice({
         brand: 'MI', modelName: 'Mi Notebook', slug: 'mi-mi-notebook',
         processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+        imageUrl: "https://i01.appmifile.com/webfile/globalimg/products/pc/mi-notebook-14/specs-header.png",
         variants: [{ basePrice: 16030 }],
     }),
     mkDevice({
         brand: 'MI', modelName: 'Mi Air Series', slug: 'mi-mi-air-series',
         processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+        imageUrl: "https://i.gadgets360cdn.com/products/large/1553591944_635_mi_notebook_air_12_5_2019.jpg?downsize=*:180",
         variants: [{ basePrice: 9100 }],
     }),
     mkDevice({
         brand: 'MI', modelName: 'Mi Pro Series', slug: 'mi-mi-pro-series',
         processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+        imageUrl: "https://i02.appmifile.com/350_operator_sg/25/08/2021/03423ae857b24c28541e0e9fd27436bd.png?f=webp",
         variants: [{ basePrice: 12470 }],
     }),
     mkDevice({
         brand: 'MI', modelName: 'RedmiBook Series', slug: 'mi-redmibook-series',
         processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+        imageUrl: "https://i01.appmifile.com/webfile/globalimg/products/pc/redmi-book-pro/specs01.png",
         variants: [{ basePrice: 13850 }],
     }),
 ];

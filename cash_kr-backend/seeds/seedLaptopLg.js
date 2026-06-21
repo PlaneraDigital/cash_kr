@@ -47,13 +47,13 @@ const conditionMultipliers = { likenew: 1.0, good: 0.88, fair: 0.72, poor: 0.50 
 
 const accessoriesBonus = { bill: 300, box: 500, charger: 800, withBoxAndCharger: 800, originalCharger: 500, thirdPartyCharger: 200, none: 0 };
 
-function mkDevice({ brand, modelName, slug, processorFamily, generation, tier, variants, gpuType, isGaming }) {
+function mkDevice({ brand, modelName, slug, processorFamily, generation, tier, variants, gpuType, isGaming, imageUrl }) {
     return {
         category: 'laptop',
         brand,
         modelName,
         slug,
-        imageUrl: '',
+        imageUrl: imageUrl || '',
         processorFamily: processorFamily || '',
         generation: generation || '',
         gpuType: gpuType || '',
@@ -85,11 +85,13 @@ const devices = [
     mkDevice({
         brand: 'LG', modelName: 'Other LG Series', slug: 'lg-other-lg-series',
         processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+        imageUrl:"https://www.lg.com/content/dam/channel/wcms/in/images/computers/14z90r-g_cp54a2_eail_in_c/lg-14Z90R-G-Laptop-front-view-350.jpg",
         variants: [{ basePrice: 6110 }],
     }),
     mkDevice({
         brand: 'LG', modelName: 'LG Gram Series', slug: 'lg-lg-gram-series',
         processorFamily: 'Intel Core i5', generation: '10th Gen', tier: 'Budget',
+        imageUrl:"https://www.lg.com/content/dam/channel/wcms/in/laptop/16z90r-g/revised-gallery/16Z90R-G.CP75A2-Basic-450.jpg/jcr:content/renditions/thum-350x350.jpeg",
         variants: [{ basePrice: 8500 }],
     }),
 ];

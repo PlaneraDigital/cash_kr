@@ -12,7 +12,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab A 7.0 (2018) LTE",
         slug: "samsung-galaxy-tab-a-7-0-2018-lte",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a-70-2016.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a-70-2016-.jpg",
         variants: [
             { storage: "1.5 GB/8 GB", basePrice: 1970 }
         ]
@@ -22,7 +22,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab S3 LTE",
         slug: "samsung-galaxy-tab-s3-lte",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s3-97.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s3-97-sm-t825.jpg",
         variants: [
             { storage: "4 GB/32 GB", basePrice: 3870 }
         ]
@@ -32,7 +32,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab A 10.5 LTE",
         slug: "samsung-galaxy-tab-a-10-5-lte",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a-105-2018.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a-105-.jpg",
         variants: [
             { storage: "3 GB/32 GB", basePrice: 5320 }
         ]
@@ -42,7 +42,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab S 8.4 LTE",
         slug: "samsung-galaxy-tab-s-8-4-lte",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s-84.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s-8.4.jpg",
         variants: [
             { storage: "3 GB/16 GB", basePrice: 2300 }
         ]
@@ -82,7 +82,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab A 9.7 WiFi",
         slug: "samsung-galaxy-tab-a-9-7-wifi",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a-97.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a-80.jpg",
         variants: [
             { storage: "1.5 GB/16 GB", basePrice: 2460 }
         ]
@@ -92,7 +92,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab S 8.4 WiFi",
         slug: "samsung-galaxy-tab-s-8-4-wifi",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s-84.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s-8.4.jpg",
         variants: [
             { storage: "3 GB/16 GB", basePrice: 2110 }
         ]
@@ -102,7 +102,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab A 8.0 (2017) LTE",
         slug: "samsung-galaxy-tab-a-8-0-2017-lte",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a-80-2017.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a-8-0-2017-t385-sm-t385.jpg",
         variants: [
             { storage: "2 GB/16 GB", basePrice: 2900 }
         ]
@@ -123,7 +123,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab S5e LTE",
         slug: "samsung-galaxy-tab-s5e-lte",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s5e.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s5e-sm-t725.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 6470 }
         ]
@@ -153,7 +153,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab A 8.0 (2019) LTE",
         slug: "samsung-galaxy-tab-a-8-0-2019-lte",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a-80-2019.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a-80-2019-r.jpg",
         variants: [
             { storage: "2 GB/32 GB", basePrice: 2950 }
         ]
@@ -163,7 +163,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab A 8.0 (2019) WiFi",
         slug: "samsung-galaxy-tab-a-8-0-2019-wifi",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a-80-2019.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a-80-2019-r.jpg",
         variants: [
             { storage: "2 GB/32 GB", basePrice: 2960 }
         ]
@@ -183,7 +183,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab S5e WiFi",
         slug: "samsung-galaxy-tab-s5e-wifi",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s5e.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s5e-sm-t725.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 5980 }
         ]
@@ -203,7 +203,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab S6 Lite WiFi",
         slug: "samsung-galaxy-tab-s6-lite-wifi",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s6-lite.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s6-lite-2024.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 7140 }
         ]
@@ -213,7 +213,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab S6 Lite LTE",
         slug: "samsung-galaxy-tab-s6-lite-lte",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s6-lite.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s6-lite-2024.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 7980 }
         ]
@@ -253,7 +253,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab A7 10.4 (2020) LTE",
         slug: "samsung-galaxy-tab-a7-10-4-2020-lte",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a7.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a7-104-2020.jpg",
         variants: [
             { storage: "3 GB/32 GB", basePrice: 4770 }
         ]
@@ -263,7 +263,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab A7 10.4 (2020) WiFi",
         slug: "samsung-galaxy-tab-a7-10-4-2020-wifi",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a7.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a7-104-2020.jpg",
         variants: [
             { storage: "3 GB/32 GB", basePrice: 4040 },
             { storage: "3 GB/64 GB", basePrice: 4530 }
@@ -325,7 +325,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab A 7.0 (2016) WiFi",
         slug: "samsung-galaxy-tab-a-7-0-2016-wifi",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a-70-2016.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a-70-2016-.jpg",
         variants: [
             { storage: "1.5 GB/8 GB", basePrice: 1230 }
         ]
@@ -335,7 +335,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab S4 10.5 WiFi",
         slug: "samsung-galaxy-tab-s4-10-5-wifi",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s4.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s4-2018-r.jpg",
         variants: [
             { storage: "4 GB/256 GB", basePrice: 5630 },
             { storage: "4 GB/64 GB", basePrice: 5340 }
@@ -346,7 +346,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab S4 10.5 LTE",
         slug: "samsung-galaxy-tab-s4-10-5-lte",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s4.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s4-2018-r.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 5980 }
         ]
@@ -456,7 +456,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab A 7.0 (2016) WiFi+4G",
         slug: "samsung-galaxy-tab-a-7-0-2016-wifi-4g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a-70-2016.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-a-70-2016-.jpg",
         variants: [
             { storage: "1.5 GB/8 GB", basePrice: 1320 }
         ]
@@ -466,7 +466,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab S6 Lite (2022) LTE",
         slug: "samsung-galaxy-tab-s6-lite-2022-lte",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s6-lite.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/galaxy-tab-s6-lite-2022-lte-sm-p619-.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 9320 },
             { storage: "4 GB/128 GB", basePrice: 10190 }
@@ -477,7 +477,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab S6 Lite (2022) WiFi",
         slug: "samsung-galaxy-tab-s6-lite-2022-wifi",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s6-lite.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/galaxy-tab-s6-lite-2022-lte-sm-p619-.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 7450 }
         ]
@@ -551,7 +551,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab S9 FE Wi-Fi Only",
         slug: "samsung-galaxy-tab-s9-fe-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s9-fe.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s9-fe-10-.jpg",
         variants: [
             { storage: "6 GB/128 GB", basePrice: 13670 },
             { storage: "8 GB/256 GB", basePrice: 17260 }
@@ -562,7 +562,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab S9 FE Plus Wi-Fi Only",
         slug: "samsung-galaxy-tab-s9-fe-plus-wi-fi-only",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s9-fe-plus.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s9-fe-plus-10-.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 15530 },
             { storage: "12 GB/256 GB", basePrice: 19260 }
@@ -573,7 +573,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab S9 FE Plus 5G",
         slug: "samsung-galaxy-tab-s9-fe-plus-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s9-fe-plus.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s9-fe-plus-10-.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 20240 },
             { storage: "12 GB/256 GB", basePrice: 22980 }
@@ -626,7 +626,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab S6 Lite (2022) Wi-Fi",
         slug: "samsung-galaxy-tab-s6-lite-2022-wi-fi",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s6-lite.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/galaxy-tab-s6-lite-2022-lte-sm-p619-.jpg",
         variants: [
             { storage: "4 GB/128 GB", basePrice: 8040 }
         ]
@@ -779,7 +779,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Tab S9 FE 5G",
         slug: "samsung-galaxy-tab-s9-fe-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s9-fe.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s9-fe-10-.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 16810 },
             { storage: "8 GB/256 GB", basePrice: 20150 },

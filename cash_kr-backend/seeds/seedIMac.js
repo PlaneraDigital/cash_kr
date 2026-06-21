@@ -82,30 +82,78 @@ const devices = [
     // ══════════════════════════════════════════════════════
     //  Apple iMac — All Series
     // ══════════════════════════════════════════════════════
-    mkDevice({
-        brand: 'Apple', modelName: 'iMac 21.5 inches', slug: 'apple-imac-21-5-inches',
-        processorFamily: 'Intel Core i5', generation: 'Intel', tier: 'Mid-range',
-        variants: [
-            { ram: '8GB', storage: '256GB SSD', basePrice: 30250 },
-            { ram: '16GB', storage: '512GB SSD', basePrice: 34000 },
-        ],
-    }),
-    mkDevice({
-        brand: 'Apple', modelName: 'iMac 27 inches', slug: 'apple-imac-27-inches',
-        processorFamily: 'Intel Core i5', generation: 'Intel', tier: 'Mid-range',
-        variants: [
-            { ram: '8GB', storage: '256GB SSD', basePrice: 33350 },
-            { ram: '16GB', storage: '512GB SSD', basePrice: 38000 },
-        ],
-    }),
-    mkDevice({
-        brand: 'Apple', modelName: 'iMac 24 inches', slug: 'apple-imac-24-inches',
-        processorFamily: 'Apple M1', generation: 'M-Series', tier: 'Premium',
-        variants: [
-            { ram: '8GB', storage: '256GB SSD', basePrice: 45000 },
-            { ram: '16GB', storage: '512GB SSD', basePrice: 52000 },
-        ],
-    }),
+  {
+    category: "mac",
+    brand: "Apple",
+    modelName: "iMac 21.5 inches",
+    slug: "apple-imac-21-5-inches",
+    imageUrl: "https://fdn.gsmarena.com/imgroot//news/15/10/new-imac/-728/gsmarena_002.jpg",
+    processorFamily: "Intel Core i5",
+    generation: "Intel",
+    gpuType: "",
+    isGamingLaptop: false,
+    tier: "Mid-range",
+    variants: [
+      { processor: "Intel Core i5", generation: "Intel", ram: "8GB", storage: "256GB SSD", storageType: "SSD", basePrice: 30250 },
+      { processor: "Intel Core i5", generation: "Intel", ram: "16GB", storage: "512GB SSD", storageType: "SSD", basePrice: 34000 }
+    ],
+    conditionMultipliers,
+    ageMultipliers,
+    screenMultipliers,
+    functionalDeductions: commonFunctionalDeductions,
+    screenDeductions: commonScreenDeductions,
+    bodyDeductions: commonBodyDeductions,
+    accessoriesBonus,
+    isActive: true
+  },
+  {
+    category: "mac",
+    brand: "Apple",
+    modelName: "iMac 27 inches",
+    slug: "apple-imac-27-inches",
+    imageUrl: "https://fdn.gsmarena.com/imgroot/news/20/08/imac-2020/-727/gsmarena_003.jpg",
+    processorFamily: "Intel Core i5",
+    generation: "Intel",
+    gpuType: "",
+    isGamingLaptop: false,
+    tier: "Mid-range",
+    variants: [
+      { processor: "Intel Core i5", generation: "Intel", ram: "8GB", storage: "256GB SSD", storageType: "SSD", basePrice: 33350 },
+      { processor: "Intel Core i5", generation: "Intel", ram: "16GB", storage: "512GB SSD", storageType: "SSD", basePrice: 38000 }
+    ],
+    conditionMultipliers,
+    ageMultipliers,
+    screenMultipliers,
+    functionalDeductions: commonFunctionalDeductions,
+    screenDeductions: commonScreenDeductions,
+    bodyDeductions: commonBodyDeductions,
+    accessoriesBonus,
+    isActive: true
+  },
+  {
+    category: "mac",
+    brand: "Apple",
+    modelName: "iMac 24 inches",
+    slug: "apple-imac-24-inches",
+    imageUrl: "https://fdn.gsmarena.com/imgroot/news/23/10/apple-24-inch-m3-imac-official/inline/-1200x500m/gsmarena_003.jpg",
+    processorFamily: "Apple M1",
+    generation: "M-Series",
+    gpuType: "",
+    isGamingLaptop: false,
+    tier: "Premium",
+    variants: [
+      { processor: "Apple M1", generation: "M-Series", ram: "8GB", storage: "256GB SSD", storageType: "SSD", basePrice: 45000 },
+      { processor: "Apple M1", generation: "M-Series", ram: "16GB", storage: "512GB SSD", storageType: "SSD", basePrice: 52000 }
+    ],
+    conditionMultipliers,
+    ageMultipliers,
+    screenMultipliers,
+    functionalDeductions: commonFunctionalDeductions,
+    screenDeductions: commonScreenDeductions,
+    bodyDeductions: commonBodyDeductions,
+    accessoriesBonus,
+    isActive: true
+  }
 ];
 
 async function seed() {
