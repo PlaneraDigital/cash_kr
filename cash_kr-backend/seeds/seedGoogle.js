@@ -32,7 +32,7 @@ const devices = [
         brand: "Google",
         modelName: "Pixel 7",
         slug: "google-pixel-7",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-7.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/google/google-pixel7-2.jpg",
         variants: [
             { storage: "128GB", basePrice: 14240 },
             { storage: "256GB", basePrice: 14160 }
@@ -43,7 +43,7 @@ const devices = [
         brand: "Google",
         modelName: "Pixel 7 Pro",
         slug: "google-pixel-7-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-7-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/google/google-pixel7-pro-2.jpg",
         variants: [
             { storage: "128GB", basePrice: 18470 },
             { storage: "256GB", basePrice: 19040 }
@@ -98,7 +98,7 @@ const devices = [
         brand: "Google",
         modelName: "Pixel 9",
         slug: "google-pixel-9",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-9.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/google/google-pixel-9-1.jpg",
         variants: [
             { storage: "12GB / 256GB", basePrice: 37630 }
         ]
@@ -108,7 +108,7 @@ const devices = [
         brand: "Google",
         modelName: "Pixel 9 Pro XL",
         slug: "google-pixel-9-pro-xl",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-9-pro-xl.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/google/google-pixel-9-pro-xl-1.jpg",
         variants: [
             { storage: "256GB", basePrice: 54620 },
             { storage: "512GB", basePrice: 57120 }
@@ -119,7 +119,7 @@ const devices = [
         brand: "Google",
         modelName: "Pixel 9 Pro Fold",
         slug: "google-pixel-9-pro-fold",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-9-pro-fold.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/google/google-pixel-9-pro-fold-3.jpg",
         variants: [
             { storage: "16GB / 256GB", basePrice: 69510 }
         ]
@@ -129,7 +129,7 @@ const devices = [
         brand: "Google",
         modelName: "Pixel 9 Pro",
         slug: "google-pixel-9-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-9-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/google/google-pixel-9-pro-1.jpg",
         variants: [
             { storage: "16GB / 256GB", basePrice: 50110 }
         ]
@@ -149,7 +149,7 @@ const devices = [
         brand: "Google",
         modelName: "Pixel 10",
         slug: "google-pixel-10",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-10.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/google/google-pixel-10-11.jpg",
         variants: [
             { storage: "12GB / 256GB", basePrice: 45500 }
         ]
@@ -159,7 +159,7 @@ const devices = [
         brand: "Google",
         modelName: "Pixel 10 Pro",
         slug: "google-pixel-10-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-10-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/google/google-pixel-10-pro-11.jpg",
         variants: [
             { storage: "16GB / 256GB", basePrice: 64900 }
         ]
@@ -169,7 +169,7 @@ const devices = [
         brand: "Google",
         modelName: "Pixel 10 Pro XL",
         slug: "google-pixel-10-pro-xl",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-10-pro-xl.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/google/google-pixel-10-pro-xl-11.jpg",
         variants: [
             { storage: "16GB / 256GB", basePrice: 73000 }
         ]
@@ -179,7 +179,7 @@ const devices = [
         brand: "Google",
         modelName: "Pixel 10 Pro Fold",
         slug: "google-pixel-10-pro-fold",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-10-pro-fold.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/google/google-pixel-10-pro-fold-00.jpg",
         variants: [
             { storage: "16GB / 256GB", basePrice: 98000 }
         ]
