@@ -12,7 +12,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Note 6 Pro",
         slug: "xiaomi-redmi-note-6-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-6-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-6-pro-2.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 2840 },
             { storage: "6GB / 64GB", basePrice: 3070 }
@@ -23,7 +23,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Mi A2",
         slug: "xiaomi-mi-a2",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-mi-a2.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-a2-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 2500 },
             { storage: "6GB / 128GB", basePrice: 2850 }
@@ -67,7 +67,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Y2",
         slug: "xiaomi-redmi-y2",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-y2.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-s2-5.jpg",
         variants: [
             { storage: "3GB / 32GB", basePrice: 2120 },
             { storage: "4GB / 64GB", basePrice: 2200 }
@@ -101,7 +101,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Note 5",
         slug: "xiaomi-redmi-note-5",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-5.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-5-ai-dual-camera-1.jpg",
         variants: [
             { storage: "3GB / 32GB", basePrice: 1780 },
             { storage: "4GB / 64GB", basePrice: 2080 }
@@ -123,7 +123,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Y1",
         slug: "xiaomi-redmi-y1",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-y1.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-5a-1.jpg",
         variants: [
             { storage: "3GB / 32GB", basePrice: 1230 },
             { storage: "4GB / 64GB", basePrice: 1380 }
@@ -134,7 +134,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Y1 Lite",
         slug: "xiaomi-redmi-y1-lite",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-y1-lite.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-5as-1.jpg",
         variants: [
             { storage: "2GB / 16GB", basePrice: 980 }
         ]
@@ -144,7 +144,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Mi Mix 2",
         slug: "xiaomi-mi-mix-2",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-mi-mix-2.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-mix2-0.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 2830 }
         ]
@@ -154,7 +154,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Mi Max 2",
         slug: "xiaomi-mi-max-2",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-mi-max-2.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-max-2-matte-black.jpg",
         variants: [
             { storage: "32GB", basePrice: 1680 },
             { storage: "64GB", basePrice: 1810 },
@@ -189,7 +189,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Note 11",
         slug: "xiaomi-redmi-note-11",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-11.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-11-global-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 4540 },
             { storage: "6GB / 64GB", basePrice: 4740 },
@@ -201,7 +201,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Note 11S",
         slug: "xiaomi-redmi-note-11s",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-11s.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-11s-global-1.jpg",
         variants: [
             { storage: "6GB / 64GB", basePrice: 5090 },
             { storage: "6GB / 128GB", basePrice: 5210 },
@@ -213,7 +213,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Note 11 Pro Plus 5G",
         slug: "xiaomi-redmi-note-11-pro-plus-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-11-pro-plus-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note11-pro-plus-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 7530 },
             { storage: "8GB / 128GB", basePrice: 8020 },
@@ -225,7 +225,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Note 11 Pro",
         slug: "xiaomi-redmi-note-11-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-11-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-11-pro-global-0.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 5570 },
             { storage: "8GB / 128GB", basePrice: 6070 }
@@ -247,7 +247,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "12 Pro 5G",
         slug: "xiaomi-12-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-12-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-12-pro-1.jpg",
         variants: [
             { storage: "8GB / 256GB", basePrice: 13390 },
             { storage: "12GB / 256GB", basePrice: 13940 }
@@ -258,7 +258,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi 10 Prime 2022",
         slug: "xiaomi-redmi-10-prime-2022",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-10-prime-2022.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-10-prime-1.jpg",
         variants: [
             { storage: "64GB", basePrice: 4130 },
             { storage: "128GB", basePrice: 4320 }
@@ -291,7 +291,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi 11 Prime 5G",
         slug: "xiaomi-redmi-11-prime-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-11-prime-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-10-5g-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 5190 },
             { storage: "6GB / 128GB", basePrice: 5640 }
@@ -302,7 +302,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi 10 Power",
         slug: "xiaomi-redmi-10-power",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-10-power.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-10-power-05.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 4810 }
         ]
@@ -312,7 +312,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Note 11 SE",
         slug: "xiaomi-redmi-note-11-se",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-11-se.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-11se-1.jpg",
         variants: [
             { storage: "6GB / 64GB", basePrice: 4800 }
         ]
@@ -322,7 +322,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi 11 Prime",
         slug: "xiaomi-redmi-11-prime",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-11-prime.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-11-prime-4g-0.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 4300 },
             { storage: "6GB / 128GB", basePrice: 4660 }
@@ -344,7 +344,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi 12 Pro Plus 5G",
         slug: "xiaomi-redmi-12-pro-plus-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-12-pro-plus-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-12-pro-plus-1.jpg",
         variants: [
             { storage: "8GB / 256GB", basePrice: 11340 },
             { storage: "12GB / 256GB", basePrice: 12200 }
@@ -367,7 +367,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi G0",
         slug: "xiaomi-redmi-g0",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-g0.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-go-4.jpg",
         variants: [
             { storage: "8GB", basePrice: 830 },
             { storage: "16GB", basePrice: 1040 }
@@ -424,7 +424,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi K20",
         slug: "xiaomi-redmi-k20",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-k20.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-k20pro-2.jpg",
         variants: [
             { storage: "64GB", basePrice: 4620 },
             { storage: "128GB", basePrice: 4960 }
@@ -435,7 +435,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi K20 Pro",
         slug: "xiaomi-redmi-k20-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-k20-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-k20pro-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 5710 },
             { storage: "8GB / 256GB", basePrice: 6120 }
@@ -526,7 +526,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Note 12 Pro 5G",
         slug: "xiaomi-redmi-note-12-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-12-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-12-pro-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 9890 },
             { storage: "8GB / 128GB", basePrice: 10380 },
@@ -539,7 +539,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "13 Pro 5G",
         slug: "xiaomi-13-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-13-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-13-pro-black-1.jpg",
         variants: [
             { storage: "12GB / 256GB", basePrice: 25670 }
         ]
@@ -549,7 +549,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Note 12",
         slug: "xiaomi-redmi-note-12",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-12.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/redmi-note-12-5g-international-0.jpg",
         variants: [
             { storage: "64GB", basePrice: 5950 },
             { storage: "128GB", basePrice: 6700 }
@@ -572,7 +572,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi A2",
         slug: "xiaomi-redmi-a2",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-a2.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-a2-1.jpg",
         variants: [
             { storage: "2GB / 32GB", basePrice: 3200 },
             { storage: "2GB / 64GB", basePrice: 3530 },
@@ -703,7 +703,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi 9 Prime",
         slug: "xiaomi-redmi-9-prime",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-9-prime.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-9-0.jpg",
         variants: [
             { storage: "64GB", basePrice: 3450 },
             { storage: "128GB", basePrice: 3790 }
@@ -725,7 +725,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi 9A",
         slug: "xiaomi-redmi-9a",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-9a.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/redmi-9a-01.jpg",
         variants: [
             { storage: "2GB / 32GB", basePrice: 2730 },
             { storage: "3GB / 32GB", basePrice: 2950 }
@@ -736,7 +736,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi 9i",
         slug: "xiaomi-redmi-9i",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-9i.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-9i.jpg",
         variants: [
             { storage: "64GB", basePrice: 3070 },
             { storage: "128GB", basePrice: 3290 }
@@ -747,7 +747,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Mi 10T",
         slug: "xiaomi-mi-10t",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-mi-10t.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-10t-5g-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 7260 },
             { storage: "8GB / 128GB", basePrice: 7580 }
@@ -758,7 +758,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Mi 10T Pro",
         slug: "xiaomi-mi-10t-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-mi-10t-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-10t-pro-02.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 7760 }
         ]
@@ -768,7 +768,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Mi 10i",
         slug: "xiaomi-mi-10i",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-mi-10i.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-10i-5g-1.jpg",
         variants: [
             { storage: "6GB / 64GB", basePrice: 6730 },
             { storage: "6GB / 128GB", basePrice: 7040 },
@@ -792,7 +792,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Note 10",
         slug: "xiaomi-redmi-note-10",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-10.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note10-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 4090 },
             { storage: "6GB / 128GB", basePrice: 4400 }
@@ -803,7 +803,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Note 10 Pro",
         slug: "xiaomi-redmi-note-10-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-10-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note10-pro-1.jpg",
         variants: [
             { storage: "6GB / 64GB", basePrice: 4440 },
             { storage: "6GB / 128GB", basePrice: 4980 },
@@ -815,7 +815,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Note 10 Pro Max",
         slug: "xiaomi-redmi-note-10-pro-max",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-10-pro-max.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note10-pro-india-10.jpg",
         variants: [
             { storage: "6GB / 64GB", basePrice: 4890 },
             { storage: "6GB / 128GB", basePrice: 5280 },
@@ -827,7 +827,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Note 13 Pro Plus 5G",
         slug: "xiaomi-redmi-note-13-pro-plus-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-13-pro-plus-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-13-pro-plus-01.jpg",
         variants: [
             { storage: "8GB / 256GB", basePrice: 14410 },
             { storage: "12GB / 256GB", basePrice: 15180 },
@@ -861,7 +861,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "14 Ultra",
         slug: "xiaomi-14-ultra",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14-ultra.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-ultra-01.jpg",
         variants: [
             { storage: "16GB / 512GB", basePrice: 38020 }
         ]
@@ -871,7 +871,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi A1",
         slug: "xiaomi-redmi-a1",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-a1.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-a1-1.jpg",
         variants: [
             { storage: "2GB / 32GB", basePrice: 2420 }
         ]
@@ -881,7 +881,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "14 CIVI",
         slug: "xiaomi-14-civi",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14-civi.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-civi-11.jpg",
         variants: [
             { storage: "8GB / 256GB", basePrice: 18650 },
             { storage: "12GB / 512GB", basePrice: 19310 }
@@ -892,7 +892,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi A3x",
         slug: "xiaomi-redmi-a3x",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-a3x.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-a3x-1.jpg",
         variants: [
             { storage: "3GB / 64GB", basePrice: 3680 },
             { storage: "4GB / 128GB", basePrice: 3970 }
@@ -949,7 +949,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi 14C 5G",
         slug: "xiaomi-redmi-14c-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-14c-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-14c-5g-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 6510 },
             { storage: "4GB / 128GB", basePrice: 6920 },
@@ -961,7 +961,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi A4 5G",
         slug: "xiaomi-redmi-a4-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-a4-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-a4-5g-2.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 5500 },
             { storage: "4GB / 128GB", basePrice: 5800 },
@@ -973,7 +973,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi A5",
         slug: "xiaomi-redmi-a5",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-a5.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-a5-4g-4.jpg",
         variants: [
             { storage: "3GB / 64GB", basePrice: 4400 },
             { storage: "4GB / 128GB", basePrice: 4800 }
@@ -994,7 +994,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "15 Ultra",
         slug: "xiaomi-15-ultra",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-15-ultra.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-15-ultra-5.jpg",
         variants: [
             { storage: "16GB / 512GB", basePrice: 61000 }
         ]
@@ -1004,7 +1004,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Mi 11X Pro",
         slug: "xiaomi-mi-11x-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-mi-11x-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi11x-pro-0.jpg",
         variants: [
             { storage: "128GB", basePrice: 7610 },
             { storage: "256GB", basePrice: 8070 }
@@ -1015,7 +1015,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Mi 11 Ultra",
         slug: "xiaomi-mi-11-ultra",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-mi-11-ultra.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi11-ultra-5g-k1-1.jpg",
         variants: [
             { storage: "12GB / 256GB", basePrice: 17300 }
         ]
@@ -1025,7 +1025,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Mi 11X",
         slug: "xiaomi-mi-11x",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-mi-11x.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi11x-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 7590 },
             { storage: "8GB / 128GB", basePrice: 7960 }
@@ -1036,7 +1036,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Mi 11 Lite",
         slug: "xiaomi-mi-11-lite",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-mi-11-lite.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-11-lite-4g-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 5650 },
             { storage: "8GB / 128GB", basePrice: 6070 }
@@ -1047,7 +1047,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Note 10s",
         slug: "xiaomi-redmi-note-10s",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-10s.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note10s-1.jpg",
         variants: [
             { storage: "6GB / 64GB", basePrice: 4580 },
             { storage: "6GB / 128GB", basePrice: 4850 },
@@ -1070,7 +1070,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Mi 10",
         slug: "xiaomi-mi-10",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-mi-10.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-10-1.jpg",
         variants: [
             { storage: "128GB", basePrice: 10000 },
             { storage: "256GB", basePrice: 10340 }
@@ -1081,7 +1081,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi 10 Prime",
         slug: "xiaomi-redmi-10-prime",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-10-prime.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-10-prime-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 4010 },
             { storage: "6GB / 128GB", basePrice: 4500 }
@@ -1092,7 +1092,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "11 Lite NE 5G",
         slug: "xiaomi-11-lite-ne-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-11-lite-ne-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-11-lite-5g-ne-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 8220 },
             { storage: "8GB / 128GB", basePrice: 8540 }
@@ -1103,7 +1103,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Note 10 Light",
         slug: "xiaomi-redmi-note-10-light",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-10-light.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-note-10-lite-3.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 4210 },
             { storage: "4GB / 128GB", basePrice: 4360 },
@@ -1138,7 +1138,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "11i 5G",
         slug: "xiaomi-11i-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-11i-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-11i-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 7300 },
             { storage: "8GB / 128GB", basePrice: 7460 }
@@ -1149,7 +1149,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "11i Hypercharge 5G",
         slug: "xiaomi-11i-hypercharge-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-11i-hypercharge-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-11i-hypercharge-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 7380 },
             { storage: "8GB / 128GB", basePrice: 7720 }
@@ -1160,7 +1160,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "11T Pro 5G",
         slug: "xiaomi-11t-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-11t-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-11t-pro-1.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 8460 },
             { storage: "8GB / 256GB", basePrice: 9070 },
@@ -1184,7 +1184,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi Note 14 SE 5G",
         slug: "xiaomi-redmi-note-14-se-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-14-se-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-14-5g-int-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 9000 }
         ]
@@ -1194,7 +1194,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi 15C 5G",
         slug: "xiaomi-redmi-15c-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-15c-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-15c-1.jpg",
         variants: [
             { storage: "4GB / 128GB", basePrice: 7980 },
             { storage: "6GB / 128GB", basePrice: 8890 },
@@ -1250,7 +1250,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Xiaomi 17",
         slug: "xiaomi-xiaomi-17",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-xiaomi-17.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-17-b.jpg",
         variants: [
             { storage: "256GB", basePrice: 55000 },
             { storage: "512GB", basePrice: 60000 }
@@ -1261,7 +1261,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Redmi 15A 5G",
         slug: "xiaomi-redmi-15a-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-15a-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-15a-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 8400 },
             { storage: "4GB / 128GB", basePrice: 9400 },
@@ -1276,6 +1276,8 @@ async function seed() {
     try {
         await mongoose.connect(process.env.MONGO_URI);
         console.log("Connected to MongoDB");
+        await Device.deleteMany({ category: "mobile", brand: "Xiaomi" });
+        console.log("Cleared existing Xiaomi mobile devices");
         await Device.insertMany(devices);
         console.log(`✅ Seeded ${devices.length} mobile devices successfully`);
         process.exit(0);

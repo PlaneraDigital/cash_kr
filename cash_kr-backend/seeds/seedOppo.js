@@ -23,7 +23,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F9 Pro",
         slug: "oppo-f9-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f9-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f9-1.jpg",
         variants: [
             { storage: "6GB / 64GB", basePrice: 2670 },
             { storage: "6GB / 128GB", basePrice: 2970 }
@@ -100,7 +100,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F5 Youth",
         slug: "oppo-f5-youth",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f5-youth.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f5-youth-a73.jpg",
         variants: [
             { storage: "3GB / 32GB", basePrice: 1700 }
         ]
@@ -110,7 +110,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F5",
         slug: "oppo-f5",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f5.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f5-youth-a73-1.jpg",
         variants: [
             { storage: "4GB / 32GB", basePrice: 1780 },
             { storage: "6GB / 64GB", basePrice: 1930 }
@@ -131,7 +131,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A77",
         slug: "oppo-a77",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a77.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a77-5g-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 1490 }
         ]
@@ -141,7 +141,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F3",
         slug: "oppo-f3",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f3.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f3-5.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 1480 }
         ]
@@ -193,7 +193,7 @@ const devices = [
         brand: "Oppo",
         modelName: "R17",
         slug: "oppo-r17",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-r17.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-r17-1.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 4170 }
         ]
@@ -203,7 +203,7 @@ const devices = [
         brand: "Oppo",
         modelName: "K1",
         slug: "oppo-k1",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-k1.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-k1-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 3030 },
             { storage: "6GB / 64GB", basePrice: 3180 }
@@ -214,7 +214,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F11 Pro",
         slug: "oppo-f11-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f11-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f11-pro-10.jpg",
         variants: [
             { storage: "64GB", basePrice: 4040 },
             { storage: "128GB", basePrice: 4440 }
@@ -236,7 +236,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno7 5G",
         slug: "oppo-reno7-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno7-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno7-0.jpg",
         variants: [
             { storage: "8GB / 256GB", basePrice: 8480 }
         ]
@@ -246,7 +246,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno7 Pro 5G",
         slug: "oppo-reno7-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno7-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno7-pro-5g-1.jpg",
         variants: [
             { storage: "12GB / 256GB", basePrice: 10250 }
         ]
@@ -256,7 +256,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A76",
         slug: "oppo-a76",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a76.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a36-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 5000 }
         ]
@@ -277,7 +277,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A16e",
         slug: "oppo-a16e",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a16e.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a16e-1.jpg",
         variants: [
             { storage: "3GB / 32GB", basePrice: 3220 },
             { storage: "4GB / 64GB", basePrice: 3840 }
@@ -288,7 +288,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F21 Pro",
         slug: "oppo-f21-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f21-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno7-4g-1.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 6260 }
         ]
@@ -298,7 +298,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F21 Pro 5G",
         slug: "oppo-f21-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f21-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f21-pro-5g-1.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 7830 }
         ]
@@ -318,7 +318,7 @@ const devices = [
         brand: "Oppo",
         modelName: "K10 5G",
         slug: "oppo-k10-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-k10-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-k10-5g-india-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 6480 },
             { storage: "8GB / 128GB", basePrice: 7220 }
@@ -329,7 +329,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno8 5G",
         slug: "oppo-reno8-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno8-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno8-02.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 9390 }
         ]
@@ -339,7 +339,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno8 Pro 5G",
         slug: "oppo-reno8-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno8-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno8-pro-02.jpg",
         variants: [
             { storage: "12GB / 256GB", basePrice: 11130 }
         ]
@@ -349,7 +349,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A57 2022",
         slug: "oppo-a57-2022",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a57-2022.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a57-5g-2.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 4290 }
         ]
@@ -359,7 +359,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F21s Pro",
         slug: "oppo-f21s-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f21s-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f21-pro-5g-1.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 6160 }
         ]
@@ -369,7 +369,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F21s Pro Plus 5G",
         slug: "oppo-f21s-pro-plus-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f21s-pro-plus-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f21-pro-5g-1.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 7410 }
         ]
@@ -379,7 +379,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A77 2022",
         slug: "oppo-a77-2022",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a77-2022.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a77-5g-1.jpg",
         variants: [
             { storage: "64GB", basePrice: 3070 },
             { storage: "128GB", basePrice: 4050 }
@@ -410,7 +410,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A78 5G",
         slug: "oppo-a78-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a78-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a58-1.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 10200 }
         ]
@@ -420,7 +420,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno8T 5G",
         slug: "oppo-reno8t-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno8t-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno8-t-1.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 11060 }
         ]
@@ -430,7 +430,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Find N2 Flip 5G",
         slug: "oppo-find-n2-flip-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-find-n2-flip-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-n2-flip-1.jpg",
         variants: [
             { storage: "8GB / 256GB", basePrice: 18710 }
         ]
@@ -450,7 +450,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno10 5G",
         slug: "oppo-reno10-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno10-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno10-international-1.jpg",
         variants: [
             { storage: "8GB / 256GB", basePrice: 15920 }
         ]
@@ -460,7 +460,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno10 Pro 5G",
         slug: "oppo-reno10-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno10-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno10-pro-international-1.jpg",
         variants: [
             { storage: "12GB / 256GB", basePrice: 18180 }
         ]
@@ -470,7 +470,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno10 Pro Plus 5G",
         slug: "oppo-reno10-pro-plus-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno10-pro-plus-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno10-pro-plus-10.jpg",
         variants: [
             { storage: "12GB / 256GB", basePrice: 20290 }
         ]
@@ -480,7 +480,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A78",
         slug: "oppo-a78",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a78.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a58-1.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 7500 }
         ]
@@ -490,7 +490,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Find N3 Flip 5G",
         slug: "oppo-find-n3-flip-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-find-n3-flip-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-n3-flip-1.jpg",
         variants: [
             { storage: "12GB / 256GB", basePrice: 24500 }
         ]
@@ -510,7 +510,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F31 Pro 5G",
         slug: "oppo-f31-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f31-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f31-pro-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 17480 },
             { storage: "8 GB/256 GB", basePrice: 19400 },
@@ -522,7 +522,7 @@ const devices = [
         brand: "Oppo",
         modelName: "K13 Turbo Pro 5G",
         slug: "oppo-k13-turbo-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-k13-turbo-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-k13-turbo-pro-02.jpg",
         variants: [
             { storage: "8 GB/256 GB", basePrice: 22000 },
             { storage: "12 GB/256 GB", basePrice: 23000 }
@@ -533,7 +533,7 @@ const devices = [
         brand: "Oppo",
         modelName: "K13 Turbo 5G",
         slug: "oppo-k13-turbo-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-k13-turbo-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-k13-turbo-02.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 17400 },
             { storage: "8 GB/256 GB", basePrice: 18700 }
@@ -544,7 +544,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F31 5G",
         slug: "oppo-f31-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f31-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a6-pro-4g-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 16320 },
             { storage: "8 GB/256 GB", basePrice: 17200 }
@@ -555,7 +555,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F31 Pro Plus 5G",
         slug: "oppo-f31-pro-plus-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f31-pro-plus-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f31-pro-plus-1.jpg",
         variants: [
             { storage: "8 GB/256 GB", basePrice: 21300 },
             { storage: "12 GB/256 GB", basePrice: 22300 }
@@ -566,7 +566,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Find X9 5G",
         slug: "oppo-find-x9-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x9-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-x9-1.jpg",
         variants: [
             { storage: "12 GB/256 GB", basePrice: 43300 },
             { storage: "16 GB/512 GB", basePrice: 47500 }
@@ -599,7 +599,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno15 5G",
         slug: "oppo-reno15-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno15-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno-15c-1.jpg",
         variants: [
             { storage: "8 GB/256 GB", basePrice: 29430 },
             { storage: "12 GB/256 GB", basePrice: 31690 },
@@ -611,7 +611,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno15 Pro Mini 5G",
         slug: "oppo-reno15-pro-mini-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno15-pro-mini-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno15-pro-mini-3.jpg",
         variants: [
             { storage: "12 GB/256 GB", basePrice: 36700 },
             { storage: "12 GB/512 GB", basePrice: 39000 }
@@ -622,7 +622,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno15 Pro 5G",
         slug: "oppo-reno15-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno15-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno15-pro-global-1.jpg",
         variants: [
             { storage: "12 GB/256 GB", basePrice: 41500 },
             { storage: "12 GB/512 GB", basePrice: 44000 }
@@ -633,7 +633,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A6 Pro 5G",
         slug: "oppo-a6-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a6-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a6-pro-4g-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 14260 },
             { storage: "8 GB/256 GB", basePrice: 15100 }
@@ -644,7 +644,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno 15c 5G",
         slug: "oppo-reno-15c-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno-15c-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno-15c-1.jpg",
         variants: [
             { storage: "8 GB/256 GB", basePrice: 21810 },
             { storage: "12 GB/256 GB", basePrice: 22700 }
@@ -655,7 +655,7 @@ const devices = [
         brand: "Oppo",
         modelName: "K14x 5G",
         slug: "oppo-k14x-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-k14x-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-k14x-1.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 8800 },
             { storage: "4 GB/128 GB", basePrice: 9950 },
@@ -667,7 +667,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A5s",
         slug: "oppo-a5s",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a5s.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-ax5s-2.jpg",
         variants: [
             { storage: "2GB / 32GB", basePrice: 2200 },
             { storage: "3GB / 32GB", basePrice: 2420 },
@@ -689,7 +689,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F11",
         slug: "oppo-f11",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f11.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f11-11.jpg",
         variants: [
             { storage: "4GB / 128GB", basePrice: 3280 },
             { storage: "6GB / 128GB", basePrice: 3680 }
@@ -742,7 +742,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno 2Z",
         slug: "oppo-reno-2z",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno-2z.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno2z-1.jpg",
         variants: [
             { storage: "8GB / 256GB", basePrice: 5680 }
         ]
@@ -752,7 +752,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno 2",
         slug: "oppo-reno-2",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno-2.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno2-1.jpg",
         variants: [
             { storage: "8GB / 256GB", basePrice: 5910 }
         ]
@@ -775,7 +775,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A9 2020",
         slug: "oppo-a9-2020",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a9-2020.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a9-2020-1.jpg",
         variants: [
             { storage: "4GB / 128GB", basePrice: 3820 },
             { storage: "8GB / 128GB", basePrice: 4050 }
@@ -786,7 +786,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno2 F",
         slug: "oppo-reno2-f",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno2-f.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno-2f-2.jpg",
         variants: [
             { storage: "6GB / 256GB", basePrice: 5070 },
             { storage: "8GB / 128GB", basePrice: 5720 }
@@ -797,7 +797,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F15",
         slug: "oppo-f15",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f15.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f15-cph2001-1.jpg",
         variants: [
             { storage: "4GB / 128GB", basePrice: 4640 },
             { storage: "8GB / 128GB", basePrice: 4960 }
@@ -882,7 +882,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A18",
         slug: "oppo-a18",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a18.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a18-1.jpg",
         variants: [
             { storage: "64GB", basePrice: 4590 },
             { storage: "128GB", basePrice: 4850 }
@@ -914,7 +914,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno11 5G",
         slug: "oppo-reno11-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno11-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno11-international-1.jpg",
         variants: [
             { storage: "128GB", basePrice: 15080 },
             { storage: "256GB", basePrice: 15750 }
@@ -925,7 +925,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno11 Pro 5G",
         slug: "oppo-reno11-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno11-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno11-china-1.jpg",
         variants: [
             { storage: "12GB / 256GB", basePrice: 18580 }
         ]
@@ -935,7 +935,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F25 Pro 5G",
         slug: "oppo-f25-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f25-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f25-pro-1.jpg",
         variants: [
             { storage: "128GB", basePrice: 12600 },
             { storage: "256GB", basePrice: 13170 }
@@ -946,7 +946,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F27 Pro Plus 5G",
         slug: "oppo-f27-pro-plus-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f27-pro-plus-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a3-pro-1.jpg",
         variants: [
             { storage: "128GB", basePrice: 14360 },
             { storage: "256GB", basePrice: 14950 }
@@ -957,7 +957,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F11 Pro Avenger Edition",
         slug: "oppo-f11-pro-avenger-edition",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f11-pro-avenger-edition.jpg",
+        imageUrl: "https://fdn.gsmarena.com/imgroot/news/19/05/oppo-f11pro-avengers-hands-on/-727w2/gsmarena_005.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 4390 }
         ]
@@ -967,7 +967,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A3 Pro 5G",
         slug: "oppo-a3-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a3-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a3-pro-india-1.jpg",
         variants: [
             { storage: "128GB", basePrice: 10680 },
             { storage: "256GB", basePrice: 11410 }
@@ -978,7 +978,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno12 5G",
         slug: "oppo-reno12-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno12-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno12-1.jpg",
         variants: [
             { storage: "8GB / 256GB", basePrice: 16550 }
         ]
@@ -988,7 +988,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno12 Pro 5G",
         slug: "oppo-reno12-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno12-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno12-pro-cn-1.jpg",
         variants: [
             { storage: "256GB", basePrice: 19260 },
             { storage: "512GB", basePrice: 19990 }
@@ -999,7 +999,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A3X 5G",
         slug: "oppo-a3x-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a3x-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a3x-1.jpg",
         variants: [
             { storage: "64GB", basePrice: 7980 },
             { storage: "128GB", basePrice: 8450 }
@@ -1010,7 +1010,7 @@ const devices = [
         brand: "Oppo",
         modelName: "K12x 5G",
         slug: "oppo-k12x-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-k12x-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-k12x-int-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 8750 },
             { storage: "8GB / 256GB", basePrice: 9020 }
@@ -1021,7 +1021,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F27 5G",
         slug: "oppo-f27-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f27-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f27-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 13160 },
             { storage: "8 GB/256 GB", basePrice: 13720 }
@@ -1032,7 +1032,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A3 5G",
         slug: "oppo-a3-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a3-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a3-int-1.jpg",
         variants: [
             { storage: "6 GB/128 GB", basePrice: 9600 }
         ]
@@ -1053,7 +1053,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A6 5G",
         slug: "oppo-a6-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a6-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a6-2.jpg",
         variants: [
             { storage: "4 GB/128 GB", basePrice: 12500 },
             { storage: "6 GB/128 GB", basePrice: 13260 },
@@ -1065,7 +1065,7 @@ const devices = [
         brand: "Oppo",
         modelName: "K14 5G",
         slug: "oppo-k14-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-k14-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-k14-5g-1.jpg",
         variants: [
             { storage: "6 GB/128 GB", basePrice: 11700 },
             { storage: "6 GB/256 GB", basePrice: 12800 },
@@ -1077,7 +1077,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A6s 5G",
         slug: "oppo-a6s-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a6s-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a6s-2.jpg",
         variants: [
             { storage: "4 GB/128 GB", basePrice: 11950 },
             { storage: "6 GB/128 GB", basePrice: 13400 }
@@ -1088,7 +1088,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F33 5G",
         slug: "oppo-f33-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f33-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f33-1.jpg",
         variants: [
             { storage: "6 GB/128 GB", basePrice: 20980 },
             { storage: "8 GB/128 GB", basePrice: 22500 },
@@ -1100,7 +1100,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F33 Pro 5G",
         slug: "oppo-f33-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f33-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f33-pro-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 24000 },
             { storage: "8 GB/256 GB", basePrice: 25800 }
@@ -1122,7 +1122,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Find X9 Ultra",
         slug: "oppo-find-x9-ultra",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x9-ultra.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-x9-ultra-5.jpg",
         variants: [
             { storage: "12 GB/512 GB", basePrice: 80000 }
         ]
@@ -1142,7 +1142,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno3 Pro",
         slug: "oppo-reno3-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno3-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno3-pro-0.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 5720 },
             { storage: "8GB / 256GB", basePrice: 5760 }
@@ -1174,7 +1174,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F17 Pro",
         slug: "oppo-f17-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f17-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f17-pro-1.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 5410 }
         ]
@@ -1195,7 +1195,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A33 2020",
         slug: "oppo-a33-2020",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a33-2020.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a32-1.jpg",
         variants: [
             { storage: "3GB / 32GB", basePrice: 3140 }
         ]
@@ -1227,7 +1227,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno5 Pro 5G",
         slug: "oppo-reno5-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno5-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno5-pro-5g-1.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 8990 }
         ]
@@ -1237,7 +1237,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F19 Pro",
         slug: "oppo-f19-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f19-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f19-pro-0.jpg",
         variants: [
             { storage: "128GB", basePrice: 5840 },
             { storage: "256GB", basePrice: 6020 }
@@ -1248,7 +1248,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F19 Pro Plus 5G",
         slug: "oppo-f19-pro-plus-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f19-pro-plus-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f19-pro-plus-1.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 7310 }
         ]
@@ -1353,7 +1353,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Find X8 5G",
         slug: "oppo-find-x8-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x8-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-x8-1.jpg",
         variants: [
             { storage: "12 GB/256 GB", basePrice: 32830 },
             { storage: "16 GB/512 GB", basePrice: 36260 }
@@ -1364,7 +1364,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Find X8 Pro 5G",
         slug: "oppo-find-x8-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x8-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-x8-pro-3.jpg",
         variants: [
             { storage: "16 GB/512 GB", basePrice: 46060 }
         ]
@@ -1374,7 +1374,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno13 5G",
         slug: "oppo-reno13-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno13-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno13-cn-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 18290 },
             { storage: "8 GB/256 GB", basePrice: 19230 },
@@ -1386,7 +1386,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno13 Pro 5G",
         slug: "oppo-reno13-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno13-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno13-pro-cn-1.jpg",
         variants: [
             { storage: "12 GB/256 GB", basePrice: 23750 },
             { storage: "12 GB/512 GB", basePrice: 25400 }
@@ -1397,7 +1397,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F29 5G",
         slug: "oppo-f29-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f29-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f29-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 15450 },
             { storage: "8 GB/256 GB", basePrice: 16350 }
@@ -1408,7 +1408,7 @@ const devices = [
         brand: "Oppo",
         modelName: "F29 Pro 5G",
         slug: "oppo-f29-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-f29-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-f29-pro-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 16210 },
             { storage: "8 GB/256 GB", basePrice: 16650 },
@@ -1420,7 +1420,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A5 Pro 5G",
         slug: "oppo-a5-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a5-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a5-pro-5g-int-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 12150 },
             { storage: "8 GB/256 GB", basePrice: 13010 }
@@ -1442,7 +1442,7 @@ const devices = [
         brand: "Oppo",
         modelName: "A5x 5G",
         slug: "oppo-a5x-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a5x-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a5x-1.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 7400 },
             { storage: "4 GB/128 GB", basePrice: 8330 },
@@ -1477,7 +1477,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno14 5G",
         slug: "oppo-reno14-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno14-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno14-0.jpg",
         variants: [
             { storage: "8 GB/256 GB", basePrice: 24000 },
             { storage: "12 GB/256 GB", basePrice: 25190 },
@@ -1489,7 +1489,7 @@ const devices = [
         brand: "Oppo",
         modelName: "Reno14 Pro 5G",
         slug: "oppo-reno14-pro-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno14-pro-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno14-pro-1.jpg",
         variants: [
             { storage: "12 GB/256 GB", basePrice: 30550 },
             { storage: "12 GB/512 GB", basePrice: 33800 }

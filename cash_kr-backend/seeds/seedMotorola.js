@@ -12,7 +12,7 @@ const devices = [
         brand: "Motorola",
         modelName: "One Power",
         slug: "motorola-one-power",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-one-power.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-one-power-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 2270 }
         ]
@@ -22,7 +22,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G6 Plus",
         slug: "motorola-moto-g6-plus",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g6-plus.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g6-plus-2.jpg",
         variants: [
             { storage: "6GB / 64GB", basePrice: 1970 }
         ]
@@ -32,7 +32,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Z2 Force",
         slug: "motorola-moto-z2-force",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-z2-force.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-z2-force-1.jpg",
         variants: [
             { storage: "6GB / 64GB", basePrice: 1670 }
         ]
@@ -42,7 +42,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G6",
         slug: "motorola-moto-g6",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g6.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g6-2.jpg",
         variants: [
             { storage: "3GB / 32GB", basePrice: 1210 },
             { storage: "4GB / 64GB", basePrice: 1690 }
@@ -73,7 +73,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto One",
         slug: "motorola-moto-one",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-one.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-one-5g-ace-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 1970 }
         ]
@@ -93,7 +93,7 @@ const devices = [
         brand: "Motorola",
         modelName: "One Action",
         slug: "motorola-one-action",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-one-action.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-one-action-denim-gray.jpg",
         variants: [
             { storage: "4GB / 128GB", basePrice: 2540 }
         ]
@@ -103,7 +103,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto E6s",
         slug: "motorola-moto-e6s",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-e6s.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-e6s-2020-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 2080 }
         ]
@@ -113,7 +113,7 @@ const devices = [
         brand: "Motorola",
         modelName: "One Macro",
         slug: "motorola-one-macro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-one-macro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-one-macro-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 2040 }
         ]
@@ -123,7 +123,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge Plus",
         slug: "motorola-moto-edge-plus",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-plus.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-plus-1.jpg",
         variants: [
             { storage: "12Gb / 256GB", basePrice: 8180 }
         ]
@@ -143,7 +143,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Razr",
         slug: "motorola-moto-razr",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-razr.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-50-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 9660 }
         ]
@@ -183,7 +183,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Razr 5G",
         slug: "motorola-moto-razr-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-razr-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-5g-brush-gold-0.jpg",
         variants: [
             { storage: "8GB / 256GB", basePrice: 12870 }
         ]
@@ -254,7 +254,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 20 Pro",
         slug: "motorola-moto-edge-20-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-20-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge20-pro-01.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 7800 }
         ]
@@ -264,7 +264,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G40 Fusion",
         slug: "motorola-moto-g40-fusion",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g40-fusion.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g40-fusion-1.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 4050 },
             { storage: "6 GB/128 GB", basePrice: 4880 }
@@ -275,7 +275,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 20 Fusion",
         slug: "motorola-moto-edge-20-fusion",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-20-fusion.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-20-fusion-01.jpg",
         variants: [
             { storage: "6 GB/128 GB", basePrice: 6550 },
             { storage: "8 GB/128 GB", basePrice: 6890 }
@@ -286,7 +286,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 20",
         slug: "motorola-moto-edge-20",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-20.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-20-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 6930 }
         ]
@@ -296,7 +296,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G31",
         slug: "motorola-moto-g31",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g31.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g31-baby-blue-1.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 3670 },
             { storage: "6 GB/128 GB", basePrice: 4050 }
@@ -307,7 +307,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 60 Fusion",
         slug: "motorola-moto-edge-60-fusion",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-60-fusion.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-60-fusion-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 14700 },
             { storage: "8 GB/256 GB", basePrice: 16730 },
@@ -319,7 +319,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Razr 60",
         slug: "motorola-moto-razr-60",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-razr-60.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-60-1.jpg",
         variants: [
             { storage: "8 GB/256 GB", basePrice: 27730 }
         ]
@@ -329,7 +329,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 60 Stylus",
         slug: "motorola-moto-edge-60-stylus",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-60-stylus.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g-stylus-5g-2025-1.jpg",
         variants: [
             { storage: "8 GB/256 GB", basePrice: 14910 }
         ]
@@ -339,7 +339,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 60",
         slug: "motorola-moto-edge-60",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-60.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-60-1.jpg",
         variants: [
             { storage: "12 GB/256 GB", basePrice: 17700 }
         ]
@@ -349,7 +349,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G96 5G",
         slug: "motorola-moto-g96-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g96-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-g96-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 12200 },
             { storage: "8 GB/256 GB", basePrice: 13130 }
@@ -360,7 +360,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G86 Power 5G",
         slug: "motorola-moto-g86-power-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g86-power-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g86-power-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 11740 }
         ]
@@ -370,7 +370,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Razr 60 Ultra",
         slug: "motorola-moto-razr-60-ultra",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-razr-60-ultra.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-60-ultra-1.jpg",
         variants: [
             { storage: "16 GB/512 GB", basePrice: 46740 }
         ]
@@ -380,7 +380,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 70",
         slug: "motorola-moto-edge-70",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-70.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-70-5g-1.jpg",
         variants: [
             { storage: "8 GB/256 GB", basePrice: 20650 }
         ]
@@ -390,7 +390,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G57 Power 5G",
         slug: "motorola-moto-g57-power-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g57-power-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g57-power-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 8850 }
         ]
@@ -410,7 +410,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Signature",
         slug: "motorola-moto-signature",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-signature.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-signature-1.jpg",
         variants: [
             { storage: "12 GB/256 GB", basePrice: 38000 },
             { storage: "16 GB/512 GB", basePrice: 39000 },
@@ -422,7 +422,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G67 Power 5G",
         slug: "motorola-moto-g67-power-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g67-power-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g100-cn-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 10450 },
             { storage: "8 GB/256 GB", basePrice: 12350 }
@@ -433,7 +433,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 70 Fusion",
         slug: "motorola-moto-edge-70-fusion",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-70-fusion.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-70-fusion-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 18310 },
             { storage: "8 GB/256 GB", basePrice: 20370 },
@@ -445,7 +445,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G51 5G",
         slug: "motorola-moto-g51-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g51-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g51-5g-bright-silver-1.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 5340 }
         ]
@@ -455,7 +455,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto E40",
         slug: "motorola-moto-e40",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-e40.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-e40-1.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 3590 }
         ]
@@ -465,7 +465,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 30 Pro",
         slug: "motorola-moto-edge-30-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-30-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-30-pro-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 9320 }
         ]
@@ -475,7 +475,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 30",
         slug: "motorola-moto-edge-30",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-30.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-30-1.jpg",
         variants: [
             { storage: "6 GB/128 GB", basePrice: 8600 },
             { storage: "8 GB/128 GB", basePrice: 8940 }
@@ -497,7 +497,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G71 5G",
         slug: "motorola-moto-g71-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g71-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g71-5g-neptune-green-1.jpg",
         variants: [
             { storage: "6 GB/128 GB", basePrice: 6480 }
         ]
@@ -507,7 +507,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G82 5G",
         slug: "motorola-moto-g82-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g82-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g82-1.jpg",
         variants: [
             { storage: "6 GB/128 GB", basePrice: 7160 },
             { storage: "8 GB/128 GB", basePrice: 7910 }
@@ -528,7 +528,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G42",
         slug: "motorola-moto-g42",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g42.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/moto-g42-01.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 3520 }
         ]
@@ -549,7 +549,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 30 Fusion",
         slug: "motorola-moto-edge-30-fusion",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-30-fusion.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge30-fusion-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 10150 }
         ]
@@ -559,7 +559,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 30 Ultra",
         slug: "motorola-moto-edge-30-ultra",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-30-ultra.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge30-ultra-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 12500 },
             { storage: "12 GB/256 GB", basePrice: 13100 }
@@ -570,7 +570,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G72",
         slug: "motorola-moto-g72",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g72.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g72-5g-03.jpg",
         variants: [
             { storage: "6 GB/128 GB", basePrice: 5110 }
         ]
@@ -580,7 +580,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G62 5G",
         slug: "motorola-moto-g62-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g62-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g62-1.jpg",
         variants: [
             { storage: "6 GB/128 GB", basePrice: 6360 },
             { storage: "8 GB/128 GB", basePrice: 6830 }
@@ -591,7 +591,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto e32s",
         slug: "motorola-moto-e32s",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-e32s.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-e32s-05.jpg",
         variants: [
             { storage: "3 GB/32 GB", basePrice: 2690 },
             { storage: "4 GB/64 GB", basePrice: 2990 }
@@ -624,7 +624,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G73 5G",
         slug: "motorola-moto-g73-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g73-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g73-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 7270 }
         ]
@@ -665,7 +665,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 40",
         slug: "motorola-moto-edge-40",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-40.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge40-1.jpg",
         variants: [
             { storage: "8 GB/256 GB", basePrice: 14550 }
         ]
@@ -675,7 +675,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Razr 40 Ultra",
         slug: "motorola-moto-razr-40-ultra",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-razr-40-ultra.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-40-ultra-1.jpg",
         variants: [
             { storage: "8 GB/256 GB", basePrice: 22670 }
         ]
@@ -685,7 +685,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G14",
         slug: "motorola-moto-g14",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g14.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/moto-g14-1.jpg",
         variants: [
             { storage: "4 GB/128 GB", basePrice: 4740 }
         ]
@@ -695,7 +695,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G54 5G",
         slug: "motorola-moto-g54-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g54-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g54-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 9400 },
             { storage: "12 GB/256 GB", basePrice: 10490 }
@@ -706,7 +706,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G84 5G",
         slug: "motorola-moto-g84-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g84-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g84-1.jpg",
         variants: [
             { storage: "12 GB/256 GB", basePrice: 10910 }
         ]
@@ -716,7 +716,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 40 Neo",
         slug: "motorola-moto-edge-40-neo",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-40-neo.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-40-neo-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 13310 },
             { storage: "12 GB/256 GB", basePrice: 14120 }
@@ -727,7 +727,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G34 5G",
         slug: "motorola-moto-g34-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g34-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g34-china-1.jpg",
         variants: [
             { storage: "4 GB/128 GB", basePrice: 6860 },
             { storage: "8 GB/128 GB", basePrice: 7690 }
@@ -738,7 +738,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G64 5G",
         slug: "motorola-moto-g64-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g64-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g64-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 8920 },
             { storage: "12 GB/256 GB", basePrice: 9750 }
@@ -749,7 +749,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 50 Pro",
         slug: "motorola-moto-edge-50-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-50-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge50-pro-1.jpg",
         variants: [
             { storage: "8 GB/256 GB", basePrice: 16790 },
             { storage: "12 GB/256 GB", basePrice: 17120 }
@@ -760,7 +760,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 50 Fusion",
         slug: "motorola-moto-edge-50-fusion",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-50-fusion.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-50-fusion-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 13960 },
             { storage: "12 GB/256 GB", basePrice: 15070 }
@@ -771,7 +771,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G04",
         slug: "motorola-moto-g04",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g04.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g04-0.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 3630 },
             { storage: "8 GB/128 GB", basePrice: 3820 }
@@ -793,7 +793,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G85 5G",
         slug: "motorola-moto-g85-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g85-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g85-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 12150 },
             { storage: "12 GB/256 GB", basePrice: 12970 }
@@ -804,7 +804,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 50 Ultra",
         slug: "motorola-moto-edge-50-ultra",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-50-ultra.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-50-ultra-0.jpg",
         variants: [
             { storage: "12 GB/512 GB", basePrice: 25960 }
         ]
@@ -814,7 +814,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Razr 50 Ultra",
         slug: "motorola-moto-razr-50-ultra",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-razr-50-ultra.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-50-ultra-1.jpg",
         variants: [
             { storage: "12 GB/512 GB", basePrice: 33810 }
         ]
@@ -824,7 +824,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 50",
         slug: "motorola-moto-edge-50",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-50.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-50-5g-1.jpg",
         variants: [
             { storage: "8 GB/256 GB", basePrice: 15600 }
         ]
@@ -834,7 +834,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G04s",
         slug: "motorola-moto-g04s",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g04s.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g04s-0.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 3920 }
         ]
@@ -855,7 +855,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Razr 50",
         slug: "motorola-moto-razr-50",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-razr-50.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-50-1.jpg",
         variants: [
             { storage: "8 GB/256 GB", basePrice: 23360 }
         ]
@@ -865,7 +865,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 50 Neo",
         slug: "motorola-moto-edge-50-neo",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-50-neo.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-50-neo-1.jpg",
         variants: [
             { storage: "8 GB/256 GB", basePrice: 14530 }
         ]
@@ -886,7 +886,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto G05",
         slug: "motorola-moto-g05",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g05.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/mototola-moto-g05-1.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 5040 }
         ]
@@ -896,7 +896,7 @@ const devices = [
         brand: "Motorola",
         modelName: "Moto Edge 60 Pro",
         slug: "motorola-moto-edge-60-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-edge-60-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-60-pro-1.jpg",
         variants: [
             { storage: "8 GB/256 GB", basePrice: 19300 },
             { storage: "12 GB/256 GB", basePrice: 22000 },
