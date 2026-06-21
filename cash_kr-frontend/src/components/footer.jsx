@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const FooterLogo = () => (
-  <div className="flex items-center gap-1">
-    <span className="text-primary text-3xl font-black tracking-[-4px] leading-none">«</span>
+  <div className="flex items-center gap-2">
+    <img src={logo} alt="DeviceKart Logo" className="w-8 h-8 object-contain" />
     <span className="text-2xl font-bold text-white tracking-tight">DeviceKart</span>
   </div>
 );
@@ -16,15 +17,15 @@ const FOOTER_LINKS = {
 const getLinkRoute = (linkName) => {
   const routes = {
     "About Us": "/about-us",
-    "Help Center": "#",
-    "Terms & Conditions": "#",
-    "Privacy Policy": "#",
-    "Become a Partner": "#",
+    "Help Center": "/help-center",
+    "Terms & Conditions": "/terms-and-conditions",
+    "Privacy Policy": "/privacy-policy",
+    "Become a Partner": "/partner",
     "Sell Mobile": "/sell-old-mobile-phones/brand",
     "Sell Tablet": "/sell-tablet/brand",
     "Sell Laptop": "/sell-old-laptops/brand",
     "Sell Mac": "/sell-imac/brand",
-    "Corporate Sell": "#",
+    "Corporate Sell": "/corporate",
   };
   return routes[linkName] || "#";
 };
@@ -118,8 +119,8 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-xs text-gray-500 text-center md:text-left">
             © {new Date().getFullYear()} DeviceKart. All rights reserved. &nbsp;
-            <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link> &nbsp;·&nbsp;
-            <Link to="#" className="hover:text-white transition-colors">Terms of Use</Link>
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link> &nbsp;·&nbsp;
+            <Link to="/terms-and-conditions" className="hover:text-white transition-colors">Terms of Use</Link>
           </p>
 
           <div className="flex items-center gap-4 text-[10px] font-bold tracking-widest text-gray-600 uppercase">

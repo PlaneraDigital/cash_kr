@@ -22,6 +22,9 @@ import NotFoundPage from './pages/NotFoundPage.jsx';
 import AboutUs from './pages/AboutUs.jsx';
 import Partner from './pages/Partner.jsx';
 import Corporate from './pages/Corporate.jsx';
+import HelpCenter from './pages/HelpCenter.jsx';
+import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
+import TermsAndConditions from './pages/TermsAndConditions.jsx';
 
 // Laptop Pages
 import LaptopBrandSelectionPage from './pages/LaptopBrandSelectionPage.jsx';
@@ -97,6 +100,9 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/partner" element={<Partner />} />
           <Route path="/corporate" element={<Corporate />} />
+          <Route path="/help-center" element={<HelpCenter />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
 
           {/* Admin Flow */}
           <Route path="/admin/login" element={<AdminLogin />} />

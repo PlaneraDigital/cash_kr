@@ -78,8 +78,10 @@ export const LAPTOP_BRANDS = [
   { name: 'MSI', color: 'white', models: 4, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Micro-Star_International_logo.svg/1280px-Micro-Star_International_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20230818102106" },
   { name: 'Razer', color: 'white', models: 3, logo: "https://upload.wikimedia.org/wikipedia/en/thumb/4/40/Razer_snake_logo.svg/1280px-Razer_snake_logo.svg.png" },
   { name: 'Samsung', color: 'white', models: 0, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Samsung_wordmark.svg/1920px-Samsung_wordmark.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20211020072635" },
-  { name: 'LG', color: 'white', models: 0, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/LG_logo_%282015%29.svg/1024px-LG_logo_%282015%29.svg.png" },
+  { name: 'LG', color: 'white', models: 0, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/LG_logo_%282014%29.svg/1280px-LG_logo_%282014%29.svg.png?_=20231109111316" },
   { name: 'Huawei', color: 'white', models: 0, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Huawei_logo_2018.svg/1024px-Huawei_logo_2018.svg.png" },
+  { name: 'Mi', color: 'white', models: 0, logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Xiaomi_logo_%282021-%29.svg/1280px-Xiaomi_logo_%282021-%29.svg.png" },
+  { name: 'Avita', color: 'white', models: 0, logo: "https://avita-india.com/wp-content/uploads/2024/03/logo.png" },
 ];
 
 export const IMAC_BRANDS = [
