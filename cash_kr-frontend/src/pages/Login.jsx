@@ -85,16 +85,15 @@ function PhoneStep({ onNext, loading, error }) {
 
 // ─── Step 2: OTP Entry ────────────────────────────────────────────────────────
 
-function OtpStep({ phone, onVerify, onBack, loading, error }) {
-  const [otp, setOtp] = useState(["", "", "", ""]);
-  const inputs = Array(4).fill(null).map(() => ({ current: null }));
+function OtpStep({ phone, onVerify, onBack, loading, error, onResend }) {
+  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
 
   const handleChange = (index, value) => {
     const digit = value.replace(/\D/g, "").slice(-1);
     const newOtp = [...otp];
     newOtp[index] = digit;
     setOtp(newOtp);
-    if (digit && index < 3) {
+    if (digit && index < 5) {
       const next = document.getElementById(`otp-${index + 1}`);
       if (next) next.focus();
     }
@@ -109,11 +108,11 @@ function OtpStep({ phone, onVerify, onBack, loading, error }) {
 
   const handlePaste = (e) => {
     e.preventDefault();
-    const pasted = e.clipboardData.getData("text").replace(/\D/g, "").slice(0, 4);
-    const newOtp = ["", "", "", ""];
+    const pasted = e.clipboardData.getData("text").replace(/\D/g, "").slice(0, 6);
+    const newOtp = ["", "", "", "", "", ""];
     pasted.split("").forEach((ch, i) => { newOtp[i] = ch; });
     setOtp(newOtp);
-    const lastFilled = Math.min(pasted.length, 3);
+    const lastFilled = Math.min(pasted.length, 5);
     const el = document.getElementById(`otp-${lastFilled}`);
     if (el) el.focus();
   };
@@ -121,7 +120,7 @@ function OtpStep({ phone, onVerify, onBack, loading, error }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const code = otp.join("");
-    if (code.length === 4) onVerify(code);
+    if (code.length === 6) onVerify(code);
   };
 
   const maskedPhone = `+91 ${phone.slice(0, 5)} ${phone.slice(5)}`;
@@ -155,8 +154,8 @@ function OtpStep({ phone, onVerify, onBack, loading, error }) {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label className="text-xs sm:text-sm font-bold text-gray-700 mb-4 ml-1 block">4-Digit OTP</label>
-          <div className="flex gap-3 justify-between" onPaste={handlePaste}>
+          <label className="text-xs sm:text-sm font-bold text-gray-700 mb-4 ml-1 block">6-Digit OTP</label>
+          <div className="flex gap-2 justify-between" onPaste={handlePaste}>
             {otp.map((digit, index) => (
               <input
                 key={index}
@@ -167,7 +166,7 @@ function OtpStep({ phone, onVerify, onBack, loading, error }) {
                 value={digit}
                 onChange={(e) => handleChange(index, e.target.value)}
                 onKeyDown={(e) => handleKeyDown(index, e)}
-                className={`w-full aspect-square text-center text-2xl font-black border-[2px] rounded-2xl outline-none transition-all bg-gray-50 focus:bg-white
+                className={`w-full aspect-square text-center text-xl font-black border-[2px] rounded-xl outline-none transition-all bg-gray-50 focus:bg-white
                   ${digit ? "border-[#0565E6] text-[#0565E6] bg-[#0565E6]/5" : "border-gray-200 text-text-primary"}
                   focus:border-[#0565E6] focus:ring-4 focus:ring-[#0565E6]/10`}
               />
@@ -177,7 +176,7 @@ function OtpStep({ phone, onVerify, onBack, loading, error }) {
 
         <button
           type="submit"
-          disabled={otp.join("").length !== 4 || loading}
+          disabled={otp.join("").length !== 6 || loading}
           className="w-full bg-[#0565E6] hover:bg-[#0452B9] text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-3 shadow-lg shadow-[#0565E6]/30 hover:shadow-xl transition-all hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
         >
           {loading ? "Verifying..." : "Verify & Login"}
@@ -185,7 +184,7 @@ function OtpStep({ phone, onVerify, onBack, loading, error }) {
         </button>
       </form>
 
-      <ResendTimer onResend={() => {}} />
+      <ResendTimer onResend={onResend} />
     </>
   );
 }
@@ -241,9 +240,10 @@ function ResendTimer({ onResend }) {
 export default function LoginPage() {
   const [step, setStep] = useState("phone"); // "phone" | "otp"
   const [phone, setPhone] = useState("");
+  const [sessionId, setSessionId] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const { login } = useAuth();
+  const { sendOtp, verifyOtp } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -251,7 +251,8 @@ export default function LoginPage() {
     setLoading(true);
     setError("");
     try {
-      await login.sendOtp(phoneNumber); // replace with your actual API call
+      const data = await sendOtp(phoneNumber);
+      setSessionId(data.sessionId);
       setPhone(phoneNumber);
       setStep("otp");
     } catch (err) {
@@ -265,7 +266,7 @@ export default function LoginPage() {
     setLoading(true);
     setError("");
     try {
-      await login.verifyOtp(phone, otp); // replace with your actual API call
+      await verifyOtp(phone, otp, sessionId);
       const params = new URLSearchParams(location.search);
       const returnUrl = params.get("returnUrl") || "/dashboard";
       navigate(returnUrl);
@@ -317,6 +318,7 @@ export default function LoginPage() {
             phone={phone}
             onVerify={handleVerifyOtp}
             onBack={() => { setStep("phone"); setError(""); }}
+            onResend={() => handleSendOtp(phone)}
             loading={loading}
             error={error}
           />
