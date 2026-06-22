@@ -851,7 +851,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Xiaomi 14",
         slug: "xiaomi-xiaomi-14",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-xiaomi-14.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-01.jpg",
         variants: [
             { storage: "12GB / 512GB", basePrice: 27060 }
         ]
@@ -984,7 +984,7 @@ const devices = [
         brand: "Xiaomi",
         modelName: "Xiaomi 15",
         slug: "xiaomi-xiaomi-15",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-xiaomi-15.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-15-1.jpg",
         variants: [
             { storage: "12GB / 512GB", basePrice: 38580 }
         ]
