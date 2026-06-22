@@ -65,6 +65,12 @@ export const BRANDS = [
     models: 1,
     logo: "https://upload.wikimedia.org/wikipedia/commons/a/aa/IQOO_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
   },
+  {
+    name: "Poco",
+    color: "white",
+    model: 1,
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/POCO_logo.svg/250px-POCO_logo.svg.png?_=20210409122852",
+  },
 ];
 
 export const LAPTOP_BRANDS = [

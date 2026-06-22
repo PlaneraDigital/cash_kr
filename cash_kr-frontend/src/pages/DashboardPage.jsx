@@ -9,28 +9,28 @@ import Loader from '../components/ui/Loader';
 
 // --- Icons (SVGs matching DeviceKart style) ---
 const IconOrders = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /><path d="m3.3 7 8.7 5 8.7-5" /><path d="M12 22V12" /></svg>
 );
 const IconAddress = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
 );
 const IconPayment = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="14" x="2" y="5" rx="2" /><line x1="2" x2="22" y1="10" y2="10" /></svg>
 );
 const IconEarnings = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20"/><path d="m17 5-5-3-5 3"/><path d="m17 19-5 3-5-3"/><path d="M2 12h20"/><path d="m5 7-3 5 3 5"/><path d="m19 7 3 5-3 5"/></svg>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20" /><path d="m17 5-5-3-5 3" /><path d="m17 19-5 3-5-3" /><path d="M2 12h20" /><path d="m5 7-3 5 3 5" /><path d="m19 7 3 5-3 5" /></svg>
 );
 const IconReferral = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect width="20" height="5" x="2" y="7"/><line x1="12" x2="12" y1="22" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7Z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7Z"/></svg>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12" /><rect width="20" height="5" x="2" y="7" /><line x1="12" x2="12" y1="22" y2="7" /><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7Z" /><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7Z" /></svg>
 );
 const IconLogout = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" x2="9" y1="12" y2="12" /></svg>
 );
 const IconChevronRight = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
 );
 const IconChevronLeft = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
 );
 
 export default function DashboardPage() {
@@ -53,7 +53,7 @@ export default function DashboardPage() {
         orderService.getOrders(),
         userService.getReferrals().catch(() => ({ data: { referralCode: 'GENERATE123', totalReferrals: 0, totalEarnings: 0, referrals: [] } })),
       ]);
-      
+
       setUser(userRes.data.user);
       setOrders(ordersRes.data || []);
       setReferral(refRes.data);
@@ -158,14 +158,14 @@ export default function DashboardPage() {
           {/* Sidebar */}
           <div className="w-full lg:w-[320px] flex flex-col gap-6">
             {/* User Profile Card */}
-            <div 
+            <div
               onClick={() => setActiveTab('Profile')}
               className={`rounded-2xl border p-6 shadow-sm flex items-center gap-4 cursor-pointer transition-all ${activeTab === 'Profile' ? 'bg-[#E8F1FF] border-[#0565E6]' : 'bg-white border-gray-100 hover:border-[#0565E6]/50'}`}
             >
               <div className="w-16 h-16 rounded-full bg-[#E8F1FF] flex items-center justify-center border-4 border-white shadow-sm overflow-hidden shrink-0">
                 <div className="w-10 h-10 rounded-full bg-[#0565E6] flex items-center justify-center">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
                   </svg>
                 </div>
               </div>
@@ -182,8 +182,8 @@ export default function DashboardPage() {
                   key={item.name}
                   onClick={() => setActiveTab(item.name)}
                   className={`flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all duration-200 group
-                    ${activeTab === item.name 
-                      ? 'bg-[#E8F1FF] text-[#0565E6]' 
+                    ${activeTab === item.name
+                      ? 'bg-[#E8F1FF] text-[#0565E6]'
                       : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'}`}
                 >
                   <div className={`p-2 rounded-lg transition-colors
@@ -210,38 +210,38 @@ export default function DashboardPage() {
           {/* Main Content Area */}
           <div className="flex-1 bg-white rounded-3xl border border-gray-100 shadow-sm min-h-[500px] p-8 overflow-hidden">
             {activeTab === 'Profile' && (
-              <ProfileTab 
-                user={user} 
-                onUpdateProfile={handleUpdateProfile} 
+              <ProfileTab
+                user={user}
+                onUpdateProfile={handleUpdateProfile}
               />
             )}
             {activeTab === 'Orders' && (
-              <OrdersTab 
-                orders={orders} 
-                setSelectedReportOrder={setSelectedReportOrder} 
-                onCancel={handleCancelOrder} 
+              <OrdersTab
+                orders={orders}
+                setSelectedReportOrder={setSelectedReportOrder}
+                onCancel={handleCancelOrder}
               />
             )}
             {activeTab === 'Address' && (
-              <AddressTab 
-                addresses={addresses} 
-                onAdd={handleAddAddress} 
-                onDelete={handleDeleteAddress} 
+              <AddressTab
+                addresses={addresses}
+                onAdd={handleAddAddress}
+                onDelete={handleDeleteAddress}
               />
             )}
             {activeTab === 'Payment' && (
-              <PaymentTab 
-                paymentMethods={paymentMethods} 
-                onAdd={handleAddPayment} 
-                onDelete={handleDeletePayment} 
+              <PaymentTab
+                paymentMethods={paymentMethods}
+                onAdd={handleAddPayment}
+                onDelete={handleDeletePayment}
               />
             )}
             {activeTab === 'Earnings' && <EarningsTab />}
             {activeTab === 'Referral' && (
-              <ReferralTab 
-                referral={referral} 
-                copyCode={copyCode} 
-                copied={copied} 
+              <ReferralTab
+                referral={referral}
+                copyCode={copyCode}
+                copied={copied}
               />
             )}
           </div>
@@ -249,9 +249,9 @@ export default function DashboardPage() {
       </div>
 
       {selectedReportOrder && (
-        <DeviceEvaluationReportModal 
-          order={selectedReportOrder} 
-          onClose={() => setSelectedReportOrder(null)} 
+        <DeviceEvaluationReportModal
+          order={selectedReportOrder}
+          onClose={() => setSelectedReportOrder(null)}
         />
       )}
     </div>
@@ -297,11 +297,11 @@ function ProfileTab({ user, onUpdateProfile }) {
       <div className="flex items-center justify-between">
         <h2 className="text-3xl font-black text-[#111827]">My Profile</h2>
         {!isEditing && (
-          <button 
+          <button
             onClick={() => setIsEditing(true)}
             className="flex items-center gap-2 border border-[#0565E6] text-[#0565E6] px-5 py-2.5 rounded-full font-bold text-sm hover:bg-[#E8F1FF] transition-all"
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 5 1 1-11 11-4 1 1-4Z"/><path d="m15 8 1 1"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 5 1 1-11 11-4 1 1-4Z" /><path d="m15 8 1 1" /></svg>
             Edit Profile
           </button>
         )}
@@ -311,10 +311,10 @@ function ProfileTab({ user, onUpdateProfile }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <label className="block text-xs font-bold text-gray-500 mb-2">First Name</label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               value={formData.firstName}
-              onChange={e => setFormData({...formData, firstName: e.target.value})}
+              onChange={e => setFormData({ ...formData, firstName: e.target.value })}
               disabled={!isEditing}
               className="w-full bg-[#F9FAFB] border border-transparent rounded-xl px-5 py-4 text-[#111827] font-bold focus:bg-white focus:border-[#0565E6] focus:outline-none transition-all disabled:opacity-80"
               required
@@ -322,20 +322,20 @@ function ProfileTab({ user, onUpdateProfile }) {
           </div>
           <div>
             <label className="block text-xs font-bold text-gray-500 mb-2">Last Name</label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               value={formData.lastName}
-              onChange={e => setFormData({...formData, lastName: e.target.value})}
+              onChange={e => setFormData({ ...formData, lastName: e.target.value })}
               disabled={!isEditing}
               className="w-full bg-[#F9FAFB] border border-transparent rounded-xl px-5 py-4 text-[#111827] font-bold focus:bg-white focus:border-[#0565E6] focus:outline-none transition-all disabled:opacity-80"
             />
           </div>
           <div>
             <label className="block text-xs font-bold text-gray-500 mb-2">Phone</label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               value={formData.phone}
-              onChange={e => setFormData({...formData, phone: e.target.value})}
+              onChange={e => setFormData({ ...formData, phone: e.target.value })}
               disabled={!isEditing}
               className="w-full bg-[#F9FAFB] border border-transparent rounded-xl px-5 py-4 text-[#111827] font-bold focus:bg-white focus:border-[#0565E6] focus:outline-none transition-all disabled:opacity-80"
               required
@@ -343,8 +343,8 @@ function ProfileTab({ user, onUpdateProfile }) {
           </div>
           <div>
             <label className="block text-xs font-bold text-gray-500 mb-2">email</label>
-            <input 
-              type="email" 
+            <input
+              type="email"
               value={formData.email}
               disabled={true} // Email usually requires verification to change
               className="w-full bg-[#F9FAFB] border border-transparent rounded-xl px-5 py-4 text-[#111827] font-bold focus:outline-none opacity-80 cursor-not-allowed"
@@ -354,13 +354,13 @@ function ProfileTab({ user, onUpdateProfile }) {
 
         {isEditing && (
           <div className="flex gap-4">
-            <button 
+            <button
               type="submit"
               className="bg-[#0565E6] text-white font-bold py-3 px-8 rounded-xl hover:bg-[#044BA8] transition-colors"
             >
               Save Changes
             </button>
-            <button 
+            <button
               type="button"
               onClick={() => {
                 setIsEditing(false);
@@ -382,13 +382,13 @@ function ProfileTab({ user, onUpdateProfile }) {
 
       <div className="border border-gray-100 rounded-2xl p-6 flex items-start gap-5">
         <div className="w-10 h-10 rounded-full bg-[#E8F1FF] text-[#0565E6] flex items-center justify-center shrink-0">
-           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
         </div>
         <div className="flex-1">
           <div className="flex items-center justify-between">
             <h4 className="text-[15px] font-black text-[#111827]">WhatsApp Updates</h4>
             <div className="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
-              <input type="checkbox" defaultChecked className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-[#0565E6]" style={{ right: 0, borderColor: '#0565E6' }}/>
+              <input type="checkbox" defaultChecked className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-[#0565E6]" style={{ right: 0, borderColor: '#0565E6' }} />
               <label className="toggle-label block overflow-hidden h-6 rounded-full bg-[#0565E6] cursor-pointer"></label>
             </div>
           </div>
@@ -421,11 +421,11 @@ function OrdersTab({ orders, setSelectedReportOrder, onCancel }) {
           <h2 className="text-xl font-bold text-[#111827]">Check the status of orders</h2>
           <p className="text-sm text-gray-500 mt-1">Manage and track your device sales</p>
         </div>
-        
+
         {/* Category Filter */}
         <div className="flex bg-gray-50 p-1 rounded-xl border border-gray-100 shrink-0">
           {['All', 'Mobile', 'Laptop'].map(cat => (
-            <button 
+            <button
               key={cat}
               onClick={() => setCategoryFilter(cat)}
               className={`px-5 py-2 rounded-lg text-xs font-black transition-all ${categoryFilter === cat ? 'bg-white text-[#0565E6] shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}
@@ -447,85 +447,85 @@ function OrdersTab({ orders, setSelectedReportOrder, onCancel }) {
         <div className="space-y-6">
           <div className="grid grid-cols-1 gap-6">
             {filteredOrders.map((order) => (
-               <div key={order.orderId} className="bg-white border border-gray-100 rounded-[40px] p-8 shadow-sm hover:shadow-md transition-all relative overflow-hidden group">
-                  {/* Category Tag */}
-                  <div className="absolute top-0 right-10">
-                    <div className={`px-4 py-1.5 rounded-b-xl text-[9px] font-black uppercase tracking-widest ${order.device?.category === 'laptop' ? 'bg-blue-50 text-blue-500' : 'bg-[#E8F1FF] text-[#0565E6]'}`}>
-                      {order.device?.category || 'Mobile'}
+              <div key={order.orderId} className="bg-white border border-gray-100 rounded-[40px] p-8 shadow-sm hover:shadow-md transition-all relative overflow-hidden group">
+                {/* Category Tag */}
+                <div className="absolute top-0 right-10">
+                  <div className={`px-4 py-1.5 rounded-b-xl text-[9px] font-black uppercase tracking-widest ${order.device?.category === 'laptop' ? 'bg-blue-50 text-blue-500' : 'bg-[#E8F1FF] text-[#0565E6]'}`}>
+                    {order.device?.category || 'Mobile'}
+                  </div>
+                </div>
+                {/* Top Status Bar */}
+                <div className="flex items-center justify-between mb-8 pb-8 border-b border-gray-50">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-[#E8F1FF] rounded-full flex items-center justify-center text-[#0565E6]">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-black text-[#111827]">Order Confirmed</h4>
+                      <p className="text-sm font-bold text-gray-400">Your order has been created.</p>
                     </div>
                   </div>
-                  {/* Top Status Bar */}
-                  <div className="flex items-center justify-between mb-8 pb-8 border-b border-gray-50">
-                    <div className="flex items-center gap-4">
-                       <div className="w-12 h-12 bg-[#E8F1FF] rounded-full flex items-center justify-center text-[#0565E6]">
-                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
-                       </div>
-                       <div>
-                         <h4 className="text-lg font-black text-[#111827]">Order Confirmed</h4>
-                         <p className="text-sm font-bold text-gray-400">Your order has been created.</p>
-                       </div>
+                  <button
+                    onClick={() => navigate(`/orders/${order.orderId}`)}
+                    className="px-8 py-3 rounded-xl border-2 border-[#0565E6] text-[#0565E6] font-black text-sm hover:bg-[#0565E6] hover:text-white transition-all"
+                  >
+                    View Details
+                  </button>
+                </div>
+
+                {/* Device Info Row */}
+                <div className="flex flex-col md:flex-row items-center gap-8">
+                  <div className="w-24 h-24 bg-gray-50 rounded-3xl flex items-center justify-center p-4">
+                    <img
+                      src={order.device?.imageUrl || "https://img.freepik.com/free-photo/mobile-phone-with-blank-screen_23-2148151433.jpg"}
+                      alt={order.device?.modelName}
+                      className="max-h-full object-contain"
+                    />
+                  </div>
+
+                  <div className="flex-1 text-center md:text-left">
+                    <p className="text-[10px] font-black text-gray-400 uppercase tracking-[2px] mb-1">
+                      {new Date(order.createdAt).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase()}
+                    </p>
+                    <h3 className="text-xl font-black text-[#111827] mb-1">{order.device?.modelName}</h3>
+                    <p className="text-sm font-bold text-gray-400">
+                      {order.device?.category === 'laptop'
+                        ? `${order.device?.processor} / ${order.device?.ram} / ${order.device?.storage}`
+                        : `${order.device?.storage} / ${order.device?.ram || '8 GB'}`
+                      }
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-12">
+                    <div className="text-center md:text-right">
+                      <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Order ID</p>
+                      <p className="font-black text-[#111827] uppercase">{order.orderId}</p>
                     </div>
-                    <button 
-                      onClick={() => navigate(`/orders/${order.orderId}`)}
-                      className="px-8 py-3 rounded-xl border-2 border-[#0565E6] text-[#0565E6] font-black text-sm hover:bg-[#0565E6] hover:text-white transition-all"
+                    <div className="text-center md:text-right">
+                      <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Quote</p>
+                      <p className="text-2xl font-black text-[#111827]">{formatCurrency(order.priceBreakdown?.finalPrice)}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Actions for Mobile-ish view */}
+                <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                  <button
+                    onClick={() => setSelectedReportOrder(order)}
+                    className="flex-1 bg-gray-50 text-gray-500 font-bold py-3 rounded-2xl hover:bg-gray-100 transition-all text-sm"
+                  >
+                    Evaluation Report
+                  </button>
+                  {['placed', 'scheduled'].includes(order.status) && (
+                    <button
+                      onClick={() => onCancel(order.orderId)}
+                      className="flex-1 bg-red-50 text-red-500 font-bold py-3 rounded-2xl hover:bg-red-100 transition-all text-sm"
                     >
-                      View Details
+                      Cancel Order
                     </button>
-                  </div>
-
-                  {/* Device Info Row */}
-                  <div className="flex flex-col md:flex-row items-center gap-8">
-                    <div className="w-24 h-24 bg-gray-50 rounded-3xl flex items-center justify-center p-4">
-                      <img 
-                        src={order.device?.imageUrl || "https://img.freepik.com/free-photo/mobile-phone-with-blank-screen_23-2148151433.jpg"} 
-                        alt={order.device?.modelName}
-                        className="max-h-full object-contain"
-                      />
-                    </div>
-                    
-                    <div className="flex-1 text-center md:text-left">
-                      <p className="text-[10px] font-black text-gray-400 uppercase tracking-[2px] mb-1">
-                        {new Date(order.createdAt).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase()}
-                      </p>
-                      <h3 className="text-xl font-black text-[#111827] mb-1">{order.device?.modelName}</h3>
-                      <p className="text-sm font-bold text-gray-400">
-                        {order.device?.category === 'laptop' 
-                          ? `${order.device?.processor} / ${order.device?.ram} / ${order.device?.storage}`
-                          : `${order.device?.storage} / ${order.device?.ram || '8 GB'}`
-                        }
-                      </p>
-                    </div>
-
-                    <div className="flex items-center gap-12">
-                      <div className="text-center md:text-right">
-                        <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Order ID</p>
-                        <p className="font-black text-[#111827] uppercase">{order.orderId}</p>
-                      </div>
-                      <div className="text-center md:text-right">
-                        <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Quote</p>
-                        <p className="text-2xl font-black text-[#111827]">{formatCurrency(order.priceBreakdown?.finalPrice)}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Bottom Actions for Mobile-ish view */}
-                  <div className="mt-8 flex gap-3">
-                     <button 
-                       onClick={() => setSelectedReportOrder(order)}
-                       className="flex-1 bg-gray-50 text-gray-500 font-bold py-3 rounded-2xl hover:bg-gray-100 transition-all text-sm"
-                     >
-                       Evaluation Report
-                     </button>
-                     {['placed', 'scheduled'].includes(order.status) && (
-                        <button 
-                          onClick={() => onCancel(order.orderId)}
-                          className="flex-1 bg-red-50 text-red-500 font-bold py-3 rounded-2xl hover:bg-red-100 transition-all text-sm"
-                        >
-                          Cancel Order
-                        </button>
-                     )}
-                  </div>
-               </div>
+                  )}
+                </div>
+              </div>
             ))}
           </div>
 
@@ -535,7 +535,7 @@ function OrdersTab({ orders, setSelectedReportOrder, onCancel }) {
               <IconChevronLeft />
             </button>
             <div className="flex items-center gap-2">
-               <span className="w-10 h-10 rounded-xl bg-[#E8F1FF] text-[#0565E6] flex items-center justify-center font-black">1</span>
+              <span className="w-10 h-10 rounded-xl bg-[#E8F1FF] text-[#0565E6] flex items-center justify-center font-black">1</span>
             </div>
             <button className="flex items-center justify-center w-12 h-12 rounded-2xl border border-gray-100 bg-white text-gray-400 hover:text-[#111827] hover:border-gray-200 transition-all">
               <IconChevronRight />
@@ -574,7 +574,7 @@ function AddressTab({ addresses, onAdd, onDelete }) {
           <h2 className="text-xl font-bold text-[#111827]">Manage Your Saved Addresses</h2>
           <p className="text-sm text-gray-500 mt-1">Add, edit, or remove your saved locations</p>
         </div>
-        <button 
+        <button
           onClick={() => setShowForm(!showForm)}
           className="flex items-center gap-2 px-6 py-3 rounded-xl border border-gray-100 text-gray-700 font-bold text-sm hover:bg-gray-50 transition-all shadow-sm"
         >
@@ -584,61 +584,61 @@ function AddressTab({ addresses, onAdd, onDelete }) {
 
       {showForm && (
         <form onSubmit={handleSubmit} className="bg-gray-50 rounded-2xl p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <input 
-            placeholder="Label (e.g. Home, Office)" 
+          <input
+            placeholder="Label (e.g. Home, Office)"
             className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
             value={formData.label}
-            onChange={(e) => setFormData({...formData, label: e.target.value})}
+            onChange={(e) => setFormData({ ...formData, label: e.target.value })}
             required
           />
-          <input 
-            placeholder="Full Name" 
+          <input
+            placeholder="Full Name"
             className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
             value={formData.name}
-            onChange={(e) => setFormData({...formData, name: e.target.value})}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             required
           />
-          <input 
-            placeholder="Phone Number" 
+          <input
+            placeholder="Phone Number"
             className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
             value={formData.phone}
-            onChange={(e) => setFormData({...formData, phone: e.target.value})}
+            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             required
           />
-          <input 
-            placeholder="Pincode" 
+          <input
+            placeholder="Pincode"
             className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
             value={formData.pincode}
-            onChange={(e) => setFormData({...formData, pincode: e.target.value})}
+            onChange={(e) => setFormData({ ...formData, pincode: e.target.value })}
             required
           />
           <div className="md:col-span-2">
-            <textarea 
-              placeholder="Full Address" 
+            <textarea
+              placeholder="Full Address"
               className="w-full p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
               value={formData.address}
-              onChange={(e) => setFormData({...formData, address: e.target.value})}
+              onChange={(e) => setFormData({ ...formData, address: e.target.value })}
               required
             />
           </div>
-          <input 
-            placeholder="Landmark" 
+          <input
+            placeholder="Landmark"
             className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
             value={formData.landmark}
-            onChange={(e) => setFormData({...formData, landmark: e.target.value})}
+            onChange={(e) => setFormData({ ...formData, landmark: e.target.value })}
           />
-          <input 
-            placeholder="City" 
+          <input
+            placeholder="City"
             className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
             value={formData.city}
-            onChange={(e) => setFormData({...formData, city: e.target.value})}
+            onChange={(e) => setFormData({ ...formData, city: e.target.value })}
             required
           />
-          <input 
-            placeholder="State" 
+          <input
+            placeholder="State"
             className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
             value={formData.state}
-            onChange={(e) => setFormData({...formData, state: e.target.value})}
+            onChange={(e) => setFormData({ ...formData, state: e.target.value })}
             required
           />
           <button type="submit" className="md:col-span-2 bg-[#0565E6] text-white font-bold py-3 rounded-xl hover:bg-[#044BA8] transition-colors mt-2">
@@ -657,11 +657,11 @@ function AddressTab({ addresses, onAdd, onDelete }) {
             <div key={addr._id} className="border border-gray-100 rounded-2xl p-5 relative group hover:border-[#0565E6]/30 transition-all">
               <div className="flex items-center justify-between mb-3">
                 <span className="px-3 py-1 bg-[#E8F1FF] text-[#0565E6] text-xs font-bold rounded-full uppercase">{addr.label}</span>
-                <button 
+                <button
                   onClick={() => onDelete(addr._id)}
                   className="text-gray-400 hover:text-red-500 transition-colors"
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /><line x1="10" x2="10" y1="11" y2="17" /><line x1="14" x2="14" y1="11" y2="17" /></svg>
                 </button>
               </div>
               <h4 className="font-bold text-[#111827]">{addr.name}</h4>
@@ -710,13 +710,13 @@ function PaymentTab({ paymentMethods, onAdd, onDelete }) {
         {showForm && (
           <div className="bg-gray-50 rounded-3xl p-6 border border-[#0565E6]/20">
             <div className="flex gap-4 mb-6">
-              <button 
+              <button
                 onClick={() => setType('bank')}
                 className={`flex-1 py-2 rounded-xl font-bold text-sm transition-all ${type === 'bank' ? 'bg-[#0565E6] text-white shadow-md' : 'bg-white text-gray-500 border border-gray-100'}`}
               >
                 Bank Account
               </button>
-              <button 
+              <button
                 onClick={() => setType('upi')}
                 className={`flex-1 py-2 rounded-xl font-bold text-sm transition-all ${type === 'upi' ? 'bg-[#0565E6] text-white shadow-md' : 'bg-white text-gray-500 border border-gray-100'}`}
               >
@@ -727,42 +727,42 @@ function PaymentTab({ paymentMethods, onAdd, onDelete }) {
             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {type === 'bank' ? (
                 <>
-                  <input 
-                    placeholder="Account Holder Name" 
+                  <input
+                    placeholder="Account Holder Name"
                     className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
                     value={formData.accountName}
-                    onChange={(e) => setFormData({...formData, accountName: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, accountName: e.target.value })}
                     required
                   />
-                  <input 
-                    placeholder="Bank Name" 
+                  <input
+                    placeholder="Bank Name"
                     className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
                     value={formData.bankName}
-                    onChange={(e) => setFormData({...formData, bankName: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, bankName: e.target.value })}
                     required
                   />
-                  <input 
-                    placeholder="Account Number" 
+                  <input
+                    placeholder="Account Number"
                     className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
                     value={formData.accountNumber}
-                    onChange={(e) => setFormData({...formData, accountNumber: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, accountNumber: e.target.value })}
                     required
                   />
-                  <input 
-                    placeholder="IFSC Code" 
+                  <input
+                    placeholder="IFSC Code"
                     className="p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
                     value={formData.ifscCode}
-                    onChange={(e) => setFormData({...formData, ifscCode: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, ifscCode: e.target.value })}
                     required
                   />
                 </>
               ) : (
                 <div className="md:col-span-2">
-                  <input 
-                    placeholder="UPI ID (e.g. name@bank)" 
+                  <input
+                    placeholder="UPI ID (e.g. name@bank)"
                     className="w-full p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#0565E6]/50"
                     value={formData.upiId}
-                    onChange={(e) => setFormData({...formData, upiId: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, upiId: e.target.value })}
                     required
                   />
                 </div>
@@ -771,7 +771,7 @@ function PaymentTab({ paymentMethods, onAdd, onDelete }) {
                 <button type="submit" className="flex-1 bg-[#0565E6] text-white font-bold py-3 rounded-xl hover:bg-[#044BA8] transition-colors">
                   Save Payment Method
                 </button>
-                <button 
+                <button
                   type="button"
                   onClick={() => setShowForm(false)}
                   className="px-6 py-3 rounded-xl border border-gray-200 text-gray-500 font-bold"
@@ -788,7 +788,7 @@ function PaymentTab({ paymentMethods, onAdd, onDelete }) {
           <div className="flex items-start justify-between">
             <div className="flex gap-4">
               <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center text-gray-400 group-hover:bg-[#E8F1FF] group-hover:text-[#0565E6] transition-colors">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="5" width="20" height="14" rx="2" /><line x1="2" y1="10" x2="22" y2="10" /></svg>
               </div>
               <div className="flex-1">
                 <h4 className="font-bold text-[#111827]">Bank Accounts</h4>
@@ -802,11 +802,11 @@ function PaymentTab({ paymentMethods, onAdd, onDelete }) {
                           <p className="font-bold text-sm text-gray-900">{bank.bankName}</p>
                           <p className="text-xs text-gray-500">A/c: ****{bank.accountNumber.slice(-4)} • {bank.accountName}</p>
                         </div>
-                        <button 
+                        <button
                           onClick={() => onDelete(bank._id)}
                           className="text-gray-400 hover:text-red-500 p-1"
                         >
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /></svg>
                         </button>
                       </div>
                     ))}
@@ -815,7 +815,7 @@ function PaymentTab({ paymentMethods, onAdd, onDelete }) {
                 <p className="text-xs text-gray-400 mt-2">Bank transfers are sent directly to your account.</p>
               </div>
             </div>
-            {!showForm && <button onClick={() => {setShowForm(true); setType('bank');}} className="text-[#0565E6] font-bold text-sm hover:underline">Add New Bank Account</button>}
+            {!showForm && <button onClick={() => { setShowForm(true); setType('bank'); }} className="text-[#0565E6] font-bold text-sm hover:underline">Add New Bank Account</button>}
           </div>
         </div>
 
@@ -824,7 +824,7 @@ function PaymentTab({ paymentMethods, onAdd, onDelete }) {
           <div className="flex items-start justify-between">
             <div className="flex gap-4">
               <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center text-gray-400 group-hover:bg-[#E8F1FF] group-hover:text-[#0565E6] transition-colors">
-                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" /><path d="M3 5v14a2 2 0 0 0 2 2h16v-5" /><path d="M18 12a2 2 0 0 0 0 4h4v-4Z" /></svg>
               </div>
               <div className="flex-1">
                 <h4 className="font-bold text-[#111827]">UPI Transfer</h4>
@@ -837,11 +837,11 @@ function PaymentTab({ paymentMethods, onAdd, onDelete }) {
                         <div>
                           <p className="font-bold text-sm text-gray-900">{upi.upiId}</p>
                         </div>
-                        <button 
+                        <button
                           onClick={() => onDelete(upi._id)}
                           className="text-gray-400 hover:text-red-500 p-1"
                         >
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /></svg>
                         </button>
                       </div>
                     ))}
@@ -850,14 +850,14 @@ function PaymentTab({ paymentMethods, onAdd, onDelete }) {
                 <p className="text-xs text-gray-400 mt-2">Instant transfer to your UPI linked account.</p>
               </div>
             </div>
-            {!showForm && <button onClick={() => {setShowForm(true); setType('upi');}} className="text-[#0565E6] font-bold text-sm hover:underline">Add New UPI ID</button>}
+            {!showForm && <button onClick={() => { setShowForm(true); setType('upi'); }} className="text-[#0565E6] font-bold text-sm hover:underline">Add New UPI ID</button>}
           </div>
         </div>
 
         {/* Security Info */}
         <div className="bg-gray-50/50 rounded-2xl p-4 text-center">
           <p className="text-xs text-gray-500 font-medium flex items-center justify-center gap-2">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
             Secured by SSL Encryption. 100% Safe and Confidential Payment Info
           </p>
         </div>
@@ -919,14 +919,14 @@ function ReferralTab({ referral, copyCode, copied }) {
 
       <div className="border border-[#0565E6]/30 bg-white rounded-3xl p-8 relative">
         <div className="absolute top-4 right-6 text-[#0565E6]/20">
-           <IconReferral />
+          <IconReferral />
         </div>
-        
+
         <p className="text-[10px] font-bold text-[#0565E6] uppercase tracking-widest mb-4">Your Referral Link</p>
-        
+
         <div className="mb-8">
           <div className="bg-[#F9FAFB] border border-gray-100 rounded-2xl p-5 text-gray-500 font-medium">
-             {referral.referralCode || 'Referral code not generated yet'}
+            {referral.referralCode || 'Referral code not generated yet'}
           </div>
           <p className="text-xs text-gray-400 mt-2 flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
@@ -938,11 +938,11 @@ function ReferralTab({ referral, copyCode, copied }) {
           <button className="flex-1 bg-[#044BA8] text-white font-bold py-4 rounded-2xl hover:bg-[#0452B8] transition-colors shadow-lg shadow-blue-200">
             Generate Link
           </button>
-          <button 
+          <button
             onClick={copyCode}
             className="flex-1 border border-gray-100 text-gray-400 font-bold py-4 rounded-2xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
             {copied ? 'Copied!' : 'Copy link'}
           </button>
         </div>
@@ -983,13 +983,13 @@ const supportsESIM = (modelName) => {
 
 function DeviceEvaluationReportModal({ order, onClose }) {
   const isLaptop = order.device?.category === 'laptop';
-  
+
   const issueLabels = {
     // Physical issues
     'glass_crack': 'Glass Crack',
     'back_panel': 'Back Panel Damage/Scratches',
     'camera_glass_broken': 'Camera Glass Broken',
-    
+
     // Technical issues
     'battery_service': 'Battery Warning / Service Required',
     'front_camera': 'Front Camera faulty',
@@ -1018,7 +1018,7 @@ function DeviceEvaluationReportModal({ order, onClose }) {
         {/* Header */}
         <div className="p-8 text-center relative border-b border-gray-50">
           <button onClick={onClose} className="absolute top-6 right-6 w-8 h-8 flex items-center justify-center rounded-lg border border-gray-200 text-gray-400 hover:text-gray-900 transition-all">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12" /></svg>
           </button>
           <h2 className="text-2xl font-black text-[#111827] mb-2">Device Evaluation Report</h2>
           <p className="text-sm font-bold text-gray-400">This is the report that you filled while selling this device.</p>
@@ -1066,16 +1066,16 @@ function DeviceEvaluationReportModal({ order, onClose }) {
             <div className="space-y-6">
               <h3 className="text-lg font-black text-[#111827]">Physical Condition</h3>
               <div className="space-y-3">
-                 {physicalIssues.length === 0 ? (
-                   <p className="text-sm font-bold text-gray-400 italic">No physical issues reported</p>
-                 ) : (
-                   physicalIssues.map(id => (
-                     <div key={id} className="flex items-center gap-3">
-                       <div className="w-1.5 h-1.5 rounded-full bg-[#EF4444]" />
-                       <p className="text-sm font-black text-[#EF4444]">{issueLabels[id] || id}</p>
-                     </div>
-                   ))
-                 )}
+                {physicalIssues.length === 0 ? (
+                  <p className="text-sm font-bold text-gray-400 italic">No physical issues reported</p>
+                ) : (
+                  physicalIssues.map(id => (
+                    <div key={id} className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#EF4444]" />
+                      <p className="text-sm font-black text-[#EF4444]">{issueLabels[id] || id}</p>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
           )}
@@ -1085,25 +1085,25 @@ function DeviceEvaluationReportModal({ order, onClose }) {
             <div className="space-y-6">
               <h3 className="text-lg font-black text-[#111827]">Technical Condition</h3>
               <div className="space-y-3">
-                 {technicalIssues.length === 0 ? (
-                   <div className="p-10 bg-gray-50 rounded-2xl border border-dashed border-gray-200 text-center">
-                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">No technical issues reported</p>
-                   </div>
-                 ) : (
-                   technicalIssues.map(id => (
-                     <div key={id} className="flex items-center gap-3">
-                       <div className="w-1.5 h-1.5 rounded-full bg-[#EF4444]" />
-                       <p className="text-sm font-black text-[#EF4444]">{issueLabels[id] || id}</p>
-                     </div>
-                   ))
-                 )}
+                {technicalIssues.length === 0 ? (
+                  <div className="p-10 bg-gray-50 rounded-2xl border border-dashed border-gray-200 text-center">
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">No technical issues reported</p>
+                  </div>
+                ) : (
+                  technicalIssues.map(id => (
+                    <div key={id} className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#EF4444]" />
+                      <p className="text-sm font-black text-[#EF4444]">{issueLabels[id] || id}</p>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
           )}
         </div>
 
         <div className="p-8 bg-gray-50/50 border-t border-gray-100 flex gap-4">
-           <button onClick={onClose} className="flex-1 bg-[#111827] text-white font-black py-4 rounded-2xl hover:bg-black transition-all">Close Report</button>
+          <button onClick={onClose} className="flex-1 bg-[#111827] text-white font-black py-4 rounded-2xl hover:bg-black transition-all">Close Report</button>
         </div>
       </div>
     </div>

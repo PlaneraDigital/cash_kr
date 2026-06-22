@@ -25,6 +25,7 @@ import Corporate from './pages/Corporate.jsx';
 import HelpCenter from './pages/HelpCenter.jsx';
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import TermsAndConditions from './pages/TermsAndConditions.jsx';
+import WhatsAppButton from './components/WhatsappButton.jsx';
 
 // Laptop Pages
 import LaptopBrandSelectionPage from './pages/LaptopBrandSelectionPage.jsx';
@@ -119,6 +120,7 @@ function App() {
         </Routes>
       </main>
       {!isAdminRoute && <Footer />}
+      <WhatsAppButton />
     </>
   );
 }
