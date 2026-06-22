@@ -4,6 +4,7 @@ import { deviceService } from '../services/device.service';
 import Breadcrumb from '../components/ui/Breadcrumb';
 import Loader from '../components/ui/Loader';
 import { formatCurrency } from '../utils/formatCurrency';
+import PincodeBox from '../components/PincodeBox';
 
 export default function TabletVariantSelectionPage() {
   const { brand, slug } = useParams();
@@ -11,6 +12,7 @@ export default function TabletVariantSelectionPage() {
   const [device, setDevice] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedVariant, setSelectedVariant] = useState(null);
+  const [isPincodeVerified, setIsPincodeVerified] = useState(false);
   const brandName = brand.charAt(0).toUpperCase() + brand.slice(1);
 
   useEffect(() => {
@@ -87,9 +89,13 @@ export default function TabletVariantSelectionPage() {
               </div>
             </div>
 
+            <PincodeBox onVerified={setIsPincodeVerified} />
+
             <button 
               onClick={() => navigate(`/sell-tablet/${brand}/${slug}/quiz?storage=${selectedVariant.storage}`)}
-              className="w-full bg-[#0565E6] text-white font-black py-4 sm:py-5 rounded-2xl shadow-xl shadow-blue-100 hover:bg-[#044ab8] hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-lg group"
+              disabled={!isPincodeVerified}
+              className={`w-full text-white font-black py-4 sm:py-5 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2 text-lg group
+                ${isPincodeVerified ? 'bg-[#0565E6] shadow-blue-100 hover:bg-[#044ab8] hover:-translate-y-1' : 'bg-gray-300 cursor-not-allowed opacity-60'}`}
             >
               Start Selling 
               <svg className="transition-transform group-hover:translate-x-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>

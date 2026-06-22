@@ -4,6 +4,7 @@ import { deviceService } from '../services/device.service';
 import Loader from '../components/ui/Loader';
 import { formatCurrency } from '../utils/formatCurrency';
 import LaptopSpecModal from '../components/LaptopSpecModal';
+import PincodeBox from '../components/PincodeBox';
 
 export default function MacModelDetailsPage() {
   const { brand, slug } = useParams();
@@ -11,6 +12,7 @@ export default function MacModelDetailsPage() {
   const [device, setDevice] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPincodeVerified, setIsPincodeVerified] = useState(false);
 
   useEffect(() => {
     deviceService.getDevice(slug).then(res => {
@@ -80,9 +82,13 @@ export default function MacModelDetailsPage() {
               </div>
             </div>
 
+            <PincodeBox onVerified={setIsPincodeVerified} />
+
             <button
               onClick={() => setIsModalOpen(true)}
-              className="group w-full bg-[#0565E6] text-white font-black py-5 rounded-[24px] hover:bg-[#044BA8] transition-all shadow-xl shadow-blue-100 text-base flex items-center justify-center gap-3 active:scale-95"
+              disabled={!isPincodeVerified}
+              className={`group w-full font-black py-5 rounded-[24px] transition-all text-base flex items-center justify-center gap-3 active:scale-95
+                ${isPincodeVerified ? 'bg-[#0565E6] text-white hover:bg-[#044BA8] shadow-xl shadow-blue-100' : 'bg-gray-300 text-white cursor-not-allowed opacity-60'}`}
             >
               Start Selling
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" className="group-hover:translate-x-1 transition-transform"><path d="M5 12h14M12 5l7 7-7 7"/></svg>

@@ -7,21 +7,56 @@ import { calculateLaptopPrice } from '../utils/priceCalculator';
 import { formatCurrency } from '../utils/formatCurrency';
 import Loader from '../components/ui/Loader';
 import LaptopSpecModal from '../components/LaptopSpecModal';
-import Modal from '../components/ui/Modal';
 
 const STEPS = [
   { id: 'specs', label: 'Specs' },
-  { id: 'age', label: 'Age' },
-  { id: 'functional', label: 'Functional' },
-  { id: 'screen', label: 'Screen' },
-  { id: 'body', label: 'Body' },
+  { id: 'power', label: 'Power Status' },
+  { id: 'functional', label: 'Functional Issues' },
+  { id: 'screen', label: 'Screen Assessment' },
+  { id: 'body', label: 'Body Condition' },
   { id: 'accessories', label: 'Accessories' },
+  { id: 'age', label: 'Device Age' },
 ];
 
 const AGE_OPTIONS = [
   { key: 'lessThan1', label: 'Less than 1 year (in warranty)' },
   { key: 'oneToTwo', label: 'Between 1 and 3 years' },
   { key: 'twoToThree', label: 'More than 3 years' },
+];
+
+const functionalOptions = [
+  { id: 'keyboard', label: 'Keyboard not working / key(s) missing', icon: '⌨️', pct: '7%' },
+  { id: 'cdDrive', label: 'CD/DVD Drive not working', icon: '💿', pct: '7%' },
+  { id: 'trackpad', label: 'Touchpad not working / click faulty', icon: '🖱️', pct: '18%' },
+  { id: 'battery', label: 'Battery dead / backup < 60 mins', icon: '🔋', pct: '6%' },
+  { id: 'speakers', label: 'Speakers faulty / cracked sound', icon: '🔊', pct: '3%' },
+  { id: 'wifi', label: 'Wi-Fi not working', icon: '🌐', pct: '5%' },
+  { id: 'ports', label: 'USB Port not working', icon: '🔌', pct: '8%' },
+  { id: 'webcam', label: 'Web Cam not working', icon: '📷', pct: '6%' },
+  { id: 'charging', label: 'Charging Port not working', icon: '🔌', pct: '8%' },
+  { id: 'hardDisk', label: 'Hard Drive Missing / Defective', icon: '💾', pct: '10%' },
+  { id: 'motherboard', label: 'Motherboard issue (restart/hang/heat)', icon: '🧩', pct: '35%' },
+  { id: 'bluetooth', label: 'Bluetooth not working', icon: '📡', pct: '6%' },
+];
+
+const screenOptions = [
+  { id: 'screenCracked', label: 'Screen cracked or broken', icon: '💔', pct: '18%' },
+  { id: 'lineDiscolour', label: 'Line, discolouration or spot', icon: '🖥️', pct: '18%' },
+];
+
+const bodyOptions = [
+  { id: 'minorDentTop', label: 'Minor dent on top panel', icon: '📱', pct: '8%' },
+  { id: 'minorDentBase', label: 'Minor dent on base panel', icon: '📱', pct: '8%' },
+  { id: 'majorDentTop', label: 'Major dent on top panel', icon: '💥', pct: '35%' },
+  { id: 'majorDentBase', label: 'Major dent on base panel', icon: '💥', pct: '40%' },
+  { id: 'minorScratch', label: 'Minor scratch on body', icon: '✨', pct: '5%' },
+  { id: 'majorScratch', label: 'Major scratch on body', icon: '🔪', pct: '8%' },
+];
+
+const accessoryOptions = [
+  { id: 'bill', label: 'GST Valid Bill', desc: 'Valid purchase invoice', icon: '📄' },
+  { id: 'box', label: 'Original Box', desc: 'Original purchase box', icon: '📦' },
+  { id: 'charger', label: 'Original Charger', desc: 'Original charging adapter', icon: '🔌' }
 ];
 
 export default function LaptopConditionQuizPage() {
@@ -32,28 +67,20 @@ export default function LaptopConditionQuizPage() {
   const { isAuthenticated, user } = useAuth();
 
   const [specs, setSpecs] = useState(location.state?.specs);
-
   const [device, setDevice] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [currentStep, setCurrentStep] = useState(1); 
+  const [currentStepIndex, setCurrentStepIndex] = useState(0); 
   const [showResult, setShowResult] = useState(false);
-  
-  // Modals
   const [isSpecsModalOpen, setIsSpecsModalOpen] = useState(false);
-  const [isIssuesModalOpen, setIsIssuesModalOpen] = useState(false);
-  const [isScreenModalOpen, setIsScreenModalOpen] = useState(false);
-  const [isBodyModalOpen, setIsBodyModalOpen] = useState(false);
-  const [isAccessoriesModalOpen, setIsAccessoriesModalOpen] = useState(false);
+  const [priceAnimating, setPriceAnimating] = useState(false);
 
   // Selections
-  const [age, setAge] = useState(null);
-  const [functionalIssues, setFunctionalIssues] = useState(null); 
-  const [issuesList, setIssuesList] = useState([]);
-  const [screenIssues, setScreenIssues] = useState(null);
+  const [powerStatus, setPowerStatus] = useState(null); // 'on' | 'off'
+  const [issuesList, setIssuesList] = useState([]); // functional issues
   const [screenIssuesList, setScreenIssuesList] = useState([]);
-  const [bodyIssues, setBodyIssues] = useState(null);
   const [bodyIssuesList, setBodyIssuesList] = useState([]);
-  const [accessories, setAccessories] = useState([]);
+  const [accessories, setAccessories] = useState(['bill', 'box', 'charger']); // default active
+  const [age, setAge] = useState(null); // age option key
 
   const [currentPrice, setCurrentPrice] = useState(0);
   const [breakdown, setBreakdown] = useState(null);
@@ -74,91 +101,26 @@ export default function LaptopConditionQuizPage() {
     const result = calculateLaptopPrice(device, {
       ...specs,
       yearBracket: age,
+      powerStatus: powerStatus,
       functionalIssues: issuesList,
       screenIssues: screenIssuesList,
       bodyIssues: bodyIssuesList,
       accessories: accessories.length > 0 ? accessories : ['none']
     });
     if (result) {
+      setPriceAnimating(true);
+      setTimeout(() => setPriceAnimating(false), 400);
       setCurrentPrice(result.finalPrice);
       setBreakdown(result);
     }
-  }, [device, specs, age, issuesList, screenIssuesList, bodyIssuesList, accessories]);
+  }, [device, specs, age, powerStatus, issuesList, screenIssuesList, bodyIssuesList, accessories]);
 
   const handleSpecsUpdate = (newSpecs) => {
     setSpecs(newSpecs);
     setIsSpecsModalOpen(false);
   };
 
-  const handleFunctionalSelect = (val) => {
-    if (val === 'yes') setIsIssuesModalOpen(true);
-    else {
-      setFunctionalIssues('no');
-      setIssuesList([]);
-      if (currentStep === 2) setCurrentStep(3);
-    }
-  };
-
-  const handleIssuesFinish = (list) => {
-    setFunctionalIssues(list.length > 0 ? 'yes' : 'no');
-    setIssuesList(list);
-    setIsIssuesModalOpen(false);
-    if (currentStep === 2) setCurrentStep(3);
-  };
-
-  const handleIssuesModalClose = () => {
-    setIsIssuesModalOpen(false);
-    if (issuesList.length === 0) setFunctionalIssues('no');
-  };
-
-  const handleScreenSelect = (val) => {
-    if (val === 'yes') setIsScreenModalOpen(true);
-    else {
-      setScreenIssues('no');
-      setScreenIssuesList([]);
-      if (currentStep === 3) setCurrentStep(4);
-    }
-  };
-
-  const handleScreenFinish = (list) => {
-    setScreenIssues(list.length > 0 ? 'yes' : 'no');
-    setScreenIssuesList(list);
-    setIsScreenModalOpen(false);
-    if (currentStep === 3) setCurrentStep(4);
-  };
-
-  const handleScreenModalClose = () => {
-    setIsScreenModalOpen(false);
-    if (screenIssuesList.length === 0) setScreenIssues('no');
-  };
-
-  const handleBodySelect = (val) => {
-    if (val === 'yes') setIsBodyModalOpen(true);
-    else {
-      setBodyIssues('no');
-      setBodyIssuesList([]);
-      setIsAccessoriesModalOpen(true);
-      if (currentStep === 4) setCurrentStep(5);
-    }
-  };
-
-  const handleBodyFinish = (list) => {
-    setBodyIssues(list.length > 0 ? 'yes' : 'no');
-    setBodyIssuesList(list);
-    setIsBodyModalOpen(false);
-    setIsAccessoriesModalOpen(true);
-    if (currentStep === 4) setCurrentStep(5);
-  };
-
-  const handleBodyModalClose = () => {
-    setIsBodyModalOpen(false);
-    if (bodyIssuesList.length === 0) setBodyIssues('no');
-  };
-
-  const handleAccessoriesFinish = (list) => {
-    setAccessories(list);
-    setIsAccessoriesModalOpen(false);
-    
+  const handleGetBestPrice = () => {
     const ageLabel = AGE_OPTIONS.find(o => o.key === age)?.label || age;
     
     updateQuote({
@@ -171,10 +133,11 @@ export default function LaptopConditionQuizPage() {
         ...specs,
         deviceAge: ageLabel,
         yearBracket: age,
+        powerStatus,
         functionalIssues: issuesList,
         screenIssues: screenIssuesList,
         bodyIssues: bodyIssuesList,
-        accessories: list
+        accessories: accessories
       },
       priceBreakdown: breakdown,
       price: currentPrice
@@ -255,16 +218,21 @@ export default function LaptopConditionQuizPage() {
                 </div>
               </div>
 
-              {/* Evaluation Detail */}
+              {/* Evaluation Detail (Specs Added Here) */}
               <div className="bg-white rounded-[40px] border border-gray-100 p-12 shadow-sm">
                 <h3 className="text-2xl font-black text-[#111827] mb-12">Laptop Evaluation Detail</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10">
                    <EvaluationDetailRow label="Device" value={device.modelName} color="#0565E6" />
+                   <EvaluationDetailRow label="Processor" value={specs.processor || 'Standard'} color="#0565E6" />
+                   <EvaluationDetailRow label="Generation" value={specs.generation || 'Standard'} color="#0565E6" />
+                   <EvaluationDetailRow label="RAM" value={specs.ram || 'Standard'} color="#0565E6" />
+                   <EvaluationDetailRow label="Storage" value={specs.storage || 'Standard'} color="#0565E6" />
+                   <EvaluationDetailRow label="Power Status" value={powerStatus === 'on' ? 'Turns On' : 'Does Not Turn On (Off)'} color={powerStatus === 'on' ? '#0565E6' : '#EF4444'} />
                    <EvaluationDetailRow label="Device Age" value={age ? AGE_OPTIONS.find(o => o.key === age).label : '-'} color="#0565E6" />
                    <EvaluationDetailRow label="Functional Issues" value={issuesList.length > 0 ? issuesList.length + ' issue(s)' : 'No Issues'} color={issuesList.length > 0 ? '#EF4444' : '#0565E6'} />
                    <EvaluationDetailRow label="Screen Condition" value={screenIssuesList.length > 0 ? screenIssuesList.length + ' issue(s)' : 'No Issues'} color={screenIssuesList.length > 0 ? '#EF4444' : '#0565E6'} />
                    <EvaluationDetailRow label="Body Condition" value={bodyIssuesList.length > 0 ? bodyIssuesList.length + ' issue(s)' : 'No Issues'} color={bodyIssuesList.length > 0 ? '#EF4444' : '#0565E6'} />
-                   <EvaluationDetailRow label="Accessories" value={accessories.length > 0 ? accessories.join(', ') : 'None'} color="#0565E6" />
+                   <EvaluationDetailRow label="Accessories" value={accessories.length > 0 ? accessories.map(a => a.charAt(0).toUpperCase() + a.slice(1)).join(', ') : 'None'} color="#0565E6" />
                 </div>
               </div>
             </div>
@@ -275,6 +243,9 @@ export default function LaptopConditionQuizPage() {
                  <h3 className="text-xl font-black text-[#111827] mb-8">Offer Summary</h3>
                  <div className="space-y-6">
                     <SummaryPriceRow label="Base Price" value={breakdown?.basePrice} />
+                    {breakdown?.powerDeduction < 0 && (
+                      <SummaryPriceRow label="Power Off Deduction" value={breakdown?.powerDeduction} />
+                    )}
                     <SummaryPriceRow label="Pickup Fee" value={0} original={100} isFree />
                     <SummaryPriceRow label="Processing" value={0} original={150} isFree />
                     <div className="pt-8 border-t border-gray-50 flex justify-between items-center">
@@ -302,6 +273,8 @@ export default function LaptopConditionQuizPage() {
   return (
     <div className="bg-[#F9FAFB] min-h-screen py-8 px-4 sm:px-10">
       <div className="max-w-[1400px] mx-auto">
+        
+        {/* Header summary of current device */}
         <div className="bg-white rounded-[32px] p-8 mb-8 border border-gray-100 flex items-center gap-8 shadow-sm">
           <div className="w-24 h-24 bg-gray-50 rounded-2xl flex items-center justify-center p-3">
              <img src={device.imageUrl} alt={device.modelName} className="max-h-full object-contain" />
@@ -313,80 +286,310 @@ export default function LaptopConditionQuizPage() {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-10">
+          {/* Main Quiz Section */}
           <div className="flex-1 space-y-8">
-            <EvaluationStepCard title="1. Select Device Specs ?" active={true}>
-               <button onClick={() => setIsSpecsModalOpen(true)} className="px-6 py-2 rounded-full border-[1.5px] border-gray-100 text-sm font-black text-gray-500 hover:bg-gray-50 transition-colors">Modify</button>
-            </EvaluationStepCard>
-            <EvaluationStepCard title="Age of your device" active={currentStep >= 1}>
-               <p className="text-sm text-gray-500 mb-6 font-medium">
-                 Let us know how old is your device. Valid bill is needed for devices less than 3 years.
-               </p>
-               <div className="flex flex-col gap-4">
-                 {AGE_OPTIONS.map(opt => (
-                   <button 
-                     key={opt.key} 
-                     onClick={() => { setAge(opt.key); if(currentStep === 1) setCurrentStep(2); }} 
-                     className={`flex items-center gap-4 px-6 py-5 rounded-2xl border-[1.5px] font-semibold text-left transition-all w-full
-                       ${age === opt.key ? 'border-[#0565E6] bg-[#0565E6]/5 text-[#0565E6]' : 'border-gray-100 text-gray-700 bg-white hover:border-gray-200'}`}
-                   >
-                     <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 transition-all
-                       ${age === opt.key ? 'border-[#0565E6]' : 'border-gray-300'}`}
-                     >
-                       {age === opt.key && (
-                         <div className="w-3 h-3 rounded-full bg-[#0565E6]" />
-                       )}
-                     </div>
-                     <span className="text-base font-bold">{opt.label}</span>
-                   </button>
-                 ))}
-               </div>
-            </EvaluationStepCard>
-            <EvaluationStepCard title="3. Any functional problems?" active={currentStep >= 2}>
-               <div className="grid grid-cols-2 gap-4">
-                 {['Yes', 'No'].map(v => (
-                   <button key={v} onClick={() => handleFunctionalSelect(v.toLowerCase())} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${((functionalIssues === 'yes' && v === 'Yes') || (functionalIssues === 'no' && v === 'No')) ? 'border-[#0565E6] bg-[#0565E6]/5 text-[#0565E6]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{v}</button>
-                 ))}
-               </div>
-            </EvaluationStepCard>
-            <EvaluationStepCard title="4. Any screen issues?" active={currentStep >= 3}>
-               <div className="grid grid-cols-2 gap-4">
-                 {['Yes', 'No'].map(v => (
-                   <button key={v} onClick={() => handleScreenSelect(v.toLowerCase())} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${((screenIssues === 'yes' && v === 'Yes') || (screenIssues === 'no' && v === 'No')) ? 'border-[#0565E6] bg-[#0565E6]/5 text-[#0565E6]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{v}</button>
-                 ))}
-               </div>
-            </EvaluationStepCard>
-            <EvaluationStepCard title="5. Any body damage?" active={currentStep >= 4}>
-               <div className="grid grid-cols-2 gap-4">
-                 {['Yes', 'No'].map(v => (
-                   <button key={v} onClick={() => handleBodySelect(v.toLowerCase())} className={`py-5 rounded-2xl border-[1.5px] font-black transition-all ${((bodyIssues === 'yes' && v === 'Yes') || (bodyIssues === 'no' && v === 'No')) ? 'border-[#0565E6] bg-[#0565E6]/5 text-[#0565E6]' : 'border-gray-100 text-gray-500 hover:border-gray-200'}`}>{v}</button>
-                 ))}
-               </div>
-            </EvaluationStepCard>
+            
+            {/* Stepper tracker */}
+            <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-3">
+                {STEPS.map((s, idx) => (
+                  <div key={s.id} className="flex items-center gap-2">
+                    <span className={`text-xs font-black uppercase tracking-tight ${idx === currentStepIndex ? 'text-[#0565E6]' : 'text-gray-400'}`}>
+                      {s.label}
+                    </span>
+                    {idx < STEPS.length - 1 && <span className="text-gray-300 text-xs font-bold">&gt;</span>}
+                  </div>
+                ))}
+              </div>
+              <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-[#0565E6] transition-all duration-500" 
+                  style={{ width: `${((currentStepIndex + 1) / STEPS.length) * 100}%` }}
+                />
+              </div>
+            </div>
+
+            {/* Active Question Card */}
+            <div className="bg-white rounded-[24px] p-8 border border-gray-100 shadow-sm transition-all duration-500">
+              
+              {/* STEP 0: Specs */}
+              {currentStepIndex === 0 && (
+                <div className="space-y-6">
+                  <h3 className="text-lg font-black text-[#111827]">1. Confirm Device Specifications</h3>
+                  <div className="bg-gray-50 rounded-3xl p-8 space-y-4 mb-6 border border-gray-100">
+                    <div className="flex justify-between items-center border-b border-gray-200/50 pb-3">
+                      <span className="text-sm font-bold text-gray-500">Processor</span>
+                      <span className="text-sm font-black text-gray-800">{specs.processor || 'Standard'}</span>
+                    </div>
+                    <div className="flex justify-between items-center border-b border-gray-200/50 pb-3">
+                      <span className="text-sm font-bold text-gray-500">Generation</span>
+                      <span className="text-sm font-black text-gray-800">{specs.generation || 'Standard'}</span>
+                    </div>
+                    <div className="flex justify-between items-center border-b border-gray-200/50 pb-3">
+                      <span className="text-sm font-bold text-gray-500">RAM</span>
+                      <span className="text-sm font-black text-gray-800">{specs.ram || 'Standard'}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm font-bold text-gray-500">Storage</span>
+                      <span className="text-sm font-black text-gray-800">{specs.storage || 'Standard'}</span>
+                    </div>
+                  </div>
+                  <button 
+                    onClick={() => setIsSpecsModalOpen(true)}
+                    className="w-full py-4 border-2 border-gray-200 hover:border-[#0565E6] hover:bg-[#E8F1FF] hover:text-[#0565E6] rounded-2xl text-sm font-black text-gray-500 transition-all"
+                  >
+                    Modify Specifications
+                  </button>
+                </div>
+              )}
+
+              {/* STEP 1: Power Status */}
+              {currentStepIndex === 1 && (
+                <div className="space-y-6">
+                  <h3 className="text-lg font-black text-[#111827]">2. Does the laptop turn on successfully?</h3>
+                  <p className="text-xs font-bold text-gray-400 uppercase tracking-widest -mt-2">Select the current power state</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <button
+                      onClick={() => setPowerStatus('on')}
+                      className={`py-6 rounded-2xl border-2 font-black text-base transition-all
+                        ${powerStatus === 'on' 
+                          ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                          : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                    >
+                      Yes, Turns On
+                    </button>
+                    <button
+                      onClick={() => setPowerStatus('off')}
+                      className={`py-6 rounded-2xl border-2 font-black text-base transition-all
+                        ${powerStatus === 'off' 
+                          ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                          : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                    >
+                      No, Does Not Turn On (Off)
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* STEP 2: Functional Issues */}
+              {currentStepIndex === 2 && (
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-black text-[#111827]">3. Select functional issues (if any)</h3>
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Leave unselected if none apply and click Next</p>
+                  </div>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-h-[350px] overflow-y-auto pr-2 no-scrollbar">
+                    {functionalOptions.map(i => {
+                      const isSelected = issuesList.includes(i.id);
+                      return (
+                        <button 
+                          key={i.id} 
+                          onClick={() => {
+                            setIssuesList(prev => prev.includes(i.id) ? prev.filter(x => x !== i.id) : [...prev, i.id]);
+                          }} 
+                          className={`p-4 rounded-2xl border-2 flex flex-col items-center justify-between gap-2 transition-all relative h-36
+                            ${isSelected ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' : 'border-gray-100 bg-white text-gray-700 hover:border-gray-200'}`}
+                        >
+                          <div className="text-xl">{i.icon}</div>
+                          <span className="text-[10px] font-black text-center leading-tight">{i.label}</span>
+                          <span className="text-[9px] font-black text-red-400">{i.pct} deduction</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* STEP 3: Screen Issues */}
+              {currentStepIndex === 3 && (
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-black text-[#111827]">4. Select screen issues (if any)</h3>
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Leave unselected if none apply and click Next</p>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {screenOptions.map(i => {
+                      const isSelected = screenIssuesList.includes(i.id);
+                      return (
+                        <button 
+                          key={i.id} 
+                          onClick={() => {
+                            setScreenIssuesList(prev => prev.includes(i.id) ? prev.filter(x => x !== i.id) : [...prev, i.id]);
+                          }} 
+                          className={`p-6 rounded-2xl border-2 flex flex-col items-center justify-between gap-3 transition-all h-36
+                            ${isSelected ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' : 'border-gray-100 bg-white text-gray-700 hover:border-gray-200'}`}
+                        >
+                          <div className="text-2xl">{i.icon}</div>
+                          <span className="text-xs font-black text-center leading-tight">{i.label}</span>
+                          <span className="text-[9px] font-black text-red-400">{i.pct} deduction</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* STEP 4: Body Damage */}
+              {currentStepIndex === 4 && (
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-black text-[#111827]">5. Select body damage/scratches (if any)</h3>
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Leave unselected if none apply and click Next</p>
+                  </div>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-h-[350px] overflow-y-auto pr-2 no-scrollbar">
+                    {bodyOptions.map(i => {
+                      const isSelected = bodyIssuesList.includes(i.id);
+                      return (
+                        <button 
+                          key={i.id} 
+                          onClick={() => {
+                            setBodyIssuesList(prev => prev.includes(i.id) ? prev.filter(x => x !== i.id) : [...prev, i.id]);
+                          }} 
+                          className={`p-4 rounded-2xl border-2 flex flex-col items-center justify-between gap-2 transition-all h-36
+                            ${isSelected ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' : 'border-gray-100 bg-white text-gray-700 hover:border-gray-200'}`}
+                        >
+                          <div className="text-xl">{i.icon}</div>
+                          <span className="text-[10px] font-black text-center leading-tight">{i.label}</span>
+                          <span className="text-[9px] font-black text-red-400">{i.pct} deduction</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* STEP 5: Accessories */}
+              {currentStepIndex === 5 && (
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-black text-[#111827]">6. Which original accessories do you have?</h3>
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Select the accessories present with the laptop</p>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    {accessoryOptions.map(i => {
+                      const isSelected = accessories.includes(i.id);
+                      return (
+                        <button 
+                          key={i.id} 
+                          onClick={() => {
+                            setAccessories(prev => prev.includes(i.id) ? prev.filter(x => x !== i.id) : [...prev, i.id]);
+                          }} 
+                          className={`p-6 rounded-[24px] border-2 text-left transition-all flex flex-col justify-between h-40 group
+                            ${isSelected ? 'border-[#0565E6] bg-[#E8F1FF]' : 'border-gray-100 bg-white hover:border-gray-200'}`}
+                        >
+                          <div className="flex justify-between items-start w-full">
+                            <span className="text-2xl">{i.icon}</span>
+                            <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center
+                              ${isSelected ? 'border-[#0565E6] bg-[#0565E6]' : 'border-gray-200'}`}>
+                              {isSelected && <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" strokeWidth="2.5" strokeLinecap="round"/></svg>}
+                            </div>
+                          </div>
+                          <div>
+                            <p className={`font-black text-sm ${isSelected ? 'text-[#0565E6]' : 'text-[#111827]'}`}>{i.label}</p>
+                            <p className="text-xs text-gray-400 mt-1">{i.desc}</p>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* STEP 6: Device Age */}
+              {currentStepIndex === 6 && (
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-black text-[#111827]">7. How old is your laptop?</h3>
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Age determines final multiplier value</p>
+                  </div>
+                  <div className="flex flex-col gap-4">
+                    {AGE_OPTIONS.map(opt => (
+                      <button 
+                        key={opt.key} 
+                        onClick={() => setAge(opt.key)} 
+                        className={`flex items-center gap-4 px-6 py-5 rounded-2xl border-[1.5px] font-semibold text-left transition-all w-full
+                          ${age === opt.key ? 'border-[#0565E6] bg-[#0565E6]/5 text-[#0565E6]' : 'border-gray-100 text-gray-700 bg-white hover:border-gray-200'}`}
+                      >
+                        <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 transition-all
+                          ${age === opt.key ? 'border-[#0565E6]' : 'border-gray-300'}`}
+                        >
+                          {age === opt.key && (
+                            <div className="w-3 h-3 rounded-full bg-[#0565E6]" />
+                          )}
+                        </div>
+                        <span className="text-base font-bold">{opt.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Stepper buttons row */}
+              <div className="flex justify-between items-center mt-10 pt-6 border-t border-gray-100">
+                <button
+                  onClick={() => setCurrentStepIndex(prev => Math.max(prev - 1, 0))}
+                  disabled={currentStepIndex === 0}
+                  className="px-8 py-4 rounded-xl border border-gray-200 font-bold text-gray-500 hover:bg-gray-50 transition-all disabled:opacity-50"
+                >
+                  ← Back
+                </button>
+                
+                {currentStepIndex < STEPS.length - 1 ? (
+                  <button
+                    onClick={() => setCurrentStepIndex(prev => prev + 1)}
+                    disabled={
+                      (currentStepIndex === 1 && powerStatus === null)
+                    }
+                    className="bg-[#0565E6] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#044BA8] transition-all disabled:opacity-50"
+                  >
+                    Next Step →
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleGetBestPrice}
+                    disabled={age === null}
+                    className="bg-[#16A34A] text-white font-black px-10 py-5 rounded-2xl shadow-xl shadow-green-100 hover:bg-[#15803D] transition-all flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    GET BEST PRICE <span className="text-lg">›</span>
+                  </button>
+                )}
+              </div>
+
+            </div>
           </div>
-          <div className="w-full lg:w-[450px]">
+
+          {/* Right Sidebar Summary */}
+          <div className="w-full lg:w-[400px]">
             <div className="sticky top-8 space-y-8">
               <div className="bg-[#0565E6]/5 rounded-[32px] p-8 border border-[#0565E6]/20 shadow-sm flex items-center justify-between">
-                <div><p className="text-[#0565E6] text-xs font-black uppercase tracking-widest mb-1">Estimated Value</p><p className="text-4xl font-black text-[#0452B9] tracking-tighter">{currentPrice > 0 ? formatCurrency(currentPrice) : '₹ XX,XXX'}</p></div>
+                <div>
+                  <p className="text-[#0565E6] text-xs font-black uppercase tracking-widest mb-1">Estimated Value</p>
+                  <p className={`text-4xl font-black text-[#0452B9] tracking-tighter transition-all ${priceAnimating ? 'scale-95 opacity-50' : 'scale-100 opacity-100'}`}>
+                    {currentPrice > 0 ? formatCurrency(currentPrice) : '₹ XX,XXX'}
+                  </p>
+                </div>
               </div>
               <div className="bg-white rounded-[32px] p-10 border border-gray-100 shadow-sm space-y-8">
                 <h4 className="text-sm font-black text-gray-400 uppercase tracking-widest mb-6">Summary</h4>
                 <div className="space-y-5">
-                   <SummaryItem label="Age" value={age ? AGE_OPTIONS.find(o => o.key === age).label : '-'} />
-                   <SummaryItem label="Functional" value={issuesList.length > 0 ? `${issuesList.length} issue(s)` : functionalIssues === 'no' ? 'No Issues' : '-'} />
-                   <SummaryItem label="Screen" value={screenIssuesList.length > 0 ? `${screenIssuesList.length} issue(s)` : screenIssues === 'no' ? 'No Issues' : '-'} />
-                   <SummaryItem label="Body" value={bodyIssuesList.length > 0 ? `${bodyIssuesList.length} issue(s)` : bodyIssues === 'no' ? 'No Issues' : '-'} />
+                   <SummaryItem label="Processor" value={specs.processor || '-'} active={true} />
+                   <SummaryItem label="RAM" value={specs.ram || '-'} active={true} />
+                   <SummaryItem label="Storage" value={specs.storage || '-'} active={true} />
+                   <SummaryItem label="Power Status" value={powerStatus ? (powerStatus === 'on' ? 'Turns On' : 'Does Not Turn On') : '-'} active={powerStatus !== null} />
+                   <SummaryItem label="Functional" value={issuesList.length > 0 ? `${issuesList.length} issue(s)` : currentStepIndex >= 2 ? 'No Issues' : '-'} active={currentStepIndex >= 2} />
+                   <SummaryItem label="Screen" value={screenIssuesList.length > 0 ? `${screenIssuesList.length} issue(s)` : currentStepIndex >= 3 ? 'No Issues' : '-'} active={currentStepIndex >= 3} />
+                   <SummaryItem label="Body" value={bodyIssuesList.length > 0 ? `${bodyIssuesList.length} issue(s)` : currentStepIndex >= 4 ? 'No Issues' : '-'} active={currentStepIndex >= 4} />
+                   <SummaryItem label="Accessories" value={accessories.length > 0 ? accessories.map(a => a.charAt(0).toUpperCase() + a.slice(1)).join(', ') : currentStepIndex >= 5 ? 'None' : '-'} active={currentStepIndex >= 5} />
+                   <SummaryItem label="Age" value={age ? AGE_OPTIONS.find(o => o.key === age).label : '-'} active={currentStepIndex >= 6} />
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
 
       <LaptopSpecModal isOpen={isSpecsModalOpen} onClose={() => setIsSpecsModalOpen(false)} device={device} onComplete={handleSpecsUpdate} initialValues={specs} />
-      <IssuesModal isOpen={isIssuesModalOpen} onClose={handleIssuesModalClose} onFinish={handleIssuesFinish} initialList={issuesList} />
-      <ScreenIssuesModal isOpen={isScreenModalOpen} onClose={handleScreenModalClose} onFinish={handleScreenFinish} initialList={screenIssuesList} />
-      <BodyIssuesModal isOpen={isBodyModalOpen} onClose={handleBodyModalClose} onFinish={handleBodyFinish} initialList={bodyIssuesList} />
-      <AccessoriesModal isOpen={isAccessoriesModalOpen} onClose={() => setIsAccessoriesModalOpen(false)} onFinish={handleAccessoriesFinish} initialList={accessories} />
     </div>
   );
 }
@@ -429,102 +632,14 @@ function SummaryPriceRow({ label, value, original, isFree }) {
   );
 }
 
-function IssuesModal({ isOpen, onClose, onFinish, initialList }) {
-  const [selected, setSelected] = useState(initialList || []);
-  const issues = [
-    { id: 'keyboard', label: 'Keyboard not working / key(s) missing', icon: '⌨️', pct: '7%' },
-    { id: 'cdDrive', label: 'CD/DVD Drive not working', icon: '💿', pct: '7%' },
-    { id: 'trackpad', label: 'Touchpad not working / click faulty', icon: '🖱️', pct: '18%' },
-    { id: 'battery', label: 'Battery dead / backup < 60 mins', icon: '🔋', pct: '6%' },
-    { id: 'speakers', label: 'Speakers faulty / cracked sound', icon: '🔊', pct: '3%' },
-    { id: 'wifi', label: 'Wi-Fi not working', icon: '🌐', pct: '5%' },
-    { id: 'ports', label: 'USB Port not working', icon: '🔌', pct: '8%' },
-    { id: 'webcam', label: 'Web Cam not working', icon: '📷', pct: '6%' },
-    { id: 'charging', label: 'Charging Port not working', icon: '🔌', pct: '8%' },
-    { id: 'hardDisk', label: 'Hard Drive Missing / Defective', icon: '💾', pct: '10%' },
-    { id: 'motherboard', label: 'Motherboard issue (restart/hang/heat)', icon: '🧩', pct: '35%' },
-    { id: 'bluetooth', label: 'Bluetooth not working', icon: '📡', pct: '6%' },
-  ];
-  const toggle = (id) => selected.includes(id) ? setSelected(selected.filter(i => i !== id)) : setSelected([...selected, id]);
+function SummaryItem({ label, value, active }) {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Select Functional Issues" size="5xl">
-       <p className="text-[13px] text-gray-500 font-bold mb-6">Select all issues that apply. Each issue reduces the price by the shown percentage.</p>
-       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">{issues.map(i => (
-         <button key={i.id} onClick={() => toggle(i.id)} className={`p-5 rounded-3xl border-[1.5px] flex flex-col items-center gap-3 transition-all relative ${selected.includes(i.id) ? 'border-[#0565E6] bg-[#0565E6]/5' : 'border-gray-100 bg-white'}`}>
-           <div className="text-2xl">{i.icon}</div>
-           <span className="text-[11px] font-black text-center leading-tight">{i.label}</span>
-           <span className="text-[9px] font-black text-red-400">{i.pct}</span>
-         </button>
-       ))}</div>
-       <button onClick={() => onFinish(selected)} className="w-full mt-8 py-4 bg-[#0565E6] text-white rounded-2xl font-black">Proceed</button>
-    </Modal>
+    <div className="space-y-1">
+      <h4 className="text-sm font-bold text-[#111827]">{label}</h4>
+      <div className="flex items-center gap-2">
+        <div className={`w-2 h-2 rounded-full ${active ? 'bg-[#0565E6]' : 'bg-gray-200'}`} />
+        <p className={`text-[13px] font-medium ${active ? 'text-gray-600' : 'text-gray-400'}`}>{value}</p>
+      </div>
+    </div>
   );
-}
-
-function ScreenIssuesModal({ isOpen, onClose, onFinish, initialList }) {
-  const [selected, setSelected] = useState(initialList || []);
-  const issues = [
-    { id: 'screenCracked', label: 'Screen cracked or broken', icon: '💔', pct: '18%' },
-    { id: 'lineDiscolour', label: 'Line, discolouration or spot', icon: '🖥️', pct: '18%' },
-  ];
-  const toggle = (id) => selected.includes(id) ? setSelected(selected.filter(i => i !== id)) : setSelected([...selected, id]);
-  return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Screen Condition" size="3xl">
-       <p className="text-[13px] text-gray-500 font-bold mb-6">Select any screen issues that apply.</p>
-       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">{issues.map(i => (
-         <button key={i.id} onClick={() => toggle(i.id)} className={`p-8 rounded-3xl border-[1.5px] flex flex-col items-center gap-4 transition-all ${selected.includes(i.id) ? 'border-[#0565E6] bg-[#0565E6]/5' : 'border-gray-100 bg-white'}`}>
-           <div className="text-3xl">{i.icon}</div>
-           <span className="text-sm font-black text-center">{i.label}</span>
-           <span className="text-[10px] font-black text-red-400">{i.pct}</span>
-         </button>
-       ))}</div>
-       <button onClick={() => onFinish(selected)} className="w-full mt-8 py-4 bg-[#0565E6] text-white rounded-2xl font-black">Proceed</button>
-    </Modal>
-  );
-}
-
-function BodyIssuesModal({ isOpen, onClose, onFinish, initialList }) {
-  const [selected, setSelected] = useState(initialList || []);
-  const issues = [
-    { id: 'minorDentTop', label: 'Minor dent on top panel', icon: '📱', pct: '8%' },
-    { id: 'minorDentBase', label: 'Minor dent on base panel', icon: '📱', pct: '8%' },
-    { id: 'majorDentTop', label: 'Major dent on top panel', icon: '💥', pct: '35%' },
-    { id: 'majorDentBase', label: 'Major dent on base panel', icon: '💥', pct: '40%' },
-    { id: 'minorScratch', label: 'Minor scratch on body', icon: '✨', pct: '5%' },
-    { id: 'majorScratch', label: 'Major scratch on body', icon: '🔪', pct: '8%' },
-  ];
-  const toggle = (id) => selected.includes(id) ? setSelected(selected.filter(i => i !== id)) : setSelected([...selected, id]);
-  return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Body Condition" size="4xl">
-       <p className="text-[13px] text-gray-500 font-bold mb-6">Select all body damage issues that apply.</p>
-       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">{issues.map(i => (
-         <button key={i.id} onClick={() => toggle(i.id)} className={`p-6 rounded-3xl border-[1.5px] flex flex-col items-center gap-3 transition-all ${selected.includes(i.id) ? 'border-[#0565E6] bg-[#0565E6]/5' : 'border-gray-100 bg-white'}`}>
-           <div className="text-2xl">{i.icon}</div>
-           <span className="text-[11px] font-black text-center leading-tight">{i.label}</span>
-           <span className="text-[10px] font-black text-red-400">{i.pct}</span>
-         </button>
-       ))}</div>
-       <button onClick={() => onFinish(selected)} className="w-full mt-8 py-4 bg-[#0565E6] text-white rounded-2xl font-black">Proceed</button>
-    </Modal>
-  );
-}
-
-function AccessoriesModal({ isOpen, onClose, onFinish, initialList }) {
-  const [selected, setSelected] = useState(initialList || []);
-  const items = [{ id: 'bill', label: 'Bill', icon: '📄' }, { id: 'box', label: 'Box', icon: '📦' }, { id: 'charger', label: 'Charger', icon: '🔌' }];
-  const toggle = (id) => selected.includes(id) ? setSelected(selected.filter(i => i !== id)) : setSelected([...selected, id]);
-  return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Accessories" size="3xl">
-       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">{items.map(i => (<button key={i.id} onClick={() => toggle(i.id)} className={`p-8 rounded-[24px] border-[1.5px] flex flex-col items-center gap-4 transition-all ${selected.includes(i.id) ? 'border-[#0565E6] bg-[#0565E6]/5' : 'border-gray-100 bg-white'}`}><div className="text-3xl">{i.icon}</div><span className="text-xs font-black">{i.label}</span></button>))}</div>
-       <button onClick={() => onFinish(selected)} className="w-full py-5 bg-[#0565E6] text-white rounded-[20px] font-black text-lg shadow-xl shadow-[#0565E6]/30">GET BEST PRICE →</button>
-    </Modal>
-  );
-}
-
-function SummaryItem({ label, value }) {
-  return (<div className="flex justify-between items-center group"><span className="text-sm font-bold text-gray-800">{label}</span><span className={`text-sm font-black ${value === '-' ? 'text-gray-300' : 'text-[#111827]'}`}>{value}</span></div>);
-}
-
-function EvaluationStepCard({ title, active, children }) {
-  return (<div className={`bg-white rounded-[24px] p-6 border border-gray-100 shadow-sm transition-all duration-500 ${active ? 'ring-2 ring-[#0565E6]/20 scale-[1.01]' : 'opacity-30 pointer-events-none'}`}><h3 className="text-base font-black text-[#111827] mb-4">{title}</h3>{children}</div>);
 }

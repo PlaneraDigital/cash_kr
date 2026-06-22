@@ -76,7 +76,8 @@ export function calculatePrice({
   }
 
   // 6. No GST bill — 21%
-  if (hasGSTBill === false) {
+  // If device is > 11 months old, we do not apply the no GST bill deduction separately
+  if (hasGSTBill === false && deviceAge !== 'Above 11 Months') {
     applyDeduction('noBill', 21);
   }
 
@@ -121,7 +122,7 @@ export function calculatePrice({
 export function calculateLaptopPrice(device, selections) {
   const { ram, storage, yearBracket,
           functionalIssues = [], screenIssues = [], bodyIssues = [],
-          accessories } = selections;
+          accessories, powerStatus } = selections;
   
   // ── 1. Find base price from variant ──
   let variant = device.variants.find(v => 
@@ -172,6 +173,13 @@ export function calculateLaptopPrice(device, selections) {
   let currentPrice = Math.round(basePrice * ageMult);
   const ageAdjustment = currentPrice - basePrice;
 
+  // ── 2.5 Power status deduction (if laptop is off, reduce 95% of base price) ──
+  let powerDeduction = 0;
+  if (powerStatus === 'off') {
+    powerDeduction = Math.round(basePrice * 0.95);
+    currentPrice = Math.max(currentPrice - powerDeduction, 0);
+  }
+
   // ── 3. Functional issues — percentage-based sequential deductions ──
   let functionalDeduction = 0;
   const funcIssues = (functionalIssues || []).filter(i => i !== 'noIssues');
@@ -208,7 +216,11 @@ export function calculateLaptopPrice(device, selections) {
   }
 
   // ── 6. Accessories bonus ──
-  const accList = Array.isArray(accessories) ? accessories : [];
+  const accList = Array.isArray(accessories) ? [...accessories] : [];
+  // If the device age is > 11 months, we do not penalize for missing bill
+  if (yearBracket && yearBracket !== 'lessThan1' && !accList.includes('bill')) {
+    accList.push('bill');
+  }
   const accBonus = accList.reduce((sum, item) => sum + (device.accessoriesBonus?.[item] || 0), 0);
   currentPrice += accBonus;
 
@@ -217,6 +229,7 @@ export function calculateLaptopPrice(device, selections) {
   return {
     basePrice,
     ageAdjustment,
+    powerDeduction: -powerDeduction,
     functionalDeduction: -functionalDeduction,
     screenDeduction: -screenDeduction,
     bodyDeduction: -bodyDeduction,
