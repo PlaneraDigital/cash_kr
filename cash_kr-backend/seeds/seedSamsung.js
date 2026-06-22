@@ -90,7 +90,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A12",
         slug: "samsung-galaxy-a12",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a12.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a12-sm-a125-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 3500 },
             { storage: "4GB / 128GB", basePrice: 3710 },
@@ -112,7 +112,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A20s",
         slug: "samsung-galaxy-a20s",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a20s.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a20s-sm-a207-1.jpg",
         variants: [
             { storage: "3GB / 32GB", basePrice: 2440 },
             { storage: "4GB / 64GB", basePrice: 2730 }
@@ -199,7 +199,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A32",
         slug: "samsung-galaxy-a32",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a32.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a32-4g-3.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 4810 },
             { storage: "8GB / 128GB", basePrice: 5340 }
@@ -210,7 +210,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A5 2017",
         slug: "samsung-galaxy-a5-2017",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a5-2017.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a5-2017-1.jpg",
         variants: [
             { storage: "3GB / 32GB", basePrice: 1080 }
         ]
@@ -220,7 +220,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A50",
         slug: "samsung-galaxy-a50",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a50.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a50-sm-a505f-ds-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 2930 },
             { storage: "6GB / 64GB", basePrice: 3180 },
@@ -243,7 +243,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A51",
         slug: "samsung-galaxy-a51",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a51.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a51-sm-a515-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 3940 },
             { storage: "8GB / 128GB", basePrice: 4140 }
@@ -254,7 +254,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A52",
         slug: "samsung-galaxy-a52",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a52.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a52-4g-10.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 5420 },
             { storage: "8GB / 128GB", basePrice: 5790 }
@@ -276,7 +276,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A53 5G",
         slug: "samsung-galaxy-a53-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a53-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a53-5g-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 6780 },
             { storage: "8GB / 128GB", basePrice: 7190 },
@@ -288,7 +288,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A6",
         slug: "samsung-galaxy-a6",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a6.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a6-2018-1.jpg",
         variants: [
             { storage: "3GB / 32GB", basePrice: 1330 },
             { storage: "4GB / 32GB", basePrice: 1460 },
@@ -300,7 +300,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A6 Plus",
         slug: "samsung-galaxy-a6-plus",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a6-plus.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a6-plus-2018-1.jpg",
         variants: [
             { storage: "3GB / 32GB", basePrice: 1510 },
             { storage: "4GB / 32GB", basePrice: 1640 },
@@ -332,7 +332,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A7 (2018)",
         slug: "samsung-galaxy-a7-2018",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a7-2018.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a7-sm-a750f-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 1820 },
             { storage: "4GB / 128GB", basePrice: 2010 },
@@ -354,7 +354,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A70s",
         slug: "samsung-galaxy-a70s",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a70s.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a70s-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 3460 },
             { storage: "8GB / 128GB", basePrice: 3690 }
@@ -376,7 +376,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A72",
         slug: "samsung-galaxy-a72",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a72.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a72-4g-10.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 6360 },
             { storage: "8GB / 256GB", basePrice: 6910 }
@@ -398,7 +398,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A8 Plus",
         slug: "samsung-galaxy-a8-plus",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a8-plus.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a8-a730f-1.jpg",
         variants: [
             { storage: "6GB / 64GB", basePrice: 2300 }
         ]
@@ -408,7 +408,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A8 Star",
         slug: "samsung-galaxy-a8-star",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a8-star.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a8-a9-star-1.jpg",
         variants: [
             { storage: "6GB / 64GB", basePrice: 1780 }
         ]
@@ -418,7 +418,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A80",
         slug: "samsung-galaxy-a80",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a80.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a80-01.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 5040 }
         ]
@@ -459,7 +459,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy C9 Pro",
         slug: "samsung-galaxy-c9-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-c9-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-c9-pro-4.jpg",
         variants: [
             { storage: "6GB / 64GB", basePrice: 2150 }
         ]
@@ -513,7 +513,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy F23 5G",
         slug: "samsung-galaxy-f23-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-f23-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-f23-1.jpg",
         variants: [
             { storage: "4GB / 128GB", basePrice: 5890 },
             { storage: "6GB / 128GB", basePrice: 6190 }
@@ -524,7 +524,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy F41",
         slug: "samsung-galaxy-f41",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-f41.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-f41-sm-f415fds-1.jpg",
         variants: [
             { storage: "6GB / 64GB", basePrice: 3220 },
             { storage: "6GB / 128GB", basePrice: 3560 }
@@ -577,7 +577,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy J2 2017",
         slug: "samsung-galaxy-j2-2017",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-j2-2017.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j2-2017-j200g-1.jpg",
         variants: [
             { storage: "1GB / 8GB", basePrice: 700 }
         ]
@@ -587,7 +587,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy J2 2018",
         slug: "samsung-galaxy-j2-2018",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-j2-2018.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j2-sm-j250-0.jpg",
         variants: [
             { storage: "2GB / 16GB", basePrice: 1190 }
         ]
@@ -597,7 +597,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy J2 Ace",
         slug: "samsung-galaxy-j2-ace",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-j2-ace.jpg",
+        imageUrl: "https://fdn.gsmarena.com/imgroot/news/17/01/galaxy-j2-india/-728/gsmarena_001.jpg",
         variants: [
             { storage: "1.5GB / 8GB", basePrice: 660 }
         ]
@@ -627,7 +627,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy J2 pro",
         slug: "samsung-galaxy-j2-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-j2-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j2-sm-j250-0.jpg",
         variants: [
             { storage: "2GB / 16GB", basePrice: 890 }
         ]
@@ -657,7 +657,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy J3 Pro",
         slug: "samsung-galaxy-j3-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-j3-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j3-pro-2.jpg",
         variants: [
             { storage: "2GB / 16GB", basePrice: 890 }
         ]
@@ -667,7 +667,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy J4",
         slug: "samsung-galaxy-j4",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-j4.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j4-j400-1.jpg",
         variants: [
             { storage: "2GB / 16GB", basePrice: 1110 },
             { storage: "3GB / 32GB", basePrice: 1330 }
@@ -678,7 +678,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy J4 Plus",
         slug: "samsung-galaxy-j4-plus",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-j4-plus.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j4-plus-sm-j415f-1.jpg",
         variants: [
             { storage: "2GB / 32GB", basePrice: 1480 }
         ]
@@ -688,7 +688,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy J5 2016",
         slug: "samsung-galaxy-j5-2016",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-j5-2016.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/sams-j5-6.jpg",
         variants: [
             { storage: "2GB / 16GB", basePrice: 890 }
         ]
@@ -698,7 +698,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy J5 2017",
         slug: "samsung-galaxy-j5-2017",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-j5-2017.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j5-2017-sm-j530-1.jpg",
         variants: [
             { storage: "2GB / 16GB", basePrice: 960 }
         ]
@@ -719,7 +719,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy J6",
         slug: "samsung-galaxy-j6",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-j6.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j6-j600-1.jpg",
         variants: [
             { storage: "3GB / 32GB", basePrice: 1530 },
             { storage: "4GB / 64GB", basePrice: 1700 }
@@ -730,7 +730,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy J6 Plus",
         slug: "samsung-galaxy-j6-plus",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-j6-plus.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j6-plus-sm-j610f-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 1890 }
         ]
@@ -750,7 +750,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy J7 Duo",
         slug: "samsung-galaxy-j7-duo",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-j7-duo.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j7-duo-sm-j720f-2.jpg",
         variants: [
             { storage: "4GB / 32GB", basePrice: 1410 }
         ]
@@ -770,7 +770,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy J7 Nxt",
         slug: "samsung-galaxy-j7-nxt",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-j7-nxt.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j7-nxt-sm-j701fds-1.jpg",
         variants: [
             { storage: "2GB / 16GB", basePrice: 1190 },
             { storage: "3GB / 32GB", basePrice: 1410 }
@@ -804,7 +804,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy J8",
         slug: "samsung-galaxy-j8",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-j8.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j8-j810-all-colors.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 2340 }
         ]
@@ -824,7 +824,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M01 Core",
         slug: "samsung-galaxy-m01-core",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m01-core.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a01core-sm-a013-1.jpg",
         variants: [
             { storage: "1GB / 16GB", basePrice: 1310 },
             { storage: "2GB / 32GB", basePrice: 1580 }
@@ -835,7 +835,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M01s",
         slug: "samsung-galaxy-m01s",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m01s.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m01s-m017f-1.jpg",
         variants: [
             { storage: "3GB / 32GB", basePrice: 2080 }
         ]
@@ -867,7 +867,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M10",
         slug: "samsung-galaxy-m10",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m10.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m10-m105f-1.jpg",
         variants: [
             { storage: "2GB / 16GB", basePrice: 2000 },
             { storage: "3GB / 32GB", basePrice: 2150 }
@@ -878,7 +878,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M10s",
         slug: "samsung-galaxy-m10s",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m10s.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m10s-m107f-1.jpg",
         variants: [
             { storage: "3GB / 32GB", basePrice: 2160 }
         ]
@@ -888,7 +888,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M11",
         slug: "samsung-galaxy-m11",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m11.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m11-sm-m115-1.jpg",
         variants: [
             { storage: "3GB / 32GB", basePrice: 2390 },
             { storage: "4GB / 64GB", basePrice: 2950 }
@@ -910,7 +910,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M20",
         slug: "samsung-galaxy-m20",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m20.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m20-m205f-1.jpg",
         variants: [
             { storage: "3GB / 32GB", basePrice: 2080 },
             { storage: "4GB / 64GB", basePrice: 2230 }
@@ -932,7 +932,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M21 2021 Edition",
         slug: "samsung-galaxy-m21-2021-edition",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m21-2021-edition.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m21-2021-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 3270 },
             { storage: "6GB / 128GB", basePrice: 3390 }
@@ -943,7 +943,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M30",
         slug: "samsung-galaxy-m30",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m30.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m30-sm-m305f-1.jpg",
         variants: [
             { storage: "3GB / 32GB", basePrice: 2450 },
             { storage: "4GB / 64GB", basePrice: 2690 },
@@ -955,7 +955,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M30s",
         slug: "samsung-galaxy-m30s",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m30s.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m30s-sm-m307f-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 2480 },
             { storage: "4GB / 128GB", basePrice: 2730 },
@@ -967,7 +967,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M31",
         slug: "samsung-galaxy-m31",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m31.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m31-sm-m315f-1.jpg",
         variants: [
             { storage: "6GB / 64GB", basePrice: 3150 },
             { storage: "6GB / 128GB", basePrice: 3470 },
@@ -1012,7 +1012,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M33 5G",
         slug: "samsung-galaxy-m33-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m33-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m33-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 6370 },
             { storage: "8GB / 128GB", basePrice: 6620 }
@@ -1023,7 +1023,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M40",
         slug: "samsung-galaxy-m40",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m40.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m40-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 3150 }
         ]
@@ -1033,7 +1033,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M42 5G",
         slug: "samsung-galaxy-m42-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m42-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m42-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 6320 },
             { storage: "8GB / 128GB", basePrice: 6650 }
@@ -1055,7 +1055,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M52 5G",
         slug: "samsung-galaxy-m52-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m52-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m52-5g-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 6900 },
             { storage: "8GB / 128GB", basePrice: 7170 }
@@ -1077,7 +1077,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Note 5",
         slug: "samsung-galaxy-note-5",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-note-5.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-note5-5.jpg",
         variants: [
             { storage: "4GB / 32GB", basePrice: 2110 },
             { storage: "4GB / 64GB", basePrice: 2190 }
@@ -1088,7 +1088,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Note 8",
         slug: "samsung-galaxy-note-8",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-note-8.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-note8-5.jpg",
         variants: [
             { storage: "6GB / 64GB", basePrice: 4900 },
             { storage: "6GB / 128GB", basePrice: 5570 },
@@ -1100,7 +1100,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Note 9",
         slug: "samsung-galaxy-note-9",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-note-9.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-note9-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 5940 },
             { storage: "8GB / 512GB", basePrice: 6380 }
@@ -1111,7 +1111,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Note 10",
         slug: "samsung-galaxy-note-10",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-note-10.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-note10-aura-glow.jpg",
         variants: [
             { storage: "8GB / 256GB", basePrice: 9020 }
         ]
@@ -1121,7 +1121,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Note 10 Lite",
         slug: "samsung-galaxy-note-10-lite",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-note-10-lite.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-note10-lite-1.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 5640 },
             { storage: "8GB / 128GB", basePrice: 6010 }
@@ -1132,7 +1132,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Note 10 Plus",
         slug: "samsung-galaxy-note-10-plus",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-note-10-plus.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-note10-plus-aura-glow.jpg",
         variants: [
             { storage: "12GB / 256GB", basePrice: 9740 },
             { storage: "12GB / 512GB", basePrice: 9870 }
@@ -1143,7 +1143,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Note 20",
         slug: "samsung-galaxy-note-20",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-note-20.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-note20-1.jpg",
         variants: [
             { storage: "8GB / 256GB", basePrice: 9270 }
         ]
@@ -1153,7 +1153,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Note 20 Ultra 5G",
         slug: "samsung-galaxy-note-20-ultra-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-note-20-ultra-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-note20-ultra-1.jpg",
         variants: [
             { storage: "12GB / 256GB", basePrice: 14370 }
         ]
@@ -1163,7 +1163,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Note Fan Edition",
         slug: "samsung-galaxy-note-fan-edition",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-note-fan-edition.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-note-fe-n935.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 2800 }
         ]
@@ -1173,7 +1173,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy On Max",
         slug: "samsung-galaxy-on-max",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-on-max.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j7-max-g615f-1.jpg",
         variants: [
             { storage: "4GB / 32GB", basePrice: 1520 }
         ]
@@ -1183,7 +1183,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy On Nxt",
         slug: "samsung-galaxy-on-nxt",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-on-nxt.jpg",
+        imageUrl: "https://fdn.gsmarena.com/imgroot/news/16/10/galaxy-on-nxt-official/-728/gsmarena_001.jpg",
         variants: [
             { storage: "3GB / 16GB", basePrice: 1110 },
             { storage: "3GB / 32GB", basePrice: 1540 },
@@ -1195,7 +1195,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy On5 Pro",
         slug: "samsung-galaxy-on5-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-on5-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-on5-1.jpg",
         variants: [
             { storage: "2GB / 16GB", basePrice: 980 }
         ]
@@ -1215,7 +1215,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy On7 Prime",
         slug: "samsung-galaxy-on7-prime",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-on7-prime.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-on7-2016-g6100-c1.jpg",
         variants: [
             { storage: "3GB / 32GB", basePrice: 1640 },
             { storage: "4GB / 64GB", basePrice: 1930 }
@@ -1226,7 +1226,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy On7 Pro",
         slug: "samsung-galaxy-on7-pro",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-on7-pro.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-on7-1.jpg",
         variants: [
             { storage: "2GB / 16GB", basePrice: 1260 }
         ]
@@ -1236,7 +1236,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy On8",
         slug: "samsung-galaxy-on8",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-on8.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j7-2016-1.jpg",
         variants: [
             { storage: "3GB / 16GB", basePrice: 1150 }
         ]
@@ -1246,7 +1246,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy On8 2018",
         slug: "samsung-galaxy-on8-2018",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-on8-2018.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j7-2016-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 1780 }
         ]
@@ -1277,7 +1277,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S10 Lite",
         slug: "samsung-galaxy-s10-lite",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s10-lite.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/sasmung-galaxy-s10-lite-2.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 5820 },
             { storage: "8GB / 512GB", basePrice: 6350 }
@@ -1288,7 +1288,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S10 Plus",
         slug: "samsung-galaxy-s10-plus",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s10-plus.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s10-1.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 7360 },
             { storage: "8GB / 512GB", basePrice: 7800 },
@@ -1300,7 +1300,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S20",
         slug: "samsung-galaxy-s20",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s20.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s20-5g-r1.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 8890 }
         ]
@@ -1310,7 +1310,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S20 FE",
         slug: "samsung-galaxy-s20-fe",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s20-fe.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s20-fe-4g-1.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 7040 },
             { storage: "8GB / 256GB", basePrice: 7950 }
@@ -1341,7 +1341,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S20 Ultra",
         slug: "samsung-galaxy-s20-ultra",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s20-ultra.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s20-ultra-10.jpg",
         variants: [
             { storage: "12GB / 128GB", basePrice: 13580 }
         ]
@@ -1351,7 +1351,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S20 Ultra 5G",
         slug: "samsung-galaxy-s20-ultra-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s20-ultra-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s20-ultra-10.jpg",
         variants: [
             { storage: "12GB / 128GB", basePrice: 14070 }
         ]
@@ -1361,7 +1361,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S21 5G",
         slug: "samsung-galaxy-s21-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s21-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s21-5g-0.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 12180 },
             { storage: "8GB / 256GB", basePrice: 13000 }
@@ -1372,7 +1372,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Samsung Galaxy S21 FE 5G",
         slug: "samsung-samsung-galaxy-s21-fe-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-samsung-galaxy-s21-fe-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s21-fe-5g-1.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 10630 },
             { storage: "8GB / 256GB", basePrice: 11360 }
@@ -1383,7 +1383,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S21 Plus 5G",
         slug: "samsung-galaxy-s21-plus-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s21-plus-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s21-plus-5g-1.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 13120 },
             { storage: "8GB / 256GB", basePrice: 13990 }
@@ -1394,7 +1394,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S21 Ultra 5G",
         slug: "samsung-galaxy-s21-ultra-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s21-ultra-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s21-ultra-5g-1.jpg",
         variants: [
             { storage: "12GB / 256GB", basePrice: 17300 },
             { storage: "16GB / 256GB", basePrice: 19800 }
@@ -1439,7 +1439,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S7",
         slug: "samsung-galaxy-s7",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s7.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s7-1.jpg",
         variants: [
             { storage: "4GB / 32GB", basePrice: 2380 },
             { storage: "4GB / 64GB", basePrice: 2670 }
@@ -1450,7 +1450,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S7 Edge",
         slug: "samsung-galaxy-s7-edge",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s7-edge.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s7-edge-1.jpg",
         variants: [
             { storage: "4GB / 32GB", basePrice: 2560 },
             { storage: "4GB / 64GB", basePrice: 2810 },
@@ -1462,7 +1462,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S8",
         slug: "samsung-galaxy-s8",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s8.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s8-.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 3600 }
         ]
@@ -1472,7 +1472,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S8 Plus",
         slug: "samsung-galaxy-s8-plus",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s8-plus.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s8-plus-.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 3930 },
             { storage: "6GB / 128GB", basePrice: 4120 }
@@ -1483,7 +1483,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S9",
         slug: "samsung-galaxy-s9",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s9.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s9-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 4520 },
             { storage: "4GB / 128GB", basePrice: 4670 },
@@ -1495,7 +1495,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S9 Plus",
         slug: "samsung-galaxy-s9-plus",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s9-plus.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s9-plus-1.jpg",
         variants: [
             { storage: "6GB / 64GB", basePrice: 4600 },
             { storage: "6GB / 128GB", basePrice: 5040 },
@@ -1507,7 +1507,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Z Flip",
         slug: "samsung-galaxy-z-flip",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-flip.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-z-flip-1.jpg",
         variants: [
             { storage: "8GB / 256GB", basePrice: 8640 }
         ]
@@ -1594,7 +1594,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Z Flip4",
         slug: "samsung-galaxy-z-flip4",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-flip4.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-z-flip4-5g-01.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 15560 },
             { storage: "8GB / 256GB", basePrice: 15800 }
@@ -1616,7 +1616,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M32 Prime Edition",
         slug: "samsung-galaxy-m32-prime-edition",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m32-prime-edition.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m32-1.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 4980 },
             { storage: "6GB / 128GB", basePrice: 5150 }
@@ -1684,7 +1684,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M04",
         slug: "samsung-galaxy-m04",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m04.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m04-.jpg",
         variants: [
             { storage: "4GB / 64GB", basePrice: 3320 },
             { storage: "4GB / 128GB", basePrice: 3460 }
@@ -1695,7 +1695,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A34 5G",
         slug: "samsung-galaxy-a34-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a34-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a34-5.jpg",
         variants: [
             { storage: "6GB / 128GB", basePrice: 9900 },
             { storage: "8GB / 128GB", basePrice: 10230 },
@@ -1707,7 +1707,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy F14 5G",
         slug: "samsung-galaxy-f14-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-f14-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-f14-1.jpg",
         variants: [
             { storage: "4GB / 128GB", basePrice: 6790 },
             { storage: "6GB / 128GB", basePrice: 7090 }
@@ -1728,7 +1728,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A54 5G",
         slug: "samsung-galaxy-a54-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a54-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a54-5.jpg",
         variants: [
             { storage: "8GB / 128GB", basePrice: 13390 },
             { storage: "8GB / 256GB", basePrice: 13970 }
@@ -1739,7 +1739,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M14 5G",
         slug: "samsung-galaxy-m14-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m14-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m14-5g-sm-m146-1.jpg",
         variants: [
             { storage: "4 GB/128 GB", basePrice: 7230 },
             { storage: "6 GB/128 GB", basePrice: 7470 }
@@ -1750,7 +1750,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A14",
         slug: "samsung-galaxy-a14",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a14.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a14-4g-1.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 5960 },
             { storage: "4 GB/128 GB", basePrice: 6450 }
@@ -1806,7 +1806,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S23 FE 5G",
         slug: "samsung-galaxy-s23-fe-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s23-fe-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s23-fe-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 16910 },
             { storage: "8 GB/256 GB", basePrice: 17770 }
@@ -1817,7 +1817,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy F34 5G",
         slug: "samsung-galaxy-f34-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-f34-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-f34-1.jpg",
         variants: [
             { storage: "6 GB/128 GB", basePrice: 8720 },
             { storage: "8 GB/128 GB", basePrice: 9300 }
@@ -1828,7 +1828,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A25 5G",
         slug: "samsung-galaxy-a25-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a25-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a25-1.jpg",
         variants: [
             { storage: "6 GB/128 GB", basePrice: 10190 },
             { storage: "8 GB/128 GB", basePrice: 11520 },
@@ -1874,7 +1874,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S24 5G",
         slug: "samsung-galaxy-s24-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s24-5g-sm-s921-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 28960 },
             { storage: "8 GB/256 GB", basePrice: 34410 },
@@ -1886,7 +1886,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S24 Plus 5G",
         slug: "samsung-galaxy-s24-plus-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-plus-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s24-plus-5g-sm-s926-1.jpg",
         variants: [
             { storage: "12 GB/256 GB", basePrice: 36190 },
             { storage: "12 GB/512 GB", basePrice: 36500 }
@@ -1897,7 +1897,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S24 Ultra 5G",
         slug: "samsung-galaxy-s24-ultra-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s24-ultra-5g-sm-s928-0.jpg",
         variants: [
             { storage: "12 GB/256 GB", basePrice: 61340 },
             { storage: "12 GB/512 GB", basePrice: 63240 },
@@ -1921,7 +1921,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A55 5G",
         slug: "samsung-galaxy-a55-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a55-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a55-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 15990 },
             { storage: "8 GB/256 GB", basePrice: 16780 },
@@ -1933,7 +1933,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A35 5G",
         slug: "samsung-galaxy-a35-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a35-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a35-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 12500 },
             { storage: "8 GB/256 GB", basePrice: 13230 }
@@ -1944,7 +1944,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M55 5G",
         slug: "samsung-galaxy-m55-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m55-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m55-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 12940 },
             { storage: "8 GB/256 GB", basePrice: 13930 },
@@ -1956,7 +1956,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M15 5G",
         slug: "samsung-galaxy-m15-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m15-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m15-1.jpg",
         variants: [
             { storage: "4 GB/128 GB", basePrice: 7160 },
             { storage: "6 GB/128 GB", basePrice: 7600 },
@@ -1979,7 +1979,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy F55 5G",
         slug: "samsung-galaxy-f55-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-f55-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-f55-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 10840 },
             { storage: "8 GB/256 GB", basePrice: 12440 },
@@ -1991,7 +1991,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Z Flip6 5G",
         slug: "samsung-galaxy-z-flip6-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-flip6-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-z-flip6-1.jpg",
         variants: [
             { storage: "12 GB/256 GB", basePrice: 36960 },
             { storage: "12 GB/512 GB", basePrice: 40800 }
@@ -2002,7 +2002,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Z Fold6 5G",
         slug: "samsung-galaxy-z-fold6-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-fold6-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-z-fold6-2.jpg",
         variants: [
             { storage: "12 GB/256 GB", basePrice: 69120 },
             { storage: "12 GB/512 GB", basePrice: 70750 },
@@ -2024,7 +2024,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M35 5G",
         slug: "samsung-galaxy-m35-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m35-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m35-1.jpg",
         variants: [
             { storage: "6 GB/128 GB", basePrice: 9690 },
             { storage: "8 GB/128 GB", basePrice: 9950 },
@@ -2036,7 +2036,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S24 FE 5G",
         slug: "samsung-galaxy-s24-fe-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-fe-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s24-fe-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 22350 },
             { storage: "8 GB/256 GB", basePrice: 25630 }
@@ -2047,7 +2047,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M55s 5G",
         slug: "samsung-galaxy-m55s-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m55s-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m55s-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 11240 },
             { storage: "8 GB/256 GB", basePrice: 12440 }
@@ -2068,7 +2068,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A06",
         slug: "samsung-galaxy-a06",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a06.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a06-11.jpg",
         variants: [
             { storage: "4 GB/64 GB", basePrice: 4670 },
             { storage: "4 GB/128 GB", basePrice: 5030 }
@@ -2101,7 +2101,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S25 5G",
         slug: "samsung-galaxy-s25-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s25-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s25-sm-s931-1.jpg",
         variants: [
             { storage: "12 GB/128 GB", basePrice: 39470 },
             { storage: "12 GB/256 GB", basePrice: 44060 },
@@ -2113,7 +2113,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S25 Plus 5G",
         slug: "samsung-galaxy-s25-plus-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s25-plus-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s25-plus-sm-s936-1.jpg",
         variants: [
             { storage: "12 GB/256 GB", basePrice: 49650 },
             { storage: "12 GB/512 GB", basePrice: 52780 }
@@ -2124,7 +2124,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy S25 Ultra 5G",
         slug: "samsung-galaxy-s25-ultra-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s25-ultra-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s25-ultra-sm-s938-1.jpg",
         variants: [
             { storage: "12 GB/256 GB", basePrice: 71130 },
             { storage: "12 GB/512 GB", basePrice: 74180 },
@@ -2136,7 +2136,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A56 5G",
         slug: "samsung-galaxy-a56-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a56-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a56-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 24300 },
             { storage: "8 GB/256 GB", basePrice: 25680 },
@@ -2160,7 +2160,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A36 5G",
         slug: "samsung-galaxy-a36-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a36-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a36-1.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 18100 },
             { storage: "8 GB/256 GB", basePrice: 18570 },
@@ -2172,7 +2172,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A26 5G",
         slug: "samsung-galaxy-a26-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a26-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a26-1.jpg",
         variants: [
             { storage: "6 GB/128 GB", basePrice: 11600 },
             { storage: "8 GB/128 GB", basePrice: 12350 },
@@ -2208,7 +2208,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M16 5G",
         slug: "samsung-galaxy-m16-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m16-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m16-5g-01.jpg",
         variants: [
             { storage: "4 GB/128 GB", basePrice: 8120 },
             { storage: "6 GB/128 GB", basePrice: 8680 },
@@ -2254,7 +2254,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Z Fold 7",
         slug: "samsung-galaxy-z-fold-7",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-fold-7.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-z-fold7-3.jpg",
         variants: [
             { storage: "12 GB/256 GB", basePrice: 94800 },
             { storage: "12 GB/512 GB", basePrice: 96800 },
@@ -2278,7 +2278,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy F36 5G",
         slug: "samsung-galaxy-f36-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-f36-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-f36-1.jpg",
         variants: [
             { storage: "6 GB/128 GB", basePrice: 11100 },
             { storage: "8 GB/128 GB", basePrice: 12180 },
@@ -2290,7 +2290,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Z Flip 7",
         slug: "samsung-galaxy-z-flip-7",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-flip-7.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-z-flip7-03.jpg",
         variants: [
             { storage: "12 GB/256 GB", basePrice: 58500 },
             { storage: "12 GB/512 GB", basePrice: 60000 }
@@ -2301,7 +2301,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy Z Flip7 FE 5G",
         slug: "samsung-galaxy-z-flip7-fe-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-flip7-fe-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-z-flip7-fe-2.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 51000 },
             { storage: "8 GB/256 GB", basePrice: 52900 }
@@ -2335,7 +2335,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M15 5G Prime Edition",
         slug: "samsung-galaxy-m15-5g-prime-edition",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m15-5g-prime-edition.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m15-1.jpg",
         variants: [
             { storage: "4 GB/128 GB", basePrice: 6900 },
             { storage: "6 GB/128 GB", basePrice: 7610 },
@@ -2377,7 +2377,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy F17 5G",
         slug: "samsung-galaxy-f17-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-f17-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-f17-5g-11.jpg",
         variants: [
             { storage: "4 GB/128 GB", basePrice: 8750 },
             { storage: "6 GB/128 GB", basePrice: 9930 }
@@ -2400,7 +2400,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M17 5G",
         slug: "samsung-galaxy-m17-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m17-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a17.jpg",
         variants: [
             { storage: "4 GB/128 GB", basePrice: 9200 },
             { storage: "6 GB/128 GB", basePrice: 10190 },
@@ -2457,7 +2457,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy F70e 5G",
         slug: "samsung-galaxy-f70e-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-f70e-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-f70e-1.jpg",
         variants: [
             { storage: "4 GB/128 GB", basePrice: 8900 },
             { storage: "6 GB/128 GB", basePrice: 9600 }
@@ -2468,7 +2468,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A57 5G",
         slug: "samsung-galaxy-a57-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a57-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a57-4.jpg",
         variants: [
             { storage: "8 GB/256 GB", basePrice: 36900 },
             { storage: "12 GB/256 GB", basePrice: 39950 }
@@ -2479,7 +2479,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy A37 5G",
         slug: "samsung-galaxy-a37-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a37-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a37-4.jpg",
         variants: [
             { storage: "8 GB/128 GB", basePrice: 25620 },
             { storage: "8 GB/256 GB", basePrice: 29550 },
@@ -2491,7 +2491,7 @@ const devices = [
         brand: "Samsung",
         modelName: "Galaxy M17e 5G",
         slug: "samsung-galaxy-m17e-5g",
-        imageUrl: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m17e-5g.jpg",
+        imageUrl: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m17e-1.jpg",
         variants: [
             { storage: "4 GB/128 GB", basePrice: 9300 },
             { storage: "6 GB/128 GB", basePrice: 10700 }
