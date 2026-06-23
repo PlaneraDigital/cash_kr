@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import Modal from './ui/Modal';
 import { 
-  MASTER_PROCESSORS, 
+  WINDOWS_PROCESSORS,
+  MAC_PROCESSORS,
   MASTER_GENERATIONS, 
   MASTER_RAM, 
   MASTER_STORAGE 
@@ -129,6 +130,7 @@ export default function LaptopSpecModal({ isOpen, onClose, device, onComplete, i
             
             <OverlayList 
               type={openDropdown}
+              isMac={isMac}
               onSelect={(val) => handleSelect(openDropdown, val)}
               onClose={() => setOpenDropdown(null)}
             />
@@ -168,11 +170,11 @@ function SpecSelect({ label, value, disabled, setOpen }) {
   );
 }
 
-function OverlayList({ type, onSelect, onClose }) {
+function OverlayList({ type, isMac, onSelect, onClose }) {
   const [search, setSearch] = useState('');
   
   const options = {
-    processor: MASTER_PROCESSORS,
+    processor: isMac ? MAC_PROCESSORS : WINDOWS_PROCESSORS,
     generation: MASTER_GENERATIONS,
     ram: MASTER_RAM,
     storage: MASTER_STORAGE
