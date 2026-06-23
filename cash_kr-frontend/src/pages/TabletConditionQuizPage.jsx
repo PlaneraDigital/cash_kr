@@ -52,7 +52,7 @@ export default function TabletConditionQuizPage() {
 
   const [physicalIssues, setPhysicalIssues] = useState([]);
   const [technicalIssues, setTechnicalIssues] = useState([]);
-  const [selectedAccessories, setSelectedAccessories] = useState(['Bill', 'Box', 'Charger']);
+  const [selectedAccessories, setSelectedAccessories] = useState([]);
 
   const [showResult, setShowResult] = useState(false);
   const [priceAnimating, setPriceAnimating] = useState(false);
@@ -538,10 +538,10 @@ export default function TabletConditionQuizPage() {
                                 ? 'border-[#0565E6] bg-[#E8F1FF]' 
                                 : 'border-gray-100 bg-white hover:border-gray-200'}`}
                           >
-                            <span className="text-2xl">{issue.icon}</span>
+                            <span className="text-[40px]">{issue.icon}</span>
                             <div>
-                              <p className={`font-black text-sm ${selected ? 'text-[#0565E6]' : 'text-[#111827]'}`}>{issue.label}</p>
-                              <p className="text-xs text-gray-400 mt-1">{issue.desc}</p>
+                              <p className={`font-black text-[15px] ${selected ? 'text-[#0565E6]' : 'text-[#111827]'}`}>{issue.label}</p>
+                              <p className="text-[15px] text-gray-400 mt-1">{issue.desc}</p>
                             </div>
                           </button>
                         );
@@ -589,8 +589,8 @@ export default function TabletConditionQuizPage() {
                                 ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
                                 : 'border-gray-50 bg-white text-gray-500 hover:border-gray-100'}`}
                           >
-                            <span className="text-2xl">{issue.icon}</span>
-                            <span className="text-xs font-bold leading-tight">{issue.label}</span>
+                            <span className="text-[40px]">{issue.icon}</span>
+                            <span className="text-[15px] font-bold leading-tight">{issue.label}</span>
                           </button>
                         );
                       })}
@@ -627,15 +627,15 @@ export default function TabletConditionQuizPage() {
                                 : 'border-gray-100 bg-white hover:border-gray-200'}`}
                           >
                             <div className="flex justify-between items-start w-full">
-                              <span className="text-2xl">{acc.icon}</span>
+                              <span className="text-[40px]">{acc.icon}</span>
                               <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center
                                 ${selected ? 'border-[#0565E6] bg-[#0565E6]' : 'border-gray-200'}`}>
                                 {selected && <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" strokeWidth="2.5" strokeLinecap="round"/></svg>}
                               </div>
                             </div>
                             <div>
-                              <p className={`font-black text-sm ${selected ? 'text-[#0565E6]' : 'text-[#111827]'}`}>{acc.label}</p>
-                              <p className="text-xs text-gray-400 mt-1">{acc.desc}</p>
+                              <p className={`font-black text-[15px] ${selected ? 'text-[#0565E6]' : 'text-[#111827]'}`}>{acc.label}</p>
+                              <p className="text-[15px] text-gray-400 mt-1">{acc.desc}</p>
                             </div>
                           </button>
                         );
