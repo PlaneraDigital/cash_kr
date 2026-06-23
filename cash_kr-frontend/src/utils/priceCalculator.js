@@ -1,3 +1,5 @@
+import { isSpecialModel } from './specialModels';
+
 // ─── ISSUE DEDUCTION PERCENTAGES ────────────────────────────────────────────
 export const ISSUE_DEDUCTIONS = {
   // Physical Issues
@@ -26,6 +28,8 @@ export const ISSUE_DEDUCTIONS = {
 // Each deduction is applied to the already-reduced price, NOT the base price.
 // Order: Age → Dead → Touch → Screen Originality → Warranty → GST Bill → eSIM → Charger → Box → Issues
 export function calculatePrice({
+  brand,
+  modelName,
   basePrice,
   deviceAge,
   ableToMakeCalls,
@@ -41,6 +45,7 @@ export function calculatePrice({
 }) {
   const breakdown = {};
   let currentPrice = basePrice;
+  const isSpecial = isSpecialModel(brand, modelName);
 
   // Helper: apply a percentage deduction to currentPrice and record it
   const applyDeduction = (key, pct) => {
@@ -51,7 +56,7 @@ export function calculatePrice({
 
   // 1. Age deduction (applied first to base price)
   const ageDeductions = { '0 - 3 Months': 0, '3 - 6 Months': 7, '6 - 11 Months': 10, 'Above 11 Months': 21 };
-  const agePct = ageDeductions[deviceAge] ?? 7;
+  const agePct = isSpecial ? 0 : (ageDeductions[deviceAge] ?? 7);
   if (agePct > 0) applyDeduction('age', agePct);
 
   // 2. Dead device (cannot make calls) — 90%
@@ -71,13 +76,13 @@ export function calculatePrice({
 
   // 5. Out of warranty — 20%
   // NOTE: If device is >11 months old, warranty is automatically "No" with NO deduction
-  if (underWarranty === false && deviceAge !== 'Above 11 Months') {
+  if (!isSpecial && underWarranty === false && deviceAge !== 'Above 11 Months') {
     applyDeduction('outOfWarranty', 20);
   }
 
   // 6. No GST bill — 21%
   // If device is > 11 months old, we do not apply the no GST bill deduction separately
-  if (hasGSTBill === false && deviceAge !== 'Above 11 Months') {
+  if (!isSpecial && hasGSTBill === false && deviceAge !== 'Above 11 Months') {
     applyDeduction('noBill', 21);
   }
 

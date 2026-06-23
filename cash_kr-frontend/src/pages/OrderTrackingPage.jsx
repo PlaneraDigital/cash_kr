@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { orderService } from '../services/order.service';
 import { userService } from '../services/user.service';
 import { useAuth } from '../hooks/useAuth';
+import { isSpecialModel } from '../utils/specialModels';
 import { formatCurrency } from '../utils/formatCurrency';
 import Loader from '../components/ui/Loader';
 
@@ -340,7 +341,9 @@ function DeviceEvaluationReportModal({ order, onClose }) {
             </div>
             <div className="space-y-4">
               <ReportRow label="Device Category" value={isLaptop ? 'Laptop' : 'Mobile'} />
-              <ReportRow label="Device Age" value={order.device?.deviceAge || '3 - 6 Months'} />
+              {!isSpecialModel(order.device?.brand, order.device?.modelName) && (
+                <ReportRow label="Device Age" value={order.device?.deviceAge || '3 - 6 Months'} />
+              )}
               {isLaptop ? (
                 <>
                   <ReportRow label="Processor" value={order.device?.processor || 'N/A'} />
@@ -354,7 +357,9 @@ function DeviceEvaluationReportModal({ order, onClose }) {
                 </>
               ) : (
                 <>
-                  <ReportRow label="Under Warranty" value={order.device?.underWarranty ? 'Yes' : 'No'} isAlert={!order.device?.underWarranty} />
+                  {!isSpecialModel(order.device?.brand, order.device?.modelName) && (
+                    <ReportRow label="Under Warranty" value={order.device?.underWarranty ? 'Yes' : 'No'} isAlert={!order.device?.underWarranty} />
+                  )}
                   {supportsESIM(order.device?.modelName) && order.device?.eSIMSupport && (
                     <ReportRow label="eSIM Support" value={order.device.eSIMSupport === 'esim_only_global' ? 'Dual eSIM Only' : 'Physical + eSIM'} />
                   )}

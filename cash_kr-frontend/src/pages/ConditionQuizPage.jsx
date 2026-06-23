@@ -5,6 +5,7 @@ import { useQuote } from '../hooks/useQuote';
 import { useAuth } from '../hooks/useAuth';
 import { calculatePrice } from '../utils/priceCalculator';
 import { formatCurrency } from '../utils/formatCurrency';
+import { isSpecialModel } from '../utils/specialModels';
 import Badge from '../components/ui/Badge';
 import Loader from '../components/ui/Loader';
 
@@ -13,12 +14,18 @@ const IconTrend = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
 );
 
-const STEPS = [
+const ALL_STEPS = [
   { id: 'warranty', label: 'Age & Warranty' },
   { id: 'screen', label: 'General & Screen' },
   { id: 'physical', label: 'Physical Issues' },
   { id: 'technical', label: 'Technical Issues' },
   { id: 'accessories', label: 'Accessories' }
+];
+
+const ALL_ACCESSORIES = [
+  { id: 'Bill', label: 'GST Valid Bill', desc: 'Valid GST invoice', icon: '📄' },
+  { id: 'Box', label: 'Original Box', desc: 'Original purchase box', icon: '📦' },
+  { id: 'Charger', label: 'Original Charger', desc: 'Original charging adapter', icon: '🔌' }
 ];
 
 const AGE_OPTIONS = [
@@ -51,6 +58,11 @@ export default function ConditionQuizPage() {
   const [device, setDevice] = useState(null);
   const [loading, setLoading] = useState(true);
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
+
+  // Derived: special models skip Age/Warranty step and Bill accessory
+  const special = device ? isSpecialModel(device.brand, device.modelName) : false;
+  const STEPS = special ? ALL_STEPS.filter(s => s.id !== 'warranty') : ALL_STEPS;
+  const ACCESSORIES = special ? ALL_ACCESSORIES.filter(a => a.id !== 'Bill') : ALL_ACCESSORIES;
   
   // Selections (matching new requirements)
   const [deviceAge, setDeviceAge] = useState('3 - 6 Months');
@@ -64,6 +76,15 @@ export default function ConditionQuizPage() {
   const [physicalIssues, setPhysicalIssues] = useState([]);
   const [technicalIssues, setTechnicalIssues] = useState([]);
   const [selectedAccessories, setSelectedAccessories] = useState(['Bill', 'Box', 'Charger']);
+
+  // When device loads and is special, remove Bill from default selection
+  useEffect(() => {
+    if (device && isSpecialModel(device.brand, device.modelName)) {
+      setSelectedAccessories(prev => prev.filter(a => a !== 'Bill'));
+      // Auto-set warranty/age so they don't block anything
+      setUnderWarranty(true);
+    }
+  }, [device]);
 
   const [showResult, setShowResult] = useState(false);
   const [priceAnimating, setPriceAnimating] = useState(false);
@@ -98,6 +119,8 @@ export default function ConditionQuizPage() {
     
     // Calculate new price based on user inputs
     const result = calculatePrice({
+      brand: device.brand,
+      modelName: device.modelName,
       basePrice: variant.basePrice,
       deviceAge,
       ableToMakeCalls: ableToMakeCalls ?? true,
@@ -264,8 +287,8 @@ export default function ConditionQuizPage() {
               <div className="bg-white rounded-[40px] border border-gray-100 p-10 shadow-sm">
                 <h3 className="text-2xl font-black text-[#111827] mb-10">Device Evaluation</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-                  <EvaluationRow label="Device Age" value={deviceAge} color="#0565E6" />
-                  <EvaluationRow label="Under Warranty" value={underWarranty ? 'Yes' : 'No'} color={underWarranty ? '#0565E6' : '#EF4444'} />
+                  {!special && <EvaluationRow label="Device Age" value={deviceAge} color="#0565E6" />}
+                  {!special && <EvaluationRow label="Under Warranty" value={underWarranty ? 'Yes' : 'No'} color={underWarranty ? '#0565E6' : '#EF4444'} />}
                   {supportsESIM(device?.modelName) && (
                     <EvaluationRow label="eSIM Support" value={eSIMSupport === 'esim_only_global' ? 'eSIM Only' : 'Physical + eSIM'} color={eSIMSupport === 'esim_only_global' ? '#EF4444' : '#0565E6'} />
                   )}
@@ -391,8 +414,8 @@ export default function ConditionQuizPage() {
             {/* Questions Area */}
             <div className="p-10 min-h-[420px] flex flex-col justify-between">
               <div>
-                {/* STEP 0: Age & Warranty */}
-                {currentStepIndex === 0 && (
+                {/* STEP: Age & Warranty (shown only for non-special models) */}
+                {STEPS[currentStepIndex]?.id === 'warranty' && (
                   <div className="space-y-10">
                     {/* Q1: Age */}
                     <div className="space-y-4">
@@ -474,8 +497,8 @@ export default function ConditionQuizPage() {
                   </div>
                 )}
 
-                {/* STEP 1: Calls & Screen */}
-                {currentStepIndex === 1 && (
+                {/* STEP: General & Screen */}
+                {STEPS[currentStepIndex]?.id === 'screen' && (
                   <div className="space-y-10">
                     {/* Q1: Calls */}
                     <div className="space-y-4">
@@ -554,8 +577,8 @@ export default function ConditionQuizPage() {
                   </div>
                 )}
 
-                {/* STEP 2: Physical Issues */}
-                {currentStepIndex === 2 && (
+                {/* STEP: Physical Issues */}
+                {STEPS[currentStepIndex]?.id === 'physical' && (
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-lg font-bold text-[#111827]">Select physical issues (if any)</h3>
@@ -594,8 +617,8 @@ export default function ConditionQuizPage() {
                   </div>
                 )}
 
-                {/* STEP 3: Technical Issues */}
-                {currentStepIndex === 3 && (
+                {/* STEP: Technical Issues */}
+                {STEPS[currentStepIndex]?.id === 'technical' && (
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-lg font-bold text-[#111827]">Select technical/hardware issues (if any)</h3>
@@ -643,8 +666,8 @@ export default function ConditionQuizPage() {
                   </div>
                 )}
 
-                {/* STEP 4: Accessories */}
-                {currentStepIndex === 4 && (
+                {/* STEP: Accessories */}
+                {STEPS[currentStepIndex]?.id === 'accessories' && (
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-lg font-bold text-[#111827]">Which original accessories do you have?</h3>
@@ -652,11 +675,7 @@ export default function ConditionQuizPage() {
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                      {[
-                        { id: 'Bill', label: 'GST Valid Bill', desc: 'Valid GST invoice', icon: '📄' },
-                        { id: 'Box', label: 'Original Box', desc: 'Original purchase box', icon: '📦' },
-                        { id: 'Charger', label: 'Original Charger', desc: 'Original charging adapter', icon: '🔌' }
-                      ].map(acc => {
+                      {ACCESSORIES.map(acc => {
                         const selected = selectedAccessories.includes(acc.id);
                         return (
                           <button
@@ -704,8 +723,8 @@ export default function ConditionQuizPage() {
                   <button
                     onClick={() => setCurrentStepIndex(prev => prev + 1)}
                     disabled={
-                      (currentStepIndex === 0 && (underWarranty === null || eSIMSupport === null)) ||
-                      (currentStepIndex === 1 && (ableToMakeCalls === null || isTouchScreenWorking === null || isScreenOriginal === null))
+                      (STEPS[currentStepIndex]?.id === 'warranty' && (underWarranty === null || eSIMSupport === null)) ||
+                      (STEPS[currentStepIndex]?.id === 'screen' && (ableToMakeCalls === null || isTouchScreenWorking === null || isScreenOriginal === null))
                     }
                     className="bg-[#0565E6] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#044BA8] transition-all disabled:opacity-50"
                   >
@@ -745,15 +764,15 @@ export default function ConditionQuizPage() {
 
             {/* Summary List */}
             <div className="space-y-6">
-              <SummaryItem label="Device Age" value={deviceAge} active />
-              <SummaryItem label="Warranty" value={underWarranty === null ? 'Not answered' : (underWarranty ? 'Under Warranty' : 'Out of Warranty')} active={underWarranty !== null} />
+              {!special && <SummaryItem label="Device Age" value={deviceAge} active />}
+              {!special && <SummaryItem label="Warranty" value={underWarranty === null ? 'Not answered' : (underWarranty ? 'Under Warranty' : 'Out of Warranty')} active={underWarranty !== null} />}
               {supportsESIM(device?.modelName) && (
                 <SummaryItem label="eSIM Support" value={eSIMSupport === null ? 'Not answered' : (eSIMSupport === 'esim_only_global' ? 'Dual eSIM Only' : 'Physical + eSIM')} active={eSIMSupport !== null} />
               )}
               <SummaryItem label="General & Screen" value={ableToMakeCalls === null ? 'Not answered' : `Calls: ${ableToMakeCalls ? 'Yes' : 'No'}, Touch: ${isTouchScreenWorking ? 'Yes' : 'No'}, Original: ${isScreenOriginal ? 'Yes' : 'No'}`} active={ableToMakeCalls !== null} />
-              <SummaryItem label="Physical Issues" value={physicalIssues.length > 0 ? `${physicalIssues.length} issues selected` : 'No Issues'} active={currentStepIndex >= 2} />
-              <SummaryItem label="Technical Issues" value={technicalIssues.length > 0 ? `${technicalIssues.length} issues selected` : 'No Issues'} active={currentStepIndex >= 3} />
-              <SummaryItem label="Accessories" value={selectedAccessories.length > 0 ? selectedAccessories.join(', ') : 'None selected'} active={currentStepIndex >= 4} />
+              <SummaryItem label="Physical Issues" value={physicalIssues.length > 0 ? `${physicalIssues.length} issues selected` : 'No Issues'} active={STEPS.findIndex(s=>s.id==='physical') <= currentStepIndex} />
+              <SummaryItem label="Technical Issues" value={technicalIssues.length > 0 ? `${technicalIssues.length} issues selected` : 'No Issues'} active={STEPS.findIndex(s=>s.id==='technical') <= currentStepIndex} />
+              <SummaryItem label="Accessories" value={selectedAccessories.length > 0 ? selectedAccessories.join(', ') : 'None selected'} active={STEPS.findIndex(s=>s.id==='accessories') <= currentStepIndex} />
             </div>
 
           </div>
