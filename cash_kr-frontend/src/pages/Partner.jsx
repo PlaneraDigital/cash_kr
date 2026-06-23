@@ -178,6 +178,7 @@ export default function PartnerPage() {
                     <option value="">Select Category</option>
                     <option value="repair">Mobile Repair Shop</option>
                     <option value="retailer">Laptop Retailer</option>
+                    <option value="mobile_retailer">Mobile Retailer</option>
                     <option value="refurb">Refurbishing Unit</option>
                     <option value="collector">E-waste Collector</option>
                   </select>

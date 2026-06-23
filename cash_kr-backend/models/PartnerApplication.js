@@ -30,7 +30,7 @@ const partnerApplicationSchema = new mongoose.Schema({
   shopType: {
     type: String,
     required: [true, 'Shop type is required'],
-    enum: ['repair', 'retailer', 'refurb', 'collector'],
+    enum: ['repair', 'retailer', 'refurb', 'collector', 'mobile_retailer'],
   },
   status: {
     type: String,

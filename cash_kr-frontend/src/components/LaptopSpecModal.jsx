@@ -3,14 +3,12 @@ import Modal from './ui/Modal';
 import { 
   WINDOWS_PROCESSORS,
   MAC_PROCESSORS,
-  MASTER_GENERATIONS, 
   MASTER_RAM, 
   MASTER_STORAGE 
 } from '../utils/laptopSpecs';
 
 export default function LaptopSpecModal({ isOpen, onClose, device, onComplete, initialValues }) {
   const [selectedProcessor, setSelectedProcessor] = useState(null);
-  const [selectedGen, setSelectedGen] = useState(null);
   const [selectedRam, setSelectedRam] = useState(null);
   const [selectedStorage, setSelectedStorage] = useState(null);
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -22,7 +20,6 @@ export default function LaptopSpecModal({ isOpen, onClose, device, onComplete, i
   useEffect(() => {
     if (isOpen && initialValues) {
       setSelectedProcessor(initialValues.processor || null);
-      setSelectedGen(initialValues.generation || null);
       setSelectedRam(initialValues.ram || null);
       setSelectedStorage(initialValues.storage || null);
     }
@@ -33,16 +30,6 @@ export default function LaptopSpecModal({ isOpen, onClose, device, onComplete, i
   const handleSelect = (type, val) => {
     if (type === 'processor') {
       setSelectedProcessor(val);
-      if (isMac) {
-        // Skip generation for Mac — go straight to RAM
-        setSelectedGen('M-Series');
-      } else {
-        setSelectedGen(null);
-      }
-      setSelectedRam(null);
-      setSelectedStorage(null);
-    } else if (type === 'generation') {
-      setSelectedGen(val);
       setSelectedRam(null);
       setSelectedStorage(null);
     } else if (type === 'ram') {
@@ -54,13 +41,12 @@ export default function LaptopSpecModal({ isOpen, onClose, device, onComplete, i
     setOpenDropdown(null);
   };
 
-  const isComplete = selectedProcessor && (isMac || selectedGen) && selectedRam && selectedStorage;
+  const isComplete = selectedProcessor && selectedRam && selectedStorage;
 
   const handleFinish = () => {
     if (isComplete) {
       onComplete({
         processor: selectedProcessor,
-        generation: selectedGen,
         ram: selectedRam,
         storage: selectedStorage
       });
@@ -78,20 +64,10 @@ export default function LaptopSpecModal({ isOpen, onClose, device, onComplete, i
             setOpen={() => setOpenDropdown('processor')}
           />
 
-          {!isMac && (
-            <SpecSelect 
-              label="Generation" 
-              value={selectedGen} 
-              disabled={!selectedProcessor}
-              isOpen={openDropdown === 'generation'}
-              setOpen={() => setOpenDropdown('generation')}
-            />
-          )}
-
           <SpecSelect 
             label="RAM" 
             value={selectedRam} 
-            disabled={isMac ? !selectedProcessor : !selectedGen}
+            disabled={!selectedProcessor}
             isOpen={openDropdown === 'ram'}
             setOpen={() => setOpenDropdown('ram')}
           />
@@ -175,7 +151,6 @@ function OverlayList({ type, isMac, onSelect, onClose }) {
   
   const options = {
     processor: isMac ? MAC_PROCESSORS : WINDOWS_PROCESSORS,
-    generation: MASTER_GENERATIONS,
     ram: MASTER_RAM,
     storage: MASTER_STORAGE
   }[type] || [];

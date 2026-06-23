@@ -29,11 +29,7 @@ export const MAC_PROCESSORS = [
 
 export const MASTER_PROCESSORS = [...WINDOWS_PROCESSORS, ...MAC_PROCESSORS];
 
-export const MASTER_GENERATIONS = [
-  '5th Gen', '6th Gen', '7th Gen', '8th Gen', '9th Gen',
-  '10th Gen', '11th Gen', '12th Gen', '13th Gen', '14th Gen',
-  '5000 Series', '7000 Series', 'M-Series', 'Ultra Gen'
-];
+
 
 export const MASTER_RAM = [
   '4GB', '6GB', '8GB', '10GB', '12GB', '16GB', '24GB', '32GB', '36GB', '48GB', '64GB', '128GB', '256GB'
