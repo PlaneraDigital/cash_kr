@@ -574,6 +574,33 @@ export default function ConditionQuizPage() {
                         </button>
                       </div>
                     </div>
+
+                    {/* Q4: eSIM Support (Conditional for special models) */}
+                    {special && supportsESIM(device?.modelName) && (
+                      <div className="space-y-4">
+                        <h3 className="text-lg font-bold text-[#111827]">4. How many eSIMs does your device support?</h3>
+                        <div className="grid grid-cols-2 gap-4">
+                          <button
+                            onClick={() => seteSIMSupport('physical+esim')}
+                            className={`py-4 rounded-xl border-2 font-bold text-sm transition-all
+                              ${eSIMSupport === 'physical+esim' 
+                                ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                                : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                          >
+                            Physical SIM + eSIM
+                          </button>
+                          <button
+                            onClick={() => seteSIMSupport('esim_only_global')}
+                            className={`py-4 rounded-xl border-2 font-bold text-sm transition-all
+                              ${eSIMSupport === 'esim_only_global' 
+                                ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                                : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                          >
+                            Dual eSIM Only (Global/US variant)
+                          </button>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
 
@@ -724,7 +751,12 @@ export default function ConditionQuizPage() {
                     onClick={() => setCurrentStepIndex(prev => prev + 1)}
                     disabled={
                       (STEPS[currentStepIndex]?.id === 'warranty' && (underWarranty === null || eSIMSupport === null)) ||
-                      (STEPS[currentStepIndex]?.id === 'screen' && (ableToMakeCalls === null || isTouchScreenWorking === null || isScreenOriginal === null))
+                      (STEPS[currentStepIndex]?.id === 'screen' && (
+                        ableToMakeCalls === null || 
+                        isTouchScreenWorking === null || 
+                        isScreenOriginal === null ||
+                        (special && supportsESIM(device?.modelName) && eSIMSupport === null)
+                      ))
                     }
                     className="bg-[#0565E6] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#044BA8] transition-all disabled:opacity-50"
                   >
