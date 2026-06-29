@@ -256,9 +256,9 @@ function getScreenSizeIncrement(sizeKey) {
   return 0;
 }
 
-function getBrandMultiplier(modelName) {
-  if (!modelName) return 1.0;
-  const m = modelName.toLowerCase();
+function getBrandMultiplier(device) {
+  if (!device) return 1.0;
+  const m = (device.modelName || '').toLowerCase();
   
   if (m.includes('alienware') || m.includes('omen') || m.includes('legion') || m.includes('rog')) {
     return 1.40;
@@ -269,6 +269,22 @@ function getBrandMultiplier(modelName) {
   if (m.includes('pavilion') || m.includes('vostro') || m.includes('thinkpad e') || m.includes('vivobook')) {
     return 1.15;
   }
+  if (m.includes('inspiron') || m.includes('ideapad') || m.includes('aspire') || m.includes('hp 15')) {
+    return 1.0;
+  }
+  
+  // Fallback to database tier
+  const tier = (device.tier || '').toLowerCase();
+  if (tier === 'gaming' || tier.includes('gaming')) {
+    return 1.40;
+  }
+  if (tier === 'premium' || tier.includes('premium') || tier.includes('flagship')) {
+    return 1.35;
+  }
+  if (tier === 'mid-range' || tier.includes('mid') || tier.includes('business')) {
+    return 1.15;
+  }
+  
   return 1.0;
 }
 
@@ -319,7 +335,10 @@ export function calculateLaptopPrice(device, selections) {
     }
   } else {
     // ── 1. Windows Laptop Bottom-Up valuation ──
-    const processor = selections.processor || device.processorFamily || '';
+    const deviceProcessor = device.generation 
+      ? `${device.processorFamily || ''} - ${device.generation}` 
+      : (device.processorFamily || '');
+    const processor = selections.processor || deviceProcessor;
     const gpu = device.gpuType || '';
     
     // Shell Base Value & CPU
@@ -338,7 +357,7 @@ export function calculateLaptopPrice(device, selections) {
     const screenSizeIncrement = getScreenSizeIncrement(screenSize);
     
     // Brand Tier & Build Quality Multiplier
-    const brandMultiplier = getBrandMultiplier(device.modelName);
+    const brandMultiplier = getBrandMultiplier(device);
     
     const sumOfComponents = functionalBase + cpuIncrement + ramIncrement + storageIncrement + gpuIncrement + screenSizeIncrement;
     basePrice = Math.round(sumOfComponents * brandMultiplier);

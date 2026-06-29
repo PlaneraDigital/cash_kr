@@ -599,7 +599,7 @@ export default function LaptopConditionQuizPage() {
                 <div>
                   <p className="text-[#0565E6] text-xs font-black uppercase tracking-widest mb-1">Estimated Value</p>
                   <p className={`text-4xl font-black text-[#0452B9] tracking-tighter transition-all ${priceAnimating ? 'scale-95 opacity-50' : 'scale-100 opacity-100'}`}>
-                    {currentPrice > 0 ? formatCurrency(currentPrice) : '₹ XX,XXX'}
+                    {breakdown ? formatCurrency(currentPrice) : '₹ XX,XXX'}
                   </p>
                 </div>
               </div>
