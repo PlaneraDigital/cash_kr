@@ -125,31 +125,31 @@ export function calculatePrice({
 
 
 function getProcessorIncrement(processorStr) {
-  if (!processorStr) return { base: 2500, increment: 0 };
+  if (!processorStr) return 0;
   const p = processorStr.toLowerCase();
   const isRyzen = p.includes('ryzen');
 
   // Core i9 / Ryzen 9 (Any Gen) / Core Ultra 9 / Snapdragon X Elite
   if (p.includes('i9') || p.includes('ryzen 9') || p.includes('ultra 9') || p.includes('elite')) {
-    return { base: 5000, increment: 20000 };
+    return 20000;
   }
 
   // Core i7 / Ryzen 7 / Core Ultra 7
   if (p.includes('i7') || p.includes('ryzen 7') || p.includes('ultra 7')) {
     if (isRyzen) {
       if (p.includes('6th gen') || p.includes('7th gen') || p.includes('8th gen')) {
-        return { base: 5000, increment: 14000 };
+        return 14000;
       }
-      return { base: 5000, increment: 5500 };
+      return 5500;
     } else {
       // Intel
       if (p.includes('12th') || p.includes('13th') || p.includes('14th') || p.includes('ultra')) {
-        return { base: 5000, increment: 14000 };
+        return 14000;
       }
       if (p.includes('8th') || p.includes('9th') || p.includes('10th') || p.includes('11th')) {
-        return { base: 5000, increment: 5500 };
+        return 5500;
       }
-      return { base: 2500, increment: 0 };
+      return 0;
     }
   }
 
@@ -157,18 +157,18 @@ function getProcessorIncrement(processorStr) {
   if (p.includes('i5') || p.includes('ryzen 5') || p.includes('ultra 5')) {
     if (isRyzen) {
       if (p.includes('6th gen') || p.includes('7th gen') || p.includes('8th gen')) {
-        return { base: 5000, increment: 8500 };
+        return 8500;
       }
-      return { base: 5000, increment: 3500 };
+      return 3500;
     } else {
       // Intel
       if (p.includes('12th') || p.includes('13th') || p.includes('14th') || p.includes('ultra')) {
-        return { base: 5000, increment: 8500 };
+        return 8500;
       }
       if (p.includes('8th') || p.includes('9th') || p.includes('10th') || p.includes('11th')) {
-        return { base: 5000, increment: 3500 };
+        return 3500;
       }
-      return { base: 2500, increment: 0 };
+      return 0;
     }
   }
 
@@ -176,23 +176,23 @@ function getProcessorIncrement(processorStr) {
   if (p.includes('i3') || p.includes('ryzen 3') || p.includes('ultra 3')) {
     if (isRyzen) {
       if (p.includes('6th gen') || p.includes('7th gen') || p.includes('8th gen')) {
-        return { base: 5000, increment: 4500 };
+        return 4500;
       }
-      return { base: 5000, increment: 1500 };
+      return 1500;
     } else {
       // Intel
       if (p.includes('12th') || p.includes('13th') || p.includes('14th') || p.includes('ultra')) {
-        return { base: 5000, increment: 4500 };
+        return 4500;
       }
       if (p.includes('8th') || p.includes('9th') || p.includes('10th') || p.includes('11th')) {
-        return { base: 5000, increment: 1500 };
+        return 1500;
       }
-      return { base: 2500, increment: 0 };
+      return 0;
     }
   }
 
   // Default / older
-  return { base: 2500, increment: 0 };
+  return 0;
 }
 
 function getRamIncrement(ramStr) {
@@ -341,8 +341,11 @@ export function calculateLaptopPrice(device, selections) {
     const processor = selections.processor || deviceProcessor;
     const gpu = device.gpuType || '';
     
-    // Shell Base Value & CPU
-    const { base: functionalBase, increment: cpuIncrement } = getProcessorIncrement(processor);
+    // Shell Base Value from DB
+    const functionalBase = device.variants?.[0]?.basePrice || 0;
+    
+    // CPU Increment
+    const cpuIncrement = getProcessorIncrement(processor);
     
     // RAM Increment
     const ramIncrement = getRamIncrement(ram);
