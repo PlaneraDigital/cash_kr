@@ -11,6 +11,7 @@ import LaptopSpecModal from '../components/LaptopSpecModal';
 const STEPS = [
   { id: 'specs', label: 'Specs' },
   { id: 'power', label: 'Power Status' },
+  { id: 'screenSize', label: 'Screen Size' },
   { id: 'functional', label: 'Functional Issues' },
   { id: 'screen', label: 'Screen Assessment' },
   { id: 'body', label: 'Body Condition' },
@@ -22,6 +23,13 @@ const AGE_OPTIONS = [
   { key: 'lessThan1', label: 'Less than 1 year (in warranty)' },
   { key: 'oneToTwo', label: 'Between 1 and 3 years' },
   { key: 'twoToThree', label: 'More than 3 years' },
+];
+
+const SCREEN_SIZE_OPTIONS = [
+  { key: '10-11', label: '10-11 inches' },
+  { key: '12-13', label: '12-13 inches' },
+  { key: '14-15', label: '14-15 inches' },
+  { key: 'above15', label: 'Above 15 inches' },
 ];
 
 const functionalOptions = [
@@ -76,6 +84,7 @@ export default function LaptopConditionQuizPage() {
 
   // Selections
   const [powerStatus, setPowerStatus] = useState(null); // 'on' | 'off'
+  const [screenSize, setScreenSize] = useState(null); // '10-11' | '12-13' | '14-15' | 'above15'
   const [issuesList, setIssuesList] = useState([]); // functional issues
   const [screenIssuesList, setScreenIssuesList] = useState([]);
   const [bodyIssuesList, setBodyIssuesList] = useState([]);
@@ -102,6 +111,7 @@ export default function LaptopConditionQuizPage() {
       ...specs,
       yearBracket: age,
       powerStatus: powerStatus,
+      screenSize: screenSize,
       functionalIssues: issuesList,
       screenIssues: screenIssuesList,
       bodyIssues: bodyIssuesList,
@@ -113,7 +123,7 @@ export default function LaptopConditionQuizPage() {
       setCurrentPrice(result.finalPrice);
       setBreakdown(result);
     }
-  }, [device, specs, age, powerStatus, issuesList, screenIssuesList, bodyIssuesList, accessories]);
+  }, [device, specs, age, powerStatus, screenSize, issuesList, screenIssuesList, bodyIssuesList, accessories]);
 
   const handleSpecsUpdate = (newSpecs) => {
     setSpecs(newSpecs);
@@ -134,6 +144,7 @@ export default function LaptopConditionQuizPage() {
         deviceAge: ageLabel,
         yearBracket: age,
         powerStatus,
+        screenSize,
         functionalIssues: issuesList,
         screenIssues: screenIssuesList,
         bodyIssues: bodyIssuesList,
@@ -228,6 +239,7 @@ export default function LaptopConditionQuizPage() {
                    <EvaluationDetailRow label="RAM" value={specs.ram || 'Standard'} color="#0565E6" />
                    <EvaluationDetailRow label="Storage" value={specs.storage || 'Standard'} color="#0565E6" />
                    <EvaluationDetailRow label="Power Status" value={powerStatus === 'on' ? 'Turns On' : 'Does Not Turn On (Off)'} color={powerStatus === 'on' ? '#0565E6' : '#EF4444'} />
+                   <EvaluationDetailRow label="Screen Size" value={screenSize ? SCREEN_SIZE_OPTIONS.find(o => o.key === screenSize)?.label : '-'} color="#0565E6" />
                    <EvaluationDetailRow label="Device Age" value={age ? AGE_OPTIONS.find(o => o.key === age).label : '-'} color="#0565E6" />
                    <EvaluationDetailRow label="Functional Issues" value={issuesList.length > 0 ? issuesList.length + ' issue(s)' : 'No Issues'} color={issuesList.length > 0 ? '#EF4444' : '#0565E6'} />
                    <EvaluationDetailRow label="Screen Condition" value={screenIssuesList.length > 0 ? screenIssuesList.length + ' issue(s)' : 'No Issues'} color={screenIssuesList.length > 0 ? '#EF4444' : '#0565E6'} />
@@ -312,8 +324,8 @@ export default function LaptopConditionQuizPage() {
             {/* Active Question Card */}
             <div className="bg-white rounded-[24px] p-8 border border-gray-100 shadow-sm transition-all duration-500">
               
-              {/* STEP 0: Specs */}
-              {currentStepIndex === 0 && (
+              {/* STEP: Specs */}
+              {STEPS[currentStepIndex]?.id === 'specs' && (
                 <div className="space-y-6">
                   <h3 className="text-lg font-black text-[#111827]">1. Confirm Device Specifications</h3>
                   <div className="bg-gray-50 rounded-3xl p-8 space-y-4 mb-6 border border-gray-100">
@@ -343,8 +355,8 @@ export default function LaptopConditionQuizPage() {
                 </div>
               )}
 
-              {/* STEP 1: Power Status */}
-              {currentStepIndex === 1 && (
+              {/* STEP: Power Status */}
+              {STEPS[currentStepIndex]?.id === 'power' && (
                 <div className="space-y-6">
                   <h3 className="text-lg font-black text-[#111827]">2. Does the laptop turn on successfully?</h3>
                   <p className="text-xs font-black text-gray-600 uppercase tracking-widest -mt-2">Select the current power state</p>
@@ -371,11 +383,35 @@ export default function LaptopConditionQuizPage() {
                 </div>
               )}
 
-              {/* STEP 2: Functional Issues */}
-              {currentStepIndex === 2 && (
+              {/* STEP: Screen Size */}
+              {STEPS[currentStepIndex]?.id === 'screenSize' && (
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-black text-[#111827]">3. Select functional issues (if any)</h3>
+                    <h3 className="text-lg font-black text-[#111827]">3. What is the screen size of the laptop?</h3>
+                    <p className="text-xs font-black text-gray-600 uppercase tracking-widest mt-1">Select the screen size to proceed</p>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {SCREEN_SIZE_OPTIONS.map(opt => (
+                      <button
+                        key={opt.key}
+                        onClick={() => setScreenSize(opt.key)}
+                        className={`py-6 rounded-2xl border-2 font-black text-base transition-all
+                          ${screenSize === opt.key 
+                            ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                            : 'border-gray-100 bg-white text-gray-700 hover:border-gray-200'}`}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* STEP: Functional Issues */}
+              {STEPS[currentStepIndex]?.id === 'functional' && (
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-black text-[#111827]">4. Select functional issues (if any)</h3>
                     <p className="text-xs font-black text-gray-600 uppercase tracking-widest mt-1">Leave unselected if none apply and click Next</p>
                   </div>
                   <div className="grid grid-cols-2 md:grid-cols-3 text-xl gap-4 max-h-[350px] overflow-y-auto pr-2 no-scrollbar">
@@ -399,11 +435,11 @@ export default function LaptopConditionQuizPage() {
                 </div>
               )}
 
-              {/* STEP 3: Screen Issues */}
-              {currentStepIndex === 3 && (
+              {/* STEP: Screen Assessment */}
+              {STEPS[currentStepIndex]?.id === 'screen' && (
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-black text-[#111827]">4. Select screen issues (if any)</h3>
+                    <h3 className="text-lg font-black text-[#111827]">5. Select screen issues (if any)</h3>
                     <p className="text-xs font-black text-gray-600 uppercase tracking-widest mt-1">Leave unselected if none apply and click Next</p>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -427,11 +463,11 @@ export default function LaptopConditionQuizPage() {
                 </div>
               )}
 
-              {/* STEP 4: Body Damage */}
-              {currentStepIndex === 4 && (
+              {/* STEP: Body Condition */}
+              {STEPS[currentStepIndex]?.id === 'body' && (
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-black text-[#111827]">5. Select body damage/scratches (if any)</h3>
+                    <h3 className="text-lg font-black text-[#111827]">6. Select body damage/scratches (if any)</h3>
                     <p className="text-xs font-black text-gray-600 uppercase tracking-widest mt-1">Leave unselected if none apply and click Next</p>
                   </div>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-h-[350px] overflow-y-auto pr-2 no-scrollbar">
@@ -455,11 +491,11 @@ export default function LaptopConditionQuizPage() {
                 </div>
               )}
 
-              {/* STEP 5: Accessories */}
-              {currentStepIndex === 5 && (
+              {/* STEP: Accessories */}
+              {STEPS[currentStepIndex]?.id === 'accessories' && (
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-black text-[#111827]">6. Which original accessories do you have?</h3>
+                    <h3 className="text-lg font-black text-[#111827]">7. Which original accessories do you have?</h3>
                     <p className="text-xs font-black text-gray-600 uppercase tracking-widest mt-1">Select the accessories present with the laptop</p>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -492,11 +528,11 @@ export default function LaptopConditionQuizPage() {
                 </div>
               )}
 
-              {/* STEP 6: Device Age */}
-              {currentStepIndex === 6 && (
+              {/* STEP: Device Age */}
+              {STEPS[currentStepIndex]?.id === 'age' && (
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-black text-[#111827]">7. How old is your laptop?</h3>
+                    <h3 className="text-lg font-black text-[#111827]">8. How old is your laptop?</h3>
                     <p className="text-xs font-black text-gray-600 uppercase tracking-widest mt-1">Age determines final multiplier value</p>
                   </div>
                   <div className="flex flex-col gap-4">
@@ -535,7 +571,8 @@ export default function LaptopConditionQuizPage() {
                   <button
                     onClick={() => setCurrentStepIndex(prev => prev + 1)}
                     disabled={
-                      (currentStepIndex === 1 && powerStatus === null)
+                      (STEPS[currentStepIndex]?.id === 'power' && powerStatus === null) ||
+                      (STEPS[currentStepIndex]?.id === 'screenSize' && screenSize === null)
                     }
                     className="bg-[#0565E6] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#044BA8] transition-all disabled:opacity-50"
                   >
@@ -573,11 +610,12 @@ export default function LaptopConditionQuizPage() {
                    <SummaryItem label="RAM" value={specs.ram || '-'} active={true} />
                    <SummaryItem label="Storage" value={specs.storage || '-'} active={true} />
                    <SummaryItem label="Power Status" value={powerStatus ? (powerStatus === 'on' ? 'Turns On' : 'Does Not Turn On') : '-'} active={powerStatus !== null} />
-                   <SummaryItem label="Functional" value={issuesList.length > 0 ? `${issuesList.length} issue(s)` : currentStepIndex >= 2 ? 'No Issues' : '-'} active={currentStepIndex >= 2} />
-                   <SummaryItem label="Screen" value={screenIssuesList.length > 0 ? `${screenIssuesList.length} issue(s)` : currentStepIndex >= 3 ? 'No Issues' : '-'} active={currentStepIndex >= 3} />
-                   <SummaryItem label="Body" value={bodyIssuesList.length > 0 ? `${bodyIssuesList.length} issue(s)` : currentStepIndex >= 4 ? 'No Issues' : '-'} active={currentStepIndex >= 4} />
-                   <SummaryItem label="Accessories" value={accessories.length > 0 ? accessories.map(a => a.charAt(0).toUpperCase() + a.slice(1)).join(', ') : currentStepIndex >= 5 ? 'None' : '-'} active={currentStepIndex >= 5} />
-                   <SummaryItem label="Age" value={age ? AGE_OPTIONS.find(o => o.key === age).label : '-'} active={currentStepIndex >= 6} />
+                   <SummaryItem label="Screen Size" value={screenSize ? SCREEN_SIZE_OPTIONS.find(o => o.key === screenSize)?.label : '-'} active={screenSize !== null} />
+                   <SummaryItem label="Functional" value={issuesList.length > 0 ? `${issuesList.length} issue(s)` : currentStepIndex >= STEPS.findIndex(s => s.id === 'functional') ? 'No Issues' : '-'} active={currentStepIndex >= STEPS.findIndex(s => s.id === 'functional')} />
+                   <SummaryItem label="Screen" value={screenIssuesList.length > 0 ? `${screenIssuesList.length} issue(s)` : currentStepIndex >= STEPS.findIndex(s => s.id === 'screen') ? 'No Issues' : '-'} active={currentStepIndex >= STEPS.findIndex(s => s.id === 'screen')} />
+                   <SummaryItem label="Body" value={bodyIssuesList.length > 0 ? `${bodyIssuesList.length} issue(s)` : currentStepIndex >= STEPS.findIndex(s => s.id === 'body') ? 'No Issues' : '-'} active={currentStepIndex >= STEPS.findIndex(s => s.id === 'body')} />
+                   <SummaryItem label="Accessories" value={accessories.length > 0 ? accessories.map(a => a.charAt(0).toUpperCase() + a.slice(1)).join(', ') : currentStepIndex >= STEPS.findIndex(s => s.id === 'accessories') ? 'None' : '-'} active={currentStepIndex >= STEPS.findIndex(s => s.id === 'accessories')} />
+                   <SummaryItem label="Age" value={age ? AGE_OPTIONS.find(o => o.key === age).label : '-'} active={currentStepIndex >= STEPS.findIndex(s => s.id === 'age')} />
                 </div>
               </div>
             </div>

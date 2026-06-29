@@ -124,53 +124,224 @@ export function calculatePrice({
 }
 
 
+function getProcessorIncrement(processorStr) {
+  if (!processorStr) return { base: 2500, increment: 0 };
+  const p = processorStr.toLowerCase();
+  const isRyzen = p.includes('ryzen');
+
+  // Core i9 / Ryzen 9 (Any Gen) / Core Ultra 9 / Snapdragon X Elite
+  if (p.includes('i9') || p.includes('ryzen 9') || p.includes('ultra 9') || p.includes('elite')) {
+    return { base: 5000, increment: 20000 };
+  }
+
+  // Core i7 / Ryzen 7 / Core Ultra 7
+  if (p.includes('i7') || p.includes('ryzen 7') || p.includes('ultra 7')) {
+    if (isRyzen) {
+      if (p.includes('6th gen') || p.includes('7th gen') || p.includes('8th gen')) {
+        return { base: 5000, increment: 14000 };
+      }
+      return { base: 5000, increment: 5500 };
+    } else {
+      // Intel
+      if (p.includes('12th') || p.includes('13th') || p.includes('14th') || p.includes('ultra')) {
+        return { base: 5000, increment: 14000 };
+      }
+      if (p.includes('8th') || p.includes('9th') || p.includes('10th') || p.includes('11th')) {
+        return { base: 5000, increment: 5500 };
+      }
+      return { base: 2500, increment: 0 };
+    }
+  }
+
+  // Core i5 / Ryzen 5 / Core Ultra 5
+  if (p.includes('i5') || p.includes('ryzen 5') || p.includes('ultra 5')) {
+    if (isRyzen) {
+      if (p.includes('6th gen') || p.includes('7th gen') || p.includes('8th gen')) {
+        return { base: 5000, increment: 8500 };
+      }
+      return { base: 5000, increment: 3500 };
+    } else {
+      // Intel
+      if (p.includes('12th') || p.includes('13th') || p.includes('14th') || p.includes('ultra')) {
+        return { base: 5000, increment: 8500 };
+      }
+      if (p.includes('8th') || p.includes('9th') || p.includes('10th') || p.includes('11th')) {
+        return { base: 5000, increment: 3500 };
+      }
+      return { base: 2500, increment: 0 };
+    }
+  }
+
+  // Core i3 / Ryzen 3 / Core Ultra 3
+  if (p.includes('i3') || p.includes('ryzen 3') || p.includes('ultra 3')) {
+    if (isRyzen) {
+      if (p.includes('6th gen') || p.includes('7th gen') || p.includes('8th gen')) {
+        return { base: 5000, increment: 4500 };
+      }
+      return { base: 5000, increment: 1500 };
+    } else {
+      // Intel
+      if (p.includes('12th') || p.includes('13th') || p.includes('14th') || p.includes('ultra')) {
+        return { base: 5000, increment: 4500 };
+      }
+      if (p.includes('8th') || p.includes('9th') || p.includes('10th') || p.includes('11th')) {
+        return { base: 5000, increment: 1500 };
+      }
+      return { base: 2500, increment: 0 };
+    }
+  }
+
+  // Default / older
+  return { base: 2500, increment: 0 };
+}
+
+function getRamIncrement(ramStr) {
+  if (!ramStr) return 0;
+  const num = parseInt(ramStr) || 0;
+  if (num >= 32) return 5500;
+  if (num >= 16) return 2800;
+  if (num >= 8) return 1200;
+  return 0;
+}
+
+function getStorageIncrement(storageStr) {
+  if (!storageStr) return 0;
+  const s = storageStr.toLowerCase();
+  
+  let ssdPart = '';
+  if (s.includes('+')) {
+    const parts = s.split('+');
+    ssdPart = parts.find(p => p.includes('ssd')) || '';
+  } else if (s.includes('ssd')) {
+    ssdPart = s;
+  }
+  
+  if (!ssdPart) return 0;
+  
+  const match = ssdPart.match(/(\d+)\s*(gb|tb)/);
+  if (!match) return 0;
+  
+  let val = parseInt(match[1]);
+  const unit = match[2];
+  if (unit === 'tb') {
+    val = val * 1024;
+  }
+  
+  if (val >= 1024) return 4500;
+  if (val >= 512) return 2200;
+  if (val >= 256) return 1000;
+  return 0;
+}
+
+function getGpuIncrement(gpuStr) {
+  if (!gpuStr) return 0;
+  const g = gpuStr.toLowerCase();
+  if (g.includes('3070') || g.includes('4070') || g.includes('3080') || g.includes('4080') || g.includes('3090') || g.includes('4090')) {
+    return 20000;
+  }
+  if (g.includes('4050') || g.includes('3060') || g.includes('4060')) {
+    return 11000;
+  }
+  if (g.includes('1650') || g.includes('2050') || g.includes('3050') || g.includes('1660')) {
+    return 5000;
+  }
+  return 0;
+}
+
+function getScreenSizeIncrement(sizeKey) {
+  if (sizeKey === '10-11') return 150;
+  if (sizeKey === '12-13') return 175;
+  if (sizeKey === '14-15') return 210;
+  if (sizeKey === 'above15') return 250;
+  return 0;
+}
+
+function getBrandMultiplier(modelName) {
+  if (!modelName) return 1.0;
+  const m = modelName.toLowerCase();
+  
+  if (m.includes('alienware') || m.includes('omen') || m.includes('legion') || m.includes('rog')) {
+    return 1.40;
+  }
+  if (m.includes('xps') || m.includes('spectre') || m.includes('thinkpad x1') || m.includes('zenbook')) {
+    return 1.35;
+  }
+  if (m.includes('pavilion') || m.includes('vostro') || m.includes('thinkpad e') || m.includes('vivobook')) {
+    return 1.15;
+  }
+  return 1.0;
+}
+
 export function calculateLaptopPrice(device, selections) {
   const { ram, storage, yearBracket,
           functionalIssues = [], screenIssues = [], bodyIssues = [],
-          accessories, powerStatus } = selections;
+          accessories, powerStatus, screenSize } = selections;
   
-  // ── 1. Find base price from variant ──
-  let variant = device.variants.find(v => 
-    v.ram === ram && 
-    v.storage === storage &&
-    (!selections.processor || v.processor === selections.processor) &&
-    (!selections.generation || v.generation === selections.generation)
-  );
-
   let basePrice = 0;
 
-  if (variant) {
-    basePrice = variant.basePrice;
-  } else if (device.variants.length === 1 && !device.variants[0].ram) {
-    // Single-variant device (flat price, e.g., Apple models)
-    basePrice = device.variants[0].basePrice;
-  } else {
-    // Fallback: Use the first variant as baseline and adjust
-    const baseline = device.variants[0];
-    basePrice = baseline.basePrice;
-    
-    const ramVal = (r) => parseInt(r) || 8;
-    basePrice += (ramVal(ram) - ramVal(baseline.ram)) * 200;
+  if (device.brand === 'Apple') {
+    // ── 1. Find base price from variant for Apple ──
+    let variant = device.variants.find(v => 
+      v.ram === ram && 
+      v.storage === storage &&
+      (!selections.processor || v.processor === selections.processor) &&
+      (!selections.generation || v.generation === selections.generation)
+    );
 
-    const parseStorage = (s) => {
-      if (!s) return 0;
-      let totalGB = 0;
-      const parts = s.split('+');
-      parts.forEach(p => {
-        const val = parseInt(p.trim()) || 0;
-        const isTB = p.toUpperCase().includes('TB');
-        totalGB += isTB ? val * 1024 : val;
-      });
-      return totalGB;
-    };
+    if (variant) {
+      basePrice = variant.basePrice;
+    } else if (device.variants.length === 1 && !device.variants[0].ram) {
+      // Single-variant device (flat price, e.g., Apple models)
+      basePrice = device.variants[0].basePrice;
+    } else {
+      // Fallback: Use the first variant as baseline and adjust
+      const baseline = device.variants[0];
+      basePrice = baseline.basePrice;
+      
+      const ramVal = (r) => parseInt(r) || 8;
+      basePrice += (ramVal(ram) - ramVal(baseline.ram)) * 200;
 
-    const baselineGB = parseStorage(baseline.storage);
-    const selectedGB = parseStorage(storage);
-    basePrice += (selectedGB - baselineGB) * 5;
+      const parseStorage = (s) => {
+        if (!s) return 0;
+        let totalGB = 0;
+        const parts = s.split('+');
+        parts.forEach(p => {
+          const val = parseInt(p.trim()) || 0;
+          const isTB = p.toUpperCase().includes('TB');
+          totalGB += isTB ? val * 1024 : val;
+        });
+        return totalGB;
+      };
 
-    if (storage?.includes('HDD') && !baseline.storage?.includes('HDD')) {
-      basePrice -= 1500;
+      const baselineGB = parseStorage(baseline.storage);
+      const selectedGB = parseStorage(storage);
+      basePrice += (selectedGB - baselineGB) * 5;
     }
+  } else {
+    // ── 1. Windows Laptop Bottom-Up valuation ──
+    const processor = selections.processor || device.processorFamily || '';
+    const gpu = device.gpuType || '';
+    
+    // Shell Base Value & CPU
+    const { base: functionalBase, increment: cpuIncrement } = getProcessorIncrement(processor);
+    
+    // RAM Increment
+    const ramIncrement = getRamIncrement(ram);
+    
+    // Storage Increment
+    const storageIncrement = getStorageIncrement(storage);
+    
+    // Dedicated GPU Increment
+    const gpuIncrement = getGpuIncrement(gpu);
+    
+    // Screen Size Increment
+    const screenSizeIncrement = getScreenSizeIncrement(screenSize);
+    
+    // Brand Tier & Build Quality Multiplier
+    const brandMultiplier = getBrandMultiplier(device.modelName);
+    
+    const sumOfComponents = functionalBase + cpuIncrement + ramIncrement + storageIncrement + gpuIncrement + screenSizeIncrement;
+    basePrice = Math.round(sumOfComponents * brandMultiplier);
   }
 
   // ── 2. Age multiplier (applied first) ──
