@@ -124,75 +124,52 @@ export function calculatePrice({
 }
 
 
-function getProcessorIncrement(processorStr) {
-  if (!processorStr) return 0;
+function getProcessorValuation(processorStr) {
+  if (!processorStr) return { base: 2500, increment: 0 };
   const p = processorStr.toLowerCase();
+  
   const isRyzen = p.includes('ryzen');
-
-  // Core i9 / Ryzen 9 (Any Gen) / Core Ultra 9 / Snapdragon X Elite
+  const isLatest = p.includes('12th') || p.includes('13th') || p.includes('14th') || p.includes('ultra') || p.includes('elite') || p.includes('plus') || p.includes('ryzen 3 6th') || p.includes('ryzen 3 7th') || p.includes('ryzen 3 8th') || p.includes('ryzen 5 6th') || p.includes('ryzen 5 7th') || p.includes('ryzen 5 8th') || p.includes('ryzen 7 6th') || p.includes('ryzen 7 7th') || p.includes('ryzen 7 8th') || p.includes('ryzen 9 6th') || p.includes('ryzen AI') || p.includes('series 1') || p.includes('series 2') || p.includes('series 3');
+  
+  const isOlderModern = p.includes('8th') || p.includes('9th') || p.includes('10th') || p.includes('11th') || p.includes('2nd gen') || p.includes('3rd gen') || p.includes('4th gen') || p.includes('5th gen') || (isRyzen && !isLatest);
+  
+  // Core i9 / Ryzen 9 / Core Ultra 9 / Snapdragon X Elite
   if (p.includes('i9') || p.includes('ryzen 9') || p.includes('ultra 9') || p.includes('elite')) {
-    return 20000;
+    if (isLatest) return { base: 5000, increment: 20000 };
+    if (isOlderModern) return { base: 5000, increment: 10000 };
+    return { base: 2500, increment: 0 };
   }
 
   // Core i7 / Ryzen 7 / Core Ultra 7
   if (p.includes('i7') || p.includes('ryzen 7') || p.includes('ultra 7')) {
-    if (isRyzen) {
-      if (p.includes('6th gen') || p.includes('7th gen') || p.includes('8th gen')) {
-        return 14000;
-      }
-      return 5500;
-    } else {
-      // Intel
-      if (p.includes('12th') || p.includes('13th') || p.includes('14th') || p.includes('ultra')) {
-        return 14000;
-      }
-      if (p.includes('8th') || p.includes('9th') || p.includes('10th') || p.includes('11th')) {
-        return 5500;
-      }
-      return 0;
-    }
+    if (isLatest) return { base: 5000, increment: 14000 };
+    if (isOlderModern) return { base: 5000, increment: 5500 };
+    return { base: 2500, increment: 0 };
   }
 
   // Core i5 / Ryzen 5 / Core Ultra 5
   if (p.includes('i5') || p.includes('ryzen 5') || p.includes('ultra 5')) {
-    if (isRyzen) {
-      if (p.includes('6th gen') || p.includes('7th gen') || p.includes('8th gen')) {
-        return 8500;
-      }
-      return 3500;
-    } else {
-      // Intel
-      if (p.includes('12th') || p.includes('13th') || p.includes('14th') || p.includes('ultra')) {
-        return 8500;
-      }
-      if (p.includes('8th') || p.includes('9th') || p.includes('10th') || p.includes('11th')) {
-        return 3500;
-      }
-      return 0;
-    }
+    if (isLatest) return { base: 5000, increment: 8500 };
+    if (isOlderModern) return { base: 5000, increment: 3500 };
+    return { base: 2500, increment: 0 };
   }
 
   // Core i3 / Ryzen 3 / Core Ultra 3
   if (p.includes('i3') || p.includes('ryzen 3') || p.includes('ultra 3')) {
-    if (isRyzen) {
-      if (p.includes('6th gen') || p.includes('7th gen') || p.includes('8th gen')) {
-        return 4500;
-      }
-      return 1500;
-    } else {
-      // Intel
-      if (p.includes('12th') || p.includes('13th') || p.includes('14th') || p.includes('ultra')) {
-        return 4500;
-      }
-      if (p.includes('8th') || p.includes('9th') || p.includes('10th') || p.includes('11th')) {
-        return 1500;
-      }
-      return 0;
-    }
+    if (isLatest) return { base: 5000, increment: 4500 };
+    if (isOlderModern) return { base: 5000, increment: 1500 };
+    return { base: 2500, increment: 0 };
   }
 
-  // Default / older
-  return 0;
+  // Default fallbacks for other processors
+  if (isLatest || isOlderModern) {
+    return { base: 5000, increment: 0 };
+  }
+  return { base: 2500, increment: 0 };
+}
+
+function getProcessorIncrement(processorStr) {
+  return getProcessorValuation(processorStr).increment;
 }
 
 function getRamIncrement(ramStr) {
@@ -360,6 +337,13 @@ function getBrandMultiplier(device) {
   return 1.0;
 }
 
+function getAgeMultiplier(yearBracket) {
+  if (yearBracket === 'lessThan1') return 1.15;
+  if (yearBracket === 'oneToTwo') return 1.0;
+  if (yearBracket === 'twoToThree') return 0.90;
+  return 1.0;
+}
+
 export function calculateLaptopPrice(device, selections) {
   const { ram, storage, yearBracket,
           functionalIssues = [], screenIssues = [], bodyIssues = [],
@@ -475,11 +459,8 @@ export function calculateLaptopPrice(device, selections) {
       : (device.processorFamily || '');
     const processor = selections.processor || deviceProcessor;
     
-    // Shell Base Value from DB
-    const functionalBase = device.variants?.[0]?.basePrice || 0;
-    
-    // CPU Increment
-    const cpuIncrement = getProcessorIncrement(processor);
+    // Shell Base Value dynamically computed based on generation
+    const { base: functionalBase, increment: cpuIncrement } = getProcessorValuation(processor);
     
     // RAM Increment
     const ramIncrement = getRamIncrement(ram);
@@ -490,24 +471,27 @@ export function calculateLaptopPrice(device, selections) {
     // Screen Size Increment
     const screenSizeIncrement = getScreenSizeIncrement(screenSize);
     
-    // Dedicated GPU Increment (added flat at the end)
+    // Dedicated GPU Increment
     const gpuIncrement = getGpuIncrement(selections.hasGpu, selections.isGpuWorking);
     
-    // Unmultiplied Base Price of Components
-    const unmultipliedBase = functionalBase + cpuIncrement + ramIncrement + storageIncrement + screenSizeIncrement;
+    // Component Sum (Functional Base + CPU + RAM + Storage + GPU + Screen Size)
+    const componentSum = functionalBase + cpuIncrement + ramIncrement + storageIncrement + gpuIncrement + screenSizeIncrement;
     
     // Get Brand Tier Multiplier
     const brandMultiplier = getBrandMultiplier(device);
     
-    // ── 2. Age multiplier (applied first) ──
-    const ageMult = device.ageMultipliers?.[yearBracket] || 1;
-    let currentPrice = Math.round(unmultipliedBase * ageMult);
-    const powerDeductionBase = Math.round(unmultipliedBase * ageMult);
+    // Brand Value (Branded Base Price)
+    const basePrice = Math.round(componentSum * brandMultiplier);
+    
+    // ── 2. Age multiplier (applied to branded base price) ──
+    const ageMultiplier = getAgeMultiplier(yearBracket);
+    let currentPrice = Math.round(basePrice * ageMultiplier);
+    const ageAdjustment = currentPrice - basePrice;
     
     // ── 2.5 Power status deduction (if laptop is off, reduce 95% of base price) ──
     let powerDeduction = 0;
     if (powerStatus === 'off') {
-      powerDeduction = Math.round(powerDeductionBase * 0.95);
+      powerDeduction = Math.round(basePrice * 0.95);
       currentPrice = Math.max(currentPrice - powerDeduction, 0);
     }
     
@@ -554,22 +538,16 @@ export function calculateLaptopPrice(device, selections) {
     const accBonus = accList.reduce((sum, item) => sum + (device.accessoriesBonus?.[item] || 0), 0);
     currentPrice += accBonus;
     
-    // ── 7. Apply Brand Multiplier & GPU Increment at the very end ──
-    const multipliedPrice = Math.round(currentPrice * brandMultiplier) + gpuIncrement;
-    const finalPrice = Math.max(Math.round(multipliedPrice / 100) * 100, 0);
-    
-    // Branded Base Price for user display breakdown
-    const displayBasePrice = Math.round(unmultipliedBase * brandMultiplier) + gpuIncrement;
-    const ageAdjustment = Math.round((unmultipliedBase * ageMult - unmultipliedBase) * brandMultiplier);
+    const finalPrice = Math.max(Math.round(currentPrice / 100) * 100, 0);
     
     return {
-      basePrice: displayBasePrice,
+      basePrice,
       ageAdjustment,
-      powerDeduction: -Math.round(powerDeduction * brandMultiplier),
-      functionalDeduction: -Math.round(functionalDeduction * brandMultiplier),
-      screenDeduction: -Math.round(screenDeduction * brandMultiplier),
-      bodyDeduction: -Math.round(bodyDeduction * brandMultiplier),
-      accessoriesBonus: Math.round(accBonus * brandMultiplier),
+      powerDeduction: -powerDeduction,
+      functionalDeduction: -functionalDeduction,
+      screenDeduction: -screenDeduction,
+      bodyDeduction: -bodyDeduction,
+      accessoriesBonus: accBonus,
       finalPrice,
     };
   }
