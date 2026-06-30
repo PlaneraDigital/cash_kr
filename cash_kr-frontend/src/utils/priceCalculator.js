@@ -250,19 +250,99 @@ function getScreenSizeIncrement(sizeKey) {
 
 function getBrandMultiplier(device) {
   if (!device) return 1.0;
+  
+  const brand = (device.brand || '').toLowerCase();
   const m = (device.modelName || '').toLowerCase();
   
-  if (m.includes('alienware') || m.includes('omen') || m.includes('legion') || m.includes('rog')) {
-    return 1.40;
+  // Dell
+  if (brand === 'dell') {
+    if (m.includes('precision') || m.includes('latitude 3000')) {
+      return 1.15; // Business
+    }
+    if (m.includes('gaming') || m.includes('g7') || m.includes('g15') || m.includes('g16') || m.includes('alienware') || m.includes('g5') || m.includes('g3')) {
+      return 1.40; // Gaming
+    }
+    if (m.includes('xps')) {
+      return 1.35; // Flagship
+    }
+    return 1.0; // Budget
   }
-  if (m.includes('xps') || m.includes('spectre') || m.includes('thinkpad x1') || m.includes('zenbook')) {
-    return 1.35;
+  
+  // HP
+  if (brand === 'hp') {
+    if (m.includes('zbook') || m.includes('specre') || m.includes('spectre')) {
+      return 1.15; // Business
+    }
+    if (m.includes('victus') || m.includes('gaming') || m.includes('omen') || m.includes('power series')) {
+      return 1.40; // Gaming
+    }
+    if (m.includes('envy') || m.includes('probook')) {
+      return 1.35; // Flagship
+    }
+    return 1.0; // Budget
   }
-  if (m.includes('pavilion') || m.includes('vostro') || m.includes('thinkpad e') || m.includes('vivobook')) {
-    return 1.15;
+  
+  // Lenovo
+  if (brand === 'lenovo') {
+    if (m.includes('legion') || m.includes('loq') || m.includes('gaming') || m.includes('edge')) {
+      return 1.40; // Gaming
+    }
+    if (m.includes('yoga') || m.includes('ideapad slim 5i') || m.includes('slim 5i')) {
+      return 1.35; // Flagship
+    }
+    return 1.0; // Budget
   }
-  if (m.includes('inspiron') || m.includes('ideapad') || m.includes('aspire') || m.includes('hp 15')) {
-    return 1.0;
+  
+  // Asus
+  if (brand === 'asus') {
+    if (m.includes('proart') || m.includes('zenbook pro') || m.includes('studiobook')) {
+      return 1.15; // Business
+    }
+    if (m.includes('rog') || m.includes('tuf') || m.includes('gaming') || m.includes('zephyrus') || m.includes('strix')) {
+      return 1.40; // Gaming
+    }
+    return 1.0; // Budget
+  }
+  
+  // Acer
+  if (brand === 'acer') {
+    if (m.includes('conceptd') || m.includes('swift 3x') || m.includes('travelmate p6') || m.includes('swift 7') || m.includes('swift x') || m.includes('spin 7') || m.includes('aspire 7') || m.includes('travelmate p4')) {
+      return 1.15; // Business
+    }
+    if (m.includes('predator') || m.includes('helios') || m.includes('triton') || m.includes('nitro') || m.includes('21x')) {
+      return 1.40; // Gaming
+    }
+    return 1.0; // Budget
+  }
+  
+  // Microsoft
+  if (brand === 'microsoft') {
+    if (m.includes('pro x') || m.includes('pro 7') || m.includes('surface 4') || m.includes('laptop 3') || m.includes('pro 6')) {
+      return 1.15; // Business
+    }
+    return 1.0; // Budget
+  }
+  
+  // MSI
+  if (brand === 'msi') {
+    if (m.includes('summit') || m.includes('modern') || m.includes('creator')) {
+      return 1.15; // Business
+    }
+    if (m.includes('raider') || m.includes('series') || m.includes('gl') || m.includes('gp') || m.includes('prestige') || m.includes('stealth') || m.includes('gf') || m.includes('gt') || m.includes('delta') || m.includes('bravo') || m.includes('alpha')) {
+      return 1.40; // Gaming
+    }
+    return 1.0; // Budget
+  }
+  
+  // Samsung
+  if (brand === 'samsung') {
+    if (m.includes('ultra') || m.includes('pro') || m.includes('book3') || m.includes('book4') || m.includes('book5') || m.includes('book2') || m.includes('360')) {
+      if (m.includes('edge')) {
+        return 1.40; // Gaming
+      }
+      return 1.15; // Business
+    }
+    return 1.0; // Budget
   }
   
   // Fallback to database tier
@@ -270,7 +350,7 @@ function getBrandMultiplier(device) {
   if (tier === 'gaming' || tier.includes('gaming')) {
     return 1.40;
   }
-  if (tier === 'premium' || tier.includes('premium') || tier.includes('flagship')) {
+  if (tier === 'premium' || tier.includes('flagship') || tier.includes('premium')) {
     return 1.35;
   }
   if (tier === 'mid-range' || tier.includes('mid') || tier.includes('business')) {
@@ -325,13 +405,75 @@ export function calculateLaptopPrice(device, selections) {
       const selectedGB = parseStorage(storage);
       basePrice += (selectedGB - baselineGB) * 5;
     }
+
+    // Apple Age Multipliers & deductions
+    const ageMult = device.ageMultipliers?.[yearBracket] || 1;
+    let currentPrice = Math.round(basePrice * ageMult);
+    const ageAdjustment = currentPrice - basePrice;
+
+    let powerDeduction = 0;
+    if (powerStatus === 'off') {
+      powerDeduction = Math.round(basePrice * 0.95);
+      currentPrice = Math.max(currentPrice - powerDeduction, 0);
+    }
+
+    let functionalDeduction = 0;
+    const funcIssues = (functionalIssues || []).filter(i => i !== 'noIssues');
+    for (const issue of funcIssues) {
+      const pct = device.functionalDeductions?.[issue] || 0;
+      if (pct > 0) {
+        const deduction = Math.round(currentPrice * (pct / 100));
+        functionalDeduction += deduction;
+        currentPrice -= deduction;
+      }
+    }
+
+    let screenDeduction = 0;
+    const scrIssues = (screenIssues || []).filter(i => i !== 'noIssue');
+    for (const issue of scrIssues) {
+      const pct = device.screenDeductions?.[issue] || 0;
+      if (pct > 0) {
+        const deduction = Math.round(currentPrice * (pct / 100));
+        screenDeduction += deduction;
+        currentPrice -= deduction;
+      }
+    }
+
+    let bodyDeduction = 0;
+    for (const issue of (bodyIssues || [])) {
+      const pct = device.bodyDeductions?.[issue] || 0;
+      if (pct > 0) {
+        const deduction = Math.round(currentPrice * (pct / 100));
+        bodyDeduction += deduction;
+        currentPrice -= deduction;
+      }
+    }
+
+    const accList = Array.isArray(accessories) ? [...accessories] : [];
+    if (yearBracket && yearBracket !== 'lessThan1' && !accList.includes('bill')) {
+      accList.push('bill');
+    }
+    const accBonus = accList.reduce((sum, item) => sum + (device.accessoriesBonus?.[item] || 0), 0);
+    currentPrice += accBonus;
+
+    const finalPrice = Math.max(Math.round(currentPrice / 100) * 100, 0);
+
+    return {
+      basePrice,
+      ageAdjustment,
+      powerDeduction: -powerDeduction,
+      functionalDeduction: -functionalDeduction,
+      screenDeduction: -screenDeduction,
+      bodyDeduction: -bodyDeduction,
+      accessoriesBonus: accBonus,
+      finalPrice,
+    };
   } else {
     // ── 1. Windows Laptop Bottom-Up valuation ──
     const deviceProcessor = device.generation 
       ? `${device.processorFamily || ''} - ${device.generation}` 
       : (device.processorFamily || '');
     const processor = selections.processor || deviceProcessor;
-    const gpu = device.gpuType || '';
     
     // Shell Base Value from DB
     const functionalBase = device.variants?.[0]?.basePrice || 0;
@@ -345,85 +487,90 @@ export function calculateLaptopPrice(device, selections) {
     // Storage Increment
     const storageIncrement = getStorageIncrement(storage);
     
-    // Dedicated GPU Increment
-    const gpuIncrement = getGpuIncrement(selections.hasGpu, selections.isGpuWorking);
-    
     // Screen Size Increment
     const screenSizeIncrement = getScreenSizeIncrement(screenSize);
     
-    // Brand Tier & Build Quality Multiplier
+    // Dedicated GPU Increment (added flat at the end)
+    const gpuIncrement = getGpuIncrement(selections.hasGpu, selections.isGpuWorking);
+    
+    // Unmultiplied Base Price of Components
+    const unmultipliedBase = functionalBase + cpuIncrement + ramIncrement + storageIncrement + screenSizeIncrement;
+    
+    // Get Brand Tier Multiplier
     const brandMultiplier = getBrandMultiplier(device);
     
-    const sumOfComponents = functionalBase + cpuIncrement + ramIncrement + storageIncrement + screenSizeIncrement;
-    basePrice = Math.round(sumOfComponents * brandMultiplier) + gpuIncrement;
-  }
-
-  // ── 2. Age multiplier (applied first) ──
-  const ageMult = device.ageMultipliers?.[yearBracket] || 1;
-  let currentPrice = Math.round(basePrice * ageMult);
-  const ageAdjustment = currentPrice - basePrice;
-
-  // ── 2.5 Power status deduction (if laptop is off, reduce 95% of base price) ──
-  let powerDeduction = 0;
-  if (powerStatus === 'off') {
-    powerDeduction = Math.round(basePrice * 0.95);
-    currentPrice = Math.max(currentPrice - powerDeduction, 0);
-  }
-
-  // ── 3. Functional issues — percentage-based sequential deductions ──
-  let functionalDeduction = 0;
-  const funcIssues = (functionalIssues || []).filter(i => i !== 'noIssues');
-  for (const issue of funcIssues) {
-    const pct = device.functionalDeductions?.[issue] || 0;
-    if (pct > 0) {
-      const deduction = Math.round(currentPrice * (pct / 100));
-      functionalDeduction += deduction;
-      currentPrice -= deduction;
+    // ── 2. Age multiplier (applied first) ──
+    const ageMult = device.ageMultipliers?.[yearBracket] || 1;
+    let currentPrice = Math.round(unmultipliedBase * ageMult);
+    const powerDeductionBase = Math.round(unmultipliedBase * ageMult);
+    
+    // ── 2.5 Power status deduction (if laptop is off, reduce 95% of base price) ──
+    let powerDeduction = 0;
+    if (powerStatus === 'off') {
+      powerDeduction = Math.round(powerDeductionBase * 0.95);
+      currentPrice = Math.max(currentPrice - powerDeduction, 0);
     }
-  }
-
-  // ── 4. Screen issues — percentage-based sequential deductions ──
-  let screenDeduction = 0;
-  const scrIssues = (screenIssues || []).filter(i => i !== 'noIssue');
-  for (const issue of scrIssues) {
-    const pct = device.screenDeductions?.[issue] || 0;
-    if (pct > 0) {
-      const deduction = Math.round(currentPrice * (pct / 100));
-      screenDeduction += deduction;
-      currentPrice -= deduction;
+    
+    // ── 3. Functional issues ──
+    let functionalDeduction = 0;
+    const funcIssues = (functionalIssues || []).filter(i => i !== 'noIssues');
+    for (const issue of funcIssues) {
+      const pct = device.functionalDeductions?.[issue] || 0;
+      if (pct > 0) {
+        const deduction = Math.round(currentPrice * (pct / 100));
+        functionalDeduction += deduction;
+        currentPrice -= deduction;
+      }
     }
-  }
-
-  // ── 5. Body issues — percentage-based sequential deductions ──
-  let bodyDeduction = 0;
-  for (const issue of (bodyIssues || [])) {
-    const pct = device.bodyDeductions?.[issue] || 0;
-    if (pct > 0) {
-      const deduction = Math.round(currentPrice * (pct / 100));
-      bodyDeduction += deduction;
-      currentPrice -= deduction;
+    
+    // ── 4. Screen issues ──
+    let screenDeduction = 0;
+    const scrIssues = (screenIssues || []).filter(i => i !== 'noIssue');
+    for (const issue of scrIssues) {
+      const pct = device.screenDeductions?.[issue] || 0;
+      if (pct > 0) {
+        const deduction = Math.round(currentPrice * (pct / 100));
+        screenDeduction += deduction;
+        currentPrice -= deduction;
+      }
     }
+    
+    // ── 5. Body issues ──
+    let bodyDeduction = 0;
+    for (const issue of (bodyIssues || [])) {
+      const pct = device.bodyDeductions?.[issue] || 0;
+      if (pct > 0) {
+        const deduction = Math.round(currentPrice * (pct / 100));
+        bodyDeduction += deduction;
+        currentPrice -= deduction;
+      }
+    }
+    
+    // ── 6. Accessories bonus ──
+    const accList = Array.isArray(accessories) ? [...accessories] : [];
+    if (yearBracket && yearBracket !== 'lessThan1' && !accList.includes('bill')) {
+      accList.push('bill');
+    }
+    const accBonus = accList.reduce((sum, item) => sum + (device.accessoriesBonus?.[item] || 0), 0);
+    currentPrice += accBonus;
+    
+    // ── 7. Apply Brand Multiplier & GPU Increment at the very end ──
+    const multipliedPrice = Math.round(currentPrice * brandMultiplier) + gpuIncrement;
+    const finalPrice = Math.max(Math.round(multipliedPrice / 100) * 100, 0);
+    
+    // Branded Base Price for user display breakdown
+    const displayBasePrice = Math.round(unmultipliedBase * brandMultiplier) + gpuIncrement;
+    const ageAdjustment = Math.round((unmultipliedBase * ageMult - unmultipliedBase) * brandMultiplier);
+    
+    return {
+      basePrice: displayBasePrice,
+      ageAdjustment,
+      powerDeduction: -Math.round(powerDeduction * brandMultiplier),
+      functionalDeduction: -Math.round(functionalDeduction * brandMultiplier),
+      screenDeduction: -Math.round(screenDeduction * brandMultiplier),
+      bodyDeduction: -Math.round(bodyDeduction * brandMultiplier),
+      accessoriesBonus: Math.round(accBonus * brandMultiplier),
+      finalPrice,
+    };
   }
-
-  // ── 6. Accessories bonus ──
-  const accList = Array.isArray(accessories) ? [...accessories] : [];
-  // If the device age is > 11 months, we do not penalize for missing bill
-  if (yearBracket && yearBracket !== 'lessThan1' && !accList.includes('bill')) {
-    accList.push('bill');
-  }
-  const accBonus = accList.reduce((sum, item) => sum + (device.accessoriesBonus?.[item] || 0), 0);
-  currentPrice += accBonus;
-
-  const finalPrice = Math.max(Math.round(currentPrice / 100) * 100, 0);
-  
-  return {
-    basePrice,
-    ageAdjustment,
-    powerDeduction: -powerDeduction,
-    functionalDeduction: -functionalDeduction,
-    screenDeduction: -screenDeduction,
-    bodyDeduction: -bodyDeduction,
-    accessoriesBonus: accBonus,
-    finalPrice,
-  };
 }
