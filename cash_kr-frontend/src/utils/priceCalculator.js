@@ -233,16 +233,8 @@ function getStorageIncrement(storageStr) {
   return 0;
 }
 
-function getGpuIncrement(gpuStr) {
-  if (!gpuStr) return 0;
-  const g = gpuStr.toLowerCase();
-  if (g.includes('3070') || g.includes('4070') || g.includes('3080') || g.includes('4080') || g.includes('3090') || g.includes('4090')) {
-    return 20000;
-  }
-  if (g.includes('4050') || g.includes('3060') || g.includes('4060')) {
-    return 11000;
-  }
-  if (g.includes('1650') || g.includes('2050') || g.includes('3050') || g.includes('1660')) {
+function getGpuIncrement(hasGpu, isGpuWorking) {
+  if (hasGpu && isGpuWorking) {
     return 5000;
   }
   return 0;
@@ -354,7 +346,7 @@ export function calculateLaptopPrice(device, selections) {
     const storageIncrement = getStorageIncrement(storage);
     
     // Dedicated GPU Increment
-    const gpuIncrement = getGpuIncrement(gpu);
+    const gpuIncrement = getGpuIncrement(selections.hasGpu, selections.isGpuWorking);
     
     // Screen Size Increment
     const screenSizeIncrement = getScreenSizeIncrement(screenSize);
@@ -362,8 +354,8 @@ export function calculateLaptopPrice(device, selections) {
     // Brand Tier & Build Quality Multiplier
     const brandMultiplier = getBrandMultiplier(device);
     
-    const sumOfComponents = functionalBase + cpuIncrement + ramIncrement + storageIncrement + gpuIncrement + screenSizeIncrement;
-    basePrice = Math.round(sumOfComponents * brandMultiplier);
+    const sumOfComponents = functionalBase + cpuIncrement + ramIncrement + storageIncrement + screenSizeIncrement;
+    basePrice = Math.round(sumOfComponents * brandMultiplier) + gpuIncrement;
   }
 
   // ── 2. Age multiplier (applied first) ──

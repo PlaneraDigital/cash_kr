@@ -85,6 +85,8 @@ export default function LaptopConditionQuizPage() {
   // Selections
   const [powerStatus, setPowerStatus] = useState(null); // 'on' | 'off'
   const [screenSize, setScreenSize] = useState(null); // '10-11' | '12-13' | '14-15' | 'above15'
+  const [hasGpu, setHasGpu] = useState(null); // 'yes' | 'no'
+  const [isGpuWorking, setIsGpuWorking] = useState(null); // 'yes' | 'no'
   const [issuesList, setIssuesList] = useState([]); // functional issues
   const [screenIssuesList, setScreenIssuesList] = useState([]);
   const [bodyIssuesList, setBodyIssuesList] = useState([]);
@@ -112,6 +114,8 @@ export default function LaptopConditionQuizPage() {
       yearBracket: age,
       powerStatus: powerStatus,
       screenSize: screenSize,
+      hasGpu: hasGpu === 'yes',
+      isGpuWorking: isGpuWorking === 'yes',
       functionalIssues: issuesList,
       screenIssues: screenIssuesList,
       bodyIssues: bodyIssuesList,
@@ -123,7 +127,7 @@ export default function LaptopConditionQuizPage() {
       setCurrentPrice(result.finalPrice);
       setBreakdown(result);
     }
-  }, [device, specs, age, powerStatus, screenSize, issuesList, screenIssuesList, bodyIssuesList, accessories]);
+  }, [device, specs, age, powerStatus, screenSize, hasGpu, isGpuWorking, issuesList, screenIssuesList, bodyIssuesList, accessories]);
 
   const handleSpecsUpdate = (newSpecs) => {
     setSpecs(newSpecs);
@@ -145,6 +149,8 @@ export default function LaptopConditionQuizPage() {
         yearBracket: age,
         powerStatus,
         screenSize,
+        hasGpu: hasGpu === 'yes',
+        isGpuWorking: isGpuWorking === 'yes',
         functionalIssues: issuesList,
         screenIssues: screenIssuesList,
         bodyIssues: bodyIssuesList,
@@ -240,6 +246,7 @@ export default function LaptopConditionQuizPage() {
                    <EvaluationDetailRow label="Storage" value={specs.storage || 'Standard'} color="#0565E6" />
                    <EvaluationDetailRow label="Power Status" value={powerStatus === 'on' ? 'Turns On' : 'Does Not Turn On (Off)'} color={powerStatus === 'on' ? '#0565E6' : '#EF4444'} />
                    <EvaluationDetailRow label="Screen Size" value={screenSize ? SCREEN_SIZE_OPTIONS.find(o => o.key === screenSize)?.label : '-'} color="#0565E6" />
+                   <EvaluationDetailRow label="Dedicated GPU" value={hasGpu === 'yes' ? `Available (${isGpuWorking === 'yes' ? 'Working' : 'Not Working'})` : 'Not Available'} color={hasGpu === 'yes' && isGpuWorking === 'yes' ? '#0565E6' : '#EF4444'} />
                    <EvaluationDetailRow label="Device Age" value={age ? AGE_OPTIONS.find(o => o.key === age).label : '-'} color="#0565E6" />
                    <EvaluationDetailRow label="Functional Issues" value={issuesList.length > 0 ? issuesList.length + ' issue(s)' : 'No Issues'} color={issuesList.length > 0 ? '#EF4444' : '#0565E6'} />
                    <EvaluationDetailRow label="Screen Condition" value={screenIssuesList.length > 0 ? screenIssuesList.length + ' issue(s)' : 'No Issues'} color={screenIssuesList.length > 0 ? '#EF4444' : '#0565E6'} />
@@ -383,27 +390,94 @@ export default function LaptopConditionQuizPage() {
                 </div>
               )}
 
-              {/* STEP: Screen Size */}
+              {/* STEP: Screen Size & Dedicated GPU */}
               {STEPS[currentStepIndex]?.id === 'screenSize' && (
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-lg font-black text-[#111827]">3. What is the screen size of the laptop?</h3>
-                    <p className="text-xs font-black text-gray-600 uppercase tracking-widest mt-1">Select the screen size to proceed</p>
+                <div className="space-y-8">
+                  {/* Screen Size Question */}
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="text-lg font-black text-[#111827]">3. What is the screen size of the laptop?</h3>
+                      <p className="text-xs font-black text-gray-600 uppercase tracking-widest mt-1">Select the screen size</p>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {SCREEN_SIZE_OPTIONS.map(opt => (
+                        <button
+                          key={opt.key}
+                          onClick={() => setScreenSize(opt.key)}
+                          className={`py-6 rounded-2xl border-2 font-black text-base transition-all
+                            ${screenSize === opt.key 
+                              ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                              : 'border-gray-100 bg-white text-gray-700 hover:border-gray-200'}`}
+                        >
+                          {opt.label}
+                        </button>
+                      ))}
+                    </div>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {SCREEN_SIZE_OPTIONS.map(opt => (
+
+                  {/* Dedicated Graphics Card Question */}
+                  <div className="space-y-4 pt-6 border-t border-gray-100">
+                    <div>
+                      <h3 className="text-lg font-black text-[#111827]">Does the laptop have a dedicated graphics card?</h3>
+                      <p className="text-xs font-black text-gray-600 uppercase tracking-widest mt-1">Select option to proceed</p>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <button
-                        key={opt.key}
-                        onClick={() => setScreenSize(opt.key)}
+                        onClick={() => {
+                          setHasGpu('yes');
+                          setIsGpuWorking(null); // Reset working status when toggling hasGpu
+                        }}
                         className={`py-6 rounded-2xl border-2 font-black text-base transition-all
-                          ${screenSize === opt.key 
+                          ${hasGpu === 'yes' 
                             ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
                             : 'border-gray-100 bg-white text-gray-700 hover:border-gray-200'}`}
                       >
-                        {opt.label}
+                        Yes, Dedicated GPU Available
                       </button>
-                    ))}
+                      <button
+                        onClick={() => {
+                          setHasGpu('no');
+                          setIsGpuWorking(null);
+                        }}
+                        className={`py-6 rounded-2xl border-2 font-black text-base transition-all
+                          ${hasGpu === 'no' 
+                            ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                            : 'border-gray-100 bg-white text-gray-700 hover:border-gray-200'}`}
+                      >
+                        No Dedicated GPU
+                      </button>
+                    </div>
                   </div>
+
+                  {/* Sub-Question: Is it working? */}
+                  {hasGpu === 'yes' && (
+                    <div className="space-y-4 pt-6 border-t border-gray-100 animate-in fade-in slide-in-from-bottom-2 duration-300">
+                      <div>
+                        <h3 className="text-lg font-black text-[#111827]">Is the dedicated graphics card working properly?</h3>
+                        <p className="text-xs font-black text-gray-600 uppercase tracking-widest mt-1">Confirm GPU functionality</p>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <button
+                          onClick={() => setIsGpuWorking('yes')}
+                          className={`py-6 rounded-2xl border-2 font-black text-base transition-all
+                            ${isGpuWorking === 'yes' 
+                              ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                              : 'border-gray-100 bg-white text-gray-700 hover:border-gray-200'}`}
+                        >
+                          Yes, Working Properly
+                        </button>
+                        <button
+                          onClick={() => setIsGpuWorking('no')}
+                          className={`py-6 rounded-2xl border-2 font-black text-base transition-all
+                            ${isGpuWorking === 'no' 
+                              ? 'border-[#0565E6] bg-[#E8F1FF] text-[#0565E6]' 
+                              : 'border-gray-100 bg-white text-gray-700 hover:border-gray-200'}`}
+                        >
+                          No, Graphics Card Issue / Not Working
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -572,7 +646,11 @@ export default function LaptopConditionQuizPage() {
                     onClick={() => setCurrentStepIndex(prev => prev + 1)}
                     disabled={
                       (STEPS[currentStepIndex]?.id === 'power' && powerStatus === null) ||
-                      (STEPS[currentStepIndex]?.id === 'screenSize' && screenSize === null)
+                      (STEPS[currentStepIndex]?.id === 'screenSize' && (
+                        screenSize === null || 
+                        hasGpu === null || 
+                        (hasGpu === 'yes' && isGpuWorking === null)
+                      ))
                     }
                     className="bg-[#0565E6] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#044BA8] transition-all disabled:opacity-50"
                   >
@@ -611,6 +689,7 @@ export default function LaptopConditionQuizPage() {
                    <SummaryItem label="Storage" value={specs.storage || '-'} active={true} />
                    <SummaryItem label="Power Status" value={powerStatus ? (powerStatus === 'on' ? 'Turns On' : 'Does Not Turn On') : '-'} active={powerStatus !== null} />
                    <SummaryItem label="Screen Size" value={screenSize ? SCREEN_SIZE_OPTIONS.find(o => o.key === screenSize)?.label : '-'} active={screenSize !== null} />
+                   <SummaryItem label="Dedicated GPU" value={hasGpu ? (hasGpu === 'yes' ? `Yes (${isGpuWorking === 'yes' ? 'Working' : 'Not Working'})` : 'No') : '-'} active={hasGpu !== null} />
                    <SummaryItem label="Functional" value={issuesList.length > 0 ? `${issuesList.length} issue(s)` : currentStepIndex >= STEPS.findIndex(s => s.id === 'functional') ? 'No Issues' : '-'} active={currentStepIndex >= STEPS.findIndex(s => s.id === 'functional')} />
                    <SummaryItem label="Screen" value={screenIssuesList.length > 0 ? `${screenIssuesList.length} issue(s)` : currentStepIndex >= STEPS.findIndex(s => s.id === 'screen') ? 'No Issues' : '-'} active={currentStepIndex >= STEPS.findIndex(s => s.id === 'screen')} />
                    <SummaryItem label="Body" value={bodyIssuesList.length > 0 ? `${bodyIssuesList.length} issue(s)` : currentStepIndex >= STEPS.findIndex(s => s.id === 'body') ? 'No Issues' : '-'} active={currentStepIndex >= STEPS.findIndex(s => s.id === 'body')} />
