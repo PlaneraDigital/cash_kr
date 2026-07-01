@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { adminService } from '../../services/admin.service';
-import { Search, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Search, ChevronLeft, ChevronRight, X, MapPin, Smartphone, User, Calendar, CreditCard } from 'lucide-react';
 import './admin.css';
 
 const ORDER_STATUSES = [
@@ -14,6 +14,123 @@ const ORDER_STATUSES = [
   'cancelled'
 ];
 
+/* ── Order Detail Modal ──────────────────────────────────────────────── */
+function OrderDetailModal({ order, onClose }) {
+  if (!order) return null;
+  const d = order.device || {};
+  const p = order.pickup || {};
+  const pb = order.priceBreakdown || {};
+
+  const InfoRow = ({ label, value }) =>
+    value ? (
+      <div className="flex justify-between items-start gap-4 py-2 border-b border-slate-50 last:border-0">
+        <span className="text-[11px] font-700 text-slate-400 uppercase tracking-wide shrink-0">{label}</span>
+        <span className="text-[13px] font-semibold text-slate-800 text-right">{value}</span>
+      </div>
+    ) : null;
+
+  const Section = ({ icon: Icon, title, children }) => (
+    <div className="mb-6">
+      <div className="flex items-center gap-2 mb-3">
+        <div className="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center">
+          <Icon size={14} className="text-blue-600" />
+        </div>
+        <span className="text-[12px] font-800 text-slate-500 uppercase tracking-wider">{title}</span>
+      </div>
+      <div className="bg-slate-50 rounded-xl px-4 py-1">
+        {children}
+      </div>
+    </div>
+  );
+
+  const formatList = (arr) => Array.isArray(arr) && arr.length > 0 ? arr.map(s => s.replace(/_/g, ' ')).join(', ') : null;
+
+  return (
+    <div className="admin-modal-backdrop" onClick={onClose}>
+      <div className="admin-modal" style={{ maxWidth: 600 }} onClick={e => e.stopPropagation()}>
+        {/* Header */}
+        <div className="admin-modal-header">
+          <div>
+            <h3>Order Details</h3>
+            <p style={{ fontSize: 11, color: '#94A3B8', marginTop: 2, fontWeight: 600, fontFamily: 'monospace' }}>
+              {order.orderId}
+            </p>
+          </div>
+          <button className="admin-modal-close" onClick={onClose}><X size={16} /></button>
+        </div>
+
+        {/* Body */}
+        <div className="admin-modal-body">
+
+          {/* Customer Info */}
+          <Section icon={User} title="Customer Information">
+            <InfoRow label="Name" value={order.userId?.name || p.name || 'N/A'} />
+            <InfoRow label="Phone" value={order.userId?.phone || p.phone || 'N/A'} />
+            <InfoRow label="Email" value={order.userId?.email || p.email || 'N/A'} />
+          </Section>
+
+          {/* Pickup Address */}
+          <Section icon={MapPin} title="Pickup Address">
+            <InfoRow label="Address" value={p.address} />
+            <InfoRow label="Landmark" value={p.landmark} />
+            <InfoRow label="City" value={p.city} />
+            <InfoRow label="State" value={p.state} />
+            <InfoRow label="Pincode" value={p.pincode} />
+            <InfoRow label="Pickup Date" value={p.date} />
+            <InfoRow label="Time Slot" value={p.timeSlot} />
+            <InfoRow label="Payment Mode" value={p.paymentMethod} />
+          </Section>
+
+          {/* Device / Product Details */}
+          <Section icon={Smartphone} title="Product Details">
+            <InfoRow label="Category" value={d.category} />
+            <InfoRow label="Brand" value={d.brand} />
+            <InfoRow label="Model" value={d.modelName} />
+            <InfoRow label="Storage" value={d.storage} />
+            {d.ram && <InfoRow label="RAM" value={d.ram} />}
+            {d.processor && <InfoRow label="Processor" value={d.processor} />}
+            {d.generation && <InfoRow label="Generation" value={d.generation} />}
+            {d.graphicsCard && <InfoRow label="GPU" value={d.graphicsCard} />}
+            {d.screenSize && <InfoRow label="Screen Size" value={d.screenSize} />}
+            {d.storageType && <InfoRow label="Storage Type" value={d.storageType} />}
+            {d.yearOfPurchase && <InfoRow label="Year of Purchase" value={d.yearOfPurchase} />}
+            {d.deviceAge && <InfoRow label="Device Age" value={d.deviceAge} />}
+            {d.batteryHealth && <InfoRow label="Battery Health" value={d.batteryHealth} />}
+            {d.screenCondition && <InfoRow label="Screen Condition" value={d.screenCondition} />}
+            {d.bodyCondition && <InfoRow label="Body Condition" value={d.bodyCondition} />}
+            <InfoRow label="Touchscreen Working" value={d.isTouchScreenWorking === true ? 'Yes' : d.isTouchScreenWorking === false ? 'No' : null} />
+            <InfoRow label="Screen Original" value={d.isScreenOriginal === true ? 'Yes' : d.isScreenOriginal === false ? 'No' : null} />
+            <InfoRow label="Under Warranty" value={d.underWarranty === true ? 'Yes' : d.underWarranty === false ? 'No' : null} />
+            <InfoRow label="Has GST Bill" value={d.hasGSTBill === true ? 'Yes' : d.hasGSTBill === false ? 'No' : null} />
+            <InfoRow label="Able to Make Calls" value={d.ableToMakeCalls === true ? 'Yes' : d.ableToMakeCalls === false ? 'No' : null} />
+            <InfoRow label="Physical Issues" value={formatList(d.physicalIssues)} />
+            <InfoRow label="Technical Issues" value={formatList(d.technicalIssues)} />
+            <InfoRow label="Functional Issues" value={formatList(d.functionalIssues)} />
+            <InfoRow label="Accessories" value={Array.isArray(d.accessories) ? formatList(d.accessories) : d.accessories} />
+          </Section>
+
+          {/* Pricing */}
+          <Section icon={CreditCard} title="Pricing Breakdown">
+            <InfoRow label="Base Price" value={pb.basePrice ? `₹${pb.basePrice}` : null} />
+            {pb.ageAdjustment !== 0 && <InfoRow label="Age Adjustment" value={`₹${pb.ageAdjustment}`} />}
+            {pb.conditionAdjustment !== 0 && <InfoRow label="Condition Adjustment" value={`₹${pb.conditionAdjustment}`} />}
+            {pb.screenAdjustment !== 0 && <InfoRow label="Screen Adjustment" value={`₹${pb.screenAdjustment}`} />}
+            {pb.functionalDeduction !== 0 && <InfoRow label="Functional Deduction" value={`-₹${Math.abs(pb.functionalDeduction)}`} />}
+            {pb.batteryDeduction !== 0 && <InfoRow label="Battery Deduction" value={`-₹${Math.abs(pb.batteryDeduction)}`} />}
+            {pb.accessoriesBonus !== 0 && <InfoRow label="Accessories Bonus" value={`+₹${pb.accessoriesBonus}`} />}
+            <div className="flex justify-between items-center py-3 mt-1 border-t-2 border-blue-100">
+              <span className="text-[12px] font-800 text-blue-700 uppercase tracking-wider">Final Price Offered</span>
+              <span className="text-[18px] font-900 text-blue-700">₹{pb.finalPrice || 0}</span>
+            </div>
+          </Section>
+
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Main Component ──────────────────────────────────────────────────── */
 export default function AdminOrders() {
   const [orders, setOrders] = useState([]);
   const [total, setTotal] = useState(0);
@@ -24,6 +141,7 @@ export default function AdminOrders() {
   const [status, setStatus] = useState('');
   const [loading, setLoading] = useState(true);
   const [updatingId, setUpdatingId] = useState(null);
+  const [selectedOrder, setSelectedOrder] = useState(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -137,6 +255,7 @@ export default function AdminOrders() {
                   <th>Pricing Offered</th>
                   <th>Ordered At</th>
                   <th>Current Status</th>
+                  <th>View Details</th>
                   <th className="text-right">Change Status</th>
                 </tr>
               </thead>
@@ -180,6 +299,36 @@ export default function AdminOrders() {
                         {order.status}
                       </span>
                     </td>
+                    <td>
+                      <button
+                        onClick={() => setSelectedOrder(order)}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: 5,
+                          padding: '5px 12px',
+                          borderRadius: 8,
+                          fontSize: 11,
+                          fontWeight: 700,
+                          background: '#EFF6FF',
+                          color: '#2563EB',
+                          border: '1px solid #BFDBFE',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease',
+                          whiteSpace: 'nowrap',
+                        }}
+                        onMouseEnter={e => {
+                          e.currentTarget.style.background = '#2563EB';
+                          e.currentTarget.style.color = '#fff';
+                        }}
+                        onMouseLeave={e => {
+                          e.currentTarget.style.background = '#EFF6FF';
+                          e.currentTarget.style.color = '#2563EB';
+                        }}
+                      >
+                        <MapPin size={12} /> View Details
+                      </button>
+                    </td>
                     <td className="text-right">
                       <select
                         className="admin-select text-xs py-1 px-2.5"
@@ -222,6 +371,11 @@ export default function AdminOrders() {
           </>
         )}
       </div>
+
+      {/* Order Detail Modal */}
+      {selectedOrder && (
+        <OrderDetailModal order={selectedOrder} onClose={() => setSelectedOrder(null)} />
+      )}
 
     </div>
   );

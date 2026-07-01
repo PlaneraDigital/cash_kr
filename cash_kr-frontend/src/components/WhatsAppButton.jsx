@@ -5,7 +5,7 @@
 // ── CONFIG ──────────────────────────────────────────────────────────────
 // Number format: country code + number, NO "+", spaces, or dashes.
 // e.g. +91 70301 53666  ->  "917030153666"
-const WHATSAPP_NUMBER = "917030153666";
+const WHATSAPP_NUMBER = "8310732405";
 
 // Pre-filled message shown when the chat opens
 const DEFAULT_MESSAGE = "Hi, I'm interested in selling my device on DeviceKart.";
