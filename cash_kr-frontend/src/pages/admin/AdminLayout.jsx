@@ -36,7 +36,7 @@ export default function AdminLayout() {
       {/* Sidebar */}
       <aside className="admin-sidebar">
         <div className="admin-sidebar-logo">
-          <h1>CashKr Admin</h1>
+          <h1>DeviceKart Admin</h1>
           <span>Control Console</span>
         </div>
         

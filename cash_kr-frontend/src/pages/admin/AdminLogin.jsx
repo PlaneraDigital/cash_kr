@@ -29,7 +29,7 @@ export default function AdminLogin() {
   return (
     <div className="admin-login-page">
       <div className="admin-login-card">
-        <h1>CashKr Admin</h1>
+        <h1>DeviceKart Admin</h1>
         <p>Enter your system keys to access dashboard</p>
 
         {error && <div className="admin-login-error">{error}</div>}
