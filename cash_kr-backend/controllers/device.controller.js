@@ -215,3 +215,35 @@ export const searchDevices = async (req, res, next) => {
     next(error);
   }
 };
+
+const CATEGORY_PATHS = {
+  mobile: '/sell-old-mobile-phones',
+  tablet: '/sell-tablet',
+  laptop: '/sell-old-laptops',
+  mac: '/sell-imac',
+};
+
+export const getSitemapUrls = async (req, res, next) => {
+  try {
+    const devices = await Device.find({ isActive: true }, { brand: 1, slug: 1, category: 1 }).lean();
+    const urls = [];
+    const brandsSeen = new Set();
+
+    for (const device of devices) {
+      const pathPrefix = CATEGORY_PATHS[device.category];
+      if (!pathPrefix) continue;
+      const brandSlug = device.brand.toLowerCase();
+      brandsSeen.add(`${device.category}:${brandSlug}`);
+      urls.push(`${pathPrefix}/${brandSlug}/${device.slug}`);
+    }
+
+    for (const key of brandsSeen) {
+      const [category, brandSlug] = key.split(':');
+      urls.push(`${CATEGORY_PATHS[category]}/${brandSlug}`);
+    }
+
+    res.json({ urls: [...new Set(urls)] });
+  } catch (error) {
+    next(error);
+  }
+};

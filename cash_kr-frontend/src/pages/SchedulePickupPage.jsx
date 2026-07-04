@@ -7,6 +7,7 @@ import { userService } from '../services/user.service';
 import { formatCurrency } from '../utils/formatCurrency';
 import { getNextDays, formatDate, formatDateISO, TIME_SLOTS } from '../utils/dateUtils';
 import Input from '../components/ui/Input';
+import NoIndexSEO from '../components/seo/NoIndexSEO';
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5002/api';
 
@@ -104,6 +105,7 @@ export default function SchedulePickupPage() {
 
   return (
     <div className="bg-[#F9FAFB] min-h-screen py-10 sm:py-16 px-4">
+      <NoIndexSEO title="Schedule Pickup" path="/schedule-pickup" />
       <div className="max-w-6xl mx-auto">
         {/* Header Progress */}
         <div className="flex items-center justify-between mb-10">

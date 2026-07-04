@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { orderService } from '../services/order.service';
 import { userService } from '../services/user.service';
+import NoIndexSEO from '../components/seo/NoIndexSEO';
 import { deviceService } from '../services/device.service';
 import { isSpecialModel } from '../utils/specialModels';
 import { formatCurrency } from '../utils/formatCurrency';
@@ -153,6 +154,7 @@ export default function DashboardPage() {
 
   return (
     <div className="bg-gray-50/50 min-h-screen py-10 px-4 sm:px-8">
+      <NoIndexSEO title="My Dashboard" path="/dashboard" />
       <div className="max-w-7xl mx-auto">
         <h1 className="text-3xl font-bold text-[#111827] mb-8">My Profile</h1>
 

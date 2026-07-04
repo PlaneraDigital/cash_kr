@@ -8,6 +8,7 @@ import { formatCurrency } from '../utils/formatCurrency';
 import { isSpecialModel } from '../utils/specialModels';
 import Badge from '../components/ui/Badge';
 import Loader from '../components/ui/Loader';
+import NoIndexSEO from '../components/seo/NoIndexSEO';
 
 // --- Icons & Assets (Matching Screenshots) ---
 const IconTrend = () => (
@@ -372,6 +373,7 @@ export default function ConditionQuizPage() {
   }  // --- QUIZ VIEW ---
   return (
     <div className="bg-[#F9FAFB] min-h-screen py-10 px-4 sm:px-8">
+      <NoIndexSEO title="Device Condition Quiz" path={`/sell-old-mobile-phones/${brand}/${slug}/quiz`} />
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">
         
         {/* LEFT COLUMN: Quiz Content */}

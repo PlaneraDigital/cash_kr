@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { deviceService } from '../services/device.service';
 import Loader from '../components/ui/Loader';
+import DevicePageSEO from '../components/seo/DevicePageSEO';
+import ModelSeoContent from '../components/seo/ModelSeoContent';
 import { formatCurrency } from '../utils/formatCurrency';
 import LaptopSpecModal from '../components/LaptopSpecModal';
 import PincodeBox from '../components/PincodeBox';
 
 export default function LaptopModelDetailsPage() {
-  const { slug } = useParams();
+  const { brand, slug } = useParams();
   const navigate = useNavigate();
   const [device, setDevice] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -31,14 +33,28 @@ export default function LaptopModelDetailsPage() {
   };
 
   const handleSpecsComplete = (specs) => {
-    // Navigate to quiz with specs in state
     navigate(`/sell-old-laptops/${device.brand}/${device.slug}/quiz`, {
       state: { specs }
     });
   };
 
+  const brandSlug = brand || device.brand?.toLowerCase();
+  const breadcrumbItems = [
+    { label: 'Home', href: '/' },
+    { label: 'Laptops', href: '/sell-old-laptops/brand' },
+    { label: device.brand, href: `/sell-old-laptops/${brandSlug}` },
+    { label: device.modelName },
+  ];
+
   return (
     <div className="max-w-[900px] mx-auto px-4 sm:px-8 py-8 sm:py-12">
+      <DevicePageSEO
+        device={device}
+        brand={brandSlug}
+        pathPrefix="/sell-old-laptops"
+        breadcrumbItems={breadcrumbItems}
+        categoryLabel="laptop"
+      />
       <div className="mb-10">
         <h1 className="text-xl sm:text-2xl font-black text-[#111827] mb-2 tracking-tight">Sell Your {device.modelName} Laptop</h1>
         <p className="text-[13px] text-gray-500 font-bold max-w-2xl leading-relaxed opacity-80">
@@ -124,6 +140,7 @@ export default function LaptopModelDetailsPage() {
         device={device}
         onComplete={handleSpecsComplete}
       />
+      <ModelSeoContent device={device} brandName={device.brand} />
     </div>
   );
 }

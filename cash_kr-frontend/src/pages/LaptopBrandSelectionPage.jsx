@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { deviceService } from '../services/device.service';
 import Breadcrumb from '../components/ui/Breadcrumb';
 import Loader from '../components/ui/Loader';
+import { CategoryPageSEO } from '../components/seo/DevicePageSEO';
+import { CATEGORY_SEO } from '../config/seo';
 import { LAPTOP_BRANDS } from '../constants/devices';
 
 const LaptopIcon = () => (
@@ -66,6 +68,12 @@ export default function LaptopBrandSelectionPage() {
 
   return (
     <div className="max-w-[1200px] mx-auto px-4 sm:px-8 pt-5 sm:pt-8 pb-10 sm:pb-16">
+      <CategoryPageSEO
+        title={CATEGORY_SEO.laptop.title}
+        description={CATEGORY_SEO.laptop.description}
+        path={CATEGORY_SEO.laptop.brandPath}
+        breadcrumbItems={[{ label: 'Home', href: '/' }, { label: 'Laptops' }]}
+      />
       <Breadcrumb items={[
         { label: 'Home', href: '/' },
         { label: 'Laptops' },

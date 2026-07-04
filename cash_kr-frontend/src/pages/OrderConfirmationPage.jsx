@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { orderService } from '../services/order.service';
 import { formatCurrency } from '../utils/formatCurrency';
 import Loader from '../components/ui/Loader';
+import NoIndexSEO from '../components/seo/NoIndexSEO';
 
 export default function OrderConfirmationPage() {
   const { orderId } = useParams();
@@ -30,6 +31,7 @@ export default function OrderConfirmationPage() {
 
   return (
     <div className="bg-[#F9FAFB] min-h-screen py-10 sm:py-16 px-4">
+      <NoIndexSEO title="Order Confirmation" path={`/order-confirmation/${orderId}`} />
       <div className="max-w-6xl mx-auto space-y-8">
         
         {/* Success Banner */}

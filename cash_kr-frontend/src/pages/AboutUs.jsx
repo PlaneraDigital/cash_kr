@@ -15,10 +15,29 @@ import {
   Sparkles,
   Briefcase
 } from "lucide-react";
+import SEOHead from "../components/seo/SEOHead";
+import { ENTITY_SUMMARY } from "../config/seo";
+import { buildSchemaGraph, organizationSchema, websiteSchema } from "../utils/schema";
 
 export default function AboutUs() {
+  const schema = buildSchemaGraph([
+    organizationSchema({
+      founder: [
+        { '@type': 'Person', name: 'Aditya Sekhar', jobTitle: 'Chairman & Co-Founder' },
+        { '@type': 'Person', name: 'DeviceKart Founder', jobTitle: 'Founder' },
+      ],
+    }),
+    websiteSchema(),
+  ]);
+
   return (
     <div className="w-full bg-white">
+      <SEOHead
+        title="About DeviceKart — India's Trusted Device Buyback Platform"
+        description="Learn about DeviceKart, operated by Swastika Innovation Private Limited. India's trusted platform to sell old phones, laptops, tablets and iMac online."
+        path="/about-us"
+        schema={schema}
+      />
       {/* ── HERO SECTION ── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#EEF4FF] via-white to-white pt-10 pb-12 px-4">
         {/* Decorative background blobs */}
@@ -290,6 +309,13 @@ export default function AboutUs() {
               <Globe size={16} /> Ethical Circular Economy
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="py-12 bg-[#F8FAFF] border-t border-gray-100">
+        <div className="max-w-[800px] mx-auto px-4 text-center">
+          <h2 className="text-lg font-black text-gray-900 mb-3">About DeviceKart in 30 seconds</h2>
+          <p className="text-sm text-gray-600 leading-relaxed">{ENTITY_SUMMARY}</p>
         </div>
       </section>
     </div>
