@@ -3,6 +3,8 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { deviceService } from '../services/device.service';
 import Breadcrumb from '../components/ui/Breadcrumb';
 import Loader from '../components/ui/Loader';
+import DevicePageSEO from '../components/seo/DevicePageSEO';
+import ModelSeoContent from '../components/seo/ModelSeoContent';
 import { formatCurrency } from '../utils/formatCurrency';
 import PincodeBox from '../components/PincodeBox';
 
@@ -25,14 +27,23 @@ export default function VariantSelectionPage() {
   if (loading) return <Loader />;
   if (!device) return <div className="text-center py-20 font-bold text-gray-500">Device not found.</div>;
 
+  const breadcrumbItems = [
+    { label: 'Home', href: '/' },
+    { label: 'Mobile Phones', href: '/sell-old-mobile-phones/brand' },
+    { label: brandName, href: `/sell-old-mobile-phones/${brand}` },
+    { label: device.modelName },
+  ];
+
   return (
     <div className="max-w-[1200px] mx-auto px-4 sm:px-8 py-10 sm:py-16">
-      <Breadcrumb items={[
-        { label: 'Home', href: '/' },
-        { label: 'Mobile Phones', href: '/sell-old-mobile-phones/brand' },
-        { label: brandName, href: `/sell-old-mobile-phones/${brand}` },
-        { label: device.modelName },
-      ]} />
+      <DevicePageSEO
+        device={device}
+        brand={brand}
+        pathPrefix="/sell-old-mobile-phones"
+        breadcrumbItems={breadcrumbItems}
+        categoryLabel="mobile phone"
+      />
+      <Breadcrumb items={breadcrumbItems} />
 
       {selectedVariant ? (
         <div className="bg-white border border-gray-100 rounded-[32px] p-8 lg:p-12 shadow-sm max-w-5xl mx-auto flex flex-col md:flex-row gap-12 items-center mt-8 relative overflow-hidden">
@@ -61,9 +72,9 @@ export default function VariantSelectionPage() {
                 4.8 <span className="text-gray-400 font-bold font-sans">(200+ Reviews)</span>
               </span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-black text-[#111827] max-w-sm leading-snug">
+            <p className="text-xl sm:text-2xl font-black text-[#111827] max-w-sm leading-snug">
               Convert your old {device.modelName} into instant cash — only with DeviceKart.
-            </h3>
+            </p>
           </div>
 
           {/* Right Side */}
@@ -158,6 +169,7 @@ export default function VariantSelectionPage() {
           </div>
         </div>
       )}
+      <ModelSeoContent device={device} brandName={brandName} />
     </div>
   );
 }

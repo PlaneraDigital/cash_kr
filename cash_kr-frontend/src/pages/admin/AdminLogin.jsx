@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { adminService } from '../../services/admin.service';
+import NoIndexSEO from '../../components/seo/NoIndexSEO';
 import './admin.css';
 
 export default function AdminLogin() {
@@ -28,6 +29,7 @@ export default function AdminLogin() {
 
   return (
     <div className="admin-login-page">
+      <NoIndexSEO title="Admin Login" path="/admin/login" />
       <div className="admin-login-card">
         <h1>DeviceKart Admin</h1>
         <p>Enter your system keys to access dashboard</p>

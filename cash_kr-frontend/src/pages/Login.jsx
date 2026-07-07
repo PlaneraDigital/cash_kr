@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import SEOHead from "../components/seo/SEOHead";
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
 
@@ -279,6 +280,12 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-[90vh] bg-gradient-to-br from-[#0565E6]/5 via-white to-[#0565E6]/5 flex items-center justify-center p-4 sm:p-8">
+      <SEOHead
+        title={location.pathname === '/signup' ? 'Sign Up' : 'Login'}
+        description="Login to DeviceKart to track your device sale orders and manage pickups."
+        path={location.pathname}
+        noindex
+      />
       <div className="w-full max-w-[440px] bg-white rounded-[32px] shadow-2xl shadow-[#0565E6]/10 border border-gray-100 p-8 sm:p-12 animate-in fade-in zoom-in-95 duration-300">
 
         {/* Step indicators */}

@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { deviceService } from '../services/device.service';
 import Loader from '../components/ui/Loader';
+import DevicePageSEO from '../components/seo/DevicePageSEO';
+import ModelSeoContent from '../components/seo/ModelSeoContent';
 import { formatCurrency } from '../utils/formatCurrency';
 import LaptopSpecModal from '../components/LaptopSpecModal';
 import PincodeBox from '../components/PincodeBox';
@@ -30,8 +32,23 @@ export default function MacModelDetailsPage() {
     navigate(`/sell-imac/${brand}/${device.slug}/quiz`, { state: { specs } });
   };
 
+  const brandSlug = brand || device.brand?.toLowerCase();
+  const breadcrumbItems = [
+    { label: 'Home', href: '/' },
+    { label: 'iMac & Mac', href: '/sell-imac/brand' },
+    { label: device.brand, href: `/sell-imac/${brandSlug}` },
+    { label: device.modelName },
+  ];
+
   return (
     <div className="max-w-[900px] mx-auto px-4 sm:px-8 py-8 sm:py-12">
+      <DevicePageSEO
+        device={device}
+        brand={brandSlug}
+        pathPrefix="/sell-imac"
+        breadcrumbItems={breadcrumbItems}
+        categoryLabel="Mac"
+      />
       <div className="mb-10">
         <h1 className="text-xl sm:text-2xl font-black text-[#111827] mb-2 tracking-tight">Sell Your {device.modelName}</h1>
         <p className="text-[13px] text-gray-500 font-bold max-w-2xl leading-relaxed opacity-80">
@@ -116,6 +133,7 @@ export default function MacModelDetailsPage() {
         device={device}
         onComplete={handleSpecsComplete}
       />
+      <ModelSeoContent device={device} brandName={device.brand} />
     </div>
   );
 }

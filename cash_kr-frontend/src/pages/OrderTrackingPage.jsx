@@ -6,6 +6,7 @@ import { useAuth } from '../hooks/useAuth';
 import { isSpecialModel } from '../utils/specialModels';
 import { formatCurrency } from '../utils/formatCurrency';
 import Loader from '../components/ui/Loader';
+import NoIndexSEO from '../components/seo/NoIndexSEO';
 
 export default function OrderTrackingPage() {
   const { orderId } = useParams();
@@ -79,6 +80,7 @@ export default function OrderTrackingPage() {
 
   return (
     <div className="bg-[#F9FAFB] min-h-screen py-10 sm:py-16 px-4">
+      <NoIndexSEO title="Order Tracking" path={`/orders/${orderId}`} />
       <div className="max-w-4xl mx-auto">
         <button 
           onClick={() => navigate('/dashboard')}

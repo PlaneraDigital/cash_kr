@@ -1,4 +1,6 @@
 import { useState } from "react";
+import SEOHead from "../components/seo/SEOHead";
+import { buildSchemaGraph, organizationSchema, websiteSchema } from "../utils/schema";
 import { 
   Building2, TrendingUp, Zap, ShieldCheck, 
   ArrowRight, CheckCircle2, BarChart3, Users, 
@@ -91,6 +93,12 @@ export default function CorporatePage() {
 
   return (
     <div className="w-full bg-white antialiased">
+      <SEOHead
+        title="Corporate IT Asset Disposal — Bulk Device Buyback | DeviceKart"
+        description="DeviceKart Corporate helps businesses dispose of laptops, desktops, and IT assets securely with bulk pickup, compliance documentation, and transparent pricing."
+        path="/corporate"
+        schema={buildSchemaGraph([organizationSchema(), websiteSchema()])}
+      />
       
       {/* ─── 1. HERO & CORPORATE INQUIRY FORM ─── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#EEF4FF] via-white to-white pt-12 pb-20 px-4">

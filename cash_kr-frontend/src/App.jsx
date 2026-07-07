@@ -25,6 +25,13 @@ import Corporate from './pages/Corporate.jsx';
 import HelpCenter from './pages/HelpCenter.jsx';
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import TermsAndConditions from './pages/TermsAndConditions.jsx';
+import FAQPage from './pages/FAQPage.jsx';
+import CompareDeviceKartVsCashify from './pages/CompareDeviceKartVsCashify.jsx';
+import CashifyAlternatives from './pages/CashifyAlternatives.jsx';
+import BestPlaceToSellPhone from './pages/BestPlaceToSellPhone.jsx';
+import CityLandingPage from './pages/CityLandingPage.jsx';
+import CategoryHubPage from './pages/CategoryHubPage.jsx';
+import { CATEGORY_HUBS } from './data/categoryHubs.js';
 import WhatsAppButton from './components/WhatsAppButton.jsx';
 
 // Laptop Pages
@@ -102,8 +109,16 @@ function App() {
           <Route path="/partner" element={<Partner />} />
           <Route path="/corporate" element={<Corporate />} />
           <Route path="/help-center" element={<HelpCenter />} />
+          <Route path="/faq" element={<FAQPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="/compare/devicekart-vs-cashify" element={<CompareDeviceKartVsCashify />} />
+          <Route path="/alternatives/cashify-alternatives" element={<CashifyAlternatives />} />
+          <Route path="/best-place-to-sell-old-phone-india" element={<BestPlaceToSellPhone />} />
+          <Route path="/sell-old-phone-in/:city" element={<CityLandingPage />} />
+          {CATEGORY_HUBS.map((hub) => (
+            <Route key={hub.slug} path={`/${hub.slug}`} element={<CategoryHubPage />} />
+          ))}
 
           {/* Admin Flow */}
           <Route path="/admin/login" element={<AdminLogin />} />

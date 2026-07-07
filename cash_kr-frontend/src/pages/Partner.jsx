@@ -1,5 +1,7 @@
 import { useState } from "react";
 import api from "../services/api";
+import SEOHead from "../components/seo/SEOHead";
+import { buildSchemaGraph, organizationSchema, websiteSchema } from "../utils/schema";
 import {
   Handshake,
   Smartphone,
@@ -199,6 +201,12 @@ export default function PartnerPage() {
 
   return (
     <div className="w-full bg-white antialiased">
+      <SEOHead
+        title="Become a DeviceKart Partner — Join Our Pickup Network"
+        description="Join DeviceKart as a partner. Local shops, refurbishers, and e-waste collectors can earn by handling device pickups across India."
+        path="/partner"
+        schema={buildSchemaGraph([organizationSchema(), websiteSchema()])}
+      />
       {/* ─── 1. HERO & ONBOARDING APPLICATION ─── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#EEF4FF] via-white to-white pt-12 pb-20 px-4">
         <div className="pointer-events-none absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-[#0565E6]/5 blur-3xl" />

@@ -5,6 +5,9 @@ import Breadcrumb from '../components/ui/Breadcrumb';
 import Loader from '../components/ui/Loader';
 import { formatCurrency } from '../utils/formatCurrency';
 
+import { CategoryPageSEO } from '../components/seo/DevicePageSEO';
+import { CATEGORY_SEO } from '../config/seo';
+
 const SearchIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
@@ -37,13 +40,22 @@ export default function ModelSelectionPage() {
 
   if (loading) return <Loader />;
 
+  const path = `/sell-old-mobile-phones/${brand}`;
+  const breadcrumbItems = [
+    { label: 'Home', href: '/' },
+    { label: 'Mobile Phones', href: '/sell-old-mobile-phones/brand' },
+    { label: brandName },
+  ];
+
   return (
     <div className="max-w-[1200px] mx-auto px-4 sm:px-8 py-10 sm:py-16">
-      <Breadcrumb items={[
-        { label: 'Home', href: '/' },
-        { label: 'Mobile Phones', href: '/sell-old-mobile-phones/brand' },
-        { label: brandName },
-      ]} />
+      <CategoryPageSEO
+        title={`Sell Old ${brandName} Phones Online — Instant Cash`}
+        description={`Sell your used ${brandName} phone online with DeviceKart. Get instant quotes, free doorstep pickup, and secure payment across India.`}
+        path={path}
+        breadcrumbItems={breadcrumbItems}
+      />
+      <Breadcrumb items={breadcrumbItems} />
 
       <div className="mb-8 sm:mb-10">
         <h1 className="text-2xl sm:text-3xl font-extrabold text-text-primary mb-2">

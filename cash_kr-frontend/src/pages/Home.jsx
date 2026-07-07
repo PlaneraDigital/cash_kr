@@ -11,6 +11,11 @@ import mobileDeviceImg from "../assets/devices/mobile.png";
 import tabletDeviceImg from "../assets/devices/tablet.png";
 import laptopDeviceImg from "../assets/devices/laptop.png";
 import macDeviceImg from "../assets/devices/mac.png";
+import SEOHead from "../components/seo/SEOHead";
+import { ENTITY_SUMMARY } from "../config/seo";
+import { HOME_FAQS, HOW_TO_STEPS } from "../data/faqs";
+import { CITIES as CITY_DATA } from "../data/cities";
+import { buildSchemaGraph, faqPageSchema, howToSchema, organizationSchema, websiteSchema } from "../utils/schema";
 
 // ─── Icons (Play/App Store) ───────────────────────────────────────────────────
 
@@ -51,23 +56,7 @@ const DEVICE_CATEGORIES = [
   },
 ];
 
-const HOW_STEPS = [
-  {
-    num: "01",
-    title: "Check Your Instant Device Price",
-    desc: "Select your device and answer a few questions about its condition to receive an accurate price estimate in seconds.",
-  },
-  {
-    num: "02",
-    title: "Schedule Free Doorstep Pickup",
-    desc: "Choose a convenient date and time for our team to collect your device safely from your doorstep.",
-  },
-  {
-    num: "03",
-    title: "Get Instant Payment After Verification",
-    desc: "Receive immediate payment via UPI, bank transfer, or cash once your device is verified.",
-  },
-];
+const HOW_STEPS = HOW_TO_STEPS.map((step, i) => ({ ...step, num: String(i + 1).padStart(2, '0') }));
 
 const TRUST_FEATURES = [
   { icon: <Shield size={22} strokeWidth={1.8} />, title: "Verified Pickup Professionals", desc: "Every pickup is handled by background-checked, trained professionals you can trust." },
@@ -88,12 +77,7 @@ const REVIEWS = [
   { name: "Priya Nair", text: "The pickup agent was very professional and courteous. Got ₹2,000 more than other platforms quoted.", stars: 5 },
 ];
 
-const FAQS = [
-  { q: "Is DeviceKart legit?", a: "Yes, DeviceKart is a legitimate and trusted platform for selling old electronics online in India with secure pickup and instant payment." },
-  { q: "Where can I sell my old device online?", a: "You can sell your old device online through DeviceKart, which offers free doorstep pickup and instant cash payment across 2,000+ cities in India." },
-  { q: "What is the best place to sell old devices easily?", a: "DeviceKart is one of the easiest and safest places to sell old devices online without visiting any shop." },
-  { q: "How do I get the highest price for my old gadget?", a: "Select the correct device condition, check the instant online quote, and book a free doorstep pickup on DeviceKart for the best value." },
-];
+const FAQS = HOME_FAQS;
 
 const GUARANTEES = [
   "Instant Cash at Free Pickup",
@@ -103,8 +87,6 @@ const GUARANTEES = [
   "Factory-Grade Secure Data Wipe",
   "Genuine Official Invoice Provided",
 ];
-
-const CITIES = ["Mumbai", "Delhi", "Bangalore", "Hyderabad", "Chennai", "Pune", "Kolkata", "Ahmedabad", "Noida", "Thane", "Navi Mumbai", "Goa", "Coimbatore", "Ghaziabad", "Howrah"];
 
 // ─── Hero Stats ───────────────────────────────────────────────────────────────
 
@@ -252,8 +234,21 @@ function FAQItem({ q, a }) {
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export default function HomePage() {
+  const schema = buildSchemaGraph([
+    organizationSchema(),
+    websiteSchema(),
+    faqPageSchema(FAQS),
+    howToSchema(HOW_TO_STEPS),
+  ]);
+
   return (
     <div className="w-full">
+      <SEOHead
+        title="DeviceKart — Sell Old Phones, Laptops & Tablets for Instant Cash in India"
+        description="DeviceKart is India's trusted device buyback platform. Sell old mobile phones, tablets, laptops and iMac online with free doorstep pickup and instant payment across 2,000+ cities."
+        path="/"
+        schema={schema}
+      />
       {/* ══════════════════════════════════════════════════════
           ── HERO SECTION ──
       ══════════════════════════════════════════════════════ */}
@@ -357,6 +352,9 @@ export default function HomePage() {
           <img
             src={phoneMockupImage}
             alt="DeviceKart App"
+            fetchPriority="high"
+            width={600}
+            height={600}
             className="hidden lg:block w-full h-auto max-w-none scale-110"
           />
 
@@ -451,13 +449,13 @@ export default function HomePage() {
               </h2>
               <p className="text-sm text-gray-500 mb-8 leading-relaxed">Free doorstep pickup services across major cities in India. We're growing fast!</p>
               <div className="flex flex-wrap gap-2">
-                {CITIES.map((city) => (
+                {CITY_DATA.slice(0, 15).map((city) => (
                   <Link
-                    key={city}
-                    to="/sell-old-mobile-phones/brand"
+                    key={city.slug}
+                    to={`/sell-old-phone-in/${city.slug}`}
                     className="bg-white border border-gray-200 rounded-lg px-4 py-2 text-xs font-bold text-gray-600 hover:border-[#0565E6] hover:text-[#0565E6] hover:shadow-sm transition-all no-underline"
                   >
-                    {city}
+                    {city.name}
                   </Link>
                 ))}
               </div>
@@ -490,6 +488,19 @@ export default function HomePage() {
               <FAQItem key={faq.q} q={faq.q} a={faq.a} />
             ))}
           </div>
+          <p className="text-center mt-6">
+            <Link to="/faq" className="text-[#0565E6] font-bold text-sm hover:underline">
+              View all FAQs →
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      {/* ── Entity summary (AEO) ── */}
+      <section className="py-12 bg-[#F8FAFF] border-t border-gray-100">
+        <div className="max-w-[760px] mx-auto px-4">
+          <h2 className="text-lg font-black text-gray-900 mb-3">About DeviceKart in 30 seconds</h2>
+          <p className="text-sm text-gray-600 leading-relaxed">{ENTITY_SUMMARY}</p>
         </div>
       </section>
 

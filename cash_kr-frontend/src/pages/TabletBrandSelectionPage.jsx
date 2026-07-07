@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { deviceService } from '../services/device.service';
 import Breadcrumb from '../components/ui/Breadcrumb';
 import Loader from '../components/ui/Loader';
+import { CategoryPageSEO } from '../components/seo/DevicePageSEO';
+import { CATEGORY_SEO } from '../config/seo';
 import { TABLET_BRANDS } from '../constants/devices';
 
 const TabletIcon = () => (
@@ -72,6 +74,12 @@ export default function TabletBrandSelectionPage() {
 
   return (
     <div className="max-w-[1200px] mx-auto px-4 sm:px-8 pt-5 sm:pt-8 pb-10 sm:pb-16">
+      <CategoryPageSEO
+        title={CATEGORY_SEO.tablet.title}
+        description={CATEGORY_SEO.tablet.description}
+        path={CATEGORY_SEO.tablet.brandPath}
+        breadcrumbItems={[{ label: 'Home', href: '/' }, { label: 'Tablets' }]}
+      />
       <Breadcrumb items={[
         { label: 'Home', href: '/' },
         { label: 'Tablets' },
